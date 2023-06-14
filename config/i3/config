@@ -32,8 +32,8 @@ set $warpmouse exec --no-startup-id eval $(xdotool getwindowfocus getwindowgeome
 xdotool mousemove --window $(xdotool getwindowfocus) $((WIDTH/2)) 0
 
 # programs
-set $screenshooter $HOME/.bins/.scripts/screenshot.sh
-set $locker $HOME/.bins/.scripts/lockscreen/xsecurelockbg.sh & #Screen locker
+set $screenshooter $HOME/.dotfiles/scripts/screenshot/screenshot.sh
+set $locker $HOME/.dotfiles/scripts/lockscreen/xsecurelockbg.sh & # Screen locker
 
 ###########################################################################
 # BASIC AUTOSTART SETTINGS AND BINDINGS
@@ -170,10 +170,10 @@ $execute xidlehook --not-when-fullscreen --not-when-audio --timer 180 "$Locker" 
 set $mode_system  𝐋ock │  𝚬xit │⏾ 𝐒uspend │  𝐑eboot │  𝐏ower Off
 mode "$mode_system" {
     bindsym l $execute "$locker", mode "default"
-    bindsym e $execute $HOME/.bins/.scripts/i3exit.sh exit, mode "default"
+    bindsym e $execute $HOME/.dotfiles/scripts/i3/i3exit.sh exit, mode "default"
     bindsym s $execute "systemctl suspend", mode "default"
-    bindsym r $execute $HOME/.bins/.scripts/i3exit.sh reboot, mode "default"
-    bindsym p $execute $HOME/.bins/.scripts/i3exit.sh shutdown, mode "default"
+    bindsym r $execute $HOME/.dotfiles/scripts/i3/i3exit.sh reboot, mode "default"
+    bindsym p $execute $HOME/.dotfiles/scripts/i3/i3exit.sh shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return $execute "rm -rf /tmp/lockscreen", mode "default"

@@ -12,7 +12,8 @@ export XSECURELOCK_AUTH_TIMEOUT=5
 export XSECURELOCK_BLANK_TIMEOUT=10
 export XSECURELOCK_BLANK_DPMS_STATE=off
 export XSECURELOCK_SHOW_KEYBOARD_LAYOUT=0
-export XSECURELOCK_SAVER=/home/sonico/.bins/.scripts/lockscreen/saver.sh
+# Search for saver.sh inside the script's working directory
+export XSECURELOCK_SAVER="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"/saver.sh
 
 if [ -z ${LOCKSCREEN_DIR+x} ]; then exit 1; fi # bail if lockscreen dir is not set
 
