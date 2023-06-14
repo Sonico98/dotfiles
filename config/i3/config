@@ -59,12 +59,9 @@ exec_always --no-startup-id /usr/bin/i3wsr --config $HOME/.config/i3wsr/config.t
 # Daemon for switching gtk themes
 $execute xsettingsd
 #
-# Automatically rearrange newly opened windows
-exec_always --no-startup-id /usr/bin/python3 $HOME/.bins/i3-alternating-layout/alternating_layouts.py
-# exec_always --no-startup-id i3-layouts
 #
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r $execute i3-msg restart && sleep 0.2 && $HOME/.bins/.scripts/relaunch_polybar.sh b
+bindsym $mod+Shift+r $execute i3-msg restart && sleep 0.2 && $HOME/.dotfiles/scripts/polybar/relaunch_polybar.sh b
 ###########################################################################
 
 
@@ -84,7 +81,7 @@ exec_always --no-startup-id picom
 #
 #
 # Start polybar to display a workspace bar.
-$execute $HOME/.bins/.scripts/relaunch_polybar.sh b
+$execute $HOME/.dotfiles/scripts/polybar/relaunch_polybar.sh b
 #
 #
 ##########################################################################
