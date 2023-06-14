@@ -1,0 +1,38 @@
+{
+	// Language servers options
+	"languageserver": {
+		"bash": {
+			"command": "bash-language-server",
+			"args": [ "start" ],
+			"filetypes": [ "sh" ],
+			"ignoredRootPaths": [ "~" ]
+		},
+	},
+
+	// COC options
+	"colors.enable": true,
+	"diagnostic.displayByAle": false,
+	"pyright.inlayHints.functionReturnTypes": false,
+	"pyright.inlayHints.variableTypes": false,
+	"codeLens.enable": true,
+	"diagnostic.errorSign": "🞭",
+	"diagnostic.warningSign": "",
+	"diagnostic.hintSign": "",
+	"diagnostic.infoSign": "",
+	"diagnostic.virtualText": false,
+	"diagnostic.checkCurrentLine": true,
+	"diagnostic.enableMessage": "jump",
+	"suggest.removeDuplicateItems": true,
+	"suggest.timeout": 3000,
+	"suggest.languageSourcePriority": 95,
+	"coc.source.ultisnips.priority": 99,
+	"notification.disabledProgressSources": ["*"],
+	"coc.preferences.extensionUpdateCheck": "weekly",
+	"snippets.userSnippetsDirectory": "~/.config/nvim/my_snippets",
+	"sumneko-lua.enableNvimLuaDev": true,
+	"Lua.workspace.checkThirdParty": false,
+	"floatFactory.floatConfig": {
+		"border": true,
+		"rounded": true,
+	}
+}

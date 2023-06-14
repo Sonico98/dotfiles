@@ -1,0 +1,219 @@
+# --- Prezto ------------------
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Use zsh-autocomplete
+zstyle ':autocomplete:*' widget-style menu-select
+zstyle ':autocomplete:*' fzf-completion yes
+zstyle ':autocomplete:recent-dirs' backend zoxide
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# Use zoxide instead of cd
+eval "$(zoxide init zsh)"
+
+
+# --- Options ----------------------
+# Disallow overwriting files by accident
+set -o noclobber
+
+# Remove duplicates from the history file
+setopt histignorealldups
+
+# Change autosuggestion color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
+# Make grep colors not suck
+export GREP_COLORS='sl=49;39:cx=49;39:mt=48;5;215;38;5;234;1:fn=49;38;5;183:ln=49;38;5;150:bn=49;38;5;150:se=49;38;5;73'
+
+# Disable zsh-autocomplete up arrow mechanism
+# bindkey '\e[A' history-substring-search-up
+# bindkey '\e[B' history-substring-search-down
+() {
+local -a prefix=( '\e'{\[,O} )
+local -a up=( ${^prefix}A ) down=( ${^prefix}B )
+local key=
+for key in $up[@]; do
+	bindkey "$key" history-substring-search-up
+done
+for key in $down[@]; do
+	bindkey "$key" history-substring-search-down
+done
+}
+
+# Disable zsh-autocomplete live history search
+zle -A {.,}history-incremental-search-backward
+zle -A {.,}vi-history-search-backward
+bindkey -M emacs '^S' history-incremental-search-forward
+bindkey -M vicmd '/' vi-history-search-forward
+
+# zsh-autocomplete tab behaviour
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+
+# --- Aliases ----------------------
+alias cat='bat'
+alias fd='fd -H'
+alias feh=fehres	# Custom feh theme
+alias ffbatch="$HOME/.dotfiles/scripts/ffbatch.sh"
+alias icat="timg -U -F -C -Bnone --threads=4 -pk"
+alias ibrc="python ~/.local/bin/ibroadcast-uploader/ibroadcast-uploader.py -p 4"
+alias ixio="curl -F 'f:1=<-' ix.io"
+# alias k="koshuto --change-directory"
+alias ls='exa --icons --oneline'
+alias lsh='/usr/bin/ls --group-directories-first --color --hyperlink=auto'
+alias qaac_enc='mkdir -p aac; \
+	wine ~/.wine/drive_c/Program\ Files/qaac/qaac64.exe \
+	-V 100 --copy-artwork -d ./aac (*.flac|*.mp3)'
+alias pas='paru -Syu --devel --noconfirm ; zprezto-update ; yes | remove-orphaned-kernels'
+alias pain='paru -S'
+alias pare='paru -Rns'
+alias rs='rsync -v --progress'
+alias sct='sudo systemctl'
+alias sctu='systemctl --user'
+alias q='exit'
+
+
+# --- Functions ----------------------
+
+# Transfer files to transfer.sh
+transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
+
+# Shorten urls
+sht(){
+	url="$1"
+	isgd=$(printf "$(curl -s "https://is.gd/create.php?format=simple&url="$url"")\n")
+
+	if (echo "$isgd" | grep "Sorry,")&> /dev/null ; then
+		curl -sF"shorten="$url"" https://hashru.link | head -n 1
+	else
+		echo "$isgd"
+	fi
+}
+
+# List images in directories
+function lsi(){
+	dir="$1"
+	if [ "$1" = '' ]; then
+		dir='.'
+	fi
+	timg --grid=4x4 -U -F -C -Bnone -pk --frames=1 --threads=4 "$dir"/(*.png|*.jpg|*.gif)
+}
+
+# Convert video into high quality GIF
+function v2g() {
+	input="$1"
+	output="${i%.*}.gif"
+	ffmpeg -i "$input" -vf "split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 "$output"
+}
+
+# Install packages using fzf
+function in() {
+	local manager=paru
+	${manager} -Slq | fzf -q "$1" -m --preview-window=45%,top --preview \
+	"${manager} -Sii {1} | bat -l yaml -p --color=always" | xargs -ro ${manager} -S
+}
+
+# Remove packages using fzf
+function re() {
+	local manager=paru
+	${manager} -Qq | fzf -q "$1" -m --preview-window=45%,top --preview \
+	"${manager} -Qii {1} | bat -l yaml -p --color=always" | xargs -ro ${manager} -Rns
+}
+
+
+# Clone a repository as a specific user
+function clas() {
+	url="$(echo "$2" | sed 's#https://github.com/##g')"
+
+	if [ "$1" = "Sonico" ]; then
+		git clone Sonico98:"$url"
+	else if [ "$1" = "UTN" ]
+		git clone UTN:"$url"
+	fi
+}
+
+# Fuzzy search zsh history
+his() {
+	print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | \
+	fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+}
+
+# Yank to the system clipboard
+function vi-yank-xclip() {
+	zle vi-yank
+	echo "$CUTBUFFER" | copyq copy - >/dev/null
+}
+
+# Exit joshuto to the working directory
+function j() {
+	JOSHUTO_BIN=/usr//bin/joshuto # /usr/local/bin/jshto for ueberzug support
+	ID="$$"
+	mkdir -p "/tmp/$USER"
+	OUTPUT_FILE="/tmp/$USER/joshuto-cwd-$ID"
+	env "$JOSHUTO_BIN" --change-directory --output-file "$OUTPUT_FILE" "$@"
+	exit_code=$?
+
+	case "$exit_code" in
+		# regular exit
+		0)
+			;;
+		# output contains current directory
+		101)
+			JOSHUTO_CWD=$(cat "$OUTPUT_FILE")
+			cd "$JOSHUTO_CWD"
+			;;
+		# output selected files
+		102)
+			;;
+		*)
+			echo "Exit code: $exit_code"
+			;;
+	esac
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
+# zsh parameter completion for the dotnet CLI
+_dotnet_zsh_complete()
+{
+  local completions=("$(dotnet complete "$words")")
+
+  reply=( "${(ps:\n:)completions}" )
+}
+
+compctl -K _dotnet_zsh_complete dotnet
+
+
+# --- Sources and exports ------------------------
+# Enable IBus, used by clight
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+# Let fzf search hidden files as well
+export FZF_DEFAULT_COMMAND="fd -H"
+
+# Whenever a not-found command is used, search the repositories for a matching pkg
+# Requires pkgfile, and to run 'pkgfile -u' at least once
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/p10k.zsh.
+[[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
+

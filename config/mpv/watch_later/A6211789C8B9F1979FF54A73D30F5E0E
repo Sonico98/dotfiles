@@ -1,0 +1,2 @@
+start=10.927583
+af=lavfi=graph=%26%dynaudnorm=f=200:g=5:r=0.1

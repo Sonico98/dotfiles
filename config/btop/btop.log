@@ -1,0 +1,6 @@
+
+2022/01/26 (12:35:12) | ===> btop++ v.1.2.0
+2022/01/26 (12:35:12) | ERROR: Invalid RGB decimal value: "2"
+
+2023/06/01 (11:55:07) | ===> btop++ v.1.2.13
+2023/06/01 (11:55:07) | WARNING: Failed to get disk/partition stats for mount "/mnt/windows" with statvfs64 error code: 112. Ignoring...

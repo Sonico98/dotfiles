@@ -1,0 +1,7 @@
+# Show image dimensions and fit the image to the window size
+fehres --scale-down --auto-zoom --draw-tinted --info "echo Resolution: %wx%h"
+
+# Generate a clickeable thumbnail index
+fehth --thumbnails --cache-thumbnails --thumb-width 256 --thumb-height 256 \
+         --limit-width 655 --sort filename \
+	 --scale-down --auto-zoom --draw-tinted --info "echo Resolution: %wx%h"

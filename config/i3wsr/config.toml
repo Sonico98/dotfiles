@@ -1,0 +1,54 @@
+[icons]
+burp-StartBurp = "🕶"
+BurpBrowser = ""
+cantata = ""
+copyq = ""
+Discord = ""
+dolphin = ""
+Foobar2000 = ""
+gimp = ""
+gnome-calculator = ""
+iBroadcast = ""
+Google-chrome = ""
+chromium = ""
+kitty = ""
+kotatogram = ""
+megasync = "𝐌"
+mp3tag = ""
+mpv = ""
+obs = ""
+OnlyOffice = ""
+okular = ""
+Pharo = ""
+Plex = ""
+qbittorrent = ""
+ripcord = ""
+Telegram = ""
+Thunderbird = ""
+zoom = ""
+WhatsApp = ""
+wps = ""
+wpp = ""
+
+[aliases]
+TelegramDesktop = "Telegram"
+telegram-desktop = "Telegram"
+"foobar2000.exe" = "Foobar2000"
+"mp3tag.exe" = "mp3tag"
+"zoom " = "zoom"
+crx_magkoliahgffibhgfkmoealggombgknl = "Discord"
+crx_aecmdlldeiiejaepipodjjekmbhjnpkb = "iBroadcast"
+crx_nlckacehbpjmdkodiahlegjkfgjmmoim = "Plex"
+crx_hnpfjngllnobngcgfapefoaidbinmjnm = "WhatsApp"
+DesktopEditors = "OnlyOffice"
+browser = "BurpBrowser"
+
+[general]
+separator = " ⧸ "
+wm_property = "instance"
+
+[options]
+remove_duplicates = false
+no_names = false
+no_icon_names = true
+

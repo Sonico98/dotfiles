@@ -1,0 +1,260 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;==========================================================
+
+[colors-dark]
+; Define color codes
+blue 			= 	#89b4f8
+dark-blue 		= 	#1745a6
+red 			= 	#f28b82
+dark-red 		= 	#b22d2d
+black 			= 	#BA2b2a2f
+
+; Assign colors
+; background 		= 	#002b2a2f
+background 		= 	${colors-dark.black}
+background-alt 	= 	#89b4f8
+foreground 		= 	#dedede
+; foreground-alt 	= 	#dedede
+foreground-alt 	= 	#212025
+alert 			= 	${colors-dark.dark-red}
+primary =		${colors-dark.black}
+secondary =		${colors-dark.black}
+cpu =			${colors-dark.black}
+memory =		${colors-dark.black}
+audio =			${colors-dark.black}
+mpris =			${colors-dark.black}
+tray =			${colors-dark.black}
+active =		${colors-dark.red}
+
+[colors-light]
+; Define color codes
+blue = 			#89b4f8
+dark-blue = 		#1745a6
+red = 			#e31d11
+dark-red =		#a9150c
+white 		= 	#dedede
+black 		= 	#2b2a2f
+
+; Assign colors
+background = #00FFFFFF
+background-alt = #AE9447ff
+foreground = #2b2a2f 
+foreground-alt = #FFFFFF
+primary =		${colors-dark.white}
+secondary =		${colors-dark.white}
+cpu =			${colors-dark.white}
+memory =		${colors-dark.white}
+audio =			${colors-dark.white}
+mpris =			${colors-dark.white}
+tray =			${colors-dark.dark-red}
+active =		${colors-dark.red}
+
+[bar/topbar]
+; modules-left = i3 right
+; modules-center = left date right
+; modules-right = left pulseaudio-control pulseaudio-control-mic cpu memory
+modules-left = i3
+modules-center = date
+modules-right = pulseaudio-control pulseaudio-control-mic cpu memory
+
+tray-position = right
+tray-maxsize = 16
+tray-padding = 4
+tray-background = ${colors-dark.tray}
+
+
+font-0 = GoogleSans Nerd Font:style=Medium:size=13;3
+font-1 = Noto Sans Symbols2:size=19;4
+font-2 = Cambria:size=15;3
+font-3 = GoogleSans Nerd Font:style=Medium:size=19;4
+
+background = ${colors-dark.background}
+foreground = ${colors-dark.foreground}
+
+width = 100%
+height = 25
+fixed-center = true
+
+line-size = 0
+;line-color = #f00
+
+module-margin-left = 0
+module-margin-right = 0
+
+;wm-restack = bspwm
+wm-restack = i3
+enable-ipc = true
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label=%output%
+format-background = ${colors-dark.audio}
+
+exec = pulseaudio-control --icons-volume " , , " --icon-muted "婢" --format '$VOL_ICON ${VOL_LEVEL}%' listen
+click-left = exec pavucontrol &
+click-right = pulseaudio-control togmute
+click-middle = pulseaudio-control --notifications next-node
+scroll-up = pulseaudio-control up
+scroll-down = pulseaudio-control down
+double-click-right = pulseaudio-control --node-type "input" --icons-volune " , , " --icon-muted " " --format '$VOL_ICON ${VOL_LEVEL}%' listen
+label-padding = 2
+label-foreground = ${colors-dark.foreground}
+
+
+[module/pulseaudio-control-mic]
+type = custom/script
+tail = true
+label=%output%
+label-font = 5
+format-background = ${colors-dark.audio}
+
+exec = pulseaudio-control --node-type "input" --icons-volume " , , " --icon-muted " " --format '$VOL_ICON ${VOL_LEVEL}%' listen
+click-left = exec pavucontrol &
+click-right = pulseaudio-control --node-type "input" togmute
+click-middle = pulseaudio-control --node-type "input" --notifications next-node
+scroll-up = pulseaudio-control --node-type "input" up
+scroll-down = pulseaudio-control --node-type "input" down
+label-padding = 2
+label-foreground = ${colors-dark.foreground}
+
+
+[module/cpu]
+type = internal/cpu
+interval = 5
+format-prefix = ""
+format-prefix-foreground = ${colors-dark.foreground}
+format-underline = #f90000
+label = %percentage:2%%
+format-padding = 2
+format-prefix-margin = 1
+format-label-margin = 1
+format-background = ${colors-dark.cpu}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = ""
+format-prefix-foreground = ${colors-dark.foreground}
+format-underline = #4bffdc
+label = %percentage_used%%
+format-padding = 2
+format-prefix-margin = 1
+format-label-margin = 1
+format-background = ${colors-dark.memory}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort =true 
+wrapping-scroll = true
+
+; Only show workspaces on the same output as the bar
+; pin-workspaces = true
+
+; This will split the workspace name on ':'
+strip-wsnumbers = false
+ws-icon-default = 
+
+label-mode-padding = 2
+label-mode-foreground = ${colors-dark.foreground}
+label-mode-background = ${colors-dark.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${colors-dark.active}
+label-focused-foreground = ${colors-dark.foreground-alt}
+label-focused-underline= ${colors-dark.primary}
+label-focused-padding = 4
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-padding = 4
+label-unfocused-foreground = ${colors-dark.foreground}
+label-unfocused-background = ${colors-dark.primary}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors-dark.alert}
+label-urgent-padding = 4
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/left]
+type = custom/text
+content=""
+content-font = 4
+content-background = #002b2a2f
+content-foreground = ${colors-dark.primary}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =
+date-alt = " %Y-%m-%d"
+
+time =  %H:%M
+time-alt = %H:%M:%S
+
+;format-prefix = 
+;format-prefix-alt = 
+format-prefix-foreground = ${colors-dark.foreground}
+format-underline = #0a6cf5
+format-background = ${colors-dark.primary}
+format-padding = 2
+;format-prefix-margin = 1
+;format-label-margin = 1
+
+label = %date% %time%
+
+[module/right]
+type = custom/text
+content=""
+content-font = 4
+content-background = #002b2a2f
+content-foreground = ${colors-dark.primary}
+
+[module/tray-left]
+type = custom/text
+content=""
+content-font = 4
+content-background = ${colors-dark.primary}
+content-foreground = ${colors-dark.tray}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false

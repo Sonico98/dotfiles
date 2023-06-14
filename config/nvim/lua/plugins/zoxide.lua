@@ -1,0 +1,12 @@
+-- A better cd command
+return {
+	"nanotee/zoxide.vim",
+	cmd = {
+		"Z",
+		"Lz",
+		"Tz",
+		"Zi",
+		"Lzi",
+		"Tzi"
+	}
+}
