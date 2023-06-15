@@ -70,7 +70,7 @@ bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 alias cat='bat'
 alias fd='fd -H'
 alias feh=fehres	# Custom feh theme
-alias ffbatch="$HOME/.dotfiles/scripts/ffbatch.sh"
+alias ffbatch="$HOME/.dotfiles/scripts/FFBatch/ffbatch.sh"
 alias icat="timg -U -F -C -Bnone --threads=4 -pk"
 alias ibrc="python ~/.local/bin/ibroadcast-uploader/ibroadcast-uploader.py -p 4"
 alias ixio="curl -F 'f:1=<-' ix.io"
