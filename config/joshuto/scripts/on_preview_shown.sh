@@ -44,8 +44,8 @@ case "$mimetype" in
 		# Place the picture at the screen bottom corner, then resize it
 		# Works fine in a ~1366x768 window (laptop screen)
 		# Values should be tweaked for other screen sizes
-		PREVIEW_Y_COORD="$(( "$PREVIEW_HEIGHT" - "$PREVIEW_HEIGHT"/3 ))"
-		PREVIEW_X_COORD="$(( "$PREVIEW_WIDTH"/2 + "$PREVIEW_WIDTH" + 4 ))"
+		PREVIEW_Y_COORD="$(( "$PREVIEW_HEIGHT" - "$PREVIEW_HEIGHT"/3 - 1))"
+		PREVIEW_X_COORD="$(( "$PREVIEW_WIDTH"/2 + "$PREVIEW_WIDTH" + 3 ))"
 		PREVIEW_HEIGHT="$(( "$PREVIEW_HEIGHT" - ("$PREVIEW_HEIGHT"/2) - 3 ))"
 
 		has_cover="$(exiftool -q -q "$FILE_PATH" 2>/dev/null | grep -Eq '(Cover Art|CoverArt|Picture)')"
