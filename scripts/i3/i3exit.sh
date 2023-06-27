@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sysclose () {
+	sync_cache_to_hdd
 	rm -rf /tmp/lockscreen
 	kill -TERM "$(pidof chrome)"
 	kill -TERM "$(pidof qbittorrent)"
@@ -9,6 +10,11 @@ sysclose () {
 	kill -9 "$(pgrep -f "python")"
 	kill -9 "$(pgrep -f "hideIt.sh")"
 	i3-msg [class=".*"] kill
+}
+
+
+sync_cache_to_hdd () {
+	rsync -a --update --existing ~/.cache/paru/clone/ ~/.local/share/little-cache-files/cache/
 }
 
 
