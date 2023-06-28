@@ -77,7 +77,7 @@ $execute dex -a -e i3
 #
 #
 # Enable picom compositor
-exec_always --no-startup-id picom
+exec_always --no-startup-id picom --no-frame-pacing
 #
 #
 # Start polybar to display a workspace bar.
