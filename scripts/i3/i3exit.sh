@@ -14,7 +14,7 @@ sysclose () {
 
 
 sync_cache_to_hdd () {
-	rsync -a --update --existing ~/.cache/paru/clone/ ~/.local/share/little-cache-files/cache/
+	rsync -a --update --existing ~/.cache/paru/clone/ ~/.local/share/little-cache-files/paru/clone/
 }
 
 
