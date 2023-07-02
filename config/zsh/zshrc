@@ -118,7 +118,7 @@ function lsi(){
 # Convert video into high quality GIF
 function v2g() {
 	input="$1"
-	output="${i%.*}.gif"
+	output="${1%.*}.gif"
 	ffmpeg -i "$input" -vf "split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 "$output"
 }
 
