@@ -93,9 +93,9 @@ case "$1" in
 	wine_theme="$wine_light"
 
 	# Change the wallpaper
-	 pkill -9 -f i3-dynamic-backgrounds
-	 python $HOME/.bins/i3-dynamic-backgrounds/main.py -t 2 \
-	 	$HOME/Pictures/.wallpapers/Light &> /dev/null &
+	 # pkill -9 -f i3-dynamic-backgrounds
+	 # python $HOME/.bins/i3-dynamic-backgrounds/main.py -t 2 \
+	 # 	$HOME/Pictures/.wallpapers/Light &> /dev/null &
 	;;
     night)
 	# Dark mode
@@ -128,16 +128,16 @@ case "$1" in
 	wine_theme="$wine_dark"
 
 	# Change the wallpaper
-	 pkill -9 -f i3-dynamic-backgrounds
-	 python $HOME/.bins/i3-dynamic-backgrounds/main.py -t 2 \
-	 	$HOME/Pictures/.wallpapers/Dark &> /dev/null &
+	 # pkill -9 -f i3-dynamic-backgrounds
+	 # python $HOME/.bins/i3-dynamic-backgrounds/main.py -t 2 \
+	 # 	$HOME/Pictures/.wallpapers/Dark &> /dev/null &
 	;;
 esac
 
 # Change polybar's colors. Also kill the program that hides the MPRIS module.
 sed -i "s/$prev_plb_theme/$new_plb_theme/" "$plb_conf_path"/config
 sed -i "s/$prev_plb_theme/$new_plb_theme/" "$plb_conf_path"/config_systray
-"$HOME"/.bins/.scripts/relaunch_polybar.sh b &> /dev/null
+"$HOME"/.dotfiles/scripts/polybar/relaunch_polybar.sh b &> /dev/null
 
 # Change kitty terminal's colors
 kitty +kitten themes --reload-in=all "$kitty_theme"
