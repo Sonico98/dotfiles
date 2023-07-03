@@ -104,6 +104,11 @@ case "$extension" in
         try lynx   -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
         try elinks -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
         ;;
+	# Substation Alpha
+	ass|ssa)
+		# Cut the output to avoid performance degradation
+		bat -pp --color always "$path" | head -1000; exit 0
+		;;
 esac
 
 case "$mimetype" in
