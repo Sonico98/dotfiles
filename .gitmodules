@@ -1,0 +1,6 @@
+[submodule "config/bat/syntaxes/ST-ASS"]
+	path = config/bat/syntaxes/ST-ASS
+	url = https://github.com/jfcherng-sublime/ST-ASS
+[submodule "config/bat/themes/ayu"]
+	path = config/bat/themes/ayu
+	url = https://github.com/dempfi/ayu
