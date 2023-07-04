@@ -17,16 +17,11 @@ tmsu_tag_list() {
 }
 
 mimetype=$(file --mime-type -Lb "$FILE_PATH")
+random_name="$(cksum "$FILE_PATH" | cut -d ' ' -f1)"
 
 function kclear {
 	kitty +kitten icat \
 		--transfer-mode=file \
-		--clear 2>/dev/null
-}
-
-function kclear_t {
-	kitty +kitten icat \
-		--transfer-mode=stream \
 		--clear 2>/dev/null
 }
 
@@ -40,7 +35,6 @@ function image {
 
 case "$mimetype" in
 	audio/*)
-		kclear_t
 		# Place the picture at the screen bottom corner, then resize it
 		# Works fine in a ~1366x768 window (laptop screen)
 		# Values should be tweaked for other screen sizes
@@ -50,9 +44,9 @@ case "$mimetype" in
 
 		has_cover="$(exiftool -q -q "$FILE_PATH" 2>/dev/null | grep -Eq '(Cover Art|CoverArt|Picture)')"
 		if [ "$?" -eq 0 ]; then
-			exiftool -b -CoverArt -Picture "$FILE_PATH" 2>/dev/null | \
-				kitty +kitten icat --transfer-mode=stream --place \
-				"${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}@${PREVIEW_X_COORD}x${PREVIEW_Y_COORD}"
+			exiftool -b -CoverArt -Picture "$FILE_PATH" 1>|/tmp/"$random_name"_coverart 2>/dev/null
+			image /tmp/"$random_name"_coverart
+			rm -f /tmp/"$random_name"_coverart
 		fi
 		;;
 	image/*)
@@ -75,7 +69,6 @@ case "$mimetype" in
 		fi
 		;;
 	application/pdf)
-		kclear_t
 		# Calculate the offset
 		pages="Page count: $(exiftool -q -q -PageCount "$FILE_PATH" | awk '{print $4}')"
 		header_length="$(echo "$pages" | wc -l)"
@@ -83,12 +76,12 @@ case "$mimetype" in
 		PREVIEW_Y_COORD="$(( "$PREVIEW_Y_COORD" + ("$header_length") + 1 ))"
 
 		# Preview the first page
-		convert "$FILE_PATH"[0] -alpha remove -background white jpg:- 2>/dev/null | \
-			kitty +kitten icat --transfer-mode=stream --place \
-			"${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}@${PREVIEW_X_COORD}x${PREVIEW_Y_COORD}"
+		convert "$FILE_PATH"[0] -alpha remove -background white \
+			jpg:/tmp/"$random_name"_first_page 2>/dev/null
+		image /tmp/"$random_name"_first_page
+		rm -f /tmp/"$random_name"_first_page
 		;;
 	video/*)
-		kclear_t
 		# Calculate the offset
 		filename="$(basename "$FILE_PATH")"
 		dimension="Size: $(exiftool -ImageSize "$FILE_PATH" | awk '{print $4}')"
@@ -99,13 +92,12 @@ case "$mimetype" in
 
 		# Preview a thumbnail
 		# We execute the command in a subshell to prevent errors from breaking the TUI
-		( (ffmpegthumbnailer -i "$FILE_PATH" -f -m -c png -s 512 -o - | \
+		( (ffmpegthumbnailer -i "$FILE_PATH" -f -m -c png -s 512 -q 6 -o - | \
 			kitty +kitten icat --transfer-mode=stream --place \
 			"${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}@${PREVIEW_X_COORD}x${PREVIEW_Y_COORD}") 2>/dev/null )
 		;;
 	*)
 		kclear
-		kclear_t
 		exit
 		;;
 esac
