@@ -31,9 +31,9 @@ reverse = false
 
 [preview]
 max_preview_size = 99999999999 # 10485760 10MB
-preview_script = "~/.config/joshuto/scripts/preview_file.sh"
-preview_shown_hook_script = "~/.config/joshuto/scripts/on_preview_shown.sh"
-preview_removed_hook_script = "~/.config/joshuto/scripts/on_preview_removed.sh"
+preview_script = "~/.dotfiles/scripts/joshuto/preview_file.sh"
+preview_shown_hook_script = "~/.dotfiles/scripts/joshuto/on_preview_shown.sh"
+preview_removed_hook_script = "~/.dotfiles/scripts/joshuto/on_preview_removed.sh"
 
 [tab]
 # inherit, home, root

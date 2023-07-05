@@ -125,13 +125,13 @@ keymap = [
 	{ keys = [ "?" ],					command = "help" },
 
 	# Custom functions
-	{ keys = [ "a", "s" ],				command = "spawn /home/sonico/.config/joshuto/scripts/kitty_cmds.sh -s %s" },
-	{ keys = [ "a", "u" ],				command = "spawn /home/sonico/.config/joshuto/scripts/kitty_cmds.sh -u %s" },
-	{ keys = [ "a", "d" ],				command = "spawn /home/sonico/.config/joshuto/scripts/kitty_cmds.sh -d %s" },
-	{ keys = [ "f1" ],					command = "spawn /home/sonico/.config/joshuto/scripts/dragon-drop.sh -e %s" },
-	{ keys = [ "f2" ],					command = "spawn /home/sonico/.config/joshuto/scripts/dragon-drop.sh -t" },
-	{ keys = [ "P" ],					command = "spawn /home/sonico/.config/joshuto/scripts/kitty_cmds.sh -D" },
-	{ keys = [ "s", "a" ],				command = "spawn /home/sonico/.config/joshuto/scripts/separateAAC.sh" },
+	{ keys = [ "a", "s" ],				command = "spawn /home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh -s %s" },
+	{ keys = [ "a", "u" ],				command = "spawn /home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh -u %s" },
+	{ keys = [ "a", "d" ],				command = "spawn /home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh -d %s" },
+	{ keys = [ "f1" ],					command = "spawn /home/sonico/.dotfiles/scripts/joshuto/dragon-drop.sh -e %s" },
+	{ keys = [ "f2" ],					command = "spawn /home/sonico/.dotfiles/scripts/joshuto/dragon-drop.sh -t" },
+	{ keys = [ "P" ],					command = "spawn /home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh -D" },
+	{ keys = [ "s", "a" ],				command = "spawn /home/sonico/.dotfiles/scripts/joshuto/separateAAC.sh" },
 	{ keys = [ "backspace" ],			command = "shell kitty @ launch --cwd=current --type=overlay-main --title='Joshuto terminal'" },
 ]
 
