@@ -10,7 +10,7 @@ tmsu_tag_list() {
 	taglist="$(exiftool -q -q -Keywords "$FILE_PATH" | cut -d':' -f2 | xargs)"
     result=$?
     if [ $result -eq 0 ]; then
-        if ! [ -z "$taglist" ]; then
+        if [ -n "$taglist" ]; then
             echo "Tags: $taglist" | fold -s -w "$1"
         fi
     fi
@@ -87,22 +87,22 @@ case "$mimetype" in
 		image /tmp/"$random_name"_first_page
 		rm -f /tmp/"$random_name"_first_page
 		;;
-	video/*)
-		kclear_t
-		# Calculate the offset
-		filename="$(basename "$FILE_PATH")"
-		dimension="Size: $(exiftool -ImageSize "$FILE_PATH" | awk '{print $4}')"
-		header="$(echo "$filename" && echo "$dimension")"
-		header_length="$(echo "$header" | wc -l)"
-		PREVIEW_HEIGHT="$(( "$PREVIEW_HEIGHT" - ("$header_length") - 1 ))"
-		PREVIEW_Y_COORD="$(( "$PREVIEW_Y_COORD" + ("$header_length") + 1 ))"
+	# video/*)
+	# 	kclear_t
+	# 	# Calculate the offset
+	# 	filename="$(basename "$FILE_PATH")"
+	# 	dimension="Size: $(exiftool -ImageSize "$FILE_PATH" | awk '{print $4}')"
+	# 	header="$(echo "$filename" && echo "$dimension")"
+	# 	header_length="$(echo "$header" | wc -l)"
+	# 	PREVIEW_HEIGHT="$(( "$PREVIEW_HEIGHT" - ("$header_length") - 1 ))"
+	# 	PREVIEW_Y_COORD="$(( "$PREVIEW_Y_COORD" + ("$header_length") + 1 ))"
 
-		# Preview a thumbnail
-		# We execute the command in a subshell to prevent errors from breaking the TUI
-		( (ffmpegthumbnailer -i "$FILE_PATH" -f -m -c png -s 512 -q 6 -t 1% -o - | \
-			kitty +kitten icat --transfer-mode=stream --place \
-			"${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}@${PREVIEW_X_COORD}x${PREVIEW_Y_COORD}") 2>/dev/null )
-		;;
+	# 	# Preview a thumbnail
+	# 	# We execute the command in a subshell to prevent errors from breaking the TUI
+	# 	( (ffmpegthumbnailer -i "$FILE_PATH" -f -m -c png -s 512 -q 6 -t 1% -o - | \
+	# 		kitty +kitten icat --transfer-mode=stream --place \
+	# 		"${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}@${PREVIEW_X_COORD}x${PREVIEW_Y_COORD}") 2>/dev/null )
+	# 	;;
 	*)
 		kclear
 		kclear_t
