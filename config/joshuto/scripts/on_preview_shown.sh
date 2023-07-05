@@ -25,6 +25,12 @@ function kclear {
 		--clear 2>/dev/null
 }
 
+function kclear_t {
+	kitty +kitten icat \
+		--transfer-mode=stream \
+		--clear 2>/dev/null
+}
+
 function image {
 	kclear
 	kitty +kitten icat \
@@ -82,6 +88,7 @@ case "$mimetype" in
 		rm -f /tmp/"$random_name"_first_page
 		;;
 	video/*)
+		kclear_t
 		# Calculate the offset
 		filename="$(basename "$FILE_PATH")"
 		dimension="Size: $(exiftool -ImageSize "$FILE_PATH" | awk '{print $4}')"
@@ -92,12 +99,13 @@ case "$mimetype" in
 
 		# Preview a thumbnail
 		# We execute the command in a subshell to prevent errors from breaking the TUI
-		( (ffmpegthumbnailer -i "$FILE_PATH" -f -m -c png -s 512 -q 6 -o - | \
+		( (ffmpegthumbnailer -i "$FILE_PATH" -f -m -c png -s 512 -q 6 -t 1% -o - | \
 			kitty +kitten icat --transfer-mode=stream --place \
 			"${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}@${PREVIEW_X_COORD}x${PREVIEW_Y_COORD}") 2>/dev/null )
 		;;
 	*)
 		kclear
+		kclear_t
 		exit
 		;;
 esac
