@@ -131,35 +131,35 @@ yml.inherit	= "text_default"
 
 # archive formats
 7z.app_list	= [
-	{ command = "/home/sonico/.config/joshuto/scripts/kitty_cmds.sh", args = [ "-e" ] },
+	{ command = "/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh", args = [ "-e" ] },
 	{ command = "7z", args = [ "x" ], confirm_exit = true },
 ]
 bz2.app_list	= [
-	{ command = "/home/sonico/.config/joshuto/scripts/kitty_cmds.sh", args = [ "-e" ] },
+	{ command = "/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh", args = [ "-e" ] },
 	{ command = "tar", args = [ "-xvjf" ], confirm_exit = true },
 ]
 gz.app_list	= [
-	{ command = "/home/sonico/.config/joshuto/scripts/kitty_cmds.sh", args = [ "-e" ] },
+	{ command = "/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh", args = [ "-e" ] },
 	{ command = "tar", args = [ "-xvzf" ], confirm_exit = true },
 ]
 tar.app_list	= [
-	{ command = "/home/sonico/.config/joshuto/scripts/kitty_cmds.sh", args = [ "-e" ] },
+	{ command = "/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh", args = [ "-e" ] },
 	{ command = "tar", args = [ "-xvf" ], confirm_exit = true },
 ]
 tgz.app_list	= [
-	{ command = "/home/sonico/.config/joshuto/scripts/kitty_cmds.sh", args = [ "-e" ] },
+	{ command = "/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh", args = [ "-e" ] },
 	{ command = "tar", args = [ "-xvzf" ], confirm_exit = true },
 ]
 rar.app_list	= [
-	{ command = "/home/sonico/.config/joshuto/scripts/kitty_cmds.sh", args = [ "-e" ] },
+	{ command = "/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh", args = [ "-e" ] },
 	{ command = "unrar", args = [ "x" ], confirm_exit = true },
 ]
 xz.app_list	= [
-	{ command = "/home/sonico/.config/joshuto/scripts/kitty_cmds.sh", args = [ "-e" ] },
+	{ command = "/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh", args = [ "-e" ] },
 	{ command = "tar", args = [ "-xvJf" ], confirm_exit = true },
 ]
 zip.app_list	= [
-	{ command = "/home/sonico/.config/joshuto/scripts/kitty_cmds.sh", args = [ "-e" ] },
+	{ command = "/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh", args = [ "-e" ] },
 	{ command = "unzip", confirm_exit = true },
 ]
 
