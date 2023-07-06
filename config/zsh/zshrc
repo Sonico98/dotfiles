@@ -187,6 +187,31 @@ function j() {
 	esac
 }
 
+
+function rcopy() {
+	src="$1"
+	shift
+	dest="$1"
+	shift
+
+	mountpoint="$(echo "$dest" | cut -d '/' -f1-3)"
+
+	if [ "$mountpoint" = "/mnt/onedrive" ]; then
+		remote="5TB_onedrive"
+	elif [ "$mountpoint" = "/mnt/google" ]; then
+		remote="thiagodae"
+	elif [ "$mountpoint" = "/mnt/lolDrive" ]; then
+		remote="LolDrive"
+	else
+		echo "Unknown remote"
+		return 2
+	fi
+
+	destination="$(echo "$dest" | sed "s#$mountpoint/#$remote:#")"
+	rclone copy "$src" "$destination" "$@" -P
+}
+
+
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
