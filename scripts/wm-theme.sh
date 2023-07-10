@@ -22,7 +22,7 @@ fi
 # dark_gtk_theme="Orchis-Red-Dark"
 light_gtk_theme="Fluent-round-red-Light"
 dark_gtk_theme="Fluent-round-red-Dark"
-light_gtk_icon="Fluent-red"
+light_gtk_icon="Fluent-red-light"
 dark_gtk_icon="Fluent-red-dark"
 kitty_light="Material Light"
 kitty_dark="Material Dark"
