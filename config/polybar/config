@@ -42,11 +42,11 @@ blue = 			#89b4f8
 dark-blue = 		#1745a6
 red = 			#e31d11
 dark-red =		#a9150c
-white 		= 	#dedede
+white 		= 	#BBDEDEDE
 black 		= 	#2b2a2f
 
 ; Assign colors
-background = #00FFFFFF
+background = ${colors-dark.white}
 background-alt = #AE9447ff
 foreground = #2b2a2f 
 foreground-alt = #FFFFFF
@@ -56,7 +56,7 @@ cpu =			${colors-dark.white}
 memory =		${colors-dark.white}
 audio =			${colors-dark.white}
 mpris =			${colors-dark.white}
-tray =			${colors-dark.dark-red}
+tray =			${colors-dark.white}
 active =		${colors-dark.red}
 
 [bar/topbar]
