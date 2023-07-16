@@ -150,7 +150,7 @@ case "$mimetype" in
 			--EBMLReadVersion --DocType --DocTypeVersion --DocTypeReadVersion \
 			--TimecodeScale --MuxingApp --WritingApp --DateTimeOriginal \
 			--MegaPixels --CreateDate --Modifydate "$path" \
-			| tail -n+2 && { dump | trim; exit 0; }
+			| sed 's/File\sName                       : //' | tail -n+2 && { dump | trim; exit 0; }
 		;;
 esac
 
