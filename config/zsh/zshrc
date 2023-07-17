@@ -20,14 +20,38 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Use zsh-autocomplete
-zstyle ':autocomplete:*' widget-style menu-select
-zstyle ':autocomplete:*' fzf-completion yes
-zstyle ':autocomplete:recent-dirs' backend zoxide
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# zstyle ':autocomplete:*' widget-style menu-select
+# zstyle ':autocomplete:*' fzf-completion yes
+# zstyle ':autocomplete:recent-dirs' backend zoxide
+# source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# Disable zsh-autocomplete up arrow mechanism
+# bindkey '\e[A' history-substring-search-up
+# bindkey '\e[B' history-substring-search-down
+# () {
+# local -a prefix=( '\e'{\[,O} )
+# local -a up=( ${^prefix}A ) down=( ${^prefix}B )
+# local key=
+# for key in $up[@]; do
+# 	bindkey "$key" history-substring-search-up
+# done
+# for key in $down[@]; do
+# 	bindkey "$key" history-substring-search-down
+# done
+# }
+# 
+# # Disable zsh-autocomplete live history search
+# zle -A {.,}history-incremental-search-backward
+# zle -A {.,}vi-history-search-backward
+# bindkey -M emacs '^S' history-incremental-search-forward
+# bindkey -M vicmd '/' vi-history-search-forward
+# 
+# # zsh-autocomplete tab behaviour
+# bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+# bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # Use zoxide instead of cd
 eval "$(zoxide init zsh)"
-
 
 # --- Options ----------------------
 # Disallow overwriting files by accident
@@ -36,35 +60,13 @@ set -o noclobber
 # Remove duplicates from the history file
 setopt histignorealldups
 
+# Disable history expansion (breaks "!" in commands)
+setopt nobanghist
+
 # Change autosuggestion color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 # Make grep colors not suck
 export GREP_COLORS='sl=49;39:cx=49;39:mt=48;5;215;38;5;234;1:fn=49;38;5;183:ln=49;38;5;150:bn=49;38;5;150:se=49;38;5;73'
-
-# Disable zsh-autocomplete up arrow mechanism
-# bindkey '\e[A' history-substring-search-up
-# bindkey '\e[B' history-substring-search-down
-() {
-local -a prefix=( '\e'{\[,O} )
-local -a up=( ${^prefix}A ) down=( ${^prefix}B )
-local key=
-for key in $up[@]; do
-	bindkey "$key" history-substring-search-up
-done
-for key in $down[@]; do
-	bindkey "$key" history-substring-search-down
-done
-}
-
-# Disable zsh-autocomplete live history search
-zle -A {.,}history-incremental-search-backward
-zle -A {.,}vi-history-search-backward
-bindkey -M emacs '^S' history-incremental-search-forward
-bindkey -M vicmd '/' vi-history-search-forward
-
-# zsh-autocomplete tab behaviour
-bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # --- Aliases ----------------------
 alias cat='bat'
@@ -203,12 +205,12 @@ function rcopy() {
 	elif [ "$mountpoint" = "/mnt/lolDrive" ]; then
 		remote="LolDrive"
 	else
-		echo "Unknown remote"
+		echo "$mountpoint: Unknown remote"
 		return 2
 	fi
 
 	destination="$(echo "$dest" | sed "s#$mountpoint/#$remote:#")"
-	rclone copy "$src" "$destination" "$@" -P
+	rclone copyto "$src" "$destination" "$@" -P
 }
 
 
