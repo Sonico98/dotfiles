@@ -81,7 +81,9 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	# ----- Momoko in Wonderland
 	# export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/Anime/The iDOLM@STER Million Live Theater Days/Momoko Suou/Momoko in Wonderland.png"
 	# ----- Tsukuyomi Moon Phase
-	export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/Anime/Tsukuyomi Moon Phase/yande.re 16929 aotsuki_takao crossover takeuchi_takashi toono_akiha tsukihime tsukuyomi_moon_phase type-moon.png"
+	# export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/Anime/Tsukuyomi Moon Phase/yande.re 16929 aotsuki_takao crossover takeuchi_takashi toono_akiha tsukihime tsukuyomi_moon_phase type-moon.png"
+	# ----- Kurumi Tokisaki
+	export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/Anime/Date a Live/Kurumi Tokisaki/fa61dc2ef271065fd17c887644e04326.jpg"
 
 	if ! [[ "$XDG_CURRENT_DESKTOP" =~ (KDE|GNOME|XFCE4|Unity|Pantheon|Elementary|LXDE) ]]; then
 		systemctl --user mask --runtime plasma-kglobalaccel.service
