@@ -2,6 +2,8 @@
 # Programs required: kitty, fd, p7zip, timg
 # openArchives script: https://www.github.com/Sonico98/7zip-Extract
 
+remove_image
+
 files=("${@:2}")
 if [ "${#files[@]}" -ne 0 ]; then
 	args=()
