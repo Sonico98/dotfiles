@@ -14,7 +14,6 @@ export XDG_CONFIG_HOME=${HOME}/.config
 export GEM_HOME=${HOME}/.local/share/gem/ruby/2.7.0
 export GEM_2_BIN=${GEM_HOME}/bin
 export GEM_HOME=${GEM_HOME}:${HOME}/.local/share/gem/ruby/3.0.0
-export PATH=${PATH}:$( find ${HOME}/.dotfiles/scripts -type d -printf ":%p" ) # Insecure
 export PATH=${PATH}:${GEM_2_BIN}
 export PATH=${PATH}:${GEM_HOME}/bin
 export PATH=${PATH}:${HOME}/.gem/ruby/3.0.0/bin
@@ -84,7 +83,7 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	# ----- Tsukuyomi Moon Phase
 	# export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/Anime/Tsukuyomi Moon Phase/yande.re 16929 aotsuki_takao crossover takeuchi_takashi toono_akiha tsukihime tsukuyomi_moon_phase type-moon.png"
 	# ----- Kurumi Tokisaki
-	export WALLPAPER="$HOME/Pictures/Anime/Date a Live/Kurumi Tokisaki/fa61dc2ef271065fd17c887644e04326.jpg"
+	export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/Anime/Date a Live/Kurumi Tokisaki/fa61dc2ef271065fd17c887644e04326.jpg"
 
 	if ! [[ "$XDG_CURRENT_DESKTOP" =~ (KDE|GNOME|XFCE4|Unity|Pantheon|Elementary|LXDE) ]]; then
 		systemctl --user mask --runtime plasma-kglobalaccel.service
