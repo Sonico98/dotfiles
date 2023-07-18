@@ -111,7 +111,6 @@ case "$extension" in
 		;;
 esac
 
-
 case "$mimetype" in
 	audio/*)
 		tags=$(exiftool -q -q -S -FileName -Title -SortName -Titlesort -Artist \
@@ -128,13 +127,10 @@ case "$mimetype" in
 		exit 0
 		;;
     image/*)
-		meta_file="$(get_preview_meta_file "$path")"
 		dimension="Size: $(exiftool -q -q -ImageSize "$path" | awk '{print $4}')"
         tags=$(tmsu_tag_list "$width")
 		header="$(echo "$dimension" && echo "$tags")"
 		echo "$header"
-		y_offset="$(( "$(echo "$header" | sed -n '=' | wc -l)" + 1))"
-        echo "y-offset $y_offset" > "$meta_file"
         exit 0
         ;;
 	text/* | */xml | */json)
@@ -144,13 +140,10 @@ case "$mimetype" in
 		;;
     video/*)
 		# Information to show if thumbnail previews were enabled
-		# meta_file="$(get_preview_meta_file "$path")"
 		# filename="$(basename "$path")"
+		# echo "$filename"
 		# dimension="Size: $(exiftool -ImageSize "$path" | awk '{print $4}')"
-		# header="$(echo "$filename" && echo "$dimension")"
-		# echo "$header"
-		# y_offset="$(( "$(echo "$header" | wc -l)" ))"
-        # echo "y-offset $y_offset" > "$meta_file"
+		# echo "$dimension"
         # exit 0
 		exiftool --Directory --FileModifyDate --FileAccessDate --FileCreateDate \
 			--FileInodeChangeDate --FilePermissions --FileTypeExtension --EBMLVersion \
