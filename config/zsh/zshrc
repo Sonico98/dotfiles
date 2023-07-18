@@ -164,7 +164,7 @@ function vi-yank-xclip() {
 
 # Exit joshuto to the working directory
 function j() {
-	JOSHUTO_BIN=/usr//bin/joshuto # /usr/local/bin/jshto for ueberzug support
+	JOSHUTO_BIN="$HOME/.dotfiles/scripts/joshuto/j_ueberzugpp.sh"
 	ID="$$"
 	mkdir -p "/tmp/$USER"
 	OUTPUT_FILE="/tmp/$USER/joshuto-cwd-$ID"
