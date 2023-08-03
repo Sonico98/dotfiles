@@ -132,7 +132,7 @@ keymap = [
 	{ keys = [ "f2" ],					command = "spawn /home/sonico/.dotfiles/scripts/joshuto/dragon-drop.sh -t" },
 	{ keys = [ "P" ],					command = "spawn /home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh -D" },
 	{ keys = [ "s", "a" ],				command = "spawn /home/sonico/.dotfiles/scripts/joshuto/separateAAC.sh" },
-	{ keys = [ "backspace" ],			command = "shell zsh" },
+	{ keys = [ "backspace" ],			command = "shell kitten run-shell" },
 ]
 
 [task_view]
