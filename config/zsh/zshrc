@@ -168,22 +168,27 @@ function j() {
 	ID="$$"
 	mkdir -p "/tmp/$USER"
 	OUTPUT_FILE="/tmp/$USER/joshuto-cwd-$ID"
+	kitty @ set-tab-title Joshuto
 	env "$JOSHUTO_BIN" --change-directory --output-file "$OUTPUT_FILE" "$@"
 	exit_code=$?
 
 	case "$exit_code" in
 		# regular exit
 		0)
+			kitty @ set-tab-title
 			;;
 		# output contains current directory
 		101)
+			kitty @ set-tab-title
 			JOSHUTO_CWD=$(cat "$OUTPUT_FILE")
 			cd "$JOSHUTO_CWD"
 			;;
 		# output selected files
 		102)
+			kitty @ set-tab-title
 			;;
 		*)
+			kitty @ set-tab-title
 			echo "Exit code: $exit_code"
 			;;
 	esac
