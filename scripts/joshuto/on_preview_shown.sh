@@ -17,7 +17,7 @@ tmsu_tag_list() {
 }
 
 mimetype=$(file --mime-type -Lb "$FILE_PATH")
-random_name="$(cksum "$FILE_PATH" | cut -d ' ' -f1)"
+random_name=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '')
 
 function kclear {
 	kitty +kitten icat \
