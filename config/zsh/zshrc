@@ -215,7 +215,7 @@ function rcopy() {
 	fi
 
 	destination="$(echo "$dest" | sed "s#$mountpoint/#$remote:#")"
-	rclone copyto "$src" "$destination" "$@" -P
+	rclone copyto "$src" "$destination" "$@" -P -L
 }
 
 
