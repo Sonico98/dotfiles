@@ -5,7 +5,7 @@ export ZDOTDIR=${HOME}/.config/zsh
 export EDITOR=nvim
 export VISUAL=nvim
 export PAGER=less
-export SHELL=/usr/bin/zsh
+export SHELL=/bin/zsh
 export TERMINAL=kitty
 
 # Set default paths
