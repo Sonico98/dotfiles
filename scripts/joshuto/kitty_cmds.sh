@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/zsh
 # Programs required: kitty, fd, p7zip, timg
 # openArchives script: https://www.github.com/Sonico98/7zip-Extract
 
@@ -13,7 +13,7 @@ fi
 
 
 id=""
-while getopts ":DPdesu:" option; do
+while getopts ":DPdesut:" option; do
 	case $option in
 		# Preview all images in a directory with timg, in natural order (sort -V)
 		D)
@@ -63,6 +63,10 @@ while getopts ":DPdesu:" option; do
 		u) # ultra compression
 			id="$(kitty @ launch --title='Archive files - Ultra Compression' \
 				--cwd=current --location split archiveFiles.sh -u "${args[@]}")"
+			;;
+		t) # Open sub-shell
+			kitten run-shell kitty @ set-tab-title "Joshuto terminal" \
+				&& kitty @ set-tab-title "Joshuto"
 			;;
 		\?)
 			echo "Wrong parameter"
