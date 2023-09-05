@@ -69,26 +69,28 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 export GREP_COLORS='sl=49;39:cx=49;39:mt=48;5;215;38;5;234;1:fn=49;38;5;183:ln=49;38;5;150:bn=49;38;5;150:se=49;38;5;73'
 
 # --- Aliases ----------------------
-alias cat='bat'
-alias fd='fd -H'
+alias cat="bat"
+alias fd="fd -H"
 alias feh=fehres	# Custom feh theme
 alias ffbatch="$HOME/.dotfiles/scripts/FFBatch/ffbatch.sh"
 alias icat="timg -U -F -C -Bnone --threads=4 -pk"
 alias ibrc="python ~/.local/bin/ibroadcast-uploader/ibroadcast-uploader.py -p 4"
 alias ixio="curl -F 'f:1=<-' ix.io"
 # alias k="koshuto --change-directory"
-alias ls='exa --icons --oneline'
-alias lsh='/usr/bin/ls --group-directories-first --color --hyperlink=auto'
-alias qaac_enc='mkdir -p aac; \
+alias lidnotsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=suspend/HandleLidSwitchExternalPower=ignore/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
+alias lidsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=ignore/HandleLidSwitchExternalPower=suspend/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
+alias ls="exa --icons --oneline"
+alias lsh="/usr/bin/ls --group-directories-first --color --hyperlink=auto"
+alias qaac_enc="mkdir -p aac; \
 	wine ~/.wine/drive_c/Program\ Files/qaac/qaac64.exe \
-	-V 100 --copy-artwork -d ./aac (*.flac|*.mp3)'
-alias pas='paru -Syu --devel --noconfirm ; zprezto-update ; yes | remove-orphaned-kernels'
-alias pain='paru -S'
-alias pare='paru -Rns'
-alias rs='rsync -v --progress'
-alias sct='sudo systemctl'
-alias sctu='systemctl --user'
-alias q='exit'
+	-V 100 --copy-artwork -d ./aac (*.flac|*.mp3)"
+alias pas="paru -Syu --devel --noconfirm ; zprezto-update ; yes | remove-orphaned-kernels"
+alias pain="paru -S"
+alias pare="paru -Rns"
+alias rs="rsync -v --progress"
+alias sct="sudo systemctl"
+alias sctu="systemctl --user"
+alias q="exit"
 
 
 # --- Functions ----------------------
@@ -196,26 +198,38 @@ function j() {
 
 
 function rcopy() {
+	ct=0
 	src="$1"
+	dst="$2"
+	for i in "$@"; do
+		remote=""
+		ct=$((ct+1))
+		if [ "$ct" -le 2 ]; then
+			mountpoint="$(echo "$i" | cut -d '/' -f1-3)"
+
+			if [ "$mountpoint" = "/mnt/onedrive" ]; then
+				remote="5TB_onedrive"
+			elif [ "$mountpoint" = "/mnt/google" ]; then
+				remote="thiagodae"
+			elif [ "$mountpoint" = "/mnt/lolDrive" ]; then
+				remote="LolDrive"
+			fi
+
+			if [ "$remote" != "" ]; then
+				if [ "$ct" -eq 1 ]; then
+					src="$(echo "$i" | sed "s#$mountpoint/#$remote:#")"
+				else
+					dst="$(echo "$i" | sed "s#$mountpoint/#$remote:#")"
+				fi
+			fi
+		fi
+	done
+	
+	# We already processed the first 2 arguments
 	shift
-	dest="$1"
 	shift
 
-	mountpoint="$(echo "$dest" | cut -d '/' -f1-3)"
-
-	if [ "$mountpoint" = "/mnt/onedrive" ]; then
-		remote="5TB_onedrive"
-	elif [ "$mountpoint" = "/mnt/google" ]; then
-		remote="thiagodae"
-	elif [ "$mountpoint" = "/mnt/lolDrive" ]; then
-		remote="LolDrive"
-	else
-		echo "$mountpoint: Unknown remote"
-		return 2
-	fi
-
-	destination="$(echo "$dest" | sed "s#$mountpoint/#$remote:#")"
-	rclone copyto "$src" "$destination" "$@" -P -L
+	rclone copyto "$src" "$dst" "$@" -P -L
 }
 
 
