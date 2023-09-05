@@ -1520,10 +1520,10 @@
   }
 
   function prompt_joshuto() {
-	is_joshuto_subshell="$(ps | grep 'joshuto')"
-	if [ $is_joshuto_subshell ]; then
-		p10k segment -f 005 -i '' -t 'Joshuto terminal'
-	fi
+    is_joshuto_subshell="$(ps | grep 'joshuto')"
+    if [ $is_joshuto_subshell ]; then
+    	p10k segment -f 005 -i '' -t 'Joshuto terminal'
+    fi
   }
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
   # is to generate the prompt segment for display in instant prompt. See
