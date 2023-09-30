@@ -73,13 +73,13 @@ alias cat="bat"
 alias fd="fd -H"
 alias feh=fehres	# Custom feh theme
 alias ffbatch="$HOME/.dotfiles/scripts/FFBatch/ffbatch.sh"
-alias icat="timg -U -F -C -Bnone --threads=4 -pk"
+alias icat="timg -U --title=%f -C -Bnone --threads=4 -pk"
 alias ibrc="python ~/.local/bin/ibroadcast-uploader/ibroadcast-uploader.py -p 4"
 alias ixio="curl -F 'f:1=<-' ix.io"
 # alias k="koshuto --change-directory"
 alias lidnotsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=suspend/HandleLidSwitchExternalPower=ignore/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
 alias lidsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=ignore/HandleLidSwitchExternalPower=suspend/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
-alias ls="exa --icons --oneline"
+alias ls="exa --icons --hyperlink"
 alias lsh="/usr/bin/ls --group-directories-first --color --hyperlink=auto"
 alias qaac_enc="mkdir -p aac; \
 	wine ~/.wine/drive_c/Program\ Files/qaac/qaac64.exe \
