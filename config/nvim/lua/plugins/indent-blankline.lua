@@ -2,11 +2,11 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
 	event = { "BufRead", "FileReadPost", "StdinReadPost", "BufWritePost" },
+	main = "ibl",
+	opts = {},
 	config = function()
-		vim.opt.list = true
-		require("indent_blankline").setup {
-			show_end_of_line = false,
-			show_current_context = true
+		require("ibl").setup {
+			scope = { show_start = false, show_end = false }
 		}
 	end
 }
