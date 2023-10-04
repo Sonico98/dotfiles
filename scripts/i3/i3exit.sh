@@ -27,8 +27,8 @@ stop_pipewire () {
 
 
 get_processes () {
-	ps -U "$USER" | grep -E -v "Plex" | grep -E -v "i3" | \
-		grep -E -v "qbittorrent" | awk '{print $1}' | grep -E -v 'PID' >| /tmp/processes
+	ps -U "$USER" | grep -E -v "i3" | grep -E -v "qbittorrent" | \
+		awk '{print $1}' | grep -E -v 'PID' >| /tmp/processes
 }
 
 
@@ -37,7 +37,7 @@ case "$1" in
 	sysclose
 	sleep 0.4 && get_processes
 	cat /tmp/processes | xargs -t kill
-	sleep 1 && cat /tmp/processes | xargs -t kill -9
+	sleep 3 && cat /tmp/processes | xargs -t kill -9
 	rm -f /tmp/processes
 	i3-msg exit
 	;;
@@ -47,7 +47,7 @@ case "$1" in
 	sleep 0.4 && get_processes
 	stop_pipewire
 	cat /tmp/processes | xargs -t kill
-	sleep 1 && cat /tmp/processes | xargs -t kill -9
+	sleep 3 && cat /tmp/processes | xargs -t kill -9
 	systemctl reboot
 	;;
 
@@ -56,7 +56,7 @@ case "$1" in
 	sleep 0.4 && get_processes
 	stop_pipewire
 	cat /tmp/processes | xargs -t kill
-	sleep 1 && cat /tmp/processes | xargs -t kill -9
+	sleep 3 && cat /tmp/processes | xargs -t kill -9
 	systemctl poweroff -i
 	;;
 esac
