@@ -26,6 +26,11 @@ return {
 			indent = {
 				enable = true
 			},
+
+			rainbow = {
+				enable = true,
+				colors = require('ayu').rainbow_colors()
+			}
 		}
 	end
 }
