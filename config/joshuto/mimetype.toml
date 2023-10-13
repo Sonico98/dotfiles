@@ -6,7 +6,7 @@ audio_default	= [
 ]
 
 image_default	= [
-	{ command = "fehres", args = [ "--start-at" ], fork = true, silent = true },
+	{ command = "swayimg", args = [ "-a", "--" ], fork = true, silent = true },
 	{ command = "gimp", args = [ "--" ], fork = true, silent = true },
 	{ command = "exiftool", confirm_exit = true },
 ]

@@ -81,16 +81,6 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 		rsync -av ~/.local/share/little-cache-files/paru/clone/ ~/.cache/paru/clone/
 	fi
 
-	# Set when using a Window Manager
-	# ----- KDE Plasma spaceship wallpaper
-	# export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/1094777.jpg"
-	# ----- Momoko in Wonderland
-	# export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/Anime/The iDOLM@STER Million Live Theater Days/Momoko Suou/Momoko in Wonderland.png"
-	# ----- Tsukuyomi Moon Phase
-	# export WALLPAPER="$HOME/Pictures/Desktop Wallpapers/Anime/Tsukuyomi Moon Phase/yande.re 16929 aotsuki_takao crossover takeuchi_takashi toono_akiha tsukihime tsukuyomi_moon_phase type-moon.png"
-	# ----- Kurumi Tokisaki
-	export WALLPAPER="$HOME/Pictures/Anime/Date a Live/Kurumi Tokisaki/fa61dc2ef271065fd17c887644e04326.jpg"
-
 	if ! [[ "$XDG_CURRENT_DESKTOP" =~ (KDE|GNOME|XFCE4|Unity|Pantheon|Elementary|LXDE) ]]; then
 		systemctl --user mask --runtime plasma-kglobalaccel.service
 		systemctl --user mask --runtime plasma-baloorunner.service
@@ -98,7 +88,6 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 		systemctl --user mask --runtime plasma-kded.service
 		systemctl --user mask --runtime plasma-kactivitymanagerd.service
 		# systemctl --user mask --runtime plasma-xdg-desktop-portal-kde.service
-		feh --bg-fill "$WALLPAPER" &>/dev/null &
 		# xsettingsd &>/dev/null &
 	elif [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
 		systemctl --user unmask plasma-kglobalaccel.service
