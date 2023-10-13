@@ -35,11 +35,16 @@ style_image()
 	  # \( +clone -background black -shadow 53x16+0+10 \) \
 }
 
+# Screenshot the whole screen, open the image in full screen, then select a region
+grim -t png -l 0 /tmp/full.png
+swayimg -f /tmp/full.png &
+swayimg_pid=$!
+
 file=/tmp/scrshot.png
-# Required so scrot starts properly
-sleep 0.2
-scrot -o -s -f --line style=solid,width=4,color="red",opacity=100,mode=classic -q 100 "$file"
+grim -t png -l 0 -g "$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating_nodes[]?) | select(.visible or (.type == "output" and .active)) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -b 2b2a2f7a -c f28b82)" "$file"
 success=$?
+kill "$swayimg_pid"
+rm -f /tmp/full.png
 
 if [[ $success -eq 0 ]]; then
 	# Copy raw image, but don't save it on copyq's history
@@ -58,7 +63,7 @@ if [[ $success -eq 0 ]]; then
 	copyq select 0
 
 	# Finish
-	notify-send 'Scrot' 'Screenshot taken'
+	notify-send 'Grim' 'Screenshot taken'
 	rm -f "$file"
 	exit 0
 fi

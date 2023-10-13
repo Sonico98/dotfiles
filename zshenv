@@ -22,6 +22,8 @@ export PATH=${PATH}:${HOME}/.npm-global/bin
 export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${HOME}/.dotnet/tools
 export GOPATH=${HOME}/.local/share/go
+# Use the new crocus driver for Intel GPUs
+export MESA_LOADER_DRIVER_OVERRIDE=crocus
 # Disable dotnet Telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # https://stackoverflow.com/a/38980986
@@ -41,22 +43,26 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	# Hide some output from WINE
 	export WINEDEBUG=-all
 	# Use QT file dialog (1=QT; 0=GTK)
-	export GTK_USE_PORTAL=1
+	export GTK_USE_PORTAL=0
 	# Enable qt5ct to configure QT themes
 	if [ "$DESKTOP_SESSION" = "plasma" ]; then
 		export QT_QPA_PLATFORMTHEME=KDE
 	else
 		export QT_QPA_PLATFORMTHEME=qt5ct
+		if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+			export QT_QPA_PLATFORM="wayland;xcb"
+			export MOZ_ENABLE_WAYLAND=1
+		fi
 	fi
 
 	# Symlink some folders to a directory in RAM
-	rm -rf /home/sonico/Downloads/Chrome\ Downloads/Images
+	rm -rf /home/sonico/Downloads/Firefox\ Downloads/Images
 	if ! [ -d /zram/Images ]; then mkdir -p /zram/Images; fi
-	ln -s /zram/Images /home/sonico/Downloads/Chrome\ Downloads/Images
+	ln -s /zram/Images /home/sonico/Downloads/Firefox\ Downloads/Images
 
-	rm -rf /home/sonico/Downloads/Chrome\ Downloads/Torrents
+	rm -rf /home/sonico/Downloads/Firefox\ Downloads/Torrents
 	if ! [ -d /zram/Torrents ]; then mkdir -p /zram/Torrents; fi
-	ln -s /zram/Torrents /home/sonico/Downloads/Chrome\ Downloads/Torrents
+	ln -s /zram/Torrents /home/sonico/Downloads/Firefox\ Downloads/Torrents
 
 	yes 'n' | ln -s ~/.local/share/little-cache-files/cache/* ~/.cache/ &>/dev/null
 
