@@ -1,0 +1,16 @@
+#!/bin/bash
+
+is_recording="$(echo "$(pidof wf-recorder)")"
+if [ -n "$is_recording" ]; then
+	killall -s SIGINT wf-recorder
+else
+	recording_area="$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating_nodes[]?) | select(.visible or (.type == "output" and .active)) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -b 2b2a2f7a -c f28b82)"
+
+	if [ "$?" -eq 0 ]; then
+		notify-send "wf-recorder" "Recording started"
+		wf-recorder -g "$recording_area" -f ~/Videos/screenrecord"$(date +'%Y-%m-%d--%H-%M-%S.mp4')"
+		notify-send "wf-recorder" "Recording stopped"
+	else
+		notify-send "wf-recorder" "Recording cancelled"
+	fi
+fi

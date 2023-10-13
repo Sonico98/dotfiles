@@ -21,6 +21,7 @@ set $term kitty --single-instance
 set $menu rofi -theme-show-icons -show drun -modi drun#run -drun-display-format {name} | xargs swaymsg exec --
 
 set $screenshot ~/.dotfiles/scripts/screenshot/screenshot.sh
+set $screenrecord ~/.dotfiles/scripts/screenshot/screenrecord.sh 
 
 ### Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
@@ -28,7 +29,6 @@ set $screenshot ~/.dotfiles/scripts/screenshot/screenshot.sh
 bar {
 	swaybar_command waybar
 }
-
 
 ### Appearance
 #
@@ -86,8 +86,8 @@ bar {
 
 ### Output configuration
 #
-	# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-	output * bg "$HOME/Pictures/Anime/Date a Live/Kurumi Tokisaki/fa61dc2ef271065fd17c887644e04326.jpg" fill
+	# Wallpaper
+	output * bg "$HOME/.bg" fill
 	#
 	# Example configuration:
 	#
@@ -185,6 +185,8 @@ bar {
 
 	# Take a screenshot
 	bindsym Print exec $screenshot
+	# Record the screen
+	bindsym $mod+Print exec $screenrecord
 #
 # Moving around:
 #
@@ -361,7 +363,7 @@ bar {
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+Shift+x scratchpad show
+    bindsym $mod+Shift+x [class!="VencordDesktop", app_id!="io.github.tdesktop_x64.TDesktop"] scratchpad show
 
 	# Show specifically the Telegram scratchpad, if any
 	bindsym $mod+Shift+s [app_id="io.github.tdesktop_x64.TDesktop"] scratchpad show, \

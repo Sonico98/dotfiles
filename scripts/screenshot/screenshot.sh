@@ -36,6 +36,7 @@ style_image()
 }
 
 # Screenshot the whole screen, open the image in full screen, then select a region
+dunstctl set-paused true
 grim -t png -l 0 /tmp/full.png
 swayimg -f /tmp/full.png &
 swayimg_pid=$!
@@ -45,6 +46,7 @@ grim -t png -l 0 -g "$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating
 success=$?
 kill "$swayimg_pid"
 rm -f /tmp/full.png
+dunstctl set-paused false
 
 if [[ $success -eq 0 ]]; then
 	# Copy raw image, but don't save it on copyq's history
