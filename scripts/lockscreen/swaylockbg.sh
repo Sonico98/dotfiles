@@ -10,9 +10,11 @@ if [[ ! -d ${LOCKSCREEN_DIR} ]]; then
 	convert ${LOCKSCREEN_DIR}/lock.png -scale 10% -blur 0x1.5 -resize 1000% ${LOCKSCREEN_DIR}/lockscreen.jpg
 fi
 
-# Pause music and mute audio with pulseaudio-control
-~/.config/polybar/scripts/player-mpris-tail.py pause &
-pulseaudio-control mute
+# Pause music, mute audio and microphone
+playerctl --player=%any,chromium pause
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
 swaylock -F --indicator-idle-visible -i ${LOCKSCREEN_DIR}/lockscreen.jpg
-pulseaudio-control unmute
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 rm -rf ${LOCKSCREEN_DIR}

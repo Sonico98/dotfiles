@@ -13,7 +13,7 @@
         "disable-scroll": false,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{name}"
+        "format": "{index} - {name}"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
