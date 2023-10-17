@@ -39,7 +39,7 @@ button {
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 0;
+    border-radius: 5px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -273,3 +273,8 @@ label:focus {
 	background-color: transparent;
 }
 
+#custom-audio_idle_inhibitor {
+	background: #7fde99;
+	border-radius: 5px;
+	color: #212025;
+}

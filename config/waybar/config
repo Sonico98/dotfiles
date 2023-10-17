@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio#output", "pulseaudio#input", "cpu", "memory", "idle_inhibitor", "tray"],
+    "modules-right": ["pulseaudio#output", "pulseaudio#input", "cpu", "memory", "idle_inhibitor", "tray", "custom/audio_idle_inhibitor"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": false,
@@ -117,5 +117,17 @@
         "on-click": "pavucontrol",
 		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"tooltip": false
-    }
+    },
+	"custom/audio_idle_inhibitor": {
+		"format": "{icon}",
+		"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+		"exec-if": "which sway-audio-idle-inhibit",
+		"return-type": "json",
+		"format-icons": {
+			"output": "",
+			"input": "",
+			"output-input": "",
+			"none": ""
+		}
+	},
 }
