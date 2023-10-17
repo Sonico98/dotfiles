@@ -460,14 +460,14 @@ bar {
 	set $mode_system  𝐋ock │  𝚬xit │⏾ 𝐒uspend │  𝐑eboot │  𝐏ower Off
 	mode "$mode_system" {
 		bindsym l exec $locker, mode "default"
-		bindsym e exec ~/.dotfiles/scripts/i3/i3exit.sh exit, mode "default"
+		bindsym e exec ~/.dotfiles/scripts/sway/swayexit.sh exit, mode "default"
 		bindsym s exec systemctl suspend, mode "default"
-		bindsym r exec ~/.dotfiles/scripts/i3/i3exit.sh reboot, mode "default"
-		bindsym p exec ~/.dotfiles/scripts/i3/i3exit.sh shutdown, mode "default"
+		bindsym r exec ~/.dotfiles/scripts/sway/swayexit.sh reboot, mode "default"
+		bindsym p exec ~/.dotfiles/scripts/sway/swayexit.sh shutdown, mode "default"
 
 		# back to normal: Enter or Escape
-		bindsym Return exec "rm -rf /tmp/lockscreen", mode "default"
-		bindsym Escape exec "rm -rf /tmp/lockscreen", mode "default"
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
 	}
 
 	bindsym $mod+o mode "$mode_system"

@@ -5,5 +5,5 @@
 	path = config/bat/themes/ayu
 	url = https://github.com/dempfi/ayu
 [submodule "scripts/i3/i3-dynamic-backgrounds"]
-	path = scripts/i3/i3-dynamic-backgrounds
+	path = scripts/sway/i3-dynamic-backgrounds
 	url = https://github.com/VPavliashvili/i3-dynamic-backgrounds
