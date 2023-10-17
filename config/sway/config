@@ -89,6 +89,8 @@ bar {
 
 	# Open pavucontrol near the volume indicator
 	for_window [app_id="pavucontrol"] floating enable, resize set 720 515, move position 619 0
+	# Open KDE's polkit as a floating window
+	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
 #
 
 ### Output configuration
@@ -145,9 +147,11 @@ bar {
 	# Custom-added desktop files: copyq, a clipboard manager; qbittorrent
 	# Default, needed desktop files: clight, to control screen brightness; 
 	# nm-applet, for managing networks.
-	exec dex -a -e i3
+	exec sleep 8 && dex -a -e i3
 	# Rename workspaces based on the programs open
 	exec sworkstyle &> /tmp/sworkstyle.log
+	# Prevent the screen from darkening if an application is playing audio
+	exec sway-audio-idle-inhibit
 
 	# Polkit agent
 	exec /usr/lib/polkit-kde-authentication-agent-1
@@ -456,10 +460,10 @@ bar {
 	set $mode_system  𝐋ock │  𝚬xit │⏾ 𝐒uspend │  𝐑eboot │  𝐏ower Off
 	mode "$mode_system" {
 		bindsym l exec $locker, mode "default"
-		bindsym e exec swaymsg exit, mode "default"
+		bindsym e exec ~/.dotfiles/scripts/i3/i3exit.sh exit, mode "default"
 		bindsym s exec systemctl suspend, mode "default"
-		bindsym r exec systemctl reboot, mode "default"
-		bindsym p exec systemctl shutdown, mode "default"
+		bindsym r exec ~/.dotfiles/scripts/i3/i3exit.sh reboot, mode "default"
+		bindsym p exec ~/.dotfiles/scripts/i3/i3exit.sh shutdown, mode "default"
 
 		# back to normal: Enter or Escape
 		bindsym Return exec "rm -rf /tmp/lockscreen", mode "default"
