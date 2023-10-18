@@ -21,11 +21,11 @@ set $term kitty --single-instance
 set $menu rofi -theme-show-icons -show drun -modi drun#run -drun-display-format {name} | xargs swaymsg exec --
 
 # Screenshot and screen recorder scripts
-set $screenshot ~/.dotfiles/scripts/screenshot/screenshot.sh
-set $screenrecord ~/.dotfiles/scripts/screenshot/screenrecord.sh 
+set $screenshot screenshot
+set $screenrecord screenrecord
 
 # Screen locking script
-set $locker ~/.dotfiles/scripts/lockscreen/swaylockbg.sh
+set $locker swaylockbg
 
 ### Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
@@ -460,10 +460,10 @@ bar {
 	set $mode_system  𝐋ock │  𝚬xit │⏾ 𝐒uspend │  𝐑eboot │  𝐏ower Off
 	mode "$mode_system" {
 		bindsym l exec $locker, mode "default"
-		bindsym e exec ~/.dotfiles/scripts/sway/swayexit.sh exit, mode "default"
+		bindsym e exec swayexit exit, mode "default"
 		bindsym s exec systemctl suspend, mode "default"
-		bindsym r exec ~/.dotfiles/scripts/sway/swayexit.sh reboot, mode "default"
-		bindsym p exec ~/.dotfiles/scripts/sway/swayexit.sh shutdown, mode "default"
+		bindsym r exec swayexit reboot, mode "default"
+		bindsym p exec swayexit shutdown, mode "default"
 
 		# back to normal: Enter or Escape
 		bindsym Return mode "default"
