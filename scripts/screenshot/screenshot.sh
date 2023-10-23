@@ -60,9 +60,8 @@ if [[ $success -eq 0 ]]; then
 		pngquant "$file" -f -o "$file"
 	fi
 
-	# Copy and save the edited screenshot on copyq, also select it
-	copyq write image/png - < "$file"
-	copyq select 0
+	# Copy and save the edited screenshot on copyq
+	copyq copy image/png - < "$file" && copyq write image/png - < "$file"
 
 	# Finish
 	notify-send 'Grim' 'Screenshot taken'
