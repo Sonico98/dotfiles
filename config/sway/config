@@ -109,7 +109,7 @@ bar {
 #
 	exec swayidle -w \
 			 timeout 180 '$locker &' \
-			 timeout 360 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+			 resume 'swaymsg "output * power on"' \
 			 before-sleep '$locker &'
 	#
 	# This will lock your screen after 180 seconds of inactivity, then turn off
@@ -383,6 +383,9 @@ bar {
 	resize set 1130 635, move position center
 	# Show specifically the Discord scratchpad, if any
 	bindsym $mod+Shift+d [class="VencordDesktop"] scratchpad show, \
+	resize set 1130 635, move position center
+	# Show specifically the Netease scratchpad, if any
+	bindsym $mod+Shift+n [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] scratchpad show, \
 	resize set 1130 635, move position center
 #
 # Resizing containers:

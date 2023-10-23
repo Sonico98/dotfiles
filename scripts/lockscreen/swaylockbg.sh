@@ -14,6 +14,7 @@ fi
 playerctl --player=%any,chromium pause
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
+swaymsg "output * power off"
 swaylock -F --indicator-idle-visible -i ${LOCKSCREEN_DIR}/lockscreen.jpg
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
