@@ -79,7 +79,7 @@ alias ixio="curl -F 'f:1=<-' ix.io"
 # alias k="koshuto --change-directory"
 alias lidnotsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=suspend/HandleLidSwitchExternalPower=ignore/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
 alias lidsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=ignore/HandleLidSwitchExternalPower=suspend/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
-alias ls="exa --icons --hyperlink"
+alias ls="eza --hyperlink"
 alias lsh="/usr/bin/ls --group-directories-first --color --hyperlink=auto"
 alias qaac_enc="mkdir -p aac; \
 	wine ~/.wine/drive_c/Program\ Files/qaac/qaac64.exe \
