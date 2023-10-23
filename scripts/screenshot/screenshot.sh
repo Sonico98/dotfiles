@@ -61,10 +61,14 @@ if [[ $success -eq 0 ]]; then
 	fi
 
 	# Copy and save the edited screenshot on copyq
-	copyq copy image/png - < "$file" && copyq write image/png - < "$file"
+	if ! command -v wl-copy &>/dev/null; then
+		copyq copy image/png - < "$file" && copyq write image/png - < "$file"
+	else
+		wl-copy -t image/png < "$file"
+	fi
 
 	# Finish
 	notify-send 'Grim' 'Screenshot taken'
-	rm -f "$file"
+	# sleep 2 && rm -f "$file"
 	exit 0
 fi
