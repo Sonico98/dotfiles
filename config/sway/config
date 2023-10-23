@@ -58,7 +58,7 @@ bar {
 	shadows on
 	shadows_on_csd off
 	shadow_blur_radius 15
-	shadow_color #000000AA
+	shadow_color #000000CC
 
 	# Inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
 	default_dim_inactive 0.2
@@ -91,6 +91,8 @@ bar {
 	for_window [app_id="pavucontrol"] floating enable, resize set 720 515, move position 619 0
 	# Open KDE's polkit as a floating window
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
+	# Open copyq floating
+	for_window [app_id="com.github.hluk.copyq"] floating enable, move position center
 #
 
 ### Output configuration
@@ -140,9 +142,6 @@ bar {
 
 ### Login
 #
-	# Start programs on login
-	exec telegram-desktop
-	exec vencord-desktop
 	# Start all desktop files in ~/.config/autostart and /etc/xdg/autostart
 	# Custom-added desktop files: copyq, a clipboard manager; qbittorrent
 	# Default, needed desktop files: clight, to control screen brightness; 
@@ -159,7 +158,7 @@ bar {
 	# To get the app_id, run 'swaymsg -t get_tree'.
 	# For XWayland applications, the windows class has to be used
 	for_window [app_id="io.github.tdesktop_x64.TDesktop"] move scratchpad
-	for_window [class="VencordDesktop"] move scratchpad
+	for_window [app_id="VencordDesktop"] move scratchpad
 #
 
 ### Key bindings
@@ -175,6 +174,9 @@ bar {
 
     # Start your launcher
     bindsym $mod+r exec $menu
+	
+	# Show copyq menu (clipboard history)
+	bindsym $mod+v exec copyq menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -382,7 +384,7 @@ bar {
 	bindsym $mod+Shift+s [app_id="io.github.tdesktop_x64.TDesktop"] scratchpad show, \
 	resize set 1130 635, move position center
 	# Show specifically the Discord scratchpad, if any
-	bindsym $mod+Shift+d [class="VencordDesktop"] scratchpad show, \
+	bindsym $mod+Shift+d [app_id="VencordDesktop"] scratchpad show, \
 	resize set 1130 635, move position center
 	# Show specifically the Netease scratchpad, if any
 	bindsym $mod+Shift+n [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] scratchpad show, \
