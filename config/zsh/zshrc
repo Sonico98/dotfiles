@@ -74,7 +74,7 @@ alias fd="fd -H"
 alias feh=fehres	# Custom feh theme
 alias ffbatch="$HOME/.dotfiles/scripts/FFBatch/ffbatch.sh"
 alias icat="timg -U --title=%f -C -Bnone --threads=4 -pk"
-alias ibrc="ibroadcast-uploader -p 12"
+alias ibrc="ibroadcast-uploader -p 5"
 alias ixio="curl -F 'f:1=<-' ix.io"
 # alias k="koshuto --change-directory"
 alias lidnotsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=suspend/HandleLidSwitchExternalPower=ignore/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
