@@ -7,8 +7,6 @@ return {
 		vim.g.ayucolor = "dark"
 		vim.g.ayu_italic_comment = 1
 		vim.g.ayu_extended_palette = 1
-	end,
-	config = function()
 		-- Set theme overrides
 		local function custom_ayu_colors()
 			local overrides = {
