@@ -43,7 +43,7 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	# Hide some output from WINE
 	export WINEDEBUG=-all
 	# Use QT file dialog (1=QT; 0=GTK)
-	export GTK_USE_PORTAL=0
+	export GTK_USE_PORTAL=1
 	# Enable qt5ct to configure QT themes
 	if [ "$DESKTOP_SESSION" = "plasma" ]; then
 		export QT_QPA_PLATFORMTHEME=KDE
