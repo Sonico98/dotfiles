@@ -1,8 +1,8 @@
 [class]
 audio_default	= [
-	{ command = "mpv", args = [ "--no-resume-playback", "--" ] },
-	{ command = "vlc", args = [ "--" ] },
-	{ command = "ffmpeg", args = [ "-i", "--" ] },
+	{ command = "mpv", args = [ "--player-operation-mode=pseudo-gui", "--no-resume-playback", "--" ], fork = true, silent = true },
+	{ command = "vlc", args = [ "--" ], fork = true, silent = true },
+	{ command = "ffprobe", args = [ "-hide_banner", "-i", "--" ], confirm_exit = true },
 ]
 
 image_default	= [
@@ -19,7 +19,7 @@ video_default	= [
 	{ command = "mpv", args = [ "--" ] , fork = true, silent = true },
 	{ command = "mpv", args = [ "--mute", "on", "--" ], fork = true, silent = true },
 	{ command = "vlc", args = [ "--" ] , fork = true, silent = true },
-	{ command = "ffmpeg", args = [ "-hide_banner", "-i" ], confirm_exit = true },
+	{ command = "ffprobe", args = [ "-hide_banner", "-i", "--" ], confirm_exit = true },
 ]
 
 text_default	= [
