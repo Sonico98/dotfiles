@@ -19,24 +19,27 @@ tmsu_tag_list() {
 mimetype=$(file --mime-type -Lb "$FILE_PATH")
 random_name=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '')
 
+# function kclear_t {
+# 	kitty +kitten icat \
+# 		--transfer-mode=stream \
+# 		--clear 2>/dev/null
+# }
+
 function kclear {
 	kitty +kitten icat \
-		--transfer-mode=file \
-		--clear 2>/dev/null
+		--clear --stdin no \
+		--transfer-mode memory
 }
 
-function kclear_t {
-	kitty +kitten icat \
-		--transfer-mode=stream \
-		--clear 2>/dev/null
-}
 
+# https://github.com/kovidgoyal/kitty/issues/6616#issuecomment-1732213295
 function image {
 	kclear
-	kitty +kitten icat \
-		--transfer-mode=file \
+	kitten icat --clear \
+		--stdin no \
+		--transfer-mode memory \
 		--place "${PREVIEW_WIDTH}x${PREVIEW_HEIGHT}@${PREVIEW_X_COORD}x${PREVIEW_Y_COORD}" \
-		"$1" 2>/dev/null
+		"$1"
 }
 
 case "$mimetype" in
@@ -44,8 +47,8 @@ case "$mimetype" in
 		# Place the picture at the screen bottom corner, then resize it
 		# Works fine in a ~1366x768 window (laptop screen)
 		# Values should be tweaked for other screen sizes
-		PREVIEW_Y_COORD="$(( "$PREVIEW_HEIGHT" - "$PREVIEW_HEIGHT"/3 - 1))"
-		PREVIEW_X_COORD="$(( "$PREVIEW_WIDTH"/2 + "$PREVIEW_WIDTH" + 3 ))"
+		PREVIEW_Y_COORD="$(( "$PREVIEW_HEIGHT" - "$PREVIEW_HEIGHT"/3 ))"
+		PREVIEW_X_COORD="$(( "$PREVIEW_WIDTH"/2 + "$PREVIEW_WIDTH" + 6 ))"
 		PREVIEW_HEIGHT="$(( "$PREVIEW_HEIGHT" - ("$PREVIEW_HEIGHT"/2) - 3 ))"
 
 		has_cover="$(exiftool -q -q "$FILE_PATH" 2>/dev/null | grep -Eq '(Cover Art|CoverArt|Picture)')"
@@ -105,7 +108,6 @@ case "$mimetype" in
 	# 	;;
 	*)
 		kclear
-		kclear_t
 		exit
 		;;
 esac
