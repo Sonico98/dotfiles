@@ -44,15 +44,17 @@ bar {
 
 
 	# Window background blur
-	blur on
+	blur off
 	blur_xray off
 	blur_passes 2
 	blur_radius 5
 
-	# Blur rofi, waybar and dunst
+	# Blur rofi, waybar, kitty, swayimg and dunst
 	layer_effects "rofi" blur on; blur_radius 2; shadows off
 	layer_effects "waybar" blur on; blur_radius 2; shadows off
 	layer_effects "notifications" blur on; blur_radius 2; shadows off
+	for_window [ app_id="kitty" ] blur on
+	for_window [ app_id="swayimg_.*" ] blur on
 
 	# Enable shadows
 	shadows on
@@ -92,7 +94,7 @@ bar {
 	# Open KDE's polkit as a floating window
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
 	# Open copyq floating
-	for_window [app_id="com.github.hluk.copyq"] floating enable, move position center
+	for_window [app_id="com.github.hluk.copyq"] floating enable
 #
 
 ### Output configuration
@@ -462,7 +464,7 @@ bar {
 #
 # Power Menu
 #
-	set $mode_system  𝐋ock │  𝚬xit │⏾ 𝐒uspend │  𝐑eboot │  𝐏ower Off
+	set $mode_system  𝐋ock │ 󰩈 𝚬xit │⏾ 𝐒uspend │ ↺ 𝐑eboot │  𝐏ower Off
 	mode "$mode_system" {
 		bindsym l exec $locker, mode "default"
 		bindsym e exec swayexit exit, mode "default"
