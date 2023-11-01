@@ -3,7 +3,7 @@
 sway_conf_path="$HOME/.config/sway/config"
 wallpaper="/mnt/Heaven/Pictures/Anime/Date a Live/Kurumi Tokisaki/fa61dc2ef271065fd17c887644e04326.jpg" 
 dark_sway_border="#f28b82"
-light_sway_border="#e31d11"
+light_sway_border="#fec045"
 
 # Waybar
 rm -f ~/.config/waybar/style.css
