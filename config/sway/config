@@ -452,14 +452,14 @@ bar {
 	bindsym $mod+Control+KP_Multiply exec $HOME/.config/polybar/scripts/player-mpris-tail.py next &
 	bindsym $mod+Control+KP_Divide exec $HOME/.config/polybar/scripts/player-mpris-tail.py previous &
 
-	mode "c: Chrome | m: MPD | v: MPV | o: Others" {
+	mode "f: Firefox | m: MPD | v: MPV | o: Others" {
 		bindsym Escape mode default
-		bindsym c exec "playerctl --player=chromium play-pause", mode default
+		bindsym f exec "playerctl --player=firefox play-pause", mode default
 		bindsym m exec "playerctl --player=mpd play-pause", mode default
 		bindsym v exec "playerctl --player=mpv play-pause", mode default
-		bindsym o exec "playerctl --player=%any --ignore-player=chromium,mpd,mpv play-pause", mode default
+		bindsym o exec "playerctl --player=%any --ignore-player=firefox,mpd,mpv play-pause", mode default
 	}
-	bindsym $mod+Control+Shift+space mode "c: Chrome | m: MPD | v: MPV | o: Others"
+	bindsym $mod+Control+Shift+space mode "f: Firefox | m: MPD | v: MPV | o: Others"
 
 #
 # Power Menu
