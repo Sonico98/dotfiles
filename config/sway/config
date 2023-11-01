@@ -66,6 +66,7 @@ bar {
 	default_dim_inactive 0.2
 	dim_inactive_colors.unfocused #000000FF
 	dim_inactive_colors.urgent #900000FF
+	for_window [class="Gimp-*"] default_dim_inactive 0
 
 	# Move minimized windows into Scratchpad (enable|disable)
 	scratchpad_minimize disable
@@ -101,6 +102,9 @@ bar {
 #
 	# Wallpaper
 	output * bg "$HOME/.bg" fill
+
+	# Make things a bit smaller on the laptop display
+	output LVDS-1 scale 0.9
 	#
 	# Example configuration:
 	#
