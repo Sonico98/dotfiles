@@ -1,7 +1,7 @@
 #!/bin/bash
 
-light_gtk_theme="Fluent-round-red-Light"
-light_gtk_icon="Fluent-red-light"
+light_gtk_theme="Fluent-round-orange-Light"
+light_gtk_icon="Fluent-orange-light"
 
 # GTK 2
 sed -i -e "s#gtk-theme-name=.*#gtk-theme-name=\"$light_gtk_theme\"#" \
