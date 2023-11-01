@@ -1,11 +1,5 @@
 #!/bin/bash
 
-rofi_conf_path="$HOME/.config/rofi/config.rasi"
-rofi_dark_bg="#00000045"
-rofi_dark_fg="#EFEFEF"
-rofi_light_bg="#FFFFFF45"
-rofi_light_fg="#000000FF"
+source "$HOME"/.local/share/darkman-common.d/functions.sh
 
-sed -i -e "s/    background-color: $rofi_dark_bg/    background-color: $rofi_light_bg/" \
-	-e "s/    text-color: $rofi_dark_fg/    text-color: $rofi_light_fg/" \
-	"$rofi_conf_path"
+set_rofi_theme "light"

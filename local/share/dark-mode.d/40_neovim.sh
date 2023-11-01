@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sed -i -e 's#vim.o.background = "light"#vim.o.background = "dark"#' \
-	-e 's#vim.g.ayucolor = "light"#vim.g.ayucolor = "dark"#' \
-	~/.config/nvim/lua/plugins/ayu-vim.lua
+source "$HOME"/.local/share/darkman-common.d/functions.sh
+
+set_nvim_theme "dark"

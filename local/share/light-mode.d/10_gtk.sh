@@ -1,20 +1,10 @@
 #!/bin/bash
 
-light_gtk_theme="Fluent-round-orange-Light"
-light_gtk_icon="Fluent-orange-light"
+source "$HOME"/.local/share/darkman-common.d/theme_names.sh
+source "$HOME"/.local/share/darkman-common.d/functions.sh
 
-# GTK 2
-sed -i -e "s#gtk-theme-name=.*#gtk-theme-name=\"$light_gtk_theme\"#" \
-	-e "s#gtk-icon-theme-name=.*#gtk-icon-theme-name=\"$light_gtk_icon\"#" \
-	"$HOME/.gtkrc-2.0"
-# GTK 3
-sed -i -e "s#gtk-theme-name=.*#gtk-theme-name=\"$light_gtk_theme\"#" \
-	-e "s#gtk-icon-theme-name=.*#gtk-icon-theme-name=\"$light_gtk_icon\"#" \
-	-e "s#gtk-application-prefer-dark-theme=.*#gtk-application-prefer-dark-theme=false#" \
-	"$HOME/.config/gtk-3.0/settings.ini"
-# GTK 4
-sed -i -e "s#gtk-theme-name=.*#gtk-theme-name=\"$light_gtk_theme\"#" \
-	-e "s#gtk-icon-theme-name=.*#gtk-icon-theme-name=\"$light_gtk_icon\"#" \
-	-e "s#gtk-application-prefer-dark-theme=.*#gtk-application-prefer-dark-theme=false#" \
-	"$HOME/.config/gtk-4.0/settings.ini"
+gtk_theme="$light_gtk_theme"
+gtk_icon="$light_gtk_icon"
+bool="false"
 
+set_gtk_theme

@@ -1,10 +1,9 @@
 #!/bin/bash
 
-gnomeschema="org.gnome.desktop.interface"
+source "$HOME"/.local/share/darkman-common.d/theme_names.sh
+source "$HOME"/.local/share/darkman-common.d/functions.sh
 
+gtk_theme="$light_gtk_theme"
+gtk_icon="$light_gtk_icon"
 gsettings set "$gnomeschema" color-scheme 'prefer-light'
-gsettings set "$gnomeschema" gtk-theme 'Fluent-round-orange-Light'
-gsettings set "$gnomeschema" icon-theme 'Fluent-orange-light'
-gsettings set "$gnomeschema" cursor-theme 'posy-black-tiny'
-gsettings set "$gnomeschema" font-name 'GoogleSans Nerd Font, 14'
-notify-send "Light mode"
+set_gsts_theme

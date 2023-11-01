@@ -1,13 +1,9 @@
 #!/bin/bash
 
-gtk_icon_name="Fluent-red-dark"
-qt_color_scheme="Material Red Dark"
+source "$HOME"/.local/share/darkman-common.d/theme_names.sh
+source "$HOME"/.local/share/darkman-common.d/functions.sh
 
-# QT 5
-sed -i -e "s#icon_theme=.*#icon_theme=$gtk_icon_name#" \
-	-e "s#color_scheme_path=.*#color_scheme_path=/home/sonico/.config/qt5ct/colors/$qt_color_scheme.conf#" \
-	"$HOME"/.config/qt5ct/qt5ct.conf
-# QT 6
-sed -i -e "s#icon_theme=.*#icon_theme=$gtk_icon_name#" \
-	-e "s#color_scheme_path=.*#color_scheme_path=/home/sonico/.config/qt5ct/colors/$qt_color_scheme.conf#" \
-	"$HOME"/.config/qt6ct/qt6ct.conf
+gtk_icon_name="$dark_gtk_icon"
+qt_color_scheme="$dark_qt_color_scheme"
+
+set_qt_theme
