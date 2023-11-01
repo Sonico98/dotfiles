@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio#output", "pulseaudio#input", "cpu", "memory", "idle_inhibitor", "tray", "custom/audio_idle_inhibitor"],
+    "modules-right": ["pulseaudio#output", "pulseaudio#input", "cpu", "memory", "mpris", "idle_inhibitor", "tray", "custom/audio_idle_inhibitor"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": false,
@@ -53,18 +53,35 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 8
+        "spacing": 7
     },
     "clock": {
-		"format": "󰅐  {:%H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "󰅐 {:%H:%M}",
         "format-alt": " {:%d/%m/%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode"          : "month",
+			 "mode-mon-col"  : 3,
+			 "on-scroll"     : 1,
+			 "on-click-right": "mode",
+			 "format": {
+				  "months":     "<span color='#ffead3'>{}</span>",
+				  "days":       "<span color='#ecc6d9'>{}</span>",
+				  "weekdays":   "<span color='#ffcc66'>{}</span>",
+				  "today":      "<span color='#f28b82'><b>{}</b></span>"
+			 },
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+        },
     },
     "cpu": {
         "format": " {usage}%"
     },
     "memory": {
-        "format": "󰍛  {}%"
+        "format": "󰍛 {}%"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -118,6 +135,17 @@
 		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"tooltip": false
     },
+	"mpris": {
+		"ignored-players": ["firefox"],
+		"format": "{status_icon}",
+		"tooltip": true,
+		"tooltip-format": "{artist} - {title}\n{album} ({player})",
+		"status-icons": {
+			"playing": "",
+			"paused": "",
+			"stopped": ""
+		},
+	},
 	"custom/audio_idle_inhibitor": {
 		"format": "{icon}",
 		"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
