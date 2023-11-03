@@ -6,6 +6,17 @@ QUANTISIZE=0 				# 0 Disabled, 1 Enabled. Reduces image file size at the cost of
 
 
 # -- Script start --------------------------------
+
+case "$1" in
+	-d)
+		style=false
+		;;
+	*)
+		style=true
+		;;
+esac
+
+
 get_dominant_color()
 {
 	convert "$1" -brightness-contrast 15x5 -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: \
@@ -53,7 +64,9 @@ if [[ $success -eq 0 ]]; then
 	copyq copy image/png - < "$file"
 
 	# Round corners and add shadow
-	style_image "$file"
+	if [ $style = "true" ]; then
+		style_image "$file"
+	fi
 	
 	# Convert to 8bit PNG, to avoid weird effects and reduce file size
 	if [ "$QUANTISIZE" -eq 1 ]; then

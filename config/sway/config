@@ -103,8 +103,6 @@ bar {
 	# Wallpaper
 	output * bg "$HOME/.bg" fill
 
-	# Make things a bit smaller on the laptop display
-	output LVDS-1 scale 0.9
 	#
 	# Example configuration:
 	#
@@ -206,6 +204,8 @@ bar {
 
 	# Take a screenshot
 	bindsym Print exec $screenshot
+	# Take a screenshot but don't style the image
+	bindsym Control+Print exec $screenshot -d
 	# Record the screen
 	bindsym $mod+Print exec $screenrecord
 #
