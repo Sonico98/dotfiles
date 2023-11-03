@@ -11,4 +11,4 @@ set_waybar_theme
 set_sway_theme "light"
 set_wallpaper
 # Apply the changes
-swaymsg reload
+export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock && swaymsg reload
