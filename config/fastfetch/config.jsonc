@@ -12,7 +12,9 @@
         }
     },
     "display": {
-        "percentType": 2, // colored percent number
+		"percent": {
+			"type": 2
+		},
 		"color": "yellow",
 		"disableLinewrap": true
     },
