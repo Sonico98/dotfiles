@@ -1,25 +1,31 @@
 configuration {
     display-drun:                   "";
-    show-icons:true;
+    show-icons:false;
     icon-theme:                     "Fluent";
     modi: "combi,run";
     combi-modi: "window,drun";
+	kb-row-up: "Up,k,Shift+Tab,Shift+ISO_Left_Tab";
+	kb-row-down: "Down,j";
+	kb-accept-entry: "Return,KP_Enter";
 }
+
+@theme "none"
  
 * {
     lines: 10;
     columns: 1;
-    background-color: #000000B5;
-    border-color: #00000000;
+    background-color: #21202580;
+    border-color: #21202580;
     text-color: #FFFFFFFF;
-    font: "Source Code Pro 12";
+    font: "GoogleSans Nerd Font 12";
 }
  
 #window {
+    background-color: #21202580;
     border: 0;
     border-radius: 8px;
-    padding: 30;
-    width: 40%;
+    padding: 10;
+    width: 80%;
     height: 60%;
 }
  
@@ -29,55 +35,60 @@ configuration {
     spacing: 10px;
     /*margin: 20%;*/
     padding: 7px 0;
-    border: 1px;
-    border-color: @base0D;
+    border: 0px;
 }
  
- 
 #listview {
-    background-color: #00000000;
     fixed-height: 0;
     border: 0px;
     spacing: 5px;
     scrollbar: false;
     padding: 10px 10px 0px;
+    background-color: #00000000;
 }
  
 #element {
-    background-color: #00000000;
     border: 0;
     border-radius: 15px;
     padding: 3 0  3 4 ;
+	background-color: #00000000;
 }
-
-element-icon { size: 2ch ; }
 
 #element selected {
-    background-color: #00BCD4;
-    text-color: #FFFFFF;
+    background-color: #f28b82FF;
+    text-color: #212025FF;
 }
- 
+
+#element-text {
+	background-color: #00000000;
+	padding: 5px;
+}
+
+#element-text selected {
+    text-color: #212025FF;
+}
  
 #inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+	enabled: true;
+    children:   [ prompt,textbox-prompt-colon,entry ];
     background-color: #00000000;
 }
  
-#case-indicator {
-    background-color: #00000000;
-    spacing:    0;
-}
 #entry {
     background-color: #00000000;
+	color: #FFFFFFFF;
     spacing:    0;
 }
+
 #prompt {
     background-color: #00000000;
+	color: #FFFFFFFF;
     spacing:    0;
 }
  
 #textbox-prompt-colon {
     background-color: #00000000;
+	color: #FFFFFFFF;
     expand:     false;
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
