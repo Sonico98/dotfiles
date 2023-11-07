@@ -23,7 +23,7 @@ configuration {
     border: 0;
     border-radius: 8px;
     padding: 50;
-    width: 100%;
+    width: 110%;
     height: 100%;
 }
  
@@ -56,14 +56,18 @@ element-icon {
 
 }
 
-element-text {
+#element-text {
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    margin:                         0.5% 0.5% -0.5% 0.5%;
+    margin:                         -0.5% 0.5% 0.5% 0.5%;
     background-color:		    #00000000; 
     position:			    center;
     font: "ABeeZee 10";
+}
+
+#element-text selected {
+	text-color: #212025FF;
 }
 
 #element {
@@ -76,10 +80,8 @@ element-text {
 }
 
 #element selected {
-    background-color: #00BCD48C;
-    text-color: #FFFFFF;
+    background-color: #F28B82FF;
 }
- 
  
 #inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
