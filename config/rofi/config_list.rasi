@@ -1,6 +1,6 @@
 configuration {
     display-drun:                   "";
-    show-icons:false;
+    show-icons:true;
     icon-theme:                     "Fluent";
     modi: "combi,run";
     combi-modi: "window,drun";
@@ -25,23 +25,19 @@ configuration {
     border: 0;
     border-radius: 8px;
     padding: 10;
-    width: 80%;
-    height: 60%;
+    width: 82%;
+    height: 84%;
 }
  
 #mainbox {
     background-color: #00000000;
     children: [inputbar, listview];
-    spacing: 10px;
-    /*margin: 20%;*/
     padding: 7px 0;
     border: 0px;
 }
  
 #listview {
-    fixed-height: 0;
     border: 0px;
-    spacing: 5px;
     scrollbar: false;
     padding: 10px 10px 0px;
     background-color: #00000000;
@@ -50,8 +46,13 @@ configuration {
 #element {
     border: 0;
     border-radius: 15px;
-    padding: 3 0  3 4 ;
 	background-color: #00000000;
+}
+
+#element-icon {
+    size: 			    5ch;
+    background-color:		    #00000000; 
+    padding: 3 0  3 4 ;
 }
 
 #element selected {
@@ -61,7 +62,7 @@ configuration {
 
 #element-text {
 	background-color: #00000000;
-	padding: 5px;
+	margin: 20;
 }
 
 #element-text selected {
@@ -72,6 +73,7 @@ configuration {
 	enabled: true;
     children:   [ prompt,textbox-prompt-colon,entry ];
     background-color: #00000000;
+	padding: 0px 10px;
 }
  
 #entry {

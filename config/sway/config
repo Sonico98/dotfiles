@@ -102,8 +102,6 @@ bar {
 	for_window [app_id="pavucontrol"] floating enable, resize set 720 515, move position 619 0
 	# Open KDE's polkit as a floating window
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
-	# Open copyq floating
-	for_window [app_id="com.github.hluk.copyq"] floating enable
 #
 
 ### Output configuration
@@ -156,9 +154,8 @@ bar {
 ### Login
 #
 	# Start all desktop files in ~/.config/autostart and /etc/xdg/autostart
-	# Custom-added desktop files: copyq, a clipboard manager; qbittorrent
+	# Custom-added desktop files: qbittorrent, keepassxc, tdesktop, vencord desktop
 	# Default, needed desktop files: clight, to control screen brightness; 
-	# nm-applet, for managing networks.
 	exec sleep 8 && dex -a -e i3
 	# Rename workspaces based on the programs open
 	exec sworkstyle &> /tmp/sworkstyle.log
@@ -167,6 +164,10 @@ bar {
 
 	# Polkit agent
 	exec /usr/lib/polkit-kde-authentication-agent-1
+
+	# Clipboard monitor
+	exec_always wl-paste --type text --watch cliphist store -max-items 100
+	exec_always wl-paste --type image --watch cliphist store -max-items 100
 
 	# Move to the scratchpad by default.
 	# To get the app_id, run 'swaymsg -t get_tree'.
@@ -188,9 +189,9 @@ bar {
 
     # Start your launcher
     bindsym $mod+r exec $menu
-	
-	# Show copyq menu (clipboard history)
-	bindsym $mod+v exec copyq menu
+
+	# Show clipboard history (cliphist)
+	bindsym $mod+v exec rofi -modi clipboard:cliphist-rofi -show clipboard -config ~/.config/rofi/config_list.rasi
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
