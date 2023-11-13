@@ -7,15 +7,6 @@ QUANTISIZE=0 				# 0 Disabled, 1 Enabled. Reduces image file size at the cost of
 
 # -- Script start --------------------------------
 
-case "$1" in
-	-d)
-		style=false
-		;;
-	*)
-		style=true
-		;;
-esac
-
 
 get_dominant_color()
 {
@@ -60,28 +51,22 @@ rm -f /tmp/full.png
 dunstctl set-paused false
 
 if [[ $success -eq 0 ]]; then
-	# Copy raw image, but don't save it on copyq's history
-	copyq copy image/png - < "$file"
+	# Copy raw image
+	wl-copy -t image/png < "$file"
 
 	# Round corners and add shadow
-	if [ $style = "true" ]; then
-		style_image "$file"
-	fi
+	style_image "$file"
 	
 	# Convert to 8bit PNG, to avoid weird effects and reduce file size
 	if [ "$QUANTISIZE" -eq 1 ]; then
 		pngquant "$file" -f -o "$file"
 	fi
 
-	# Copy and save the edited screenshot on copyq
-	if ! command -v wl-copy &>/dev/null; then
-		copyq copy image/png - < "$file" && copyq write image/png - < "$file"
-	else
-		wl-copy -t image/png < "$file"
-	fi
+	# Copy and save the edited screenshot
+	wl-copy -t image/png < "$file"
 
 	# Finish
 	notify-send 'Grim' 'Screenshot taken'
-	# sleep 2 && rm -f "$file"
+	sleep 2 && rm -f "$file"
 	exit 0
 fi
