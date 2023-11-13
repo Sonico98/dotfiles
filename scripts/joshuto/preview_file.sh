@@ -138,20 +138,20 @@ case "$mimetype" in
         try cat "$path" && { dump | trim; exit 0; }
         exit 1
 		;;
-    video/*)
-		# Information to show if thumbnail previews were enabled
-		# filename="$(basename "$path")"
-		# echo "$filename"
-		# dimension="Size: $(exiftool -ImageSize "$path" | awk '{print $4}')"
-		# echo "$dimension"
-        # exit 0
-		exiftool --Directory --FileModifyDate --FileAccessDate --FileCreateDate \
-			--FileInodeChangeDate --FilePermissions --FileTypeExtension --EBMLVersion \
-			--EBMLReadVersion --DocType --DocTypeVersion --DocTypeReadVersion \
-			--TimecodeScale --MuxingApp --WritingApp --DateTimeOriginal \
-			--MegaPixels --CreateDate --Modifydate "$path" \
-			| sed 's/File\sName                       : //' | tail -n+2 && { dump | trim; exit 0; }
-		;;
+    # video/*)
+	# 	# Information to show if thumbnail previews were enabled
+	# 	# filename="$(basename "$path")"
+	# 	# echo "$filename"
+	# 	# dimension="Size: $(exiftool -ImageSize "$path" | awk '{print $4}')"
+	# 	# echo "$dimension"
+    #     # exit 0
+	# 	exiftool --Directory --FileModifyDate --FileAccessDate --FileCreateDate \
+	# 		--FileInodeChangeDate --FilePermissions --FileTypeExtension --EBMLVersion \
+	# 		--EBMLReadVersion --DocType --DocTypeVersion --DocTypeReadVersion \
+	# 		--TimecodeScale --MuxingApp --WritingApp --DateTimeOriginal \
+	# 		--MegaPixels --CreateDate --Modifydate "$path" \
+	# 		| sed 's/File\sName                       : //' | tail -n+2 && { dump | trim; exit 0; }
+	# 	;;
 esac
 
 exit 1
