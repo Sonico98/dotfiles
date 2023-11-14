@@ -32,7 +32,7 @@ style_image()
 	  \( -clone 0 -fill White -colorize "$op" \) \
 	  \( -clone 0 -alpha extract -virtual-pixel black -morphology edgein octagon:2  \) \
 	  -compose over -composite \
-	  \( +clone -background black -shadow 100x40+0+16 \) \
+	  \( +clone -background black -shadow 60x10+0+8 \) \
 	  +swap -background "$(get_dominant_color "$file")" -layers merge +repage "$file"
 	  # \( +clone -background black -shadow 53x16+0+10 \) \
 }
