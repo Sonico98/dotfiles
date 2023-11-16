@@ -55,10 +55,10 @@ bar {
 	blur off
 	blur_xray off
 	blur_passes 2
-	blur_radius 5
+	blur_radius 4
 
 	# Blur rofi, waybar, kitty, swayimg and dunst
-	layer_effects "rofi" blur on; blur_radius 2; corner_radius 10;
+	layer_effects "rofi" blur on; corner_radius 10;
 	layer_effects "waybar" blur on; blur_radius 2; shadows off
 	layer_effects "notifications" blur on; blur_radius 2; shadows off
 	for_window [ app_id="kitty" ] blur on
