@@ -1,0 +1,104 @@
+#!/bin/python
+
+import asyncio
+import os
+from aioshutil import move
+from asyncinotify import Inotify, Mask
+from pathlib import Path
+
+
+async def make_unique_filename(file_path):
+    duplicate_nr = 0
+    base, extension = os.path.splitext(file_path)
+    while os.path.exists(file_path):
+        duplicate_nr += 1
+        file_path = f'{base}({duplicate_nr}){extension}'
+
+    return file_path
+
+
+async def check_extension(event, file_extension):
+    base_dir = '~/Downloads/Firefox Downloads/'
+    destination = None
+    if file_extension in ['jpg', 'jpeg', 'png', 'webp', 'tiff']:
+        destination = base_dir + '/Images/'
+    elif file_extension in ['pdf', 'doc', 'docx', 'txt']:
+        destination = base_dir + '/Documents/'
+    elif file_extension in ['mp4', 'mkv', 'avi']:
+        destination = base_dir + '/Videos/'
+    elif file_extension in ['torrent']:
+        destination = base_dir + '/Torrents/'
+    elif file_extension in ['mp3', 'm4a', 'flac', 'wav']:
+        destination = base_dir + '/Music/'
+    elif file_extension in ['zip', '7z', 'rar', 'gz', 'tar']:
+        destination = base_dir + '/Compressed/'
+    elif file_extension in ['apk', 'exe', 'bash', 'sh', 'py']:
+        destination = base_dir + '/Executables/'
+
+    if destination is not None:
+        await asyncio.sleep(2)
+        dest_file = await set_dest_file(event, destination)
+        downloading_file = str(event.path)
+        if os.path.exists(str(event.path) + '.aria2'):
+            try: 
+                await wait_for_aria2_finish(file_extension, downloading_file, dest_file)
+            except Exception as e:
+                print(e)
+        else:
+            # TODO: Properly handle downloads that don't go through aria2
+            try:
+                await asyncio.sleep(2)
+                await move(str(event.path), dest_file)
+            except Exception as e:
+                print(e)
+
+
+async def wait_for_aria2_finish(file_extension, downloading_file, dest_file):
+    with Inotify() as dl_end:
+        dl_end.add_watch(os.path.expanduser('~/Downloads'), Mask.DELETE)
+        async for deletion in dl_end:
+            deleted_file=str(deletion.path)
+            del_suffixes = Path(deleted_file).suffixes
+            del_extension = ""
+            for ext in del_suffixes:
+                del_extension += ext
+            del_extension = del_extension.lower()
+            if del_extension == f".{file_extension}.aria2":
+                if os.path.splitext(Path(deleted_file).stem)[0] == Path(downloading_file).stem:
+                    await move(downloading_file, dest_file)
+            return
+
+
+async def set_dest_file(event, dir):
+    return await make_unique_filename(
+        os.path.expanduser(dir) + os.path.basename(str(event.path))
+    )
+
+
+async def main():
+    # Context manager to close the inotify handle after use
+    with Inotify() as inotify:
+        # Adding the watch can also be done outside of the context manager.
+        # __enter__ doesn't actually do anything except return self.
+        # This returns an asyncinotify.inotify.Watch instance
+        inotify.add_watch(os.path.expanduser('~/Downloads'), Mask.CREATE | Mask.MOVE)
+        # Iterate events forever, yielding them one at a time
+        async for event in inotify:
+            await asyncio.sleep(1)
+            file=str(event.path)
+            file_extension = os.path.splitext(file)[1]
+            if file_extension:
+                file_extension = file_extension[1:].lower()
+                if file_extension != "aria2":
+                    if os.path.exists(file):
+                        await check_extension(event, file_extension)
+
+
+loop = asyncio.get_event_loop()
+try:
+    loop.run_until_complete(main())
+except KeyboardInterrupt:
+    print('shutting down')
+finally:
+    loop.run_until_complete(loop.shutdown_asyncgens())
+    loop.close()
