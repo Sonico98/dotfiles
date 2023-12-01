@@ -122,23 +122,18 @@ set_kitty_theme() {
 set_rofi_theme() {
 	case "$1" in
 		"light")
-			old_bg="$rofi_dark_bg"
-			new_bg="$rofi_light_bg"
-			old_fg="$rofi_dark_fg"
-			new_fg="$rofi_light_fg"
+			old_theme="$rofi_dark_theme"
+			new_theme="$rofi_light_theme"
 			;;
 		"dark")
-			old_bg="$rofi_light_bg"
-			new_bg="$rofi_dark_bg"
-			old_fg="$rofi_light_fg"
-			new_fg="$rofi_dark_fg"
+			old_theme="$rofi_light_theme"
+			new_theme="$rofi_dark_theme"
 			;;
 	esac
 
 	sed -i -e \
-		"s/    background-color: $old_bg/    background-color: $new_bg/" \
-		-e "s/    text-color: $old_fg/    text-color: $new_fg/" \
-		"$rofi_conf_path"
+		"s/theme \"$old_theme\"/theme \"$new_theme\"/" \
+		"$rofi_conf_path/config.rasi" "$rofi_conf_path/config_list.rasi"
 }
 
 set_btop_theme() {

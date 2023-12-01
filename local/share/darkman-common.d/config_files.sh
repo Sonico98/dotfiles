@@ -22,7 +22,7 @@ nvim_theme_path="$HOME/.config/nvim/lua/plugins/ayu-vim.lua"
 # Dunst
 dunst_conf_path="$HOME/.config/dunst/dunstrc"
 # Rofi
-rofi_conf_path="$HOME/.config/rofi/config.rasi"
+rofi_conf_path="$HOME/.config/rofi/"
 # BTop
 btop_conf_path="$HOME/.config/btop/btop.conf"
 

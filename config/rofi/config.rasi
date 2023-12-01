@@ -8,15 +8,11 @@ configuration {
     combi-modi: "window,drun";
 }
 
-@theme "none"
+@theme "material_dark"
 
 * {
-    lines: 2;
+    lines: 4;
     columns: 7;
-    background-color: #00000045;
-    border-color: #00000000;
-    text-color: #EFEFEF;
-    font: "SauceCodePro Nerd Font 10";
 }
  
 #window {
@@ -46,9 +42,8 @@ configuration {
 }
 
 element-icon {
-    size: 			    10ch;
+    size: 			    9ch;
     background-color:		    #00000000; 
-    text-color:			    inherit;
     position:			    center;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
@@ -63,12 +58,8 @@ element-icon {
     margin:                         -0.5% 0.5% 0.5% 0.5%;
     background-color:		    #00000000; 
     position:			    center;
-    font: "ABeeZee 10";
 }
 
-#element-text selected {
-	text-color: #212025FF;
-}
 
 #element {
     background-color: #00000000;
@@ -77,10 +68,6 @@ element-icon {
     padding: 3 0  3 4 ;
     orientation: vertical;
     spacing: 20px;
-}
-
-#element selected {
-    background-color: #F28B82FF;
 }
  
 #inputbar {
@@ -97,7 +84,6 @@ element-icon {
 }
 
 #entry {
-    background-color: #00000000;
     spacing: 0;
     expand: true;
     horizontal-align: 0;
@@ -106,13 +92,11 @@ element-icon {
 }
 
 #prompt {
-    background-color: #00000000;
     spacing:    0;
 }
  
 #textbox-prompt-colon {
     enabled: false;
-    background-color: #00000000;
     expand:     false;
     str:        ":";
     margin:     0px 0.3em 0em 0em ;

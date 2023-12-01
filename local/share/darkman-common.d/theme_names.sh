@@ -20,3 +20,6 @@ dark_kitty_theme="Material Dark"
 # Btop
 btop_dark_theme="monokai.theme"
 btop_light_theme="flat-remix-light.theme"
+# Rofi
+rofi_dark_theme="material_dark"
+rofi_light_theme="material_light"

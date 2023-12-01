@@ -9,19 +9,14 @@ configuration {
 	kb-accept-entry: "Return,KP_Enter";
 }
 
-@theme "none"
+@theme "material_dark"
  
 * {
     lines: 10;
     columns: 1;
-    background-color: #21202580;
-    border-color: #21202580;
-    text-color: #FFFFFFFF;
-    font: "GoogleSans Nerd Font 12";
 }
  
 #window {
-    background-color: #21202580;
     border: 0;
     border-radius: 8px;
     padding: 10;
@@ -55,20 +50,11 @@ configuration {
     padding: 3 0  3 4 ;
 }
 
-#element selected {
-    background-color: #f28b82FF;
-    text-color: #212025FF;
-}
-
 #element-text {
 	background-color: #00000000;
 	margin: 20;
 }
 
-#element-text selected {
-    text-color: #212025FF;
-}
- 
 #inputbar {
 	enabled: true;
     children:   [ prompt,textbox-prompt-colon,entry ];
@@ -77,20 +63,14 @@ configuration {
 }
  
 #entry {
-    background-color: #00000000;
-	color: #FFFFFFFF;
     spacing:    0;
 }
 
 #prompt {
-    background-color: #00000000;
-	color: #FFFFFFFF;
     spacing:    0;
 }
  
 #textbox-prompt-colon {
-    background-color: #00000000;
-	color: #FFFFFFFF;
     expand:     false;
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
