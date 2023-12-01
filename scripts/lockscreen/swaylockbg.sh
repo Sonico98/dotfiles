@@ -15,9 +15,12 @@ playerctl --player=%any,chromium pause
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
 busctl --expect-reply=false --user set-property org.clight.clight /org/clight/clight/Conf/Backlight org.clight.clight.Conf.Backlight NoAutoCalib "b" false
+# Turn the screen off and disable the mouse so it doesn't turn the screen on
+swaymsg "input type:pointer events disabled"
 swaymsg "output * power off"
 swaylock -F --indicator-idle-visible -i ${LOCKSCREEN_DIR}/lockscreen.jpg
 # Undo the previous actions after the screen has been unlocked
+swaymsg "input type:pointer events enabled"
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 busctl --expect-reply=false --user set-property org.clight.clight /org/clight/clight/Conf/Backlight org.clight.clight.Conf.Backlight NoAutoCalib "b" true
