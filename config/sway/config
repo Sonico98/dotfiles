@@ -108,7 +108,9 @@ bar {
 ### Output configuration
 #
 	# Wallpaper
-	output * bg "$HOME/.bg" fill
+	# output * bg "$HOME/.bg" fill
+	exec_always swww init
+	exec swww img ~/.bg
 
 	#
 	# Example configuration:

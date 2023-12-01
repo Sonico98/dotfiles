@@ -27,6 +27,7 @@ set_sway_theme() {
 set_wallpaper() {
 	rm -f ~/.bg
 	ln -s "$wallpaper" ~/.bg
+	swww img ~/.bg --transition-type random --transition-step 40 --transition-fps 60 --transition-angle 35
 }
 
 set_gtk_theme() {

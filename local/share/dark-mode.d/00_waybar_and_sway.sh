@@ -9,6 +9,6 @@ style_to_set="$dark_waybar_theme"
 
 set_waybar_theme
 set_sway_theme "dark"
-set_wallpaper
 # Apply the changes
 export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock && swaymsg reload
+set_wallpaper
