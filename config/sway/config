@@ -75,6 +75,7 @@ bar {
 	dim_inactive_colors.unfocused #000000FF
 	dim_inactive_colors.urgent #900000FF
 	for_window [class="Gimp-*"] default_dim_inactive 0
+	for_window [app_id="gimp"] default_dim_inactive 0
 
 	# Move minimized windows into Scratchpad (enable|disable)
 	scratchpad_minimize disable
