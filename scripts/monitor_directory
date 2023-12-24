@@ -28,7 +28,7 @@ async def check_extension(event, file_extension):
         destination = base_dir + '/Videos/'
     elif file_extension in ['torrent']:
         destination = base_dir + '/Torrents/'
-    elif file_extension in ['mp3', 'm4a', 'flac', 'wav']:
+    elif file_extension in ['mp3', 'm4a', 'flac', 'wav', 'ogg']:
         destination = base_dir + '/Music/'
     elif file_extension in ['zip', '7z', 'rar', 'gz', 'tar']:
         destination = base_dir + '/Compressed/'
@@ -36,24 +36,24 @@ async def check_extension(event, file_extension):
         destination = base_dir + '/Executables/'
 
     if destination is not None:
-        await asyncio.sleep(2)
+        await asyncio.sleep(0.5)
         dest_file = await set_dest_file(event, destination)
         downloading_file = str(event.path)
-        if os.path.exists(str(event.path) + '.aria2'):
+        if os.path.exists(str(event.path) + '.aria2') or os.path.exists(str(event.path) + '.part'):
             try: 
-                await wait_for_aria2_finish(file_extension, downloading_file, dest_file)
+                await wait_for_download_finish(file_extension, downloading_file, dest_file)
             except Exception as e:
                 print(e)
         else:
             # TODO: Properly handle downloads that don't go through aria2
             try:
-                await asyncio.sleep(2)
+                await asyncio.sleep(0.5)
                 await move(str(event.path), dest_file)
             except Exception as e:
                 print(e)
 
 
-async def wait_for_aria2_finish(file_extension, downloading_file, dest_file):
+async def wait_for_download_finish(file_extension, downloading_file, dest_file):
     with Inotify() as dl_end:
         dl_end.add_watch(os.path.expanduser('~/Downloads'), Mask.DELETE)
         async for deletion in dl_end:
@@ -63,7 +63,7 @@ async def wait_for_aria2_finish(file_extension, downloading_file, dest_file):
             for ext in del_suffixes:
                 del_extension += ext
             del_extension = del_extension.lower()
-            if del_extension == f".{file_extension}.aria2":
+            if del_extension == f".{file_extension}.aria2" or del_extension == f".{file_extension}.part":
                 if os.path.splitext(Path(deleted_file).stem)[0] == Path(downloading_file).stem:
                     await move(downloading_file, dest_file)
             return
@@ -84,7 +84,7 @@ async def main():
         inotify.add_watch(os.path.expanduser('~/Downloads'), Mask.CREATE | Mask.MOVE)
         # Iterate events forever, yielding them one at a time
         async for event in inotify:
-            await asyncio.sleep(1)
+            await asyncio.sleep(0.5)
             file=str(event.path)
             file_extension = os.path.splitext(file)[1]
             if file_extension:
