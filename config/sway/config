@@ -103,14 +103,15 @@ bar {
 	for_window [app_id="pavucontrol"] floating enable, resize set 720 515, move position 619 0
 	# Open KDE's polkit as a floating window
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
+	for_window [title="Moving — Dolphin"] floating enable, move position center
+	for_window [title="Deleting — Dolphin"] floating enable, move position center
 #
 
 ### Output configuration
 #
 	# Wallpaper
 	# output * bg "$HOME/.bg" fill
-	exec_always swww init
-	exec swww img ~/.bg
+	exec swww init && swww img "$HOME/.bg"
 
 	#
 	# Example configuration:
@@ -151,6 +152,11 @@ bar {
 	input "type:pointer" {
 		scroll_method on_button_down
 		scroll_button BTN_MIDDLE
+	}
+
+	input "type:touchpad" {
+		tap enabled
+		natural_scroll enabled
 	}
 #
 
