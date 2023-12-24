@@ -42,7 +42,7 @@ configuration {
 }
 
 element-icon {
-    size: 			    9ch;
+    size: 			    8ch;
     background-color:		    #00000000; 
     position:			    center;
     horizontal-align:               0.5;
