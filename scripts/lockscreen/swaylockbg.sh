@@ -1,5 +1,11 @@
 #!/bin/bash
+# Exit if the screen is already locked
+if pidof swaylock; then
+	exit 1
+fi
+
 set -euo pipefail
+pause_autocalib="busctl --expect-reply=false --user set-property org.clight.clight /org/clight/clight/Conf/Backlight org.clight.clight.Conf.Backlight NoAutoCalib 'b'"
 
 LOCKSCREEN_DIR=/tmp/lockscreen
 if [ -z ${LOCKSCREEN_DIR+x} ]; then exit 1; fi # bail if lockscreen dir is not set
@@ -14,14 +20,17 @@ fi
 playerctl --player=%any,chromium pause
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
-busctl --expect-reply=false --user set-property org.clight.clight /org/clight/clight/Conf/Backlight org.clight.clight.Conf.Backlight NoAutoCalib "b" false
-# Turn the screen off and disable the mouse so it doesn't turn the screen on
-swaymsg "input type:pointer events disabled"
-swaymsg "output * power off"
+eval "$pause_autocalib" true
+# Turn the screen off after five seconds, 
+# turn it back on when activity is detected 
+# and automatically set the screen brightness
+swayidle timeout 5 'swaymsg "output * power off"' resume \
+	'swaymsg "output * power on" && busctl --expect-reply=false --user call org.clight.clight /org/clight/clight org.clight.clight Capture "bb" true false' &
+idlepid=$!
 swaylock -F --indicator-idle-visible -i ${LOCKSCREEN_DIR}/lockscreen.jpg
 # Undo the previous actions after the screen has been unlocked
-swaymsg "input type:pointer events enabled"
+eval "$pause_autocalib" false
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
-busctl --expect-reply=false --user set-property org.clight.clight /org/clight/clight/Conf/Backlight org.clight.clight.Conf.Backlight NoAutoCalib "b" true
+kill "$idlepid"
 rm -rf ${LOCKSCREEN_DIR}

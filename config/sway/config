@@ -27,7 +27,7 @@ set $screenrecord screenrecord
 # Screen locking script
 set $locker swaylockbg
 
-# Brightness control
+# Brightness control vars
 set $brightness_bus busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight
 set $brightness_bus_up $brightness_bus RaiseAll "d(bdu)s"
 set $brightness_bus_down $brightness_bus LowerAll "d(bdu)s"
@@ -124,10 +124,9 @@ bar {
 ### Idle configuration
 #
 	exec swayidle -w \
-			 timeout 180 '$locker &' \
-			 resume '$brightness_check_bus && swaymsg "output * power on"' \
-			 before-sleep '$locker &'
-	#
+			 timeout 180 'loginctl lock-session' \
+			 before-sleep 'loginctl lock-session'
+	
 	# This will pause brightness auto-calibration, lock your screen
 	# and turn the display off after 180 seconds of inactivity.
 	# The screen will be turn back on and the ambient light re-checked when resumed.
@@ -487,7 +486,7 @@ bar {
 #
 	set $mode_system  𝐋ock │ 󰩈 𝚬xit │⏾ 𝐒uspend │ ↺ 𝐑eboot │  𝐏ower Off
 	mode "$mode_system" {
-		bindsym l exec sleep 0.05 && killall -SIGUSR1 swayidle, mode "default"
+		bindsym l exec loginctl lock-session, mode "default"
 		bindsym e exec swayexit exit, mode "default"
 		bindsym s exec systemctl suspend, mode "default"
 		bindsym r exec swayexit reboot, mode "default"
