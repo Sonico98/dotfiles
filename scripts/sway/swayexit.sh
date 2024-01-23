@@ -1,7 +1,6 @@
 #!/bin/bash
 
 sysclose () {
-	sync_cache_to_hdd
 	# stop_user_services
 	kill -TERM "$(pidof firefox)"
 	kill -TERM "$(pidof qbittorrent)"
@@ -11,11 +10,6 @@ sysclose () {
 	swaymsg [app_id=".*"] kill
 	swaymsg [class=".*"] kill
 	kill -9 "$(pgrep -f "python")"
-}
-
-
-sync_cache_to_hdd () {
-	rsync -a --update --existing ~/.cache/paru/clone/ ~/.local/share/little-cache-files/paru/clone/
 }
 
 

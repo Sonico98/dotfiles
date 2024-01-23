@@ -64,22 +64,7 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	if ! [ -d /zram/Torrents ]; then mkdir -p /zram/Torrents; fi
 	ln -s /zram/Torrents /home/sonico/Downloads/Firefox\ Downloads/Torrents
 
-	yes 'n' | ln -s ~/.local/share/little-cache-files/cache/* ~/.cache/ &>/dev/null
-
-	mkdir -p ~/.cache/paru
-	if ! [ -f ~/.cache/paru/packages.aur ]; then
-	ln -s ~/.local/share/little-cache-files/paru/packages.aur ~/.cache/paru; fi
-	# Link all paru clone folders but still compile on zram
-	# if ! [ -d ~/.cache/paru/clone ]; then
-	# 	for d in ~/.local/share/little-cache-files/paru/clone/*/ ; do
-	# 		foldername="$(basename $d)"
-	# 		mkdir -p ~/.cache/paru/clone/"$foldername"
-	# 		ln -s "$d"/{*,.[aA-zZ]*} ~/.cache/paru/clone/"$foldername"/
-	# 	done
-	# fi
-	if ! [ -d ~/.cache/paru/clone ]; then
-		rsync -av ~/.local/share/little-cache-files/paru/clone/ ~/.cache/paru/clone/
-	fi
+	yes 'n' | ln -s ~/.local/share/little-cache-files/* ~/.cache/ &>/dev/null
 
 	if ! [[ "$XDG_CURRENT_DESKTOP" =~ (KDE|GNOME|XFCE4|Unity|Pantheon|Elementary|LXDE) ]]; then
 		systemctl --user mask --runtime plasma-kglobalaccel.service
