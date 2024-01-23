@@ -43,8 +43,14 @@ extract = [
 	{ exec = '/home/sonico/.dotfiles/scripts/yazi/kitty_cmds.sh -e "$@"', desc = "Extract here", for = "unix" },
 	{ exec = 'unar "%1"', desc = "Extract here", for = "windows" },
 ]
+play_gif = [
+	{ exec = 'mpv --fullscreen=no --no-resume-playback --no-osc --loop "$@"', orphan = true, for = "unix" },
+]
+play_audio = [
+	{ exec = 'mpv --player-operation-mode=pseudo-gui --fullscreen=no --no-resume-playback "$@"', orphan = true, for = "unix" },
+]
 play = [
-	{ exec = 'mpv "$@"', orphan = true, for = "unix" },
+	{ exec = 'mpv --player-operation-mode=pseudo-gui "$@"', orphan = true, for = "unix" },
 	{ exec = 'mpv "%1"', orphan = true, for = "windows" },
 	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 ]
@@ -54,9 +60,10 @@ rules = [
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 
 	{ mime = "text/*",  use = [ "edit_newtab", "edit", "reveal" ] },
+	{ mime = "image/gif", use = [ "play_gif", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	{ mime = "video/*", use = [ "play", "reveal" ] },
-	{ mime = "audio/*", use = [ "play", "reveal" ] },
+	{ mime = "audio/*", use = [ "play_audio", "reveal" ] },
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
 
 	{ mime = "application/json", use = [ "edit_newtab", "edit", "reveal" ] },
