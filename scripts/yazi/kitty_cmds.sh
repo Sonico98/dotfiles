@@ -2,18 +2,9 @@
 # Programs required: kitty, fd, p7zip, timg
 # openArchives script: https://www.github.com/Sonico98/7zip-Extract
 
-files=("${@:2}")
-if [ "${#files[@]}" -ne 0 ]; then
-	args=()
-	for file in "${files[@]}"; do
-		path_and_file="$(echo "$(pwd)"/"$file")"
-		args+=("$path_and_file")
-	done
-fi
-
 
 id=""
-while getopts ":DPdesut:" option; do
+while getopts ":DPdesutv:" option; do
 	case $option in
 		# Preview all images in a directory with timg, in natural order (sort -V)
 		D)
@@ -44,29 +35,32 @@ while getopts ":DPdesut:" option; do
 		# Preview PDFs
 		P)
 			tbid="$(kitty @ launch --type=tab --title='PDF preview' \
-				--cwd=current termpdf.py "${args[@]}")"
+				--cwd=current termpdf.py "${@:2}")"
 		;;
 		# Extract files
 		e)
 			id="$(kitty @ launch --title='Extract files' \
-				--cwd=current --location split openArchives.sh -e "${args[@]}")"
+				--cwd=current --location split openArchives.sh -e "${@:2}")"
 			;;
 		# Archive files
 		d) # split into 2GB files
 			id="$(kitty @ launch --title='Archive files - 2GB Files' \
-				--cwd=current --location split archiveFiles.sh -d "${args[@]}")"
+				--cwd=current --location split archiveFiles.sh -d "${@:2}")"
 			;;
 		s) # store
 			id="$(kitty @ launch --title='Archive files - Store' \
-				--cwd=current --location split archiveFiles.sh -s "${args[@]}")"
+				--cwd=current --location split archiveFiles.sh -s "${@:2}")"
 			;;
 		u) # ultra compression
 			id="$(kitty @ launch --title='Archive files - Ultra Compression' \
-				--cwd=current --location split archiveFiles.sh -u "${args[@]}")"
+				--cwd=current --location split archiveFiles.sh -u "${@:2}")"
 			;;
 		t) # Open sub-shell
 			kitten run-shell kitty @ set-tab-title "Joshuto terminal" \
 				&& kitty @ set-tab-title "Joshuto"
+			;;
+		v) # Open nvim editor
+			id="$(kitty @ launch --cwd=current --type=tab nvim "${@:2}")"
 			;;
 		\?)
 			echo "Wrong parameter"

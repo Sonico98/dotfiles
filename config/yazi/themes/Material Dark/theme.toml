@@ -1,0 +1,164 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# : Manager {{{
+
+[manager]
+cwd = { fg = "blue" }
+
+# Hovered
+hovered         = { fg = "black", bg = "blue" }
+preview_hovered = { underline = false }
+
+# Find
+find_keyword  = { fg = "yellow", italic = true }
+find_position = { fg = "black", bg = "blue", italic = true }
+
+# Marker
+marker_selected = { fg = "green", bg = "green" }
+marker_copied   = { fg = "yellow", bg = "yellow" }
+marker_cut      = { fg = "red", bg = "red" }
+
+# Tab
+tab_active   = { fg = "black", bg = "blue" }
+tab_inactive = { fg = "black", bg = "white" }
+tab_width    = 1
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "white" }
+
+# : }}}
+
+
+# : Status {{{
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "black", bg = "black" }
+
+# Mode
+mode_normal = { fg = "black", bg = "blue", bold = true }
+mode_select = { fg = "black", bg = "green", bold = true }
+mode_unset  = { fg = "black", bg = "red", bold = true }
+
+# Progress
+progress_label  = { fg = "black", bold = true }
+progress_normal = { fg = "blue", bg = "white" }
+progress_error  = { fg = "red", bg = "white" }
+
+# Permissions
+permissions_t = { fg = "blue" }
+permissions_r = { fg = "yellow" }
+permissions_w = { fg = "red" }
+permissions_x = { fg = "green" }
+permissions_s = { fg = "magenta" }
+
+# : }}}
+
+
+# : Input {{{
+
+[input]
+border   = { fg = "blue" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+# : }}}
+
+
+# : Select {{{
+
+[select]
+border   = { fg = "blue" }
+active   = { fg = "lightmagenta" }
+inactive = {}
+
+# : }}}
+
+
+# : Completion {{{
+
+[completion]
+active = { fg = "black", bg = "blue" }
+
+# : }}}
+
+
+# : Tasks {{{
+
+[tasks]
+border  = { fg = "blue" }
+title   = {}
+hovered = { underline = true }
+
+# : }}}
+
+
+# : Which {{{
+
+[which]
+mask            = { bg = "reset" }
+cand            = { fg = "yellow" }
+rest            = { fg = "white" }
+desc            = { fg = "magenta" }
+separator       = "  "
+separator_style = { fg = "white" }
+
+# : }}}
+
+
+# : Help {{{
+
+[help]
+on      = { fg = "yellow" }
+exec    = { fg = "lightgreen" }
+desc    = { fg = "magenta" }
+hovered = { bg = "lightblack", bold = true }
+footer  = { fg = "white", bg = "lightblack" }
+
+# : }}}
+
+
+# : File-specific styles {{{
+
+[filetype]
+
+rules = [
+	# Images
+	{ mime = "image/*", fg = "yellow" },
+
+	# Videos
+	{ mime = "video/*", fg = "lightmagenta" },
+	{ mime = "audio/*", fg = "magenta" },
+
+	# Archives
+	{ mime = "application/zip",             fg = "lightred" },
+	{ mime = "application/gzip",            fg = "lightred" },
+	{ mime = "application/x-tar",           fg = "lightred" },
+	{ mime = "application/x-bzip",          fg = "lightred" },
+	{ mime = "application/x-bzip2",         fg = "lightred" },
+	{ mime = "application/x-7z-compressed", fg = "lightred" },
+	{ mime = "application/x-rar",           fg = "lightred" },
+
+	# Documents
+	{ mime = "application/pdf",    fg = "red" },
+	{ mime = "application/msword", fg = "lightblue" },
+	{ mime = "application/vnd.ms-powerpoint", fg = "lightyellow" },
+	{ mime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document", fg = "lightblue" },
+	{ mime = "application/vnd.openxmlformats-officedocument.presentationm1.presentation", fg = "lightyellow" },
+	{ mime = "application/vnd.oasis.opendocument.text", fg = "lightblue" },
+	{ mime = "application/vnd.oasis.opendocument.presentation", fg = "lightyellow" },
+	{ mime = "application/vnd.oasis.opendocument.spreadsheet", fg = "lightgreen" },
+
+	# Executables
+	{ mime = "application/x-*", fg = "green" },
+	{ mime = "text/x-*",        fg = "lightgreen" },
+
+	# Fallback
+	{ mime = "*", is = "link", fg = "cyan", italic = true },
+	{ name = "*/", fg = "blue", bold = true },
+]
+
+# : }}}

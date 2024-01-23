@@ -25,4 +25,5 @@ dunst_conf_path="$HOME/.config/dunst/dunstrc"
 rofi_conf_path="$HOME/.config/rofi/"
 # BTop
 btop_conf_path="$HOME/.config/btop/btop.conf"
-
+# Yazi
+yazi_conf_path="$HOME/.config/yazi"
