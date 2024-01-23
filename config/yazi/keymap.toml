@@ -27,7 +27,7 @@ keymap = [
 	{ on = [ "<PageDown>" ],   exec = "arrow 100%",  desc = "Move cursor down one page" },
 
 	{ on = [ "h" ], exec = [ "leave", "escape --visual --select" ], desc = "Go back to the parent directory" },
-	{ on = [ "l" ], exec = [ "plugin --sync smart-enter" ], desc = "Enter the child directory, or open the file" },
+	{ on = [ "l" ], exec = "plugin --sync smart-enter", desc = "Enter the child directory, or open the file" },
 
 	{ on = [ "[" ], exec = "seek -1", desc = "Seek up 5 units in the preview" },
 	{ on = [ "]" ], exec = "seek 1",  desc = "Seek down 5 units in the preview" },
@@ -35,7 +35,7 @@ keymap = [
 	{ on = [ "<Up>" ],    exec = "arrow -1", desc = "Move cursor up" },
 	{ on = [ "<Down>" ],  exec = "arrow 1",  desc = "Move cursor down" },
 	{ on = [ "<Left>" ],  exec = "leave",    desc = "Go back to the parent directory" },
-	{ on = [ "<Right>" ], exec = "enter",    desc = "Enter the child directory" },
+	{ on = [ "<Right>" ], exec = "plugin --sync smart-enter", desc = "Enter the child directory, or open the file" },
 
 	{ on = [ "g", "g" ], exec = "arrow -99999999", desc = "Move cursor to the top" },
 	{ on = [ "G" ],      exec = "arrow 99999999",  desc = "Move cursor to the bottom" },
@@ -143,6 +143,7 @@ keymap = [
 	{ on = [ "g", "t" ],       exec = "cd /tmp",          desc = "Go to the temporary directory" },
 	{ on = [ "g", "r" ],       exec = "cd /",          	  desc = "Go to the root directory" },
 	{ on = [ "g", "z" ],       exec = "cd /zram",         desc = "Go to the zram directory" },
+	{ on = [ "g", "o" ],       exec = "cd /mnt/onedrive", desc = "Go to the onedrive directory" },
 	{ on = [ "g", "<Space>" ], exec = "cd --interactive", desc = "Go to a directory interactively" },
 
 	# Help

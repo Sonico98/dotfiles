@@ -22,7 +22,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit_newtab = [
-	{ exec = '~/.dotfiles/scripts/joshuto/kitty_cmds.sh -v "$@"', orphan = true , block = false,  desc = "Open in nvim", for = "unix" },
+	{ exec = '~/.dotfiles/scripts/yazi/kitty_cmds.sh -v "$@"', orphan = true, block = false,  desc = "Open in nvim", for = "unix" },
 ]
 
 edit = [
@@ -40,7 +40,7 @@ reveal = [
 	{ exec = '''exiftool "$1"; echo "Press enter to exit test"; read''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
-	{ exec = '/home/sonico/.dotfiles/scripts/joshuto/kitty_cmds.sh -e "$@"', desc = "Extract here", for = "unix" },
+	{ exec = '/home/sonico/.dotfiles/scripts/yazi/kitty_cmds.sh -e "$@"', desc = "Extract here", for = "unix" },
 	{ exec = 'unar "%1"', desc = "Extract here", for = "windows" },
 ]
 play = [
