@@ -126,6 +126,9 @@ footer  = { fg = "white", bg = "lightblack" }
 [filetype]
 
 rules = [
+	# Symlinks
+	{ mime = "*", is = "link", fg = "cyan", italic = true },
+
 	# Images
 	{ mime = "image/*", fg = "yellow" },
 
@@ -157,7 +160,6 @@ rules = [
 	{ mime = "text/x-*",        fg = "lightgreen" },
 
 	# Fallback
-	{ mime = "*", is = "link", fg = "cyan", italic = true },
 	{ name = "*/", fg = "blue", bold = true },
 ]
 
