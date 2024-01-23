@@ -35,7 +35,7 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
-	joshuto
+	yazi
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -1519,10 +1519,10 @@
     p10k segment -f 208 -i '⭐' -t 'hello, %n'
   }
 
-  function prompt_joshuto() {
-    is_joshuto_subshell="$(ps | grep 'joshuto')"
+  function prompt_yazi() {
+    is_joshuto_subshell="$(ps | grep 'yazi')"
     if [ $is_joshuto_subshell ]; then
-    	p10k segment -f 005 -i '' -t 'Joshuto terminal'
+    	p10k segment -f 005 -i '' -t 'Yazi terminal'
     fi
   }
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
