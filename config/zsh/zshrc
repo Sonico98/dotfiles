@@ -73,6 +73,8 @@ alias cat="bat"
 alias fd="fd -H"
 alias feh=fehres	# Custom feh theme
 alias ffbatch="$HOME/.dotfiles/scripts/FFBatch/ffbatch.sh"
+alias ffmpeg="ffmpeg -hide_banner"
+alias ffprobe="ffprobe -hide_banner"
 alias icat="timg -U --title=%f -C -Bnone --threads=4 -pk"
 alias ibrc="ibroadcast-uploader -p 5"
 alias ixio="curl -F 'f:1=<-' ix.io"
@@ -164,50 +166,14 @@ function vi-yank-xclip() {
 	echo "$CUTBUFFER" | wl-copy
 }
 
-# Exit joshuto to the working directory
-function j() {
-	JOSHUTO_BIN=/usr/bin/joshuto # /usr/local/bin/jshto for ueberzug support
-	ID="$$"
-	if [ -w "/tmp/" ]; then
-		mkdir -p "/tmp/$USER"
-		OUTPUT_FILE="/tmp/$USER/joshuto-cwd-$ID"
-		if [ -n "$KITTY_WINDOW_ID" ]; then
-			kitty @ set-tab-title Joshuto
-		fi
-		env "$JOSHUTO_BIN" --change-directory --output-file "$OUTPUT_FILE" "$@"
-		exit_code=$?
-
-		case "$exit_code" in
-			# regular exit
-			0)
-				if [ -n "$KITTY_WINDOW_ID" ]; then
-					kitty @ set-tab-title
-				fi
-				;;
-			# output contains current directory
-			101)
-				if [ -n "$KITTY_WINDOW_ID" ]; then
-					kitty @ set-tab-title
-				fi
-				JOSHUTO_CWD=$(cat "$OUTPUT_FILE")
-				cd "$JOSHUTO_CWD"
-				;;
-			# output selected files
-			102)
-				if [ -n "$KITTY_WINDOW_ID" ]; then
-					kitty @ set-tab-title
-				fi
-				;;
-			*)
-				if [ -n "$KITTY_WINDOW_ID" ]; then
-					kitty @ set-tab-title
-				fi
-				echo "Exit code: $exit_code"
-				;;
-		esac
-	else
-		echo "Cant write to /tmp/$USER"
+# Exit yazi to current directory
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
 	fi
+	rm -f -- "$tmp"
 }
 
 
@@ -234,6 +200,9 @@ function rcopy() {
 					src="$(echo "$i" | sed "s#$mountpoint/#$remote:#")"
 				else
 					dst="$(echo "$i" | sed "s#$mountpoint/#$remote:#")"
+					if [ -d "$1" ]; then
+						dst="$dst/$(basename $1)"
+					fi
 				fi
 			fi
 		fi
