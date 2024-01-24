@@ -2,9 +2,8 @@
 # Programs required: kitty, fd, p7zip, timg
 # openArchives script: https://www.github.com/Sonico98/7zip-Extract
 
-
 id=""
-while getopts ":DPdesutv:" option; do
+while getopts ":Ddesuv:" option; do
 	case $option in
 		# Preview all images in a directory with timg, in natural order (sort -V)
 		D)
@@ -32,11 +31,6 @@ while getopts ":DPdesutv:" option; do
 				else echo "No image files found"; fi;
 				read -s -p '"'Press ENTER to continue'"'')"
 			;;
-		# Preview PDFs
-		P)
-			tbid="$(kitty @ launch --type=tab --title='PDF preview' \
-				--cwd=current termpdf.py "${@:2}")"
-		;;
 		# Extract files
 		e)
 			id="$(kitty @ launch --title='Extract files' \
@@ -54,10 +48,6 @@ while getopts ":DPdesutv:" option; do
 		u) # ultra compression
 			id="$(kitty @ launch --title='Archive files - Ultra Compression' \
 				--cwd=current --location split archiveFiles.sh -u "${@:2}")"
-			;;
-		t) # Open sub-shell
-			kitten run-shell kitty @ set-tab-title "Joshuto terminal" \
-				&& kitty @ set-tab-title "Joshuto"
 			;;
 		v) # Open nvim editor
 			id="$(kitty @ launch --cwd=current --type=tab nvim "${@:2}")"
