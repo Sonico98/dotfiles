@@ -63,6 +63,11 @@ setopt histignorealldups
 # Disable history expansion (breaks "!" in commands)
 setopt nobanghist
 
+# Append a trailing slash "/" if completed parameter is a directory
+setopt AUTO_PARAM_SLASH
+# Automatically show options in ambiguous completions
+setopt AUTO_LIST
+
 # Change autosuggestion color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 # Make grep colors not suck
