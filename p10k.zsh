@@ -1520,8 +1520,8 @@
   }
 
   function prompt_yazi() {
-    is_joshuto_subshell="$(ps | grep 'yazi')"
-    if [ $is_joshuto_subshell ]; then
+    is_yazi_subshell="$(ps | grep 'yazi')"
+    if [ $is_yazi_subshell ]; then
     	p10k segment -f 005 -i '' -t 'Yazi terminal'
     fi
   }
