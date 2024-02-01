@@ -19,6 +19,9 @@ max_height      = 900
 cache_dir       = ""
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
+image_filter = "triangle"
+image_quality = 50
+sixel_fraction = 15
 
 [opener]
 edit_newtab = [
@@ -62,6 +65,7 @@ rules = [
 	{ mime = "text/*",  use = [ "edit_newtab", "edit", "reveal" ] },
 	{ mime = "image/gif", use = [ "play_gif", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
+	{ mime = "video/webm", use = [ "play_gif", "play", "reveal" ] },
 	{ mime = "video/*", use = [ "play", "reveal" ] },
 	{ mime = "audio/*", use = [ "play_audio", "reveal" ] },
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
