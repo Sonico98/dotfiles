@@ -148,6 +148,10 @@ keymap = [
 
 	# Help
 	{ on = [ "~" ], exec = "help", desc = "Open help" },
+
+	# Preview
+	{ on = [ "<C-n>" ], exec = "plugin --sync hide-preview", desc = "Hide the preview pane" },
+	{ on = [ "<C-m>" ], exec = "plugin --sync maximize-preview", desc = "Enlarge the preview pane" },
 ]
 
 [tasks]

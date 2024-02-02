@@ -1,20 +1,11 @@
+-- Full borders
 function Manager:render(area)
-	self.area = area
-
-	local chunks = ui.Layout()
-		:direction(ui.Layout.HORIZONTAL)
-		:constraints({
-			ui.Constraint.Ratio(MANAGER.ratio.parent, MANAGER.ratio.all),
-			ui.Constraint.Ratio(MANAGER.ratio.current, MANAGER.ratio.all),
-			ui.Constraint.Ratio(MANAGER.ratio.preview, MANAGER.ratio.all),
-		})
-	:split(area)
+	local chunks = self:layout(area)
 
 	local bar = function(c, x, y)
-		return ui.Bar(
-			ui.Rect { x = math.max(0, x), y = math.max(0, y), w = math.min(1, area.w), h = math.min(1, area.h) },
-			ui.Bar.TOP
-			):symbol(c)
+		x, y = math.max(0, x), math.max(0, y)
+		return ui.Bar(ui.Rect { x = x, y = y, w = ya.clamp(0, area.w - x, 1), h = math.min(1, area.h) }, ui.Bar.TOP)
+			:symbol(c)
 	end
 
 	return ya.flat {
@@ -37,6 +28,7 @@ function Manager:render(area)
 	}
 end
 
+-- Show symlink pointers at the bottom
 function Status:name()
 	local h = cx.active.current.hovered
 	if h == nil then
