@@ -130,6 +130,8 @@ previewers = [
 	{ mime = "application/x-7z-compressed", exec = "archive" },
 	{ mime = "application/x-rar",           exec = "archive" },
 	{ mime = "application/xz",              exec = "archive" },
+	# Audio
+	{ mime = "audio/*", exec = "audio-preview"},
 	# Fallback
 	{ name = "*", exec = "file" },
 ]
