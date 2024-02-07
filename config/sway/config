@@ -181,7 +181,7 @@ bar {
 	# To get the app_id, run 'swaymsg -t get_tree'.
 	# For XWayland applications, the windows class has to be used
 	for_window [app_id="io.github.tdesktop_x64.TDesktop"] move scratchpad
-	for_window [app_id="VencordDesktop"] move scratchpad
+	for_window [app_id="vesktop"] move scratchpad
 #
 
 ### Key bindings
@@ -407,7 +407,7 @@ bar {
 	bindsym $mod+Shift+s [app_id="io.github.tdesktop_x64.TDesktop"] scratchpad show, \
 	resize set 1130 635, move position center
 	# Show specifically the Discord scratchpad, if any
-	bindsym $mod+Shift+d [app_id="VencordDesktop"] scratchpad show, \
+	bindsym $mod+Shift+d [app_id="vesktop"] scratchpad show, \
 	resize set 1130 635, move position center
 	# Show specifically the Netease scratchpad, if any
 	bindsym $mod+Shift+n [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] scratchpad show, \
