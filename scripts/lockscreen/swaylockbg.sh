@@ -21,6 +21,7 @@ playerctl --player=%any,chromium pause
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
 eval "$pause_autocalib" true
+dunstctl set-paused true
 # Turn the screen off after five seconds, 
 # turn it back on when activity is detected 
 # and automatically set the screen brightness
@@ -32,5 +33,6 @@ swaylock -F --indicator-idle-visible -i ${LOCKSCREEN_DIR}/lockscreen.jpg
 eval "$pause_autocalib" false
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
+dunstctl set-paused false
 kill "$idlepid"
 rm -rf ${LOCKSCREEN_DIR}
