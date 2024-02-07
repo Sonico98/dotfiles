@@ -14,8 +14,8 @@ show_symlink   = false
 
 [preview]
 tab_size        = 2
-max_width       = 600
-max_height      = 900
+max_width       = 2000
+max_height      = 2000
 cache_dir       = ""
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
@@ -104,6 +104,8 @@ preloaders = [
 	{ mime = "video/*", exec = "video" },
 	# PDF
 	{ mime = "application/pdf", exec = "pdf" },
+	# Audio
+	{ mime = "audio/*", exec = "exifaudio" },
 ]
 previewers = [
 	{ name = "*/", exec = "folder", sync = true },
@@ -131,7 +133,7 @@ previewers = [
 	{ mime = "application/x-rar",           exec = "archive" },
 	{ mime = "application/xz",              exec = "archive" },
 	# Audio
-	{ mime = "audio/*", exec = "audio-preview"},
+	{ mime = "audio/*", exec = "exifaudio"},
 	# Fallback
 	{ name = "*", exec = "file" },
 ]
