@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Sway
-dark_sway_border="#f28b82"
+dark_sway_border="#fec045"
 light_sway_border="#fec045"
 # Dolphin File Manager
 dolphin_bg_light="255,255,255"

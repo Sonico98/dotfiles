@@ -90,7 +90,7 @@ bar {
 
 	# Border colors
 	# class                 border  backgr. text    indicator child_border
-	client.focused          #f28b82 #f28b82 #2b2a2f #f28b82   #f28b82
+	client.focused          #fec045 #fec045 #2b2a2f #fec045   #fec045
 	client.focused_inactive #a9150c #5f676a #ffffff #bb5b53   #bb5b53
 	client.unfocused        #333333 #222222 #888888 #bb5b53   #bb5b53
 	client.urgent           #2f343a #900000 #ffffff #FF0000   #900000

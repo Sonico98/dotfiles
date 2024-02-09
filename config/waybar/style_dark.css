@@ -4,8 +4,8 @@
     font-size: 16px;
 }
 
-@define-color accent #F28B82;
-@define-color accent-light rgba(249, 139, 130, 0.5);
+@define-color accent #FEC045;
+@define-color accent-light rgba(254, 192, 69, 0.5);
 
 window#waybar {
     background-color: rgba(0, 0, 0, 0.5);
