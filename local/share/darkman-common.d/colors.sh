@@ -2,7 +2,9 @@
 
 # Sway
 dark_sway_border="#fec045"
+dark_sway_border_inactive="#b08639"
 light_sway_border="#fec045"
+light_sway_border_inactive="#b08639"
 # Dolphin File Manager
 dolphin_bg_light="255,255,255"
 dolphin_bg_dark="40,40,40"

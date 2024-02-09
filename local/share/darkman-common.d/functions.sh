@@ -14,11 +14,15 @@ set_sway_theme() {
 	case "$1" in
 		"light")
 			old_border="$dark_sway_border"
+			old_border_inactive="$dark_sway_border_inactive"
 			new_border="$light_sway_border"
+			new_border_inactive="$light_sway_border_inactive"
 			;;
 		"dark")
 			old_border="$light_sway_border"
+			old_border_inactive="$light_sway_border_inactive"
 			new_border="$dark_sway_border"
+			new_border_inactive="$dark_sway_border_inactive"
 			;;
 	esac
 	sed -i "s/$old_border/$new_border/g" "$sway_conf_path"
