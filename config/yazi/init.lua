@@ -41,3 +41,9 @@ function Status:name()
 	end
 	return ui.Span(" " .. h.name .. linked)
 end
+
+-- Make icon colors follow the filename's color
+function Folder:icon(file)
+	local icon = file:icon()
+	return icon and ui.Span(" " .. icon.text .. " ") or ui.Span("")
+end
