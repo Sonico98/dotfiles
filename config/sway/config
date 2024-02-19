@@ -1,3 +1,4 @@
+include /etc/sway/config.d/*
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -91,8 +92,8 @@ bar {
 	# Border colors
 	# class                 border  backgr. text    indicator child_border
 	client.focused          #fec045 #fec045 #2b2a2f #fec045   #fec045
-	client.focused_inactive #a9150c #5f676a #ffffff #bb5b53   #bb5b53
-	client.unfocused        #333333 #222222 #888888 #bb5b53   #bb5b53
+	client.focused_inactive #a9150c #5f676a #ffffff #b08639   #b08639
+	client.unfocused        #333333 #222222 #888888 #b08639   #b08639
 	client.urgent           #2f343a #900000 #ffffff #FF0000   #900000
 	client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
@@ -500,4 +501,3 @@ bar {
 	bindsym $mod+o mode "$mode_system"
 #
 
-include /etc/sway/config.d/*

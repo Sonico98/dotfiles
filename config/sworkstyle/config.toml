@@ -3,7 +3,7 @@ separator = " ∣ "
 [matching]
 cantata = ""
 copyq = ""
-VencordDesktop = "󰙯"
+vesktop = "󰙯"
 "org.kde.dolphin" = ""
 "foobar2000.exe" = ""
 "Gimp-2.10" = ""

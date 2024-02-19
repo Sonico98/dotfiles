@@ -26,6 +26,10 @@ export GOPATH=${HOME}/.local/share/go
 export MESA_LOADER_DRIVER_OVERRIDE=crocus
 # Disable dotnet Telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+# Devkitpro
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=/opt/devkitpro/devkitARM
+export DEVKITPPC=/opt/devkitpro/devkitPPC
 # https://stackoverflow.com/a/38980986
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 

@@ -67,6 +67,8 @@ setopt nobanghist
 setopt AUTO_PARAM_SLASH
 # Automatically show options in ambiguous completions
 setopt AUTO_LIST
+# Accept the current suggestion with Ctrl+space
+bindkey '^ ' autosuggest-accept
 
 # Change autosuggestion color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'

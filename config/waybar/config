@@ -78,10 +78,12 @@
         },
     },
     "cpu": {
-        "format": " {usage}%"
+        "format": " {usage}%",
+		"interval": 4,
     },
     "memory": {
-        "format": "󰍛 {}%"
+        "format": "󰍛 {}%",
+		"interval": 4,
     },
     "temperature": {
         // "thermal-zone": 2,
