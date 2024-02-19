@@ -7,3 +7,6 @@
 [submodule "scripts/i3/i3-dynamic-backgrounds"]
 	path = scripts/sway/i3-dynamic-backgrounds
 	url = https://github.com/VPavliashvili/i3-dynamic-backgrounds
+[submodule "config/yazi/plugins/mime.yazi"]
+	path = config/yazi/plugins/mime.yazi
+	url = https://github.com/DreamMaoMao/mime.yazi.git
