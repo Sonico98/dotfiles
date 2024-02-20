@@ -470,8 +470,13 @@ bar {
 
 	# Play / pause music
 	bindsym $mod+Control+space exec "playerctl --player=%any,chromium play-pause"
-	bindsym $mod+Control+KP_Multiply exec $HOME/.config/polybar/scripts/player-mpris-tail.py next &
-	bindsym $mod+Control+KP_Divide exec $HOME/.config/polybar/scripts/player-mpris-tail.py previous &
+	bindsym $mod+Control+KP_Multiply exec "playerctl --player=%any,chromium next"
+	bindsym $mod+Control+KP_Divide exec "playerctl --player=%any,chromium previous"
+	# The same, with keyboard-specific keys
+	bindsym XF86AudioPlay exec "playerctl --player=%any,chromium play-pause"
+	bindsym XF86AudioNext exec "playerctl --player=%any,chromium next"
+	bindsym XF86AudioPrev exec "playerctl --player=%any,chromium previous"
+	bindsym XF86AudioStop exec "playerctl --player=%any,chromium stop"
 
 	mode "f: Firefox | m: MPD | v: MPV | o: Others" {
 		bindsym Escape mode default
