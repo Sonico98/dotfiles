@@ -1520,8 +1520,7 @@
   }
 
   function prompt_yazi() {
-    is_yazi_subshell="$(ps | grep 'yazi')"
-    if [ $is_yazi_subshell ]; then
+    if [ -n "$YAZI_LEVEL" ]; then
     	p10k segment -f 005 -i '' -t 'Yazi terminal'
     fi
   }
