@@ -1,5 +1,5 @@
 return {
-	entry = function()
+	entry = function(state)
 		if state.old then
 			Manager.layout, state.old = state.old, nil
 		else
