@@ -10,3 +10,6 @@
 [submodule "config/yazi/plugins/mime.yazi"]
 	path = config/yazi/plugins/mime.yazi
 	url = https://github.com/DreamMaoMao/mime.yazi.git
+[submodule "config/yazi/plugins/allmytoes.yazi"]
+	path = config/yazi/plugins/allmytoes.yazi
+	url = https://github.com/Sonico98/allmytoes.yazi.git

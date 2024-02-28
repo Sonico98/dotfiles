@@ -96,7 +96,7 @@ rules = [
 
 [tasks]
 micro_workers    = 10
-macro_workers    = 25
+macro_workers    = 3
 bizarre_retry    = 5
 image_alloc      = 536870912  # 512MB
 image_bound      = [ 0, 0 ]
@@ -108,9 +108,9 @@ preloaders = [
 	{ name = "*", cond = "!mime", exec = "mime", multi = true, prio = "high" },
 	# Image
 	{ mime = "image/vnd.djvu", exec = "noop" },
-	{ mime = "image/*",        exec = "image" },
+	{ mime = "image/*",        exec = "allmytoes" },
 	# Video
-	{ mime = "video/*", exec = "video" },
+	{ mime = "video/*", exec = "video", multi = false },
 	# PDF
 	{ mime = "application/pdf", exec = "pdf" },
 	# Audio
@@ -127,7 +127,7 @@ previewers = [
 	{ mime = "application/json", exec = "json" },
 	# Image
 	{ mime = "image/vnd.djvu", exec = "noop" },
-	{ mime = "image/*",        exec = "image" },
+	{ mime = "image/*",        exec = "allmytoes" },
 	# Video
 	{ mime = "video/*", exec = "video" },
 	# PDF
