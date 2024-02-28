@@ -13,3 +13,6 @@
 [submodule "config/yazi/plugins/allmytoes.yazi"]
 	path = config/yazi/plugins/allmytoes.yazi
 	url = https://github.com/Sonico98/allmytoes.yazi.git
+[submodule "config/yazi/plugins/relative-motions.yazi"]
+	path = config/yazi/plugins/relative-motions.yazi
+	url = https://github.com/dedukun/relative-motions.yazi.git

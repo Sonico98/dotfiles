@@ -43,7 +43,14 @@ function Status:name()
 end
 
 -- Make icon colors follow the filename's color
-function Folder:icon(file)
+function File:icon(file)
 	local icon = file:icon()
-	return icon and ui.Span(" " .. icon.text .. " ") or ui.Span("")
+	if not icon then
+		return {}
+	else
+		return { ui.Span(" " .. icon.text .. " ") }
+	end
 end
+
+-- Show relative numbers
+require("relative-motions"):setup({ show_numbers="relative", show_motion = true })
