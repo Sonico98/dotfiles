@@ -125,7 +125,7 @@ function lsi(){
 	if [ "$1" = '' ]; then
 		dir='.'
 	fi
-	timg --grid=4x4 -U -F -C -Bnone -pk --frames=1 --threads=4 "$dir"/(*.png|*.jpg|*.gif)
+	timg --grid=4x4 -U --title -C -Bnone -pk --frames=1 --threads=4 "$dir"/(*.png|*.jpg|*.gif)
 }
 
 # Convert video into high quality GIF
@@ -204,9 +204,9 @@ function rcopy() {
 
 			if [ "$remote" != "" ]; then
 				if [ "$ct" -eq 1 ]; then
-					src="$(echo "$i" | sed "s#$mountpoint/#$remote:#")"
+					src="$(echo "$i" | sed "s#$mountpoint#$remote:#")"
 				else
-					dst="$(echo "$i" | sed "s#$mountpoint/#$remote:#")"
+					dst="$(echo "$i" | sed "s#$mountpoint#$remote:#")"
 					if [ -d "$1" ]; then
 						dst="$dst/$(basename $1)"
 					fi
