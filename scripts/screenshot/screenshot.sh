@@ -39,7 +39,7 @@ style_image()
 
 # Screenshot the whole screen, open the image in full screen, then select a region
 dunstctl set-paused true
-grim -t png -l 0 /tmp/full.png
+grim -t png -l 0 -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')" /tmp/full.png
 swayimg -f /tmp/full.png &
 swayimg_pid=$!
 
