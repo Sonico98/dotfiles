@@ -1,3 +1,0 @@
-DolphinViewContainer > DolphinView > QAbstractScrollArea {
-      background-color: #FFFFFF;
-}

@@ -2,4 +2,4 @@
 
 source "$HOME"/.local/share/darkman-common.d/functions.sh
 
-set_dolphin_theme "light"
+set_kde_theme "dark"

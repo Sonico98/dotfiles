@@ -14,6 +14,9 @@ gnomeschema="org.gnome.desktop.interface"
 # QT
 light_qt_color_scheme="Custom Orange Light"
 dark_qt_color_scheme="Material Orange Dark"
+# KDE
+light_kde_theme="org.kde.breeze.desktop"
+dark_kde_theme="org.kde.breezedark.desktop"
 # Kitty Terminal
 light_kitty_theme="Material Light"
 dark_kitty_theme="Material Dark"

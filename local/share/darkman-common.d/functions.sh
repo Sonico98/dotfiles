@@ -62,23 +62,16 @@ set_qt_theme() {
 		"$qt6ct_conf_path"
 }
 
-set_dolphin_theme() {
+set_kde_theme() {
 	case "$1" in
 		"light")
-			old_bg="$dolphin_bg_dark"
-			new_bg="$dolphin_bg_light"
-			old_css="$dolphin_css_dark"
-			new_css="$dolphin_css_light"
+			plasma_theme="$light_kde_theme"
 			;;
 		"dark")
-			old_bg="$dolphin_bg_light"
-			new_bg="$dolphin_bg_dark"
-			old_css="$dolphin_css_light"
-			new_css="$dolphin_css_dark"
+			plasma_theme="$dark_kde_theme"
 			;;
 	esac
-	sed -i "s#$old_bg#$new_bg#" "$kdeglobals_path"
-	sed -i "s/$old_css/$new_css/" "$dolphin_qss_path"
+	lookandfeeltool -a "$plasma_theme"
 }
 
 set_nvim_theme() {
