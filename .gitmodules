@@ -16,3 +16,9 @@
 [submodule "config/yazi/plugins/relative-motions.yazi"]
 	path = config/yazi/plugins/relative-motions.yazi
 	url = https://github.com/dedukun/relative-motions.yazi.git
+[submodule "scripts/qxdrag"]
+	path = scripts/qxdrag
+	url = https://github.com/DreamMaoMao/qxdrag
+[submodule "config/yazi/plugins/mkdir.yazi"]
+	path = config/yazi/plugins/mkdir.yazi
+	url = https://github.com/Sonico98/mkdir.yazi
