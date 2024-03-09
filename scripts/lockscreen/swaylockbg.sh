@@ -17,7 +17,7 @@ if [[ ! -d ${LOCKSCREEN_DIR} ]]; then
 fi
 
 # Pause music and brightness auto-calibration, mute audio and microphone.
-playerctl --player=%any,chromium pause
+playerctl --player=%any,firefox pause
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
 eval "$pause_autocalib" true
