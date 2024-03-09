@@ -250,6 +250,5 @@ export FZF_DEFAULT_COMMAND="fd -H"
 # Requires pkgfile, and to run 'pkgfile -u' at least once
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/p10k.zsh.
-[[ ! -f ~/.dotfiles/p10k.zsh ]] || source ~/.dotfiles/p10k.zsh
-
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
