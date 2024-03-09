@@ -45,11 +45,7 @@ end
 -- Make icon colors follow the filename's color
 function File:icon(file)
 	local icon = file:icon()
-	if not icon then
-		return {}
-	else
-		return { ui.Span(" " .. icon.text .. " ") }
-	end
+	return icon and { ui.Span(" " .. icon.text .. " ") } or {}
 end
 
 -- Show relative numbers
