@@ -42,7 +42,7 @@ else
   esac
 fi
 
-# If we're not over SSH, we're most likely on a graphical session
+# If we're not over SSH, we're most likely in a graphical session
 if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	# Hide some output from WINE
 	export WINEDEBUG=-all
@@ -52,7 +52,7 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	if [ "$DESKTOP_SESSION" = "plasma" ]; then
 		export QT_QPA_PLATFORMTHEME=KDE
 	else
-		export QT_QPA_PLATFORMTHEME=qt5ct
+		export QT_QPA_PLATFORMTHEME=qt6ct
 		if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
 			export QT_QPA_PLATFORM="wayland;xcb"
 			export MOZ_ENABLE_WAYLAND=1
@@ -69,23 +69,6 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	ln -s /zram/Torrents /home/sonico/Downloads/Firefox\ Downloads/Torrents
 
 	yes 'n' | ln -s ~/.local/share/little-cache-files/* ~/.cache/ &>/dev/null
-
-	if ! [[ "$XDG_CURRENT_DESKTOP" =~ (KDE|GNOME|XFCE4|Unity|Pantheon|Elementary|LXDE) ]]; then
-		systemctl --user mask --runtime plasma-kglobalaccel.service
-		systemctl --user mask --runtime plasma-baloorunner.service
-		systemctl --user mask --runtime plasma-krunner.service
-		systemctl --user mask --runtime plasma-kded.service
-		systemctl --user mask --runtime plasma-kactivitymanagerd.service
-		# systemctl --user mask --runtime plasma-xdg-desktop-portal-kde.service
-		# xsettingsd &>/dev/null &
-	elif [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
-		systemctl --user unmask plasma-kglobalaccel.service
-		systemctl --user unmask plasma-baloorunner.service
-		systemctl --user unmask plasma-krunner.service
-		systemctl --user unmask plasma-kded.service
-		systemctl --user unmask plasma-kactivitymanagerd.service
-		# xsettingsd &>/dev/null &
-	fi
 
 	# KDE does not offer the cursor size 16, and defaults to 24
 	# My cursor theme does not support that size, so logging into
