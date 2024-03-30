@@ -76,10 +76,11 @@ keymap = [
 	{ on = [ "<C-p>" ], run = "shell --confirm '~/.dotfiles/scripts/yazi/kitty_cmds.sh -D'", desc = "Preview all images in the current directory" },
 	{ on = [ "a", "s" ], run = '''shell '~/.dotfiles/scripts/yazi/kitty_cmds.sh -s "$@"' --confirm''', desc = "Archive selected files (store)" },
 	{ on = [ "a", "u" ], run = '''shell '~/.dotfiles/scripts/yazi/kitty_cmds.sh -u "$@"' --confirm''', desc = "Archive selected files (ultra compression)" },
-	{ on = [ "a", "s" ], run = '''shell '~/.dotfiles/scripts/yazi/kitty_cmds.sh -d "$@"' --confirm''', desc = "Archive selected files (store, split every 2GB)" },
+	{ on = [ "a", "d" ], run = '''shell '~/.dotfiles/scripts/yazi/kitty_cmds.sh -d "$@"' --confirm''', desc = "Archive selected files (store, split every 2GB)" },
 	{ on = [ "<F1>" ], run = '''shell '~/.dotfiles/scripts/yazi/dragon-drop.sh -e "$@"' --confirm''', desc = "Drag selected files" },
 	{ on = [ "<F2>" ], run = 'shell --confirm "~/.dotfiles/scripts/yazi/dragon-drop.sh -t"', desc = "Drop files in the current directory" },
 	{ on = [ "s", "a" ], run = 'shell --confirm "~/.dotfiles/scripts/yazi/separateAAC.sh"', desc = "Separate AAC files" },
+	{ on = [ "u" ], run = "shell --confirm ibroadcast-uploader -p 5", desc = "Upload folder to iBroadcast" },
 
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "Set linemode to size" },
@@ -107,7 +108,7 @@ keymap = [
 	{ on = [ "s", "M" ], run = "sort modified --reverse --dir-first",     desc = "Sort by modified time (reverse)" },
 	{ on = [ "s", "c" ], run = "sort created --dir-first",                desc = "Sort by created time" },
 	{ on = [ "s", "C" ], run = "sort created --reverse --dir-first",      desc = "Sort by created time (reverse)" },
-	{ on = [ "s", "e" ], run = "sort extension --dir-first",         	   desc = "Sort by extension" },
+	{ on = [ "s", "e" ], run = "sort extension --dir-first",         	  desc = "Sort by extension" },
 	{ on = [ "s", "E" ], run = "sort extension --reverse --dir-first",    desc = "Sort by extension (reverse)" },
 	{ on = [ "s", "o" ], run = "sort alphabetical --dir-first",           desc = "Sort alphabetically" },
 	{ on = [ "s", "A" ], run = "sort alphabetical --reverse --dir-first", desc = "Sort alphabetically (reverse)" },
@@ -115,6 +116,7 @@ keymap = [
 	{ on = [ "s", "N" ], run = "sort natural --reverse --dir-first",      desc = "Sort naturally (reverse)" },
 	{ on = [ "s", "s" ], run = "sort size --dir-first",                   desc = "Sort by size" },
 	{ on = [ "s", "S" ], run = "sort size --reverse --dir-first",         desc = "Sort by size (reverse)" },
+	{ on = [ "c", "s" ], run = [ "sort size", "sort natural --dir-first" ], desc = "Calculate folder size" },
 
 	# Tabs
 	{ on = [ "T" ], run = "tab_create --current", desc = "Create a new tab using the current path" },

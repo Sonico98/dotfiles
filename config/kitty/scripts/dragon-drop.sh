@@ -15,7 +15,7 @@ else
 		search="$(fd "$1" "$(pwd)" -d 1)"
 		tot_results="$(echo "$search" | sed '/^\s*$/d' | wc -l)"
 		if [ "$tot_results" -gt "$MAX_RESULTS" ]; then
-			notify-send '⚠️  Window Launched' 'Check the found matches for your selection'
+			notify-send '⚠️  Window Launched' 'Check the matches found for your selection'
 			kitty --hold --title="Files matching selection" \
 				echo -e "Too many files found:\n$search"
 		else
