@@ -112,7 +112,8 @@ bar {
 #
 	# Wallpaper
 	# output * bg "$HOME/.bg" fill
-	exec swww init && swww img "$HOME/.bg"
+	exec swww-daemon --format xrgb
+	exec sleep 7 && swww img "$HOME/.bg"
 
 	#
 	# Example configuration:
@@ -173,6 +174,9 @@ bar {
 
 	# Polkit agent
 	exec /usr/lib/polkit-kde-authentication-agent-1
+
+	# Notification daemon - doesn't get autostarted since I installed plasma alongside
+	exec /bin/systemctl --user start dunst
 
 	# Clipboard monitor
 	exec_always wl-paste --type text --watch cliphist store -max-items 100
