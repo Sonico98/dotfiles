@@ -22,3 +22,6 @@
 [submodule "config/yazi/plugins/mkdir.yazi"]
 	path = config/yazi/plugins/mkdir.yazi
 	url = https://github.com/Sonico98/mkdir.yazi
+[submodule "config/yazi/plugins/ouch.yazi"]
+	path = config/yazi/plugins/ouch.yazi
+	url = https://github.com/ndtoan96/ouch.yazi
