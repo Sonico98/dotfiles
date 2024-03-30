@@ -25,3 +25,6 @@
 [submodule "config/yazi/plugins/ouch.yazi"]
 	path = config/yazi/plugins/ouch.yazi
 	url = https://github.com/ndtoan96/ouch.yazi
+[submodule "config/kitty/scripts/kitty_grab"]
+	path = config/kitty/scripts/grab
+	url = https://github.com/yurikhan/kitty_grab
