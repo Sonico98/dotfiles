@@ -59,6 +59,7 @@
 		"format": "󰅐 {:%H:%M}",
         "format-alt": " {:%d/%m/%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"timezone": "America/Argentina/Buenos_Aires",
 		"calendar": {
 			"mode"          : "month",
 			 "mode-mon-col"  : 3,
