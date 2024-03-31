@@ -5,10 +5,10 @@ light_waybar_theme="style_light.css"
 dark_waybar_theme="style_dark.css"
 # GTK
 light_gtk_theme="Fluent-round-orange-Light"
-light_gtk_icon="Fluent-orange-light"
+light_gtk_icon="Fluent-yellow-light"
 dark_gtk_theme="Fluent-round-orange-Dark"
-dark_gtk_icon="Fluent-orange-dark"
-cursor_theme="posy-black-tiny"
+dark_gtk_icon="Fluent-yellow-dark"
+cursor_theme="Bibata-Rainbow-Modern"
 font_name="GoogleSans Nerd Font, 14"
 gnomeschema="org.gnome.desktop.interface"
 # QT
