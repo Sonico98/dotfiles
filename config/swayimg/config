@@ -1,0 +1,54 @@
+[general]
+scale = fit
+fullscreen = no
+background = none
+antialiasing = no
+
+[list]
+all = yes
+order = alpha
+
+[info]
+mode = off
+
+[font]
+name = GoogleSans Nerd Font
+size = 14
+color = #FFFFFF
+shadow = #000000
+
+[keys]
+j = zoom -10
+k = zoom +10
+h = prev_file
+l = next_file
+0 = first_file
+9 = last_file
+Shift+j = step_down 10
+Shift+k = step_up 10
+Shift+h = step_left 10
+Shift+l = step_right 10
+a = antialiasing
+i = info full
+Shift+i = info none
+R = reload
+q = exit
+Right = rotate_right
+Left = rotate_left
+f = fullscreen
+v = flip_vertical
+V = flip_horizontal
+s = animation
+BackSpace = zoom optimal
+
+[mouse]
+Ctrl+ScrollLeft = step_right 5
+Ctrl+ScrollRight = step_left 5
+Ctrl+ScrollUp = step_down 5
+Ctrl+ScrollDown = step_up 5
+ScrollUp = zoom +10
+ScrollDown = zoom -10
+Shift+ScrollUp = prev_file
+Shift+ScrollDown = next_file
+Alt+ScrollUp = prev_frame
+Alt+ScrollDown = next_frame
