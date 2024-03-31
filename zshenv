@@ -23,7 +23,9 @@ export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${HOME}/.dotnet/tools
 export GOPATH=${HOME}/.local/share/go
 # Use the new crocus driver for Intel GPUs
-export MESA_LOADER_DRIVER_OVERRIDE=crocus
+if [ "$(glxinfo | grep "Vendor" | cut -d' ' -f6)" == "Intel" ]; then
+	export MESA_LOADER_DRIVER_OVERRIDE=crocus
+fi
 # Disable dotnet Telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # Devkitpro
