@@ -34,5 +34,6 @@
 	"floatFactory.floatConfig": {
 		"border": true,
 		"rounded": true,
-	}
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
