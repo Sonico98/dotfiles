@@ -35,44 +35,4 @@ export DEVKITPPC=/opt/devkitpro/devkitPPC
 # https://stackoverflow.com/a/38980986
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-# Check if we're over SSH
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  SESSION_TYPE="remote/ssh"
-else
-  case $(ps -o comm= -p "$PPID") in
-    sshd|*/sshd) SESSION_TYPE="remote/ssh";;
-  esac
-fi
-
-# If we're not over SSH, we're most likely in a graphical session
-if [ "$SESSION_TYPE" != "remote/ssh" ]; then
-	# Hide some output from WINE
-	export WINEDEBUG=-all
-	# Use QT file dialog (1=QT; 0=GTK)
-	export GTK_USE_PORTAL=1
-	# Enable qt5ct to configure QT themes
-	if [ "$DESKTOP_SESSION" = "plasma" ]; then
-		export QT_QPA_PLATFORMTHEME=KDE
-	else
-		export QT_QPA_PLATFORMTHEME=qt6ct
-		if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-			export QT_QPA_PLATFORM="wayland;xcb"
-			export MOZ_ENABLE_WAYLAND=1
-		fi
-	fi
-
-	# Symlink some folders to a directory in RAM
-	rm -rf /home/sonico/Downloads/Firefox\ Downloads/Torrents
-	if ! [ -d /zram/Torrents ]; then mkdir -p /zram/Torrents; fi
-	ln -s /zram/Torrents /home/sonico/Downloads/Firefox\ Downloads/Torrents
-
-	yes 'n' | ln -s ~/.local/share/little-cache-files/* ~/.cache/ &>/dev/null
-
-	# KDE does not offer the cursor size 16, and defaults to 24
-	# My cursor theme does not support that size, so logging into
-	# KDE and going back to i3 breaks my cursor theme.
-	sed -i "s/gtk-cursor-theme-size=24/gtk-cursor-theme-size=16/" ~/.config/gtk-3.0/settings.ini
-	sed -i "s/gtk-cursor-theme-size=24/gtk-cursor-theme-size=16/" ~/.config/gtk-4.0/settings.ini
-fi
-
 source "$ZDOTDIR"/.zshenv
