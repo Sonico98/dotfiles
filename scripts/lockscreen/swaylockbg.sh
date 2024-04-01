@@ -17,11 +17,11 @@ if [[ ! -d ${LOCKSCREEN_DIR} ]]; then
 fi
 
 # Pause music and brightness auto-calibration, mute audio and microphone.
-playerctl --player=%any,firefox pause
-wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
-wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
-eval "$pause_autocalib" true
-dunstctl set-paused true
+playerctl --player=%any,firefox pause || true
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 1 || true
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1 || true
+eval "$pause_autocalib" true || true
+dunstctl set-paused true || true
 # Turn the screen off after five seconds, 
 # turn it back on when activity is detected 
 # and automatically set the screen brightness
@@ -30,9 +30,9 @@ swayidle timeout 5 'swaymsg "output * power off"' resume \
 idlepid=$!
 swaylock -F --indicator-idle-visible -i ${LOCKSCREEN_DIR}/lockscreen.jpg
 # Undo the previous actions after the screen has been unlocked
-eval "$pause_autocalib" false
-wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
-dunstctl set-paused false
+eval "$pause_autocalib" false || true
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 || true
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0 || true
+dunstctl set-paused false || true
 kill "$idlepid"
 rm -rf ${LOCKSCREEN_DIR}
