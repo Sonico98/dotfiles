@@ -78,8 +78,6 @@ export GREP_COLORS='sl=49;39:cx=49;39:mt=48;5;215;38;5;234;1:fn=49;38;5;183:ln=4
 # --- Aliases ----------------------
 alias cat="bat"
 alias fd="fd -H"
-alias feh=fehres	# Custom feh theme
-alias ffbatch="$HOME/.dotfiles/scripts/FFBatch/ffbatch.sh"
 alias ffmpeg="ffmpeg -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 alias icat="timg -U --title=%f -C -Bnone --threads=4 -pk"
