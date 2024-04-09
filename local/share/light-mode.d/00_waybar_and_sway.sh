@@ -9,6 +9,4 @@ style_to_set="$light_waybar_theme"
 
 set_waybar_theme
 set_sway_theme "light"
-# Apply the changes
-export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock && swaymsg reload
 set_wallpaper

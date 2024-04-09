@@ -185,7 +185,7 @@ bar {
 	exec /usr/lib/polkit-kde-authentication-agent-1
 
 	# Notification daemon - doesn't get autostarted since I installed plasma alongside
-	exec /usr/bin/dunst
+	exec systemctl --user restart dunst.service
 
 	# Clipboard monitor
 	exec_always wl-paste --type text --watch cliphist store -max-items 100

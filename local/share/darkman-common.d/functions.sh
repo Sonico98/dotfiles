@@ -8,9 +8,11 @@ source "$HOME"/.local/share/darkman-common.d/theme_names.sh
 set_waybar_theme() {
 	rm -f "$waybar_style_path"/style.css
 	ln -s "$waybar_style_path"/{"$style_to_set",style.css}
+	killall -SIGUSR2 waybar &
 }
 
 set_sway_theme() {
+	SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock
 	case "$1" in
 		"light")
 			old_border="$dark_sway_border"
@@ -26,12 +28,26 @@ set_sway_theme() {
 			;;
 	esac
 	sed -i "s/$old_border/$new_border/g" "$sway_conf_path"
+	active="$(grep -m 1 "client.focused" $sway_conf_path | tr -s " " | tr -d "	")"
+	inactive="$(grep -m 1 "client.focused_inactive" $sway_conf_path | tr -s " " | tr -d "	")"
+	border_a="$(echo "$active" | cut -d ' ' -f2)"
+	backgr_a="$(echo "$active" | cut -d ' ' -f3)"
+	text_a="$(echo "$active" | cut -d ' ' -f4)"
+	indicator_a="$(echo "$active" | cut -d ' ' -f5)"
+	childb_a="$(echo "$active" | cut -d ' ' -f6)"
+	export SWAYSOCK && swaymsg client.focused "$border_a" "$backgr_a" "$text_a" "$indicator_a" "$childb_a" &
+	border_i="$(echo "$inactive" | cut -d ' ' -f2)"
+	backgr_i="$(echo "$inactive" | cut -d ' ' -f3)"
+	text_i="$(echo "$inactive" | cut -d ' ' -f4)"
+	indicator_i="$(echo "$inactive" | cut -d ' ' -f5)"
+	childb_i="$(echo "$inactive" | cut -d ' ' -f6)"
+	export SWAYSOCK && swaymsg client.focused_inactive "$border_i" "$backgr_i" "$text_i" "$indicator_i" "$childb_i" &
 }
 
 set_wallpaper() {
 	rm -f ~/.bg
 	ln -s "$wallpaper" ~/.bg
-	swww img ~/.bg --transition-type random --transition-step 40 --transition-fps 60 --transition-angle 35
+	swww img ~/.bg --transition-type random --transition-step 40 --transition-fps 60 --transition-angle 35 &
 }
 
 set_gtk_theme() {
@@ -113,7 +129,7 @@ set_dunst_theme() {
 }
 
 set_kitty_theme() {
-	kitty +kitten themes --reload-in=all "$kitty_theme"
+	kitty +kitten themes --reload-in=all "$kitty_theme" &
 }
 
 set_rofi_theme() {
