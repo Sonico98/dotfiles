@@ -52,9 +52,10 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	fi
 
 	# Symlink some folders to a directory in RAM
-	rm -rf /home/sonico/Downloads/Firefox\ Downloads/Torrents
+	rm -rf /home/sonico/Downloads/Firefox\ Downloads/{Torrents,Zram}
 	if ! [ -d /zram/Torrents ]; then mkdir -p /zram/Torrents; fi
 	ln -s /zram/Torrents /home/sonico/Downloads/Firefox\ Downloads/Torrents
+	ln -s /zram/ /home/sonico/Downloads/Firefox\ Downloads/Zram
 
 	yes 'n' | ln -s ~/.local/share/little-cache-files/* ~/.cache/ &>/dev/null
 
