@@ -106,6 +106,8 @@ bar {
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
 	for_window [title="Moving — Dolphin"] floating enable, move position center
 	for_window [title="Deleting — Dolphin"] floating enable, move position center
+	# Keep dragon-drop always on screen
+	for_window [app_id="dragon-drop"] sticky enable
 #
 
 ### Output configuration
