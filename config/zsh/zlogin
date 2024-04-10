@@ -36,6 +36,10 @@ fi
 
 # If we're not over SSH, we're most likely in a graphical session
 if [ "$SESSION_TYPE" != "remote/ssh" ]; then
+	# Use the new crocus driver for Intel GPUs
+	if [ "$(glxinfo 2>/dev/null | grep -i "OpenGL vendor string" | cut -d' ' -f4)" = "Intel" ]; then
+		export MESA_LOADER_DRIVER_OVERRIDE=crocus
+	fi
 	# Hide some output from WINE
 	export WINEDEBUG=-all
 	# Use QT file dialog (1=QT; 0=GTK)
