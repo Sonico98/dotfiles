@@ -28,6 +28,7 @@ set_sway_theme() {
 			;;
 	esac
 	sed -i "s/$old_border/$new_border/g" "$sway_conf_path"
+	sed -i "s/$old_border_inactive/$new_border_inactive/g" "$sway_conf_path"
 	active="$(grep -m 1 "client.focused" $sway_conf_path | tr -s " " | tr -d "	")"
 	inactive="$(grep -m 1 "client.focused_inactive" $sway_conf_path | tr -s " " | tr -d "	")"
 	border_a="$(echo "$active" | cut -d ' ' -f2)"
