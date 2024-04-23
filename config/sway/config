@@ -115,7 +115,6 @@ bar {
 	# Wallpaper
 	# output * bg "$HOME/.bg" fill
 	exec swww-daemon --format xrgb
-	exec sleep 7 && swww img "$HOME/.bg"
 
 	#
 	# Example configuration:
@@ -178,24 +177,27 @@ bar {
 	exec sleep 8 && dex -a -e i3
 	# Rename workspaces based on the programs open
 	exec sworkstyle &> /tmp/sworkstyle.log
-	# Prevent the screen from darkening if an application is playing audio
-	exec sway-audio-idle-inhibit
+
+	# Scale XWayland apps properly
+	exec echo "Xft.dpi: 96" | xrdb -merge
+	exec xprop -root -format _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1
 
 	# Polkit agent
 	exec /usr/lib/polkit-kde-authentication-agent-1
 
 	# Notification daemon - doesn't get autostarted since I installed plasma alongside
-	exec systemctl --user restart dunst.service
+	# Solution: rm /usr/share/dbus-1/services/org.kde.plasma.Notifications.service
 
 	# Clipboard monitor
-	exec_always wl-paste --type text --watch cliphist store -max-items 100
-	exec_always wl-paste --type image --watch cliphist store -max-items 100
+	exec_always wl-paste --type text --watch cliphist -max-items 100 store
+	exec_always wl-paste --type image --watch cliphist -max-items 100 store
 
 	# Move to the scratchpad by default.
 	# To get the app_id, run 'swaymsg -t get_tree'.
 	# For XWayland applications, the windows class has to be used
 	for_window [app_id="io.github.tdesktop_x64.TDesktop"] move scratchpad
 	for_window [app_id="vesktop"] move scratchpad
+	for_window [class="vesktop"] move scratchpad
 #
 
 ### Key bindings
@@ -421,7 +423,9 @@ bar {
 	bindsym $mod+Shift+s [app_id="io.github.tdesktop_x64.TDesktop"] scratchpad show, \
 	resize set 1630 935, move position center
 	# Show specifically the Discord scratchpad, if any
-	bindsym $mod+Shift+d [app_id="vesktop"] scratchpad show, \
+	# bindsym $mod+Shift+d [app_id="vesktop"] scratchpad show, \
+	# resize set 1630 935, move position center
+	bindsym $mod+Shift+d [class="vesktop"] scratchpad show, \
 	resize set 1630 935, move position center
 	# Show specifically the Netease scratchpad, if any
 	bindsym $mod+Shift+n [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] scratchpad show, \
