@@ -1,6 +1,7 @@
 -- File explorer
 return {
 	"nvim-neo-tree/neo-tree.nvim",
+	enabled = false,
 	cmd = "Neotree",
 	branch = "v2.x",
 	keys = {

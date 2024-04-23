@@ -50,3 +50,13 @@ end
 
 -- Show relative numbers
 require("relative-motions"):setup({ show_numbers="relative", show_motion = true })
+
+-- Add browsed directories to zoxide's db
+require("zoxide"):setup {
+    update_db = true,
+}
+
+-- Sync yanked files across yazi instances
+require("session"):setup {
+	sync_yanked = true,
+}

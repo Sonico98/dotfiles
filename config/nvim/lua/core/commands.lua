@@ -17,3 +17,16 @@ vim.cmd([[
 	endfunction
 	command! -register CopyMatches call CopyMatches(<q-reg>)
 ]])
+
+-- Open yazi.nvim on directories
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        if vim.fn.argc() == 1 then
+            local arg = tostring(vim.fn.argv(0))
+            if vim.fn.isdirectory(arg) == 1 then
+                vim.api.nvim_buf_delete(0, {})
+                require('yazi').yazi({}, arg)
+            end
+        end
+    end,
+})
