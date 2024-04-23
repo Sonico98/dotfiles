@@ -189,12 +189,11 @@ zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 #
 # Terminal
 #
-title='test'
 # Auto set the tab and window titles.
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the window title format.
-zstyle ':prezto:module:terminal:window-title' format "%s / kitty"
+zstyle ':prezto:module:terminal:window-title' format "%s"
 
 # Set the tab title format.
 zstyle ':prezto:module:terminal:tab-title' format '%~ %N %s'
