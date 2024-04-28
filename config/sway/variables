@@ -1,0 +1,30 @@
+### Variables
+#
+	# Logo key. Use Mod1 for Alt.
+	set $mod Mod4
+	# Home row direction keys, like vim
+	set $left h
+	set $down j
+	set $up k
+	set $right l
+	# Your preferred terminal emulator
+	set $term kitty --single-instance
+	# Your preferred application launcher
+	# Note: pass the final command to swaymsg so that the resulting window can be opened
+	# on the original workspace that the command was run on.
+	set $menu rofi -theme-show-icons -show drun -modi drun#run -drun-display-format {name} | xargs swaymsg exec --
+
+	# Screenshot and screen recorder scripts
+	set $screenshot screenshot
+	set $screenrecord screenrecord
+
+	# Screen locking script
+	set $locker swaylockbg
+
+	# Brightness control vars
+	set $brightness_bus busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight
+	set $brightness_bus_up $brightness_bus RaiseAll "d(bdu)s"
+	set $brightness_bus_down $brightness_bus LowerAll "d(bdu)s"
+	set $brightness_auto_bus busctl --expect-reply=false --user set-property org.clight.clight /org/clight/clight/Conf/Backlight org.clight.clight.Conf.Backlight NoAutoCalib "b"
+	set $brightness_check_bus busctl --expect-reply=false --user call org.clight.clight /org/clight/clight org.clight.clight Capture "bb" true false
+#

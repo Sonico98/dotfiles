@@ -1,0 +1,36 @@
+### Appearance
+#
+	# Center all floating windows
+	for_window [floating] move position center
+
+	# Move minimized windows into Scratchpad (enable|disable)
+	scratchpad_minimize disable
+
+	# Enable gaps
+	gaps inner 10
+	gaps outer 3
+
+	# Disable title bars
+	default_border pixel
+	hide_edge_borders --i3 none
+
+	# Border colors
+	# class                 border  backgr. text    indicator child_border
+	client.focused          #fec045 #fec045 #2b2a2f #fec045   #fec045
+	client.focused_inactive #a9150c #5f676a #ffffff #b08639   #b08639
+	client.unfocused        #333333 #222222 #888888 #b08639   #b08639
+	client.urgent           #2f343a #900000 #ffffff #FF0000   #900000
+	client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+	# Title font
+	font pango:GoogleSans Nerd Font 10
+
+	# Open pavucontrol near the volume indicator
+	for_window [app_id="pavucontrol"] floating enable, resize set 720 515, move position 619 0
+	# Open KDE's polkit as a floating window
+	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
+	for_window [title="Moving — Dolphin"] floating enable, move position center
+	for_window [title="Deleting — Dolphin"] floating enable, move position center
+	# Keep dragon-drop always on screen
+	for_window [app_id="dragon-drop"] sticky enable
+#

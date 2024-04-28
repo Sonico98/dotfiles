@@ -1,0 +1,322 @@
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+    bindsym $mod+KP_Enter exec $term
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+r exec $menu
+
+	# Show clipboard history (cliphist)
+	bindsym $mod+v exec rofi -modi clipboard:cliphist-rofi -show clipboard -config ~/.config/rofi/config_list.rasi
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload
+
+	# Start or stop Plex Media Server
+	bindsym $mod+Control+p exec sudo systemctl stop plexmediaserver.service
+	bindsym $mod+p exec sudo systemctl start plexmediaserver.service
+
+	# Open the music player
+	bindsym $mod+m exec cantata
+
+	# Reopen the notification stack
+	bindsym $mod+Control+n exec dunstctl history-pop && sleep 4 && dunstctl close
+
+	# Take a screenshot
+	bindsym Print exec $screenshot
+	# Record the screen
+	bindsym $mod+Print exec $screenrecord
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left 30 px
+    bindsym $mod+Shift+$down move down 30 px
+    bindsym $mod+Shift+$up move up 30 px
+    bindsym $mod+Shift+$right move right 30 px
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left 2 px
+    bindsym $mod+Shift+Down move down 2 px
+    bindsym $mod+Shift+Up move up 2 px
+    bindsym $mod+Shift+Right move right 2 px
+
+	# Move focused, floating window, out of the screen
+	bindcode $mod+Shift+20 move left 1280 px
+	bindcode $mod+Shift+21 move right 1280 px
+#
+# Workspaces:
+#
+	# Define names for default workspaces for which we configure key bindings later on.
+	# We use variables to avoid repeating the names in multiple places.
+	set $ws1 "1"
+	set $ws2 "2"
+	set $ws3 "3"
+	set $ws4 "4"
+	set $ws5 "5"
+	set $ws6 "6"
+	set $ws7 "7"
+	set $ws8 "8"
+	set $ws9 "9"
+	set $ws10 "10"
+
+	# Switch to workspace
+	bindsym $mod+1 workspace number $ws1
+	bindsym $mod+2 workspace number $ws2
+	bindsym $mod+3 workspace number $ws3
+	bindsym $mod+4 workspace number $ws4
+	bindsym $mod+5 workspace number $ws5
+	bindsym $mod+6 workspace number $ws6
+	bindsym $mod+7 workspace number $ws7
+	bindsym $mod+8 workspace number $ws8
+	bindsym $mod+9 workspace number $ws9
+	bindsym $mod+0 workspace number $ws10
+
+	# Move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace number $ws1
+	bindsym $mod+Shift+2 move container to workspace number $ws2
+	bindsym $mod+Shift+3 move container to workspace number $ws3
+	bindsym $mod+Shift+4 move container to workspace number $ws4
+	bindsym $mod+Shift+5 move container to workspace number $ws5
+	bindsym $mod+Shift+6 move container to workspace number $ws6
+	bindsym $mod+Shift+7 move container to workspace number $ws7
+	bindsym $mod+Shift+8 move container to workspace number $ws8
+	bindsym $mod+Shift+9 move container to workspace number $ws9
+	bindsym $mod+Shift+0 move container to workspace number $ws10
+	#
+	### NUMPAD KEYBINDINGS ###
+	#
+	# NUMLOCK ON
+	# Switch to workspace
+	bindsym $mod+KP_1 workspace number $ws1
+	bindsym $mod+KP_2 workspace number $ws2
+	bindsym $mod+KP_3 workspace number $ws3
+	bindsym $mod+KP_4 workspace number $ws4
+	bindsym $mod+KP_5 workspace number $ws5
+	bindsym $mod+KP_6 workspace number $ws6
+	bindsym $mod+KP_7 workspace number $ws7
+	bindsym $mod+KP_8 workspace number $ws8
+	bindsym $mod+KP_9 workspace number $ws9
+	bindsym $mod+KP_0 workspace number $ws10
+
+	# Move focused container to workspace
+	bindsym $mod+Shift+KP_End move container to workspace number $ws1
+	bindsym $mod+Shift+KP_Down move container to workspace number $ws2
+	bindsym $mod+Shift+KP_Next move container to workspace number $ws3
+	bindsym $mod+Shift+KP_Left move container to workspace number $ws4
+	bindsym $mod+Shift+KP_Begin move container to workspace number $ws5
+	bindsym $mod+Shift+KP_Right move container to workspace number $ws6
+	bindsym $mod+Shift+KP_Home move container to workspace number $ws7
+	bindsym $mod+Shift+KP_Up move container to workspace number $ws8
+	bindsym $mod+Shift+KP_Prior move container to workspace number $ws9
+	bindsym $mod+Shift+KP_Insert move container to workspace number $ws10
+
+	#######################
+	# Multi-monitor setup #
+	#######################
+	#
+		# Use workspaces on different monitors
+		# workspace $ws1 output LVDS-1
+		# workspace $ws2 output VGA-1
+		# workspace $ws3 output LVDS-1
+		# workspace $ws4 output VGA-1
+		# workspace $ws5 output LVDS-1
+		# workspace $ws6 output VGA-1
+		# workspace $ws7 output LVDS-1
+		# workspace $ws8 output VGA-1
+		# workspace $ws9 output LVDS-1
+
+		# Switch to workspace - multi monitors
+		# bindsym $mod+1 workspace number $ws2, workspace number $ws1
+		# bindsym $mod+2 workspace number $ws1, workspace number $ws2
+		# bindsym $mod+3 workspace number $ws4, workspace number $ws3
+		# bindsym $mod+4 workspace number $ws3, workspace number $ws4
+		# bindsym $mod+5 workspace number $ws6, workspace number $ws5
+		# bindsym $mod+6 workspace number $ws5, workspace number $ws6
+		# bindsym $mod+7 workspace number $ws8, workspace number $ws7
+		# bindsym $mod+8 workspace number $ws7, workspace number $ws8
+		# bindsym $mod+9 workspace number $ws10, workspace number $ws9
+		# bindsym $mod+0 workspace number $ws9, workspace number $ws10
+
+		# Switch to workspace - multimonitor (keypad)
+		# bindsym $mod+Mod2+KP_1 workspace number $ws2, workspace number $ws1
+		# bindsym $mod+Mod2+KP_2 workspace number $ws1, workspace number $ws2
+		# bindsym $mod+Mod2+KP_3 workspace number $ws4, workspace number $ws3
+		# bindsym $mod+Mod2+KP_4 workspace number $ws3, workspace number $ws4
+		# bindsym $mod+Mod2+KP_5 workspace number $ws6, workspace number $ws5
+		# bindsym $mod+Mod2+KP_6 workspace number $ws5, workspace number $ws6
+		# bindsym $mod+Mod2+KP_7 workspace number $ws8, workspace number $ws7
+		# bindsym $mod+Mod2+KP_8 workspace number $ws7, workspace number $ws8
+		# bindsym $mod+Mod2+KP_9 workspace number $ws10, workspace number $ws9
+		# bindsym $mod+Mod2+KP_0 workspace number $ws9, workspace number $ws10
+
+		# Move workspaces between monitors
+		# bindsym $mod+Ctrl+greater move workspace to output right
+		# bindsym $mod+Ctrl+less move workspace to output left
+	#
+#
+# Layout stuff:
+#
+	# Use tabbed layout by default
+	workspace_layout tabbed
+
+	# split in horizontal orientation
+	bindsym $mod+period split h
+	# split in vertical orientation
+	bindsym $mod+semicolon split v
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+z move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+Shift+x scratchpad show
+
+	# Show specifically the Telegram scratchpad, if any
+	bindsym $mod+Shift+s [app_id="io.github.tdesktop_x64.TDesktop"] scratchpad show, \
+	resize set 1630 935, move position center
+	# Show specifically the Discord scratchpad, if any
+	# bindsym $mod+Shift+d [app_id="vesktop"] scratchpad show, \
+	# resize set 1630 935, move position center
+	bindsym $mod+Shift+d [class="vesktop"] scratchpad show, \
+	resize set 1630 935, move position center
+	# Show specifically the Netease scratchpad, if any
+	bindsym $mod+Shift+n [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] scratchpad show, \
+	resize set 1630 935, move position center
+#
+# Resizing containers:
+#
+	bindsym $mod+Control+h resize shrink width
+	bindsym $mod+Control+k resize shrink height
+	bindsym $mod+Control+j resize grow height
+	bindsym $mod+Control+l resize grow width
+	# The same, but with the arrow keys
+	bindsym $mod+Control+Left resize shrink width 5 px
+	bindsym $mod+Control+Up resize shrink height 5 px
+	bindsym $mod+Control+Down resize grow height 5 px
+	bindsym $mod+Control+Right resize grow width 5 px
+
+#
+# Display
+#
+	# Manually change screen brightness with clight
+	# Increase 10%
+	bindsym XF86MonBrightnessUp exec $brightness_bus_up 0.1 0 0 0 ""
+	bindsym Control+F3 exec $brightness_bus_up 0.1 0 0 0 ""
+	# Increase 1%
+	bindsym Control+Shift+F3 exec $brightness_bus_up 0.01 0 0 0 ""
+
+	# Decrease 10%
+	bindsym XF86MonBrightnessDown exec $brightness_bus_down 0.1 0 0 0 ""
+	bindsym Control+F2 exec $brightness_bus_down 0.1 0 0 0 ""
+	# Decrease 1%
+	bindsym Control+Shift+F2 exec $brightness_bus_down 0.01 0 0 0 ""
+
+	#
+	### Toggle clight auto-calibration ###
+	# Pause backlight auto-calibration
+	bindsym $mod+shift+F2 exec $brightness_auto_bus true && notify-send "CLight" "Auto-calibration paused"
+	# Resume backlight auto-calibration
+	bindsym $mod+shift+F3 exec $brightness_auto_bus false && notify-send "CLight" "Auto-calibration resumed"
+	# Re-check ambient brightness
+	bindsym $mod+shift+F1 exec $brightness_check_bus && notify-send "CLight" "Re-checking ambient brightness"
+	#
+#
+# Audio
+#
+	# Use wpctl to adjust volume in PulseAudio/PipeWire.
+	bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
+	bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
+	bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+	bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+	#
+	# The same but with different keys ($mod + numpad key)
+	# $mod + "*" to increase
+	bindsym $mod+KP_Multiply exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
+	# $mod + "/" to decrease
+	bindsym $mod+KP_Divide exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
+	# $mod + "-" to mute
+	bindsym $mod+KP_Subtract exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+	# Play / pause music
+	bindsym $mod+Control+space exec "playerctl --player=%any,chromium play-pause"
+	bindsym $mod+Control+KP_Multiply exec "playerctl --player=%any,chromium next"
+	bindsym $mod+Control+KP_Divide exec "playerctl --player=%any,chromium previous"
+	# The same, with keyboard-specific keys
+	bindsym XF86AudioPlay exec "playerctl --player=%any,chromium play-pause"
+	bindsym XF86AudioNext exec "playerctl --player=%any,chromium next"
+	bindsym XF86AudioPrev exec "playerctl --player=%any,chromium previous"
+	bindsym XF86AudioStop exec "playerctl --player=%any,chromium stop"
+
+	mode "f: Firefox | m: MPD | v: MPV | o: Others" {
+		bindsym Escape mode default
+		bindsym f exec "playerctl --player=firefox play-pause", mode default
+		bindsym m exec "playerctl --player=mpd play-pause", mode default
+		bindsym v exec "playerctl --player=mpv play-pause", mode default
+		bindsym o exec "playerctl --player=%any --ignore-player=firefox,mpd,mpv play-pause", mode default
+	}
+	bindsym $mod+Control+Shift+space mode "f: Firefox | m: MPD | v: MPV | o: Others"
+#
+# Power Menu
+#
+	set $mode_system  𝐋ock │ 󰩈 𝚬xit │⏾ 𝐒uspend │  𝐑eboot │  𝐏ower Off
+	mode "$mode_system" {
+		bindsym l exec loginctl lock-session, mode "default"
+		bindsym e exec swayexit exit, mode "default"
+		bindsym s exec systemctl suspend, mode "default"
+		bindsym r exec swayexit reboot, mode "default"
+		bindsym p exec swayexit shutdown, mode "default"
+
+		# back to normal: Enter or Escape
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+
+	bindsym $mod+o mode "$mode_system"
+#
+

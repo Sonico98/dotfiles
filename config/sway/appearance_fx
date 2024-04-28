@@ -1,0 +1,31 @@
+### SwayFX
+#
+	# Window corner radius in px
+	corner_radius 10
+
+	# Window background blur
+	blur off
+	blur_xray off
+	blur_passes 2
+	blur_radius 4
+
+	# Blur rofi, waybar, kitty, swayimg and dunst
+	layer_effects "rofi" blur on; corner_radius 10;
+	layer_effects "waybar" blur on; shadows off
+	layer_effects "notifications" blur on; shadows off
+	for_window [ app_id="kitty" ] blur on
+	for_window [ app_id="swayimg_.*" ] blur on
+
+	# Enable shadows
+	shadows on
+	shadows_on_csd off
+	shadow_blur_radius 15
+	shadow_color #000000CC
+
+	# Inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
+	default_dim_inactive 0.2
+	dim_inactive_colors.unfocused #000000FF
+	dim_inactive_colors.urgent #900000FF
+	for_window [class="Gimp-*"] default_dim_inactive 0
+	for_window [app_id="gimp"] default_dim_inactive 0
+#
