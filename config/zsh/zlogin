@@ -55,6 +55,8 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 			export MOZ_ENABLE_WAYLAND=1
 		fi
 	fi
+	# Make LibreOffice follow the system theme
+	export SAL_USE_VCLPLUGIN=qt6
 
 	# Symlink some folders to a directory in RAM
 	rm -rf /home/sonico/Downloads/Firefox\ Downloads/{Torrents,Zram}
