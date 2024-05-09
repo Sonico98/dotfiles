@@ -30,7 +30,7 @@ async def check_extension(event, file_extension):
         destination = base_dir + '/Torrents/'
     elif file_extension in ['mp3', 'm4a', 'flac', 'wav', 'ogg']:
         destination = base_dir + '/Music/'
-    elif file_extension in ['zip', '7z', 'rar', 'gz', 'tar']:
+    elif file_extension in ['zip', '7z', 'rar', 'gz', 'tar', 'xz', 'zst']:
         destination = base_dir + '/Compressed/'
     elif file_extension in ['apk', 'exe', 'bash', 'sh', 'py']:
         destination = base_dir + '/Executables/'
@@ -100,7 +100,7 @@ async def main():
                         asyncio.ensure_future(check_extension(event, file_extension))
 
 
-loop = asyncio.get_event_loop()
+loop = asyncio.new_event_loop()
 try:
     loop.run_until_complete(main())
 except KeyboardInterrupt:
