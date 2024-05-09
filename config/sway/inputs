@@ -7,7 +7,7 @@
 		xkb_layout us
 		xkb_model pc105
 		xkb_variant intl
-		xkb_options caps:backspace,lv3:lalt_switch,lv3:ralt_alt
+		xkb_options caps:backspace,lv3:lalt_switch,lv3:ralt_alt,shift:both_capslock
 		repeat_delay 300 
 		repeat_rate 30
 		xkb_numlock enabled
