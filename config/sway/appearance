@@ -3,9 +3,6 @@
 	# Center all floating windows
 	for_window [floating] move position center
 
-	# Move minimized windows into Scratchpad (enable|disable)
-	scratchpad_minimize disable
-
 	# Enable gaps
 	gaps inner 10
 	gaps outer 3
@@ -31,6 +28,7 @@
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
 	for_window [title="Moving — Dolphin"] floating enable, move position center
 	for_window [title="Deleting — Dolphin"] floating enable, move position center
+	for_window [app_id="org.freedesktop.impl.portal.desktop.kde"] floating enable, resize set 1630 935, move position center
 	# Keep dragon-drop always on screen
 	for_window [app_id="dragon-drop"] sticky enable
 #

@@ -221,10 +221,10 @@
 	bindsym $mod+Shift+s [app_id="io.github.tdesktop_x64.TDesktop"] scratchpad show, \
 	resize set 1630 935, move position center
 	# Show specifically the Discord scratchpad, if any
-	# bindsym $mod+Shift+d [app_id="vesktop"] scratchpad show, \
-	# resize set 1630 935, move position center
-	bindsym $mod+Shift+d [class="vesktop"] scratchpad show, \
+	bindsym $mod+Shift+d [app_id="vesktop"] scratchpad show, \
 	resize set 1630 935, move position center
+	# bindsym $mod+Shift+d [class="vesktop"] scratchpad show, \
+	# resize set 1630 935, move position center
 	# Show specifically the Netease scratchpad, if any
 	bindsym $mod+Shift+n [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] scratchpad show, \
 	resize set 1630 935, move position center
