@@ -44,16 +44,15 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	export WINEDEBUG=-all
 	# Use QT file dialog (1=QT; 0=GTK)
 	export GTK_USE_PORTAL=1
-	# Enable qt5ct to configure QT themes
+	# Enable qt6ct to configure QT themes
+	export QT_QPA_PLATFORMTHEME=qt6ct
 	if [ "$DESKTOP_SESSION" = "plasma" ]; then
-		export QT_QPA_PLATFORMTHEME=KDE
 		kscreen-doctor output.HDMI-A-1.enable output.HDMI-A-1.mode.1920x1080@60
-	else
-		export QT_QPA_PLATFORMTHEME=qt6ct
-		if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-			export QT_QPA_PLATFORM="wayland;xcb"
-			export MOZ_ENABLE_WAYLAND=1
-		fi
+		kscreen-doctor output.HDMI-A-2.enable output.HDMI-A-2.mode.1920x1080@60
+	fi
+	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+		export QT_QPA_PLATFORM="wayland;xcb"
+		export MOZ_ENABLE_WAYLAND=1
 	fi
 	# Make LibreOffice follow the system theme
 	export SAL_USE_VCLPLUGIN=qt6
