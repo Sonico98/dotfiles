@@ -73,6 +73,8 @@ keymap = [
 	{ on = [ "z" ],         run = "plugin zoxide",              desc = "Jump to a directory using zoxide" },
 	{ on = [ "Z" ],         run = "plugin fzf",                 desc = "Jump to a directory, or reveal a file using fzf" },
 	{ on = [ "<Backspace>" ], run = '''shell "$SHELL" --block --confirm''', desc = "Open shell here" },
+	{ on = [ "c", "p" ], run = [ '''shell 'mogrify -format png "$@"' --confirm'''], desc = "Convert to png" },
+	{ on = [ "c", "j" ], run = [ '''shell 'mogrify -format jpg "$@"' --confirm'''], desc = "Convert to jpg" },
 	# These call my scripts installed into /usr/local/bin/
 	{ on = [ "<C-p>" ], run = '''shell 'kitty_cmds -D' --confirm''', desc = "Preview all images in the current directory" },
 	{ on = [ "a", "s" ], run = '''shell 'kitty_cmds -s "$@"' --confirm''', desc = "Archive selected files (store)" },

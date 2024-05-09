@@ -34,8 +34,8 @@ edit = [
 	{ run = 'code "%*"',    orphan = true, for = "windows" },
 ]
 open = [
-	{ run = 'xdg-open "$@"',                desc = "Open", for = "linux" },
-	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
+	{ run = 'xdg-open "$@"', orphan = true, desc = "Open", for = "linux" },
+	{ run = 'open "$@"', 	 orphan = true, desc = "Open", for = "macos" },
 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" }
 ]
 reveal = [
@@ -62,9 +62,6 @@ play = [
 	{ run = 'mpv "%1"', orphan = true, for = "windows" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 ]
-image = [
-	{ run = 'swayimg -a "$1"', orphan = true, for = "unix" },
-]
 
 [open]
 rules = [
@@ -73,7 +70,7 @@ rules = [
 	{ mime = "text/*",  use = [ "edit_newtab", "edit", "reveal" ] },
 	{ mime = "image/gif", use = [ "gif", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
-	{ mime = "video/webm", use = [ "play_gif", "play", "reveal" ] },
+	{ mime = "video/webm", use = [ "gif", "play", "reveal" ] },
 	{ mime = "video/*", use = [ "play", "reveal" ] },
 	{ mime = "audio/*", use = [ "audio", "reveal" ] },
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },

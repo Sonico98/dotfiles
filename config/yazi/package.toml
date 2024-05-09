@@ -1,0 +1,12 @@
+[plugin]
+deps = [
+	{ use = "Sonico98/allmytoes", commit = "=df04920" },
+	{ use = "Sonico98/exifaudio", commit = "94329ea" },
+	{ use = "DreamMaoMao/mime", commit = "4afd840" },
+	{ use = "ndtoan96/ouch", commit = "694d149" },
+	{ use = "dedukun/relative-motions", commit = "8b3ee63" },
+	{ use = "Sonico98/mkdir", commit = "407eef9" }
+]
+
+[flavor]
+deps = []
