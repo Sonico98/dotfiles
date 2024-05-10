@@ -6,7 +6,7 @@
 }
 
 #element selected {
-    background-color: #FEC045FF;
+    background-color: #ffdf85FF;
 }
 
 #element-text selected {

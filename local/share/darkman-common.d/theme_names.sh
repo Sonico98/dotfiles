@@ -6,14 +6,14 @@ dark_waybar_theme="style_dark.css"
 # GTK
 light_gtk_theme="Fluent-round-orange-Light"
 light_gtk_icon="Fluent-yellow-light"
-dark_gtk_theme="Fluent-round-orange-Dark"
-dark_gtk_icon="Fluent-yellow-dark"
+dark_gtk_theme="Fluent-round-pink-Dark"
+dark_gtk_icon="Fluent-pink-dark"
 cursor_theme="Bibata-Rainbow-Modern"
 font_name="GoogleSans Nerd Font, 14"
 gnomeschema="org.gnome.desktop.interface"
 # QT
 light_qt_color_scheme="Custom Orange Light"
-dark_qt_color_scheme="Material Orange Dark"
+dark_qt_color_scheme="Material Pink Dark"
 # KDE
 light_kde_theme="org.kde.breeze.desktop"
 dark_kde_theme="org.kde.breezedark.desktop"

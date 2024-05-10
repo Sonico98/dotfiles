@@ -6,8 +6,8 @@ source "$HOME"/.local/share/darkman-common.d/colors.sh
 source "$HOME"/.local/share/darkman-common.d/theme_names.sh
 
 set_waybar_theme() {
-	rm -f "$waybar_style_path"/style.css
-	ln -s "$waybar_style_path"/{"$style_to_set",style.css}
+	rm -f "$waybar_style_dir"/style.css
+	ln -s "$waybar_style_dir"/{"$style_to_set",style.css}
 	killall -SIGUSR2 waybar &
 }
 
@@ -17,20 +17,26 @@ set_sway_theme() {
 		"light")
 			old_border="$dark_sway_border"
 			old_border_inactive="$dark_sway_border_inactive"
+			old_shadow="$dark_sway_shadow"
 			new_border="$light_sway_border"
 			new_border_inactive="$light_sway_border_inactive"
+			new_shadow="$light_sway_shadow"
 			;;
 		"dark")
 			old_border="$light_sway_border"
 			old_border_inactive="$light_sway_border_inactive"
+			old_shadow="$light_sway_shadow"
 			new_border="$dark_sway_border"
 			new_border_inactive="$dark_sway_border_inactive"
+			new_shadow="$dark_sway_shadow"
 			;;
 	esac
-	sed -i "s/$old_border/$new_border/g" "$sway_conf_path"
-	sed -i "s/$old_border_inactive/$new_border_inactive/g" "$sway_conf_path"
-	active="$(grep -m 1 "client.focused" $sway_conf_path | tr -s " " | tr -d "	")"
-	inactive="$(grep -m 1 "client.focused_inactive" $sway_conf_path | tr -s " " | tr -d "	")"
+	sed -i "s/$old_border/$new_border/g" "$sway_conf_dir/appearance"
+	sed -i "s/$old_border_inactive/$new_border_inactive/g" "$sway_conf_dir/appearance"
+	sed -i "s/shadow_color \"$old_shadow\"/shadow_color \"$new_shadow\"/" "$sway_conf_dir/appearance_fx"
+	export SWAYSOCK && swaymsg shadow_color "$new_shadow"
+	active="$(grep -m 1 "client.focused" $sway_conf_dir/appearance | tr -s " " | tr -d "	")"
+	inactive="$(grep -m 1 "client.focused_inactive" $sway_conf_dir/appearance | tr -s " " | tr -d "	")"
 	border_a="$(echo "$active" | cut -d ' ' -f2)"
 	backgr_a="$(echo "$active" | cut -d ' ' -f3)"
 	text_a="$(echo "$active" | cut -d ' ' -f4)"
@@ -71,11 +77,11 @@ set_gtk_theme() {
 set_qt_theme() {
 	# QT 5
 	sed -i -e "s#icon_theme=.*#icon_theme=$gtk_icon_name#" \
-		-e "s#color_scheme_path=.*#color_scheme_path=$qt5_color_scheme_path/$qt_color_scheme.conf#" \
+		-e "s#color_scheme_path=.*#color_scheme_path=$qt5_color_scheme_dir/$qt_color_scheme.conf#" \
 		"$qt5ct_conf_path"
 	# QT 6
 	sed -i -e "s#icon_theme=.*#icon_theme=$gtk_icon_name#" \
-		-e "s#color_scheme_path=.*#color_scheme_path=$qt6_color_scheme_path/$qt_color_scheme.conf#" \
+		-e "s#color_scheme_path=.*#color_scheme_path=$qt6_color_scheme_dir/$qt_color_scheme.conf#" \
 		"$qt6ct_conf_path"
 }
 
@@ -83,11 +89,16 @@ set_kde_theme() {
 	case "$1" in
 		"light")
 			plasma_theme="$light_kde_theme"
+			old_accent="$dark_accent_color"
+			new_accent="$light_accent_color"
 			;;
 		"dark")
 			plasma_theme="$dark_kde_theme"
+			old_accent="$light_accent_color"
+			new_accent="$dark_accent_color"
 			;;
 	esac
+	sed -i -e "s#AccentColor=$old_accent#AccentColor=$new_accent#" "$kdeglobals_path"
 	lookandfeeltool -a "$plasma_theme"
 }
 
@@ -147,21 +158,21 @@ set_rofi_theme() {
 
 	sed -i -e \
 		"s/theme \"$old_theme\"/theme \"$new_theme\"/" \
-		"$rofi_conf_path/config.rasi" "$rofi_conf_path/config_list.rasi"
+		"$rofi_conf_dir/config.rasi" "$rofi_conf_dir/config_list.rasi"
 }
 
 set_yazi_theme() {
 	case "$1" in
 		"light")
-			new_theme="$yazi_conf_path/themes/$yazi_light_theme/theme.toml"
+			new_theme="$yazi_conf_dir/themes/$yazi_light_theme/theme.toml"
 			;;
 		"dark")
-			new_theme="$yazi_conf_path/themes/$yazi_dark_theme/theme.toml"
+			new_theme="$yazi_conf_dir/themes/$yazi_dark_theme/theme.toml"
 			;;
 	esac
 
-	rm -f "$yazi_conf_path"/theme.toml
-	ln -s "$new_theme" "$yazi_conf_path"/theme.toml
+	rm -f "$yazi_conf_dir"/theme.toml
+	ln -s "$new_theme" "$yazi_conf_dir"/theme.toml
 }
 
 set_btop_theme() {
