@@ -99,7 +99,7 @@ set_kde_theme() {
 			;;
 	esac
 	sed -i -e "s#AccentColor=$old_accent#AccentColor=$new_accent#" "$kdeglobals_path"
-	lookandfeeltool -a "$plasma_theme"
+	lookandfeeltool -platform offscreen -a "$plasma_theme"
 }
 
 set_nvim_theme() {
