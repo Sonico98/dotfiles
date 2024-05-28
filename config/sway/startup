@@ -6,9 +6,12 @@
 	exec sleep 8 && dex -a -e i3
 	# Rename workspaces based on the programs open
 	exec sworkstyle &> /tmp/sworkstyle.log
+	# Fill dolphin's 'open with' menu with programs
+	exec XDG_MENU_PREFIX=arch- kbuildsycoca6
 
 	# Scale XWayland apps properly
 	exec echo "Xft.dpi: 96" | xrdb -merge
+	exec echo "Xcursor.theme: Bibata-Rainbow-Modern" | xrdb -merge
 	exec xprop -root -format _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1
 
 	# Polkit agent

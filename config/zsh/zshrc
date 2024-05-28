@@ -77,6 +77,7 @@ export GREP_COLORS='sl=49;39:cx=49;39:mt=48;5;215;38;5;234;1:fn=49;38;5;183:ln=4
 
 # --- Aliases ----------------------
 alias cat="bat"
+alias cwp="~/.local/share/dark-mode.d/00_waybar_and_sway.sh"
 alias fd="fd -H"
 alias ffmpeg="ffmpeg -hide_banner"
 alias ffprobe="ffprobe -hide_banner"

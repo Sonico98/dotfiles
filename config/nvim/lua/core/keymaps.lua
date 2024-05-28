@@ -14,7 +14,6 @@ map('n', '<C-p>', '"+p`[v`]=')
 
 -- Toggle auto-indenting for code paste
 map('n', '<F2>', ':set invpaste paste?<CR>')
-vim.opt.pastetoggle = '<F2>'
 
 -- Move tabs
 map('n', '<S-Left>', '<Cmd>tabmove-<CR>')
@@ -32,7 +31,8 @@ map('i', '<C-k>', '<Right>')
 map('n', '<leader>bn', '<Cmd>bnext<CR>')
 map('n', '<leader>bp', '<Cmd>bprev<CR>')
 
-
+-- Exit from terminal mode
+map('t', '<ESC><ESC>', '<C-\\><C-n>')
 ------------------------
 -- Deprecated keymaps --
 ------------------------

@@ -22,6 +22,7 @@
 	"diagnostic.virtualText": false,
 	"diagnostic.checkCurrentLine": true,
 	"diagnostic.enableMessage": "jump",
+	"inlayHint.enable": false,
 	"suggest.removeDuplicateItems": true,
 	"suggest.timeout": 3000,
 	"suggest.languageSourcePriority": 95,

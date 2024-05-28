@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # Programs required: kitty, fd, p7zip, timg
 # openArchives script: https://www.github.com/Sonico98/7zip-Extract
 
@@ -27,7 +27,7 @@ while getopts ":Ddesuv:" option; do
 				fd -e jpg -e jpeg -e JPG -e png -e PNG -e gif -e GIF -e webp -e WEBP -d 1 | \
 				sort -V | awk -v q=\" '\''{ print q $0 q }'\'' | \
 				xargs timg --compress=5 --grid=4x4 -U -C -I \
-				-bnone -pk --frames=1 --threads=4 --title=%f; \
+				-bnone -pk --frames=1 --threads=6 --title=%f; \
 				else echo "No image files found"; fi;
 				read -s -p '"'Press ENTER to continue'"'')"
 			;;

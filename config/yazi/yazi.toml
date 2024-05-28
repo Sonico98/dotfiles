@@ -102,18 +102,27 @@ suppress_preload = true
 
 [plugin]
 
+prefetchers = [
+	# Mimetype
+	{ name = "*", cond = "!mime", run = "mime", prio = "high" },
+]
+
 preloaders = [
-	{ name = "*", cond = "!mime", run = "mime", multi = true, prio = "high" },
 	# Image
-	{ mime = "image/vnd.djvu", run = "noop" },
+	{ mime = "image/svg+xml", run = "magick" },
+	{ mime = "image/heic",    run = "magick" },
+	{ mime = "image/jxl",     run = "magick" },
 	{ mime = "image/*",        run = "allmytoes" },
 	# Video
-	{ mime = "video/*", run = "video", multi = false },
+	{ mime = "video/*", run = "video" },
 	# PDF
 	{ mime = "application/pdf", run = "pdf" },
 	# Audio
 	{ mime = "audio/*", run = "exifaudio" },
+	# Font
+	{ mime = "font/*", run = "font" },
 ]
+
 previewers = [
 	{ name = "*/", run = "folder", sync = true },
 	# Code
@@ -124,7 +133,9 @@ previewers = [
 	# JSON
 	{ mime = "application/json", run = "json" },
 	# Image
-	{ mime = "image/vnd.djvu", run = "noop" },
+	{ mime = "image/svg+xml", run = "magick" },
+	{ mime = "image/heic",    run = "magick" },
+	{ mime = "image/jxl",     run = "magick" },
 	{ mime = "image/*",        run = "allmytoes" },
 	# Video
 	{ mime = "video/*", run = "video" },
@@ -133,15 +144,13 @@ previewers = [
 	# Archive
 	{ mime = "application/zip",             run = "ouch" },
 	{ mime = "application/gzip",            run = "ouch" },
-	{ mime = "application/x-tar",           run = "ouch" },
-	{ mime = "application/x-bzip",          run = "ouch" },
-	{ mime = "application/x-bzip2",         run = "ouch" },
-	{ mime = "application/x-7z-compressed", run = "ouch" },
-	{ mime = "application/x-rar",           run = "ouch" },
 	{ mime = "application/xz",              run = "ouch" },
 	{ mime = "application/zstd",            run = "ouch" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", run = "ouch" },
 	# Audio
 	{ mime = "audio/*", run = "exifaudio"},
+	# Font
+	{ mime = "font/*", run = "font" },
 	# Fallback
 	{ name = "*", run = "file" },
 ]

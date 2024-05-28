@@ -8,7 +8,7 @@ else
 
 	if [ "$?" -eq 0 ]; then
 		notify-send "wf-recorder" "Recording started"
-		wf-recorder -x yuv420p -g "$recording_area" -f ~/Videos/screenrecord"$(date +'%Y-%m-%d--%H-%M-%S.mp4')"
+		wf-recorder -x yuv420p -r 60 -c libx264 -b 6 -g "$recording_area" -f ~/Videos/screenrecord"$(date +'%Y-%m-%d--%H-%M-%S.mp4')"
 		notify-send "wf-recorder" "Recording stopped"
 	else
 		notify-send "wf-recorder" "Recording cancelled"

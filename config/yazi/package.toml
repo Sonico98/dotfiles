@@ -2,9 +2,9 @@
 deps = [
 	{ use = "Sonico98/allmytoes", commit = "=df04920" },
 	{ use = "Sonico98/exifaudio", commit = "94329ea" },
-	{ use = "DreamMaoMao/mime", commit = "e910658" },
+	{ use = "DreamMaoMao/mime", commit = "fa40dae" },
 	{ use = "ndtoan96/ouch", commit = "694d149" },
-	{ use = "dedukun/relative-motions", commit = "8b3ee63" },
+	{ use = "dedukun/relative-motions", commit = "e223bce" },
 	{ use = "Sonico98/mkdir", commit = "407eef9" }
 ]
 

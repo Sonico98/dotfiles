@@ -32,3 +32,4 @@
 	for_window [class="Gimp-*"] default_dim_inactive 0
 	for_window [app_id="gimp"] default_dim_inactive 0
 #
+	# animation_duration 0.2
