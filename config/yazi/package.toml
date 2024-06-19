@@ -2,10 +2,14 @@
 deps = [
 	{ use = "Sonico98/allmytoes", commit = "=df04920" },
 	{ use = "Sonico98/exifaudio", commit = "94329ea" },
-	{ use = "DreamMaoMao/mime", commit = "fa40dae" },
+	{ use = "DreamMaoMao/mime", commit = "8e866b9" },
 	{ use = "ndtoan96/ouch", commit = "694d149" },
 	{ use = "dedukun/relative-motions", commit = "e223bce" },
-	{ use = "Sonico98/mkdir", commit = "407eef9" }
+	{ use = "Sonico98/mkdir", commit = "407eef9" },
+	{ use = "MasouShizuka/projects", commit = "e18ec80" },
+	{ use = "yazi-rs/plugins#full-border", commit = "6d54340" },
+	{ use = "yazi-rs/plugins#max-preview", commit = "6d54340" },
+	{ use = "yazi-rs/plugins#hide-preview", commit = "6d54340" },
 ]
 
 [flavor]

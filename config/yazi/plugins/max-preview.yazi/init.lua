@@ -6,13 +6,12 @@ local function entry(st)
 		Manager.layout = function(self, area)
 			self.area = area
 
-			local all = MANAGER.ratio.parent + MANAGER.ratio.current
 			return ui.Layout()
 				:direction(ui.Layout.HORIZONTAL)
 				:constraints({
-					ui.Constraint.Ratio(MANAGER.ratio.parent, all),
-					ui.Constraint.Ratio(MANAGER.ratio.current, all),
-					ui.Constraint.Length(0),
+					ui.Constraint.Percentage(0),
+					ui.Constraint.Percentage(0),
+					ui.Constraint.Percentage(100),
 				})
 				:split(area)
 		end

@@ -85,6 +85,15 @@ keymap = [
 	{ on = [ "s", "a" ], run = '''shell 'separateAAC' --confirm''',   		desc = "Separate AAC files" },
 	{ on = [ "u" ], 	 run = "shell --confirm ibroadcast-uploader -p 5", 	desc = "Upload folder to iBroadcast" },
 
+	# projects.yazi
+	{ on = [ "b", "s" ], run = "plugin projects --args=save", 				desc = "Save current project" },
+	{ on = [ "b", "l" ], run = "plugin projects --args=load", 				desc = "Load project" },
+	{ on = [ "b", "b" ], run = "plugin projects --args=load_last", 			desc = "Load last project" },
+	{ on = [ "b", "d" ], run = "plugin projects --args=delete", 			desc = "Delete project" },
+	{ on = [ "b", "D" ], run = "plugin projects --args=delete_all", 		desc = "Delete all projects" },
+	{ on = [ "b", "m" ], run = "plugin projects --args='merge current'", 	desc = "Merge current tab to other projects" },
+	{ on = [ "b", "M" ], run = "plugin projects --args='merge all'", 		desc = "Merge current project to other projects" },
+
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",         			  		desc = "Set linemode to size" },
 	{ on = [ "m", "p" ], run = "linemode permissions",  			  		desc = "Set linemode to permissions" },
@@ -158,7 +167,7 @@ keymap = [
 
 	# Preview
 	{ on = [ "<C-n>" ], run = "plugin --sync hide-preview", 				desc = "Hide the preview pane" },
-	{ on = [ "<C-m>" ], run = "plugin --sync maximize-preview", 			desc = "Enlarge the preview pane" },
+	{ on = [ "<C-m>" ], run = "plugin --sync max-preview", 					desc = "Enlarge the preview pane" },
 ]
 
 [tasks]
