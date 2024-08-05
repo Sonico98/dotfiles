@@ -16,9 +16,9 @@ function Status:name()
 end
 
 -- Make icon colors follow the filename's color
-function File:icon(file)
-	local icon = file:icon()
-	return icon and { ui.Span(" " .. icon.text .. " ") } or {}
+function Entity:icon()
+  local icon = self._file:icon()
+  return ui.Line(icon and " " .. icon.text .. " " or "")
 end
 
 -- Show relative numbers
@@ -33,3 +33,6 @@ require("zoxide"):setup {
 require("session"):setup {
 	sync_yanked = true,
 }
+
+-- Render theme colors on the right pane
+require("mime-preview"):setup()

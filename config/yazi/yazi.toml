@@ -102,9 +102,9 @@ suppress_preload = true
 
 [plugin]
 
-prefetchers = [
+fetchers = [
 	# Mimetype
-	{ name = "*", cond = "!mime", run = "mime", prio = "high" },
+	{ id = "mime-ext", name = "*", run = "mime-ext", prio = "high" },
 ]
 
 preloaders = [
@@ -112,7 +112,7 @@ preloaders = [
 	{ mime = "image/svg+xml", run = "magick" },
 	{ mime = "image/heic",    run = "magick" },
 	{ mime = "image/jxl",     run = "magick" },
-	{ mime = "image/*",        run = "allmytoes" },
+	{ mime = "image/*",       run = "allmytoes" },
 	# Video
 	{ mime = "video/*", run = "video" },
 	# PDF
@@ -136,7 +136,7 @@ previewers = [
 	{ mime = "image/svg+xml", run = "magick" },
 	{ mime = "image/heic",    run = "magick" },
 	{ mime = "image/jxl",     run = "magick" },
-	{ mime = "image/*",        run = "allmytoes" },
+	{ mime = "image/*",       run = "allmytoes" },
 	# Video
 	{ mime = "video/*", run = "video" },
 	# PDF
