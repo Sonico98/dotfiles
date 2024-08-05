@@ -15,4 +15,4 @@ Xft/HintStyle "hintslight"
 Xft/Antialias 1
 Xft/RGBA "rgb"
 Gdk/UnscaledDPI 98304
-Gdk/WindowScalingFactor 2
+Gdk/WindowScalingFactor 1
