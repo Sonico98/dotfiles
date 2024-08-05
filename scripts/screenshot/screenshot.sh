@@ -10,7 +10,7 @@ QUANTISIZE=0 				# 0 Disabled, 1 Enabled. Reduces image file size at the cost of
 
 get_dominant_color()
 {
-	convert "$1" -brightness-contrast 15x5 -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: \
+	magick "$1" -brightness-contrast 15x5 -clamp -scale 50x50! -depth 8 +dither -colors 8 -format "%c" histogram:info: \
 		| sed -n 's/^[ ]*\(.*\):.*[#]\([0-9a-fA-F]*\) .*$/\1,#\2/p' \
 		| sort -r -n -k 1 -t "," | cut -d',' -f2 | head -1
 }
@@ -24,7 +24,7 @@ style_image()
 	fi
 
 	MAGICK_OCL_DEVICE=true magick "$1" \
-	  \( +clone -alpha extract \
+	  \( +clone -alpha extract -clamp \
 	    -draw 'fill black polygon 0,0 0,13 13,0 fill white circle 13,13 13,0' \
 	    \( +clone -flip \) -compose Multiply -composite \
 	    \( +clone -flop \) -compose Multiply -composite \

@@ -13,7 +13,7 @@ if [ -z ${LOCKSCREEN_DIR+x} ]; then exit 1; fi # bail if lockscreen dir is not s
 if [[ ! -d ${LOCKSCREEN_DIR} ]]; then
 	mkdir -p ${LOCKSCREEN_DIR}
 	grim -t png -l 0 ${LOCKSCREEN_DIR}/lock.png
-	convert ${LOCKSCREEN_DIR}/lock.png -scale 10% -blur 0x1.5 -resize 1000% ${LOCKSCREEN_DIR}/lockscreen.jpg
+	magick ${LOCKSCREEN_DIR}/lock.png -scale 10% -blur 0x1.5 -clamp -resize 1000% ${LOCKSCREEN_DIR}/lockscreen.jpg
 fi
 
 # Pause music and brightness auto-calibration, mute audio and microphone.
