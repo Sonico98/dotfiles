@@ -1,6 +1,9 @@
 [general]
+mode = viewer
+size = fullscreen
+
+[viewer]
 scale = fit
-fullscreen = no
 background = none
 antialiasing = no
 
@@ -9,7 +12,7 @@ all = yes
 order = alpha
 
 [info]
-mode = off
+show = no
 
 [font]
 name = GoogleSans Nerd Font
@@ -17,7 +20,7 @@ size = 14
 color = #FFFFFF
 shadow = #000000
 
-[keys]
+[keys.viewer]
 j = zoom -10
 k = zoom +10
 h = prev_file
@@ -41,7 +44,7 @@ V = flip_horizontal
 s = animation
 BackSpace = zoom optimal
 
-[mouse]
+[mouse.viewer]
 Ctrl+ScrollLeft = step_right 5
 Ctrl+ScrollRight = step_left 5
 Ctrl+ScrollUp = step_down 5

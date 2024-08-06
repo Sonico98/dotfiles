@@ -17,6 +17,7 @@
 	layer_effects "waybar" blur on; blur_ignore_transparent on
 	layer_effects "notifications" blur on; shadows off
 	for_window [ app_id="kitty" ] blur on; shadows on; border pixel 2
+	for_window [ app_id="firefox" ] blur on; shadows on; border pixel 2
 	for_window [ app_id="swayimg_.*" ] blur on
 
 	# Enable shadows
