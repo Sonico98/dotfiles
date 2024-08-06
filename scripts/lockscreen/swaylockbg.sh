@@ -26,7 +26,7 @@ dunstctl set-paused true || true
 # turn it back on when activity is detected 
 # and automatically set the screen brightness
 swayidle timeout 5 'swaymsg "output * power off"' resume \
-	'swaymsg "output * power on"' &
+	'swaymsg "output * power on" && /usr/local/bin/check_waybar_tray' &
 idlepid=$!
 swaylock -F --indicator-idle-visible -i ${LOCKSCREEN_DIR}/lockscreen.jpg
 # Undo the previous actions after the screen has been unlocked

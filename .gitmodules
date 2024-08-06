@@ -7,9 +7,6 @@
 [submodule "scripts/i3/i3-dynamic-backgrounds"]
 	path = scripts/sway/i3-dynamic-backgrounds
 	url = https://github.com/VPavliashvili/i3-dynamic-backgrounds
-[submodule "config/yazi/plugins/mime.yazi"]
-	path = config/yazi/plugins/mime.yazi
-	url = https://github.com/DreamMaoMao/mime.yazi.git
 [submodule "config/yazi/plugins/allmytoes.yazi"]
 	path = config/yazi/plugins/allmytoes.yazi
 	url = https://github.com/Sonico98/allmytoes.yazi.git
@@ -28,3 +25,6 @@
 [submodule "config/yazi/plugins/mkdir.yazi"]
 	path = config/yazi/plugins/mkdir.yazi
 	url = https://github.com/Sonico98/mkdir.yazi
+[submodule "scripts/check_waybar_tray"]
+	path = scripts/check_waybar_tray
+	url = https://github.com/ShikharArvind/check_waybar_tray
