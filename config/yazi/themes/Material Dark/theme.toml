@@ -32,27 +32,29 @@ border_style  = { fg = "white" }
 
 # : Status {{{
 
-[status]
-separator_open  = ""
-separator_close = ""
-separator_style = { fg = "black", bg = "black" }
+# Managed by yatline.yazi
 
-# Mode
-mode_normal = { fg = "black", bg = "blue", bold = true }
-mode_select = { fg = "black", bg = "green", bold = true }
-mode_unset  = { fg = "black", bg = "red", bold = true }
-
-# Progress
-progress_label  = { fg = "black", bold = true }
-progress_normal = { fg = "blue", bg = "white" }
-progress_error  = { fg = "red", bg = "white" }
-
-# Permissions
-permissions_t = { fg = "blue" }
-permissions_r = { fg = "yellow" }
-permissions_w = { fg = "red" }
-permissions_x = { fg = "green" }
-permissions_s = { fg = "magenta" }
+# [status]
+# separator_open  = ""
+# separator_close = ""
+# separator_style = { fg = "blue", bg = "blue" }
+#
+# # Mode
+# mode_normal = { fg = "black", bg = "blue", bold = true }
+# mode_select = { fg = "black", bg = "green", bold = true }
+# mode_unset  = { fg = "black", bg = "red", bold = true }
+#
+# # Progress
+# progress_label  = { fg = "black", bold = true }
+# progress_normal = { fg = "blue", bg = "white" }
+# progress_error  = { fg = "red", bg = "white" }
+#
+# # Permissions
+# permissions_t = { fg = "blue" }
+# permissions_r = { fg = "yellow" }
+# permissions_w = { fg = "red" }
+# permissions_x = { fg = "green" }
+# permissions_s = { fg = "magenta" }
 
 # : }}}
 

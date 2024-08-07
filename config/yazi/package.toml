@@ -8,7 +8,7 @@ deps = [
 	{ use = "MasouShizuka/projects", commit = "7a1dc37" },
 	{ use = "yazi-rs/plugins#full-border", commit = "39f2753" },
 	{ use = "yazi-rs/plugins#max-preview", commit = "39f2753" },
-	{ use = "yazi-rs/plugins#hide-preview", commit = "39f2753" },
+	{ use = "yazi-rs/plugins#hide-preview", commit = "39f2753" }, { use = "imsi32/yatline", commit = "439b9d0" }, { use = "imsi32/yatline-githead", commit = "2f2b000" },
 ]
 
 [flavor]

@@ -28,3 +28,9 @@
 [submodule "scripts/check_waybar_tray"]
 	path = scripts/check_waybar_tray
 	url = https://github.com/ShikharArvind/check_waybar_tray
+[submodule "config/yazi/plugins/yatline-githead.yazi"]
+	path = config/yazi/plugins/yatline-githead.yazi
+	url = https://github.com/imsi32/yatline-githead.yazi
+[submodule "config/yazi/plugins/yatline.yazi"]
+	path = config/yazi/plugins/yatline.yazi
+	url = https://github.com/imsi32/yatline.yazi
