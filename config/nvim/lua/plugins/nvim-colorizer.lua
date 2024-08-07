@@ -11,7 +11,7 @@ return {
 		filetypes = { "*" },
 		user_default_options = {
 			RGB = false, -- #RGB hex codes
-			RRGGBB = false, -- #RRGGBB hex codes
+			RRGGBB = true, -- #RRGGBB hex codes
 			names = true, -- "Name" codes like Blue or blue
 			RRGGBBAA = true, -- #RRGGBBAA hex codes
 			AARRGGBB = false, -- 0xAARRGGBB hex codes
