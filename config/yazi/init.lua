@@ -50,8 +50,8 @@ require("yatline"):setup({
 			un_set = "red"
 		}
 	},
-	style_b = { bg = "#001023", fg = "white" },
-	style_c = { bg = "#001023", fg = "white" },
+	style_b = { bg = "reset", fg = "white" },
+	style_c = { bg = "reset", fg = "white" },
 
 	permissions_t_fg = "green",
 	permissions_r_fg = "yellow",

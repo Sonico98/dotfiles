@@ -6,9 +6,11 @@ deps = [
 	{ use = "dedukun/relative-motions", commit = "73f5542" },
 	{ use = "Sonico98/mkdir", commit = "0c0b87a" },
 	{ use = "MasouShizuka/projects", commit = "7a1dc37" },
-	{ use = "yazi-rs/plugins#full-border", commit = "39f2753" },
-	{ use = "yazi-rs/plugins#max-preview", commit = "39f2753" },
-	{ use = "yazi-rs/plugins#hide-preview", commit = "39f2753" }, { use = "imsi32/yatline", commit = "439b9d0" }, { use = "imsi32/yatline-githead", commit = "2f2b000" },
+	{ use = "yazi-rs/plugins#full-border", commit = "ba2a7d7" },
+	{ use = "yazi-rs/plugins#max-preview", commit = "ba2a7d7" },
+	{ use = "yazi-rs/plugins#hide-preview", commit = "ba2a7d7" },
+	{ use = "imsi32/yatline", commit = "f5a56cb" },
+	{ use = "imsi32/yatline-githead", commit = "2f2b000" },
 ]
 
 [flavor]
