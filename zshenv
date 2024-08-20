@@ -30,5 +30,8 @@ export DEVKITARM=/opt/devkitpro/devkitARM
 export DEVKITPPC=/opt/devkitpro/devkitPPC
 # https://stackoverflow.com/a/38980986
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# Enable java font antialising
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=setting'
+export JAVA_FONTS=/usr/share/fonts/TTF
 
 source "$ZDOTDIR"/.zshenv
