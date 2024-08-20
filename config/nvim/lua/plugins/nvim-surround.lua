@@ -2,7 +2,7 @@
 return {
 	"kylechui/nvim-surround",
 	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-	event = { "BufRead", "FileReadPost", "StdinReadPost", "BufWritePost" },
+	event = "VeryLazy",
 	priority = 5,
 	config = function()
 		require("nvim-surround").setup({

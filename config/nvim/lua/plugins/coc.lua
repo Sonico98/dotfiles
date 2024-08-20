@@ -16,7 +16,8 @@ return {
 		"coc-sh",
 		"coc-snippets",
 		"coc-tsserver",
-		"coc-vimlsp"
+		"coc-vimlsp",
+		"coc-pairs"
 		}
 
 		-- Always show the signcolumn, otherwise it would shift the text each time

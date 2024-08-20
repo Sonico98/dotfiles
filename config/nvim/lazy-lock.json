@@ -4,7 +4,6 @@
   "ayu-vim": { "branch": "master", "commit": "58d19b5ecc906b196068de6e6ead3af58b8f5231" },
   "bufferline.nvim": { "branch": "main", "commit": "73540cb95f8d95aa1af3ed57713c6720c78af915" },
   "coc.nvim": { "branch": "release", "commit": "ad6b31032f4eb4c407dfc30c3de94e67571ecc07" },
-  "firenvim": { "branch": "master", "commit": "fc72687977e1c34259c42f0e408655cf2638760d" },
   "fzf-lua": { "branch": "main", "commit": "e412b1b0db62ccfccee41d994da87923eb2d8abd" },
   "hlargs.nvim": { "branch": "main", "commit": "0ee7783f9f40a6dd15fbb4e497b24818342a9940" },
   "indent-blankline.nvim": { "branch": "master", "commit": "3d08501caef2329aba5121b753e903904088f7e6" },
