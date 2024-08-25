@@ -58,8 +58,9 @@ keymap = [
 	{ on = [ "P" ],      run = [ "paste --force", "escape --selected" ], 	desc = "Paste the files (overwrite if the destination exists)" },
 	{ on = [ "p", "l" ], run = [ "link", "escape --selected" ],    			desc = "Symlink the absolute path of files" },
 	{ on = [ "p", "L" ], run = [ "link --relative", "escape --selected" ], 	desc = "Symlink the relative path of files" },
+	{ on = [ "p", "h" ], run = [ "hardlink --follow", "escape --selected" ],desc = "Hardlink the absolute path of files" },
 	{ on = [ "d", "D" ], run = "remove --permanently", 			  			desc = "Permanently delete the files" },
-	{ on = [ "m", "k" ], run = "plugin mkdir",    				  			desc = "Create a directory" },
+	{ on = [ "m", "k" ], run = "create --dir",    				  			desc = "Create a directory" },
 	{ on = [ "t" ],    	 run = "create",    	  					  		desc = "Create a file or directory (ends with / for directories)" },
 	{ on = [ "r", "a" ], run = "rename --cursor=before_ext", 	  			desc = "Rename a file or directory" },
 	{ on = [ "r", "A" ], run = "rename --cursor=start", 			  		desc = "Rename a file or directory, from the start of the file" },
@@ -313,4 +314,25 @@ keymap = [
 
 	# Filtering
 	{ on = [ "/" ], run = "filter", desc = "Apply a filter for the help items" },
+]
+
+[confirm]
+keymap = [
+	{ on = "<Esc>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<C-[>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<C-c>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<Enter>", run = "close --submit", desc = "Submit the confirm" },
+
+	{ on = "n", run = "close",          desc = "Cancel the confirm" },
+	{ on = "y", run = "close --submit", desc = "Submit the confirm" },
+
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
 ]
