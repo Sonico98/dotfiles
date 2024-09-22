@@ -30,8 +30,10 @@ export DEVKITARM=/opt/devkitpro/devkitARM
 export DEVKITPPC=/opt/devkitpro/devkitPPC
 # https://stackoverflow.com/a/38980986
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-# Enable java font antialising
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=setting'
-export JAVA_FONTS=/usr/share/fonts/TTF
+# Enable java font antialising, GTK Look and Feel, Better 2D Performance
+export JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=setting -Dswing.aatext=true -Dsun.java2d.opengl=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# SILENT_JAVA_OPTIONS="$JDK_JAVA_OPTIONS"
+# unset JDK_JAVA_OPTIONS
+# alias java='java "$SILENT_JAVA_OPTIONS"'
 
 source "$ZDOTDIR"/.zshenv
