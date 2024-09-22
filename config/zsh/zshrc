@@ -235,6 +235,38 @@ function rcopy() {
 	rclone copy "$src" "$dst" "$@" -P -L
 }
 
+function xsubs() {
+	mkdir -p subs fonts
+	for i in *.mkv; do
+		fname="${i%.*}"
+		echo "Extracting $fname..."
+		ffmpeg -v quiet -stats -i "$i" -map 0:s:0 subs/"$fname.ass"
+		mkdir -p "fonts/$fname"
+		cd "fonts/$fname"
+		ffmpeg -y -dump_attachment:t "" -i ../../"$i" &>/dev/null
+		cd ../..
+		echo ""
+	done
+}
+
+function addfonts() {
+	MAINDIR=.
+	FONTSDIR="$MAINDIR/fonts"
+	for i in *.mkv; do
+		FNAME="${i%.*}"
+		args=()
+		for file in "$FONTSDIR"/"$FNAME"/*.(ttf|TTF|otf|OTF|ttc|TTC); do
+			if [[ "$file" == *.ttf ]]; then args+=(--attachment-mime-type application/x-truetype-font ); fi
+			if [[ "$file" == *.TTF ]]; then args+=(--attachment-mime-type application/x-truetype-font ); fi
+			if [[ "$file" == *.ttc ]]; then args+=(--attachment-mime-type application/x-truetype-font ); fi
+			if [[ "$file" == *.TTC ]]; then args+=(--attachment-mime-type application/x-truetype-font ); fi
+			if [[ "$file" == *.otf ]]; then args+=(--attachment-mime-type application/vnd.ms-opentype ); fi
+			if [[ "$file" == *.OTF ]]; then args+=(--attachment-mime-type application/vnd.ms-opentype ); fi
+			args+=(--add-attachment "$file")
+		done
+		mkvpropedit ./"$i" ${args[*]}
+	done
+}
 
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
