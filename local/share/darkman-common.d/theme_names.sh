@@ -13,7 +13,7 @@ font_name="GoogleSans Nerd Font, 14"
 gnomeschema="org.gnome.desktop.interface"
 # QT
 light_qt_color_scheme="Custom Orange Light"
-dark_qt_color_scheme="Material Pink Dark"
+dark_qt_color_scheme="Pastel Pink Dark"
 # KDE
 light_kde_theme="org.kde.breeze.desktop"
 dark_kde_theme="org.kde.breezedark.desktop"
