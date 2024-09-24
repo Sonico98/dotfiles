@@ -32,7 +32,7 @@ edit_newtab = [
 
 edit = [
 	{ run = '$EDITOR "$@"', block = true, for = "unix" },
-	{ run = 'aegisub "$@"', block = false },
+	{ run = 'aegisub "$@"', orphan = true, block = false },
 	{ run = 'code "%*"',    orphan = true, for = "windows" },
 ]
 open = [

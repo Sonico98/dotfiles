@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Sway
-dark_sway_border="#e352ff"
-dark_sway_border_inactive="#810a8b"
-dark_sway_shadow="#FF013B8A"
+dark_sway_border="#ee9cab"
+dark_sway_border_inactive="#994244"
+dark_sway_shadow="#5f1f21BA"
 light_sway_border="#fec045"
 light_sway_border_inactive="#b08639"
 light_sway_shadow="#0000008A"

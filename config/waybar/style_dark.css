@@ -4,8 +4,8 @@
     font-size: 16px;
 }
 
-@define-color accent #c7ff7d;
-@define-color accent-light rgba(199, 255, 125, 0.5);
+@define-color accent #9c87be;
+@define-color accent-light #554c7f;
 
 window#waybar {
     background: none;
@@ -18,8 +18,8 @@ window > box {
 	margin-bottom: 0px;
 	margin-left: 12px;
 	margin-right: 12px;
-    background-color: rgba(0, 29.0, 62.0, 0.7);
-    border: 2px solid #E352FF;
+    background-color: rgba(32, 29.0, 42.0, 0.7);
+    border: 2px solid #ee9cab;
 	border-radius: 10px;
     color: #dedede;
 }
