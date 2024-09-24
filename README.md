@@ -1,13 +1,10 @@
 # dotfiles
+### SwayFX
 (wallpaper not included)
-![image](https://github.com/Sonico98/dotfiles/assets/61394886/68df4f8f-b5c8-4532-9928-dc14322e20f2)
-### Joshuto file manager with previews for pictures, PDFs and Videos
-A dunst notification can also be seen at the bottom right corner
-![image](https://github.com/Sonico98/dotfiles/assets/61394886/157abb65-8209-4750-8383-a5ace64c7f70)
-### Example of the screenshot script
-![image](https://github.com/Sonico98/dotfiles/assets/61394886/0524fb0a-35cc-4128-850e-e86b2004edd0)
-### GTK and QT theme
-![image](https://github.com/Sonico98/dotfiles/assets/61394886/073b0daa-81f8-466b-9035-144f0ebbb2d2)
+![image](https://github.com/user-attachments/assets/2902cd13-159d-4a8a-9151-d1448644ba1d)
+### Screenshot script + GTK and QT theme
+Freezes current desktop state in place, allows capturing the whole desktop, a specific window or a specific region.
+![screenshot_pr](https://github.com/user-attachments/assets/b5861d4c-5a5f-4a33-ae02-d67232c1f798)
 ### Telegram theme
-https://t.me/addtheme/GMaterialDarkRed
-![image](https://github.com/Sonico98/dotfiles/assets/61394886/a825b09e-5030-4764-b918-bd728023e3c5)
+[Theme](https://t.me/addtheme/MDarkPink)
+![image](https://github.com/user-attachments/assets/f5aa6896-bf6f-4371-bfb7-299d3da7d7b8)
