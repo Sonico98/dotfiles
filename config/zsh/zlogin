@@ -60,12 +60,6 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	ln -s /zram/ /home/sonico/Downloads/Firefox\ Downloads/Zram
 
 	yes 'n' | ln -s ~/.local/share/little-cache-files/* ~/.cache/ &>/dev/null
-
-	# KDE does not offer the cursor size 16, and defaults to 24
-	# My cursor theme does not support that size, so logging into
-	# KDE and going back to i3 breaks my cursor theme.
-	sed -i "s/gtk-cursor-theme-size=24/gtk-cursor-theme-size=16/" ~/.config/gtk-3.0/settings.ini
-	sed -i "s/gtk-cursor-theme-size=24/gtk-cursor-theme-size=16/" ~/.config/gtk-4.0/settings.ini
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

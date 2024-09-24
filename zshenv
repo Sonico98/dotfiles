@@ -1,6 +1,9 @@
 # Set ZSH config directory
 export ZDOTDIR=${HOME}/.config/zsh
 
+# Try to make all programs respect the cursor theme (GIMP...)
+export XCURSOR_THEME="Bibata-Rainbow-Modern"
+
 # Set default programs
 export EDITOR=nvim
 export VISUAL=nvim
