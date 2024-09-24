@@ -34,6 +34,7 @@ set_sway_theme() {
 	sed -i "s/$old_border/$new_border/g" "$sway_conf_dir/appearance"
 	sed -i "s/$old_border_inactive/$new_border_inactive/g" "$sway_conf_dir/appearance"
 	sed -i "s/shadow_color \"$old_shadow\"/shadow_color \"$new_shadow\"/" "$sway_conf_dir/appearance_fx"
+	export SWAYSOCK && swaymsg seat seat0 xcursor_theme "Bibata-Rainbow-Modern"
 	export SWAYSOCK && swaymsg shadow_color "$new_shadow"
 	active="$(grep -m 1 "client.focused" $sway_conf_dir/appearance | tr -s " " | tr -d "	")"
 	inactive="$(grep -m 1 "client.focused_inactive" $sway_conf_dir/appearance | tr -s " " | tr -d "	")"

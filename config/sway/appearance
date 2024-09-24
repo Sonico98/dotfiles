@@ -22,6 +22,9 @@
 	# Title font
 	font pango:GoogleSans Nerd Font 10
 
+	# Cursor theme
+	seat seat0 xcursor_theme "Bibata-Rainbow-Modern" 24
+
 	# Open pavucontrol near the volume indicator
 	for_window [app_id="pavucontrol"] floating enable, resize set 720 515, move position 619 0
 	# Open KDE's polkit as a floating window
