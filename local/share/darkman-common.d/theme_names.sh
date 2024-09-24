@@ -18,7 +18,7 @@ dark_qt_color_scheme="Pastel Pink Dark"
 light_kde_theme="org.kde.breeze.desktop"
 dark_kde_theme="org.kde.breezedark.desktop"
 # Kitty Terminal
-light_kitty_theme="Catppuccin-Latte"
+light_kitty_theme="Material Light"
 dark_kitty_theme="Catppuccin Mocha"
 # Btop
 btop_dark_theme="monokai.theme"
