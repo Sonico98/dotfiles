@@ -100,6 +100,10 @@ set_kde_theme() {
 	esac
 	sed -i -e "s#AccentColor=$old_accent#AccentColor=$new_accent#" "$kdeglobals_path"
 	lookandfeeltool -platform offscreen -a "$plasma_theme"
+	kwriteconfig6 --file ~/.config/kdeglobals --group Icons --key Theme "$dark_gtk_icon"
+	kwriteconfig6 --file ~/.config/kcminputrc --group Mouse --key cursorTheme "$cursor_theme"
+	kwriteconfig6 --file ~/.config/gtk-3.0/settings.ini --group Settings --key gtk-cursor-theme-name "$cursor_theme"
+	kwriteconfig6 --file ~/.config/gtk-4.0/settings.ini --group Settings --key gtk-cursor-theme-name "$cursor_theme"
 }
 
 set_nvim_theme() {
