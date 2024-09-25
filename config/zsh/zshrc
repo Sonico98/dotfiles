@@ -93,7 +93,6 @@ alias lsh="/usr/bin/ls --group-directories-first --color --hyperlink=auto"
 alias qaac_enc="mkdir -p aac; \
 	wine ~/.wine/drive_c/Program\ Files/qaac/qaac64.exe \
 	-V 100 --copy-artwork -d ./aac (*.flac|*.mp3)"
-alias paru="paru"
 alias pas="paru -Syu --devel --noconfirm ; zprezto-update ; yes | remove-orphaned-kernels"
 alias pain="paru -S"
 alias pare="paru -Rns"
