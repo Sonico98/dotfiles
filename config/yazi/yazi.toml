@@ -18,7 +18,7 @@ tab_size        = 2
 max_width       = 2000
 max_height      = 2000
 cache_dir       = ""
-image_delay     = 30
+image_delay     = 0
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 image_filter = "triangle"
@@ -75,19 +75,19 @@ rules = [
 	{ mime = "video/webm", use = [ "gif", "play", "reveal" ] },
 	{ mime = "video/*", use = [ "play", "reveal" ] },
 	{ mime = "audio/*", use = [ "audio", "reveal" ] },
-	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
 
 	{ mime = "application/json", use = [ "edit_newtab", "edit", "reveal" ] },
 	{ mime = "*/javascript",     use = [ "edit_newtab", "edit", "reveal" ] },
 
 	{ mime = "application/zip",             use = [ "extract", "reveal" ] },
 	{ mime = "application/gzip",            use = [ "extract", "reveal" ] },
-	{ mime = "application/x-tar",           use = [ "extract", "reveal" ] },
-	{ mime = "application/x-gtar",          use = [ "extract", "reveal" ] },
-	{ mime = "application/x-bzip",          use = [ "extract", "reveal" ] },
-	{ mime = "application/x-bzip2",         use = [ "extract", "reveal" ] },
-	{ mime = "application/x-7z-compressed", use = [ "extract", "reveal" ] },
-	{ mime = "application/x-rar",           use = [ "extract", "reveal" ] },
+	{ mime = "application/tar",           use = [ "extract", "reveal" ] },
+	{ mime = "application/gtar",          use = [ "extract", "reveal" ] },
+	{ mime = "application/bzip",          use = [ "extract", "reveal" ] },
+	{ mime = "application/bzip2",         use = [ "extract", "reveal" ] },
+	{ mime = "application/7z-compressed", use = [ "extract", "reveal" ] },
+	{ mime = "application/rar",           use = [ "extract", "reveal" ] },
 	{ mime = "application/xz",              use = [ "extract", "reveal" ] },
 	{ mime = "application/zstd", 			use = [ "extract", "reveal" ] },
 
@@ -95,7 +95,7 @@ rules = [
 ]
 
 [tasks]
-micro_workers    = 10
+micro_workers    = 2
 macro_workers    = 3
 bizarre_retry    = 5
 image_alloc      = 536870912  # 512MB
@@ -131,7 +131,7 @@ previewers = [
 	{ mime = "text/*",                 run = "code" },
 	{ mime = "*/xml",                  run = "code" },
 	{ mime = "*/javascript",           run = "code" },
-	{ mime = "*/x-wine-extension-ini", run = "code" },
+	{ mime = "*/wine-extension-ini", run = "code" },
 	# JSON
 	{ mime = "application/json", run = "json" },
 	# Image
@@ -148,7 +148,7 @@ previewers = [
 	{ mime = "application/gzip",            run = "ouch" },
 	{ mime = "application/xz",              run = "ouch" },
 	{ mime = "application/zstd",            run = "ouch" },
-	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", run = "ouch" },
+	{ mime = "application/{tar,bzip*,7z-compressed,xz,rar}", run = "ouch" },
 	# Audio
 	{ mime = "audio/*", run = "exifaudio"},
 	# Font
@@ -216,7 +216,7 @@ quit_content = "The following task is still running, are you sure you want to qu
 quit_origin  = "center"
 quit_offset  = [ 0, 0, 50, 20 ]
 
-[select]
+[pick]
 open_title  = "Open with:"
 open_origin = "hovered"
 open_offset = [ 0, 1, 50, 7 ]

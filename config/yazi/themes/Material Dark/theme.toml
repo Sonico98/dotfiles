@@ -72,7 +72,7 @@ selected = { reversed = true }
 
 # : Select {{{
 
-[select]
+[pick]
 border   = { fg = "blue" }
 active   = { fg = "lightmagenta" }
 inactive = {}

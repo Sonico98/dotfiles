@@ -112,8 +112,6 @@ require("yatline"):setup({
 			},
 			section_b = {
         			{type = "string", custom = false, name = "cursor_percentage"},
-        			{type = "string", custom = false, name = "hovered_file_extension", params = {true}},
-        			{type = "coloreds", custom = false, name = "permissions"},
 			},
 			section_c = {
 			}

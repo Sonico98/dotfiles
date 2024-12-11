@@ -27,7 +27,7 @@ keymap = [
 	{ on = [ "<PageDown>" ],   run = "arrow 100%",  				  		desc = "Move cursor down one page" },
 
 	{ on = [ "h" ], run = [ "leave", "escape --visual --select" ], 	  		desc = "Go back to the parent directory" },
-	{ on = [ "l" ], run = "plugin --sync smart-enter", 				  		desc = "Enter the child directory, or open the file" },
+	{ on = [ "l" ], run = "plugin smart-enter", 				  		desc = "Enter the child directory, or open the file" },
 
 	{ on = [ "[" ], run = "seek -1", 				 				  		desc = "Seek up 5 units in the preview" },
 	{ on = [ "]" ], run = "seek 1",  				 				  		desc = "Seek down 5 units in the preview" },
@@ -35,16 +35,16 @@ keymap = [
 	{ on = [ "<Up>" ],    run = "arrow -1", 		 				  		desc = "Move cursor up" },
 	{ on = [ "<Down>" ],  run = "arrow 1",  		 				  		desc = "Move cursor down" },
 	{ on = [ "<Left>" ],  run = "leave",    		 				  		desc = "Go back to the parent directory" },
-	{ on = [ "<Right>" ], run = "plugin --sync smart-enter", 		  		desc = "Enter the child directory, or open the file" },
+	{ on = [ "<Right>" ], run = "plugin smart-enter", 		  		desc = "Enter the child directory, or open the file" },
 
 	{ on = [ "g", "g" ], run = "arrow -99999999", 	 				  		desc = "Move cursor to the top" },
 	{ on = [ "G" ],      run = "arrow 99999999",  	 				  		desc = "Move cursor to the bottom" },
 
 	# Selection
-	{ on = [ "<Space>" ], run = [ "select --state=none", "arrow 1" ], 		desc = "Toggle the current selection state" },
+	{ on = [ "<Space>" ], run = [ "toggle", "arrow 1" ], 					desc = "Toggle the current selection state" },
 	{ on = [ "v" ],       run = "visual_mode",                        		desc = "Enter visual mode (selection mode)" },
-	{ on = [ "V" ],   	  run = "select_all --state=none",            		desc = "Select or unselect all files" },
-	{ on = [ "x" ],   	  run = "select_all --state=false",           		desc = "Unselect all files" },
+	{ on = [ "V" ],   	  run = "toggle_all",            					desc = "Select or unselect all files" },
+	{ on = [ "x" ],   	  run = "toggle_all off",           				desc = "Unselect all files" },
 	{ on = [ "<C-v>" ],   run = "visual_mode --unset",                		desc = "Enter visual mode (unset mode)" },
 
 	# Operation
@@ -117,10 +117,10 @@ keymap = [
 	{ on = [ "N" ], run = "find_arrow --previous",   				  		desc = "Go to previous found file" },
 
 	# Sorting
-	{ on = [ "s", "m" ], run = "sort modified --reverse=no",                 desc = "Sort by modified time" },
-	{ on = [ "s", "M" ], run = "sort modified --reverse",       			 desc = "Sort by modified time (reverse)" },
-	{ on = [ "s", "c" ], run = "sort created --reverse=no",                  desc = "Sort by created time" },
-	{ on = [ "s", "C" ], run = "sort created --reverse",        			 desc = "Sort by created time (reverse)" },
+	{ on = [ "s", "m" ], run = "sort mtime --reverse=no",                 desc = "Sort by modified time" },
+	{ on = [ "s", "M" ], run = "sort mtime --reverse",       			 desc = "Sort by modified time (reverse)" },
+	{ on = [ "s", "c" ], run = "sort btime --reverse=no",                  desc = "Sort by created time" },
+	{ on = [ "s", "C" ], run = "sort btime --reverse",        			 desc = "Sort by created time (reverse)" },
 	{ on = [ "s", "e" ], run = "sort extension --reverse=no",         	     desc = "Sort by extension" },
 	{ on = [ "s", "E" ], run = "sort extension --reverse",      			 desc = "Sort by extension (reverse)" },
 	{ on = [ "s", "o" ], run = "sort alphabetical --reverse=no",             desc = "Sort alphabetically" },
@@ -167,8 +167,8 @@ keymap = [
 	{ on = [ "~" ], run = "help", 											desc = "Open help" },
 
 	# Preview
-	{ on = [ "<C-n>" ], run = "plugin --sync hide-preview", 				desc = "Hide the preview pane" },
-	{ on = [ "<C-m>" ], run = "plugin --sync max-preview", 					desc = "Enlarge the preview pane" },
+	{ on = [ "<C-n>" ], run = "plugin hide-preview", 				desc = "Hide the preview pane" },
+	{ on = [ "<C-m>" ], run = "plugin max-preview", 					desc = "Enlarge the preview pane" },
 ]
 
 [tasks]
@@ -190,7 +190,7 @@ keymap = [
 	{ on = [ "~" ], run = "help", desc = "Open help" }
 ]
 
-[select]
+[pick]
 
 keymap = [
 	{ on = [ "<C-c>" ],   run = "close",          desc = "Cancel selection" },
