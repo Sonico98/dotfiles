@@ -90,6 +90,7 @@ alias lidnotsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=suspend/HandleL
 alias lidsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=ignore/HandleLidSwitchExternalPower=suspend/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
 alias ls="eza --hyperlink"
 alias lsh="/usr/bin/ls --group-directories-first --color --hyperlink=auto"
+alias mkvenv="mkvirtualenv"
 alias qaac_enc="mkdir -p aac; \
 	wine ~/.wine/drive_c/Program\ Files/qaac/qaac64.exe \
 	-V 100 --copy-artwork -d ./aac (*.flac|*.mp3)"
@@ -239,7 +240,7 @@ function xsubs() {
 	for i in *.mkv; do
 		fname="${i%.*}"
 		echo "Extracting $fname..."
-		ffmpeg -v quiet -stats -i "$i" -map 0:s:0 subs/"$fname.ass"
+		ffmpeg -v quiet -stats -i "$i" -map 0:s:$1 subs/"$fname.ass"
 		mkdir -p "fonts/$fname"
 		cd "fonts/$fname"
 		ffmpeg -y -dump_attachment:t "" -i ../../"$i" &>/dev/null
