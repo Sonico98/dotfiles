@@ -25,6 +25,7 @@ export PATH=${PATH}:${HOME}/.npm-global/bin
 export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${HOME}/.dotnet/tools
 export GOPATH=${HOME}/.local/share/go
+export GNUPGHOME=${HOME}/.gnupg
 # Disable dotnet Telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # Devkitpro
