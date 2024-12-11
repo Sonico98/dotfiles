@@ -4,8 +4,8 @@
     font-size: 16px;
 }
 
-@define-color accent #cba6f7;
-@define-color accent-light #554c7f;
+@define-color accent #ee9cab;
+@define-color accent-light #a33e4e;
 
 window#waybar {
     background: none;

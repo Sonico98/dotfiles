@@ -12,8 +12,8 @@
     # Start your launcher
     bindsym $mod+r exec $menu
 
-	# Show clipboard history (cliphist)
-	bindsym $mod+v exec rofi -modi clipboard:cliphist-rofi -show clipboard -config ~/.config/rofi/config_list.rasi
+	# Show clipboard history
+	bindsym $mod+v exec kapg
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -39,6 +39,9 @@
 	bindsym Print exec $screenshot
 	# Record the screen
 	bindsym $mod+Print exec $screenrecord
+
+	# Color picker
+	bindsym $mod+c exec wl-color-picker clipboard
 #
 # Moving around:
 #

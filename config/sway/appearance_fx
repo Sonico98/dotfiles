@@ -19,6 +19,7 @@
 	for_window [ app_id="kitty" ] blur on; shadows on; border pixel 2
 	for_window [ app_id="firefox" ] blur on; shadows on; border pixel 2
 	for_window [ app_id="swayimg_.*" ] blur on
+	for_window [ app_id="com.github.artsymacaw.kaprica" ] blur on; shadows on; opacity 0.8
 
 	# Enable shadows
 	shadows on

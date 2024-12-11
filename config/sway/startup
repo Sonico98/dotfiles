@@ -17,13 +17,13 @@
 
 	# Notification daemon - doesn't get autostarted since I installed plasma alongside
 	# Solution: rm /usr/share/dbus-1/services/org.kde.plasma.Notifications.service
-
-	# Clipboard monitor
-	exec_always wl-paste --type text --watch cliphist -max-items 100 store
-	exec_always wl-paste --type image --watch cliphist -max-items 100 store
+	
+	# Clipboard manager - systemd service doesn't start for some reason either
+	exec kapd
 
 	# VNC Server
 	exec wayvnc
+	exec kanshi
 
 	# Move to the scratchpad by default.
 	# To get the app_id, run 'swaymsg -t get_tree'.

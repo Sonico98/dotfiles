@@ -27,6 +27,7 @@
 
 	# Open pavucontrol near the volume indicator
 	for_window [app_id="pavucontrol"] floating enable, resize set 720 515, move position 619 0
+	for_window [app_id="com.github.artsymacaw.kaprica"] floating enable, resize set 1630 735
 	# Open KDE's polkit as a floating window
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
 	for_window [title="Moving — Dolphin"] floating enable, move position center

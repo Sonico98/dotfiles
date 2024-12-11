@@ -5,7 +5,7 @@ include ~/.config/sway/outputs
 include ~/.config/sway/startup
 include ~/.config/sway/idle
 include ~/.config/sway/appearance
-include ~/.config/sway/appearance_fx
+# include ~/.config/sway/appearance_fx
 include ~/.config/sway/keybindings
 # Read `man 5 sway` for a complete reference.
 
