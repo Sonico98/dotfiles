@@ -1,16 +1,57 @@
-[plugin]
-deps = [
-	{ use = "Sonico98/allmytoes", rev = "a987051" },
-	{ use = "Sonico98/exifaudio", rev = "d794614" },
-	{ use = "ndtoan96/ouch", rev = "b869886" },
-	{ use = "dedukun/relative-motions", rev = "df97039" },
-	{ use = "MasouShizuka/projects", rev = "ba8d00b" },
-	{ use = "yazi-rs/plugins:full-border", rev = "ec97f88" },
-	{ use = "yazi-rs/plugins:max-preview", rev = "ec97f88" },
-	{ use = "yazi-rs/plugins:hide-preview", rev = "ec97f88" },
-	{ use = "imsi32/yatline", rev = "1b4a9a1" },
-	{ use = "imsi32/yatline-githead", rev = "a6377a8" }, { use = "yazi-rs/plugins:mime-ext", rev = "ec97f88" },
-]
+[[plugin.deps]]
+use = "Sonico98/allmytoes"
+rev = "a987051"
+hash = "976308364b0badf48e05a8b2af114e79"
+
+[[plugin.deps]]
+use = "Sonico98/exifaudio"
+rev = "d794614"
+hash = "a8e15d3c21c02a5af41d46ed04778a02"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "b869886"
+hash = "6bc9e0b2139467c8d2cc6c5fb954206c"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "df97039"
+hash = "395940d2b22941e0acb1232579c9d4cf"
+
+[[plugin.deps]]
+use = "MasouShizuka/projects"
+rev = "ba8d00b"
+hash = "70a8080811783f55b057c60f01357d94"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "ec97f88"
+hash = "3a73613fc702a5f8369791b3401f52f1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "ec97f88"
+hash = "2bcf0c353c61b92662b372a69ff97057"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "ec97f88"
+hash = "4c1c7c820f65eacf5aa66e9cb34b4b91"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "1b4a9a1"
+hash = "fab669582f30943c59e06fe8b3bea1d2"
+
+[[plugin.deps]]
+use = "imsi32/yatline-githead"
+rev = "a6377a8"
+hash = "4f1a71eff1dd8f245ae2e3985e3e2f91"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "ec97f88"
+hash = "db541bb1800060023ee45338d5372920"
 
 [flavor]
 deps = []
