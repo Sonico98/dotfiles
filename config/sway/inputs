@@ -6,18 +6,18 @@
 	input "type:keyboard" {
 		xkb_layout us
 		xkb_model pc105
-		xkb_variant intl
+		xkb_variant altgr-intl
 		xkb_options caps:backspace,lv3:lalt_switch,lv3:ralt_alt,shift:both_capslock
 		repeat_delay 300 
 		repeat_rate 30
 		xkb_numlock enabled
 	}
 
-	input "type:pointer" {
-		scroll_method on_button_down
-		scroll_button BTN_MIDDLE
-		pointer_accel 1
-	}
+	# input "type:pointer" {
+	# 	scroll_method on_button_down
+	# 	scroll_button BTN_MIDDLE
+	# 	pointer_accel 1
+	# }
 
 	input "type:touchpad" {
 		tap enabled
