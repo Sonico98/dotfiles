@@ -268,6 +268,36 @@ function addfonts() {
 	done
 }
 
+function mongobackup() {
+	while [ "$1" != "" ]; do
+		case "$1" in
+			-d)
+				shift
+				dbname="$1"
+				;;
+			-u)
+				shift
+				uname="$1"
+				;;
+			-p)
+				shift
+				pass="$1"
+				;;
+			-*)
+				echo "Pass -d dbname -u username -p password"
+				exit 0
+				;;
+		esac
+		shift
+	done
+
+	if [ -n "$dbname" ] && [ -n "$uname" ] && [ -n "$pass" ]; then
+		mongodump --db "$dbname" -u "$uname" -p "$pass" --gzip --host=127.0.0.1 --port=27017 --authenticationDatabase=admin
+	else
+		echo "Pass -d dbname -u username -p password"
+	fi
+}
+
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
