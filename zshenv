@@ -26,6 +26,8 @@ export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${HOME}/.dotnet/tools
 export GOPATH=${HOME}/.local/share/go
 export GNUPGHOME=${HOME}/.gnupg
+# Don't care about python 2
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # Disable dotnet Telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # Devkitpro
