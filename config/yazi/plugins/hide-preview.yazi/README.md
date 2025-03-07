@@ -1,5 +1,8 @@
 # hide-preview.yazi
 
+> [!WARNING]
+> This plugin has been deprecated. Please use the new [toggle-pane.yazi](../toggle-pane.yazi) instead.
+
 Switch the preview pane between hidden and shown.
 
 https://github.com/yazi-rs/plugins/assets/17523360/c4f0b5c4-ff9f-4be8-ba73-4d8e7902e383
@@ -17,9 +20,7 @@ Add this to your `~/.config/yazi/keymap.toml`:
 ```toml
 [[manager.prepend_keymap]]
 on   = "T"
-run  = "plugin --sync hide-preview"
-# For upcoming Yazi 0.4 (nightly version):
-# run  = "plugin hide-preview"
+run  = "plugin hide-preview"
 desc = "Hide or show preview"
 ```
 

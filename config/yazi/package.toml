@@ -1,57 +1,67 @@
 [[plugin.deps]]
 use = "Sonico98/allmytoes"
-rev = "a987051"
-hash = "976308364b0badf48e05a8b2af114e79"
+rev = "1e43bfd"
+hash = "8f9bfa292af429a27b81d424085ede67"
 
 [[plugin.deps]]
 use = "Sonico98/exifaudio"
-rev = "d794614"
-hash = "a8e15d3c21c02a5af41d46ed04778a02"
+rev = "7ff7141"
+hash = "666ccba55119fba4c25b8ad354b2855c"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "b869886"
-hash = "6bc9e0b2139467c8d2cc6c5fb954206c"
+rev = "ce6fb75"
+hash = "ed6c185514109d7c5463f609282b220c"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "df97039"
-hash = "395940d2b22941e0acb1232579c9d4cf"
+rev = "8103065"
+hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
 
 [[plugin.deps]]
 use = "MasouShizuka/projects"
-rev = "ba8d00b"
-hash = "70a8080811783f55b057c60f01357d94"
+rev = "4f11ecc"
+hash = "17fa17295d27864f62875f06a77f72e7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "ec97f88"
-hash = "3a73613fc702a5f8369791b3401f52f1"
+rev = "a1b678d"
+hash = "9dce00232a0e0e2502565c7aa2b0ed4e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"
-rev = "ec97f88"
-hash = "2bcf0c353c61b92662b372a69ff97057"
+rev = "a1b678d"
+hash = "a8025f2bb311e869069364fba01abffc"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:hide-preview"
-rev = "ec97f88"
-hash = "4c1c7c820f65eacf5aa66e9cb34b4b91"
+rev = "a1b678d"
+hash = "53f826884e2c7e521cecc492a7f31d7e"
 
 [[plugin.deps]]
 use = "imsi32/yatline"
-rev = "1b4a9a1"
-hash = "fab669582f30943c59e06fe8b3bea1d2"
+rev = "6b0fc1e"
+hash = "ab115c6cc77f5710c27f39dfa2f3d4d"
 
 [[plugin.deps]]
 use = "imsi32/yatline-githead"
-rev = "a6377a8"
-hash = "4f1a71eff1dd8f245ae2e3985e3e2f91"
+rev = "3b0eb7c"
+hash = "bfd30c396bbe2af526cb949d97ce3dcf"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "ec97f88"
-hash = "db541bb1800060023ee45338d5372920"
+rev = "a1b678d"
+hash = "1f9fc0e55ff859a32e793833403ee7bd"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "a1b678d"
+hash = "7918aab6a71caf31b58411f789195677"
+
+[[plugin.deps]]
+use = "DreamMaoMao/mime-preview"
+rev = "5ee0e78"
+hash = "fd457ef4782bda277cd1220aef927f05"
 
 [flavor]
 deps = []

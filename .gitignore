@@ -5,4 +5,5 @@ scripts/FFBatch/
 /config/kitty/current-theme.conf
 /config/sway/outputs
 /config/htop/htoprc
+/config/zsh/.zsh_history
 icons/default/cursors
