@@ -25,14 +25,14 @@
 	# Cursor theme
 	seat seat0 xcursor_theme "Bibata-Rainbow-Modern" 24
 
-	# Open pavucontrol near the volume indicator
-	for_window [app_id="pavucontrol"] floating enable, resize set 720 515, move position 619 0
-	for_window [app_id="com.github.artsymacaw.kaprica"] floating enable, resize set 1630 735
-	# Open KDE's polkit as a floating window
+	# Open pwvucontrol near the volume indicator
+	for_window [app_id="pwvucontrol"] floating enable, resize set 60 ppt 70 ppt, move position 40 ppt 0
+	# Set some windows to always be at the center of the screen
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
 	for_window [title="Moving — Dolphin"] floating enable, move position center
 	for_window [title="Deleting — Dolphin"] floating enable, move position center
-	for_window [app_id="org.freedesktop.impl.portal.desktop.kde"] floating enable, resize set 1630 935, move position center
+	for_window [app_id="org.freedesktop.impl.portal.desktop.kde"] floating enable, resize set 90 ppt 90 ppt, move position center
+	for_window [app_id="clipse"] floating enable, resize set 90 ppt 90 ppt, move position center
 	# Keep dragon-drop always on screen
 	for_window [app_id="dragon-drop"] sticky enable
 #

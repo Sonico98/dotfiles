@@ -15,15 +15,21 @@
 	# Polkit agent
 	exec /usr/lib/polkit-kde-authentication-agent-1
 
+	# Wallpaper
+	exec swww-daemon -f xrgb
+
 	# Notification daemon - doesn't get autostarted since I installed plasma alongside
 	# Solution: rm /usr/share/dbus-1/services/org.kde.plasma.Notifications.service
 	
 	# Clipboard manager - systemd service doesn't start for some reason either
-	exec kapd
+	exec clipse -listen
 
 	# VNC Server
 	exec wayvnc
-	exec kanshi
+
+	# sway-systemd
+	exec /usr/lib/sway-systemd/session.sh
+	exec /usr/lib/sway-systemd/assign-cgroups.py
 
 	# Move to the scratchpad by default.
 	# To get the app_id, run 'swaymsg -t get_tree'.
