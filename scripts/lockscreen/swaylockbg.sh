@@ -8,13 +8,23 @@ set -euo pipefail
 pause_autocalib="busctl --expect-reply=false --user set-property org.clight.clight /org/clight/clight/Conf/Backlight org.clight.clight.Conf.Backlight NoAutoCalib 'b'"
 
 LOCKSCREEN_DIR=/tmp/lockscreen
-if [ -z ${LOCKSCREEN_DIR+x} ]; then exit 1; fi # bail if lockscreen dir is not set
+mkdir -p ${LOCKSCREEN_DIR}
 
-if [[ ! -d ${LOCKSCREEN_DIR} ]]; then
-	mkdir -p ${LOCKSCREEN_DIR}
-	grim -t png -l 0 ${LOCKSCREEN_DIR}/lock.png
-	magick ${LOCKSCREEN_DIR}/lock.png -scale 10% -blur 0x1.5 -clamp -resize 1000% ${LOCKSCREEN_DIR}/lockscreen.jpg
-fi
+# if [[ ! -d ${LOCKSCREEN_DIR} ]]; then
+# 	mkdir -p ${LOCKSCREEN_DIR}
+# 	grim -t png -l 0 ${LOCKSCREEN_DIR}/lock.png
+# 	magick ${LOCKSCREEN_DIR}/lock.png -scale 10% -blur 0x1.5 -clamp -resize 1000% ${LOCKSCREEN_DIR}/lockscreen.jpg
+# fi
+
+LOCKARGS=""
+for OUTPUT in `swaymsg -t get_outputs | jq -r '.[] | select(.active) | .name'`
+do
+	IMAGE=$LOCKSCREEN_DIR/$OUTPUT-lock.png
+	grim -t png -l 0 -o $OUTPUT $IMAGE
+	magick $IMAGE -scale 10% -blur 0x1.5 -clamp -resize 1000% $IMAGE
+	LOCKARGS="${LOCKARGS} -i ${OUTPUT}:${IMAGE}"
+	rm -f $LOCKSCREEN_DIR/o.png
+done
 
 # Pause music and brightness auto-calibration, mute audio and microphone.
 playerctl --player=%any,firefox pause || true
@@ -26,9 +36,9 @@ dunstctl set-paused true || true
 # turn it back on when activity is detected 
 # and automatically set the screen brightness
 swayidle timeout 5 'swaymsg "output * power off"' resume \
-	'swaymsg "output * power on" && /usr/local/bin/check_waybar_tray' &
+	'swaymsg "output * power on"' &
 idlepid=$!
-swaylock -F --indicator-idle-visible -i ${LOCKSCREEN_DIR}/lockscreen.jpg
+swaylock -F --indicator-idle-visible $LOCKARGS
 # Undo the previous actions after the screen has been unlocked
 # eval "$pause_autocalib" false || true
 wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 || true
