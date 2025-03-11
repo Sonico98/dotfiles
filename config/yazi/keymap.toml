@@ -85,6 +85,7 @@ keymap = [
 	{ on = [ "<F2>" ],   run = '''shell 'fm-dragon-drop -t' --confirm''', 	desc = "Drop files in the current directory" },
 	{ on = [ "s", "a" ], run = '''shell 'separateAAC' --confirm''',   		desc = "Separate AAC files" },
 	{ on = [ "u" ], 	 run = "shell --confirm ibroadcast-uploader -p 5", 	desc = "Upload folder to iBroadcast" },
+	{ on = [ "M" ],      run = "plugin mount",                 	  			desc = "Mount manager" },
 
 	# projects.yazi
 	{ on = [ "b", "s" ], run = "plugin projects --args=save", 				desc = "Save current project" },

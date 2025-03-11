@@ -63,5 +63,10 @@ use = "DreamMaoMao/mime-preview"
 rev = "5ee0e78"
 hash = "fd457ef4782bda277cd1220aef927f05"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "92f78dc"
+hash = "dd97eede8e20e59cd2604e8006e470e2"
+
 [flavor]
 deps = []

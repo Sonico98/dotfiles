@@ -7,3 +7,4 @@ scripts/FFBatch/
 /config/htop/htoprc
 /config/zsh/.zsh_history
 icons/default/cursors
+config/btop/btop.log
