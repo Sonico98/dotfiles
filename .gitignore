@@ -6,3 +6,4 @@ scripts/FFBatch/
 /config/sway/outputs
 /config/htop/htoprc
 icons/default/cursors
+config/btop/btop.log
