@@ -1,0 +1,12 @@
+[Unit]
+Description=Monitor the downloads folder and sort files by their file extension
+StartLimitIntervalSec=2000
+StartLimitBurst=5
+
+[Service]
+ExecStart=/home/sonico/.virtualenvs/dirmon/bin/python /home/sonico/.dotfiles/scripts/monitor_directory
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

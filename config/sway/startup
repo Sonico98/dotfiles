@@ -1,11 +1,8 @@
 ### Login
 #
-	# Start all desktop files in ~/.config/autostart and /etc/xdg/autostart
-	# Custom-added desktop files: qbittorrent, keepassxc, tdesktop, vencord desktop
-	# Default, needed desktop files: clight, to control screen brightness; 
-	exec sleep 8 && dex -a -e i3
-	# Rename workspaces based on the programs open
-	exec sworkstyle &> /tmp/sworkstyle.log
+	# sway-systemd
+	exec /usr/lib/sway-systemd/session.sh
+	exec /usr/lib/sway-systemd/assign-cgroups.py
 
 	# Scale XWayland apps properly
 	exec echo "Xft.dpi: 96" | xrdb -merge
@@ -15,26 +12,13 @@
 	# Polkit agent
 	exec /usr/lib/polkit-kde-authentication-agent-1
 
-	# Wallpaper
-	exec swww-daemon -f xrgb
-
 	# Notification daemon - doesn't get autostarted since I installed plasma alongside
 	# Solution: rm /usr/share/dbus-1/services/org.kde.plasma.Notifications.service
-	
-	# Clipboard manager - systemd service doesn't start for some reason either
-	exec clipse -listen
-
-	# VNC Server
-	exec wayvnc
-
-	# sway-systemd
-	exec /usr/lib/sway-systemd/session.sh
-	exec /usr/lib/sway-systemd/assign-cgroups.py
 
 	# Move to the scratchpad by default.
 	# To get the app_id, run 'swaymsg -t get_tree'.
 	# For XWayland applications, the windows class has to be used
-	for_window [app_id="io.github.tdesktop_x64.TDesktop"] move scratchpad
+	for_window [app_id="io.github.kukuruzka165.materialgram"] move scratchpad
 	for_window [app_id="vesktop"] move scratchpad
 	for_window [class="vesktop"] move scratchpad
 #

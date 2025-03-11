@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegram userbot
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+WorkingDirectory=/home/sonico/Dev/Telegram_Bots/Userbot/userbot
+ExecStart=python /home/sonico/Dev/Telegram_Bots/Userbot/userbot/userbot.py
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
