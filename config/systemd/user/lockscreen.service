@@ -1,0 +1,20 @@
+[Unit]
+Description=Screen locker for Wayland
+# If swaylock exits cleanly, unlock the session:
+OnSuccess=unlock.target
+# When lock.target is stopped, stops this too:
+PartOf=lock.target
+# Delay lock.target until this service is ready:
+After=lock.target
+
+[Service]
+# systemd will consider this service started when swaylock forks...
+Type=simple
+# ... and swaylock will fork only after it has locked the screen.
+ExecStart=/home/sonico/.dotfiles/scripts/lockscreen/swaylockbg.sh
+# If swaylock crashes, always restart it immediately:
+Restart=on-failure
+RestartSec=0
+
+[Install]
+WantedBy=lock.target

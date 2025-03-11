@@ -13,11 +13,11 @@
 		xkb_numlock enabled
 	}
 
-	# input "type:pointer" {
-	# 	scroll_method on_button_down
-	# 	scroll_button BTN_MIDDLE
-	# 	pointer_accel 1
-	# }
+	input "type:pointer" {
+		scroll_method on_button_down
+		scroll_button BTN_MIDDLE
+		pointer_accel 1
+	}
 
 	input "type:touchpad" {
 		tap enabled

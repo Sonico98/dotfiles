@@ -109,6 +109,20 @@ fetchers = [
 	{ id = "mime-ext", name = "*", run = "mime-ext", prio = "high" },
 ]
 
+spotters = [
+	{ name = "*/", run = "folder" },
+	# Code
+	{ mime = "text/*", run = "code" },
+	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
+	# Image
+	{ mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+	{ mime = "image/*", run = "image" },
+	# Video
+	{ mime = "video/*", run = "video" },
+	# Fallback
+	{ name = "*", run = "file" },
+]
+
 preloaders = [
 	# Image
 	{ mime = "image/svg+xml", run = "magick" },
@@ -153,6 +167,9 @@ previewers = [
 	{ mime = "audio/*", run = "exifaudio"},
 	# Font
 	{ mime = "font/*", run = "font" },
+	{ mime = "application/ms-opentype", run = "font" },
+	# Empty file
+	{ mime = "inode/empty", run = "empty" },
 	# Fallback
 	{ name = "*", run = "file" },
 ]

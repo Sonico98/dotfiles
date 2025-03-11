@@ -1,0 +1,12 @@
+[Unit]
+Description=Xdg Desktop Portal For KDE
+PartOf=graphical-session.target
+After=plasma-core.target
+
+[Service]
+Environment="XDG_CURRENT_DESKTOP=KDE"
+ExecStart=/usr/lib/xdg-desktop-portal-kde
+BusName=org.freedesktop.impl.portal.desktop.kde
+Slice=session.slice
+# Auto restart is off as we are DBus activated
+Restart=no

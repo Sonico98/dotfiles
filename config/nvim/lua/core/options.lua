@@ -29,6 +29,9 @@ vim.o.linebreak = true
 -- Faster scrolling
 vim.o.lazyredraw = true
 
+-- Scroll when near the top or bottom
+vim.o.scrolloff = 10
+
 -- Disable some builtin plugins
 local disabled_built_ins = {
 	"netrw",

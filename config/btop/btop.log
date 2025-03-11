@@ -4,3 +4,6 @@
 
 2023/06/01 (11:55:07) | ===> btop++ v.1.2.13
 2023/06/01 (11:55:07) | WARNING: Failed to get disk/partition stats for mount "/mnt/windows" with statvfs64 error code: 112. Ignoring...
+
+2025/03/10 (02:12:19) | ===> btop++ v.1.4.0
+2025/03/10 (02:12:19) | WARNING: Intel GPU: Failed to initialize PMU

@@ -13,7 +13,7 @@
     bindsym $mod+r exec $menu
 
 	# Show clipboard history
-	bindsym $mod+v exec kapg
+	bindsym $mod+v exec kitty --app-id="clipse" -e sh -c "clipse"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -24,10 +24,6 @@
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
-
-	# Start or stop Plex Media Server
-	bindsym $mod+Control+p exec sudo systemctl stop plexmediaserver.service
-	bindsym $mod+p exec sudo systemctl start plexmediaserver.service
 
 	# Open the music player
 	bindsym $mod+m exec cantata
@@ -42,6 +38,10 @@
 
 	# Color picker
 	bindsym $mod+c exec wl-color-picker clipboard
+
+	# Enable or disable scrolling by holding down the mouse wheel
+	bindcode $mod+96 exec swaymsg input "type:pointer" scroll_method on_button_down
+	bindcode $mod+95 exec swaymsg input "type:pointer" scroll_method none
 #
 # Moving around:
 #
@@ -68,8 +68,8 @@
     bindsym $mod+Shift+Right move right 2 px
 
 	# Move focused, floating window, out of the screen
-	bindcode $mod+Shift+20 move left 1280 px
-	bindcode $mod+Shift+21 move right 1280 px
+	bindcode $mod+Shift+20 move left 1420 ppt
+	bindcode $mod+Shift+21 move right 1420 ppt
 #
 # Workspaces:
 #
@@ -221,16 +221,16 @@
     bindsym $mod+Shift+x scratchpad show
 
 	# Show specifically the Telegram scratchpad, if any
-	bindsym $mod+Shift+s [app_id="io.github.tdesktop_x64.TDesktop"] scratchpad show, \
-	resize set 1630 935, move position center
+	bindsym $mod+Shift+s [app_id="io.github.kukuruzka165.materialgram"] scratchpad show, \
+	resize set 90ppt 90ppt, move position center
 	# Show specifically the Discord scratchpad, if any
 	bindsym $mod+Shift+d [app_id="vesktop"] scratchpad show, \
-	resize set 1630 935, move position center
+	resize set 90ppt 90ppt, move position center
 	# bindsym $mod+Shift+d [class="vesktop"] scratchpad show, \
 	# resize set 1630 935, move position center
 	# Show specifically the Netease scratchpad, if any
 	bindsym $mod+Shift+n [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] scratchpad show, \
-	resize set 1630 935, move position center
+	resize set 90ppt 90ppt, move position center
 #
 # Resizing containers:
 #
@@ -310,10 +310,10 @@
 	set $mode_system  𝐋ock │ 󰩈 𝚬xit │⏾ 𝐒uspend │  𝐑eboot │  𝐏ower Off
 	mode "$mode_system" {
 		bindsym l exec loginctl lock-session, mode "default"
-		bindsym e exec swayexit exit, mode "default"
+		bindsym e exec swaymsg exit, mode "default"
 		bindsym s exec systemctl suspend, mode "default"
-		bindsym r exec swayexit reboot, mode "default"
-		bindsym p exec swayexit shutdown, mode "default"
+		bindsym r exec systemctl reboot, mode "default"
+		bindsym p exec systemctl poweroff, mode "default"
 
 		# back to normal: Enter or Escape
 		bindsym Return mode "default"
