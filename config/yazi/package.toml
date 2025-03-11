@@ -53,5 +53,10 @@ use = "yazi-rs/plugins:mime-ext"
 rev = "ec97f88"
 hash = "db541bb1800060023ee45338d5372920"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "92f78dc"
+hash = "dd97eede8e20e59cd2604e8006e470e2"
+
 [flavor]
 deps = []
