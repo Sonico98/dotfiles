@@ -209,8 +209,8 @@ function rcopy() {
 
 			if [ "$mountpoint" = "/mnt/onedrive" ]; then
 				remote="5TB_onedrive"
-			elif [ "$mountpoint" = "/mnt/google" ]; then
-				remote="thiagodae"
+			elif [ "$mountpoint" = "/mnt/onedrive2" ]; then
+				remote="onedrive2"
 			elif [ "$mountpoint" = "/mnt/lolDrive" ]; then
 				remote="LolDrive"
 			fi
