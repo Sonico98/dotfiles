@@ -34,20 +34,20 @@ while getopts ":Ddesuv:" option; do
 		# Extract files
 		e)
 			id="$(kitty @ launch --title='Extract files' \
-				--cwd=current --location split openArchives.sh -e "${@:2}")"
+				--cwd=current --location split openArchives -e "${@:2}")"
 			;;
 		# Archive files
 		d) # split into 2GB files
 			id="$(kitty @ launch --title='Archive files - 2GB Files' \
-				--cwd=current --location split archiveFiles.sh -d "${@:2}")"
+				--cwd=current --location split archiveFiles -d "${@:2}")"
 			;;
 		s) # store
 			id="$(kitty @ launch --title='Archive files - Store' \
-				--cwd=current --location split archiveFiles.sh -s "${@:2}")"
+				--cwd=current --location split archiveFiles -s "${@:2}")"
 			;;
 		u) # ultra compression
 			id="$(kitty @ launch --title='Archive files - Ultra Compression' \
-				--cwd=current --location split archiveFiles.sh -u "${@:2}")"
+				--cwd=current --location split archiveFiles -u "${@:2}")"
 			;;
 		v) # Open nvim editor
 			id="$(kitty @ launch --cwd=current --type=tab nvim "${@:2}")"
