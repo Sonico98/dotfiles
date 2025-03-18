@@ -31,7 +31,7 @@
 	for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, move position center
 	for_window [title="Moving — Dolphin"] floating enable, move position center
 	for_window [title="Deleting — Dolphin"] floating enable, move position center
-	for_window [app_id="org.freedesktop.impl.portal.desktop.kde"] floating enable, resize set 90 ppt 90 ppt, move position center
+	for_window [title="^Picture-in-Picture$"] floating enable, resize set 25 ppt 25 ppt, move position 75 ppt 75 ppt
 	for_window [app_id="clipse"] floating enable, resize set 90 ppt 90 ppt, move position center
 	# Keep dragon-drop always on screen
 	for_window [app_id="dragon-drop"] sticky enable
