@@ -145,10 +145,6 @@ set_dunst_theme() {
 	systemctl --user restart dunst.service
 }
 
-set_kitty_theme() {
-	kitty +kitten themes --reload-in=all "$kitty_theme" &
-}
-
 set_rofi_theme() {
 	case "$1" in
 		"light")
