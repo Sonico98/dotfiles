@@ -107,22 +107,6 @@ set_kde_theme() {
 	kwriteconfig6 --file ~/.config/gtk-4.0/settings.ini --group Settings --key gtk-cursor-theme-name "$cursor_theme"
 }
 
-set_nvim_theme() {
-	case "$1" in
-		"light")
-			old="dark"
-			new="light"
-			;;
-		"dark")
-			old="light"
-			new="dark"
-			;;
-	esac
-	sed -i -e "s#vim.o.background = \"$old\"#vim.o.background = \"$new\"#" \
-		-e "s#vim.g.ayucolor = \"$old\"#vim.g.ayucolor = \"$new\"#" \
-		"$nvim_theme_path"
-}
-
 set_dunst_theme() {
 	case "$1" in
 		"light")

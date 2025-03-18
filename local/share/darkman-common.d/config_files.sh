@@ -17,8 +17,6 @@ qt5ct_conf_path="$qt5ct_conf_dir/qt5ct.conf"
 qt6ct_conf_path="$qt6ct_conf_dir/qt6ct.conf"
 dolphin_qss_path="$qt5ct_conf_dir/qss/dolphin.qss"
 kdeglobals_path="$HOME/.config/kdeglobals"
-# Neovim
-nvim_theme_path="$HOME/.config/nvim/lua/plugins/ayu-vim.lua"
 # Dunst
 dunst_conf_path="$HOME/.config/dunst/dunstrc"
 # Rofi

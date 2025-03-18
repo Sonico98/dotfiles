@@ -3,7 +3,6 @@ return {
 	priority = 1000,
 	init = function()
 		vim.o.termguicolors = true
-		vim.o.background = "dark"
 		vim.g.ayucolor = "dark"
 		vim.g.ayu_italic_comment = 1
 		vim.g.ayu_extended_palette = 1
