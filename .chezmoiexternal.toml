@@ -14,3 +14,7 @@
 [".config/kitty/scripts/grab"]
 	type = "git-repo"
 	url = "https://github.com/yurikhan/kitty_grab"
+
+[".local/share/chezmoi/scripts/ffbatch"]
+	type = "git-repo"
+	url = "https://github.com/Sonico98/FFBatch"
