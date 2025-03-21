@@ -46,7 +46,7 @@ reveal = [
 	{ run = '''exiftool "$1"; echo "Press enter to exit test"; read''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
-	{ run = '/home/sonico/.dotfiles/scripts/yazi/kitty_cmds.sh -e "$@"', desc = "Extract here", for = "unix" },
+	{ run = 'kitty_cmds -e "$@"', desc = "Extract here", for = "unix" },
 	{ run = 'unar "%1"', desc = "Extract here", for = "windows" },
 ]
 gif = [
