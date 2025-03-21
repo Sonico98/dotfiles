@@ -1,5 +1,5 @@
 config/coc/
-scripts/FFBatch/
+scripts/ffbatch/
 /config/mpv/watch_later/
 /config/kitty/kitty.conf.bak
 /config/kitty/current-theme.conf

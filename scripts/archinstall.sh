@@ -1,4 +1,4 @@
-pacstrap -K /mnt base base-devel linux-zen linux-firmware intel-ucode git neovim reflector cryptsetup systemd-ukify plymouth sudo zsh networkmanager sddm kitty librewolf
+pacstrap -K /mnt base base-devel linux-zen linux-firmware intel-ucode git neovim reflector cryptsetup systemd-ukify plymouth sudo zsh networkmanager sddm kitty librewolf chezmoi
 # TODO)) Script commands inside systemd-nspawn?
 echo "Boot into the system for the first time, set root password with passwd command, then logout"
 sleep 3
