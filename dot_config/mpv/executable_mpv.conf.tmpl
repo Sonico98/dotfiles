@@ -52,6 +52,10 @@ stop-screensaver = "yes"
 # Keep the player window on top of all other windows.
 #ontop=yes
 
+{{ if eq .chezmoi.hostname "Archlap" -}}
+profile=fast
+hwdec=vaapi
+{{ else if .chezmoi.hostname "Archgamer" -}}
 # Specify high quality video rendering preset (for --vo=gpu only)
 # Can cause performance problems with some drivers and GPUs.
 vo=gpu-next
@@ -86,6 +90,7 @@ deinterlace=auto
 # speed to some degree to ensure synchronous playback - can cause problems
 # with some drivers and desktop environments.
 video-sync=display-resample
+{{ end -}}
 
 
 ##################
