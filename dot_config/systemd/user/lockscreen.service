@@ -9,9 +9,9 @@ Before=lock.target
 
 [Service]
 Type=oneshot
-ExecStartPre=/home/sonico/.local/share/chezmoi/scripts/lockscreen/pre.sh
-ExecStart=/home/sonico/.local/share/chezmoi/scripts/lockscreen/swaylockbg.sh
-ExecStartPost=/home/sonico/.local/share/chezmoi/scripts/lockscreen/post.sh
+ExecStartPre=swaylockbg_pre
+ExecStart=swaylockbg
+ExecStartPost=swaylockbg_post
 ; ExecStart=/usr/bin/swaylock -f
 # If swaylock crashes, always restart it immediately:
 Restart=on-failure
