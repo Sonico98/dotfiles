@@ -33,6 +33,8 @@ passwd sonico
 systemctl enable NetworkManager
 systemctl enable sddm
 kernel-install add-all
+mkdir -p /etc/tmpfiles.d
+printf "d 		/zram		0755	sonico  sonico" >> /etc/tmpfiles.d/zram.conf
 poweroff
 EOF
 

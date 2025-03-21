@@ -58,8 +58,6 @@ if [ "$SESSION_TYPE" != "remote/ssh" ]; then
 	if ! [ -d /zram/Torrents ]; then mkdir -p /zram/Torrents; fi
 	ln -s /zram/Torrents /home/sonico/Downloads/Firefox\ Downloads/Torrents
 	ln -s /zram/ /home/sonico/Downloads/Firefox\ Downloads/Zram
-
-	yes 'n' | ln -s ~/.local/share/little-cache-files/* ~/.cache/ &>/dev/null
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
