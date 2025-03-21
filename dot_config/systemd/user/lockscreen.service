@@ -1,0 +1,22 @@
+[Unit]
+Description=Screen locker for Wayland
+# If swaylock exits cleanly, unlock the session:
+OnSuccess=unlock.target
+# When lock.target is stopped, stops this too:
+PartOf=lock.target
+# Delay lock.target until this service is ready:
+Before=lock.target
+
+[Service]
+Type=oneshot
+ExecStartPre=/home/sonico/.dotfiles/scripts/lockscreen/pre.sh
+ExecStart=/home/sonico/.dotfiles/scripts/lockscreen/swaylockbg.sh
+ExecStartPost=/home/sonico/.dotfiles/scripts/lockscreen/post.sh
+; ExecStart=/usr/bin/swaylock -f
+# If swaylock crashes, always restart it immediately:
+Restart=on-failure
+RestartSec=0
+Environment="LOCKSCREEN_DIR=/tmp/lockscreen"
+
+[Install]
+WantedBy=lock.target

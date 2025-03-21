@@ -1,0 +1,13 @@
+[Unit]
+Description=Clipboard manager
+StartLimitIntervalSec=500
+StartLimitBurst=5
+BindsTo=sway-session.target
+
+[Service]
+ExecStart=/usr/bin/clipse -listen-shell
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=sway-session.target

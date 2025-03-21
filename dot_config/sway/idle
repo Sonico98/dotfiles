@@ -1,0 +1,15 @@
+### Idle configuration
+#
+	exec swayidle -w \
+			 timeout 500 'loginctl lock-session' \
+			 timeout 3000 'systemctl suspend' \
+	
+	# This will pause brightness auto-calibration, lock your screen
+	# and turn the display off after 180 seconds of inactivity.
+	# The screen will be turn back on and the ambient light re-checked when resumed.
+	# It will also lock your screen before your computer goes to sleep.
+
+	# Inhibit idle in most steam games and yuzu
+	for_window [class="steam_app"] inhibit_idle focus
+	for_window [app_id="org.yuzu_emu.yuzu"] inhibit_idle focus
+#

@@ -1,0 +1,72 @@
+[[plugin.deps]]
+use = "Sonico98/allmytoes"
+rev = "1e43bfd"
+hash = "8f9bfa292af429a27b81d424085ede67"
+
+[[plugin.deps]]
+use = "Sonico98/exifaudio"
+rev = "7ff7141"
+hash = "666ccba55119fba4c25b8ad354b2855c"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "ce6fb75"
+hash = "ed6c185514109d7c5463f609282b220c"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "8103065"
+hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
+
+[[plugin.deps]]
+use = "MasouShizuka/projects"
+rev = "4f11ecc"
+hash = "17fa17295d27864f62875f06a77f72e7"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "79193b3"
+hash = "1f3dad061209081a6b04dd6ff2cb06c7"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "79193b3"
+hash = "a8025f2bb311e869069364fba01abffc"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "79193b3"
+hash = "53f826884e2c7e521cecc492a7f31d7e"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "6b0fc1e"
+hash = "ab115c6cc77f5710c27f39dfa2f3d4d"
+
+[[plugin.deps]]
+use = "imsi32/yatline-githead"
+rev = "3b0eb7c"
+hash = "bfd30c396bbe2af526cb949d97ce3dcf"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "79193b3"
+hash = "1f9fc0e55ff859a32e793833403ee7bd"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "79193b3"
+hash = "7918aab6a71caf31b58411f789195677"
+
+[[plugin.deps]]
+use = "DreamMaoMao/mime-preview"
+rev = "5ee0e78"
+hash = "fd457ef4782bda277cd1220aef927f05"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "79193b3"
+hash = "dd97eede8e20e59cd2604e8006e470e2"
+
+[flavor]
+deps = []

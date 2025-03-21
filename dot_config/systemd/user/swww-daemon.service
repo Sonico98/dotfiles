@@ -1,0 +1,15 @@
+[Unit]
+Description=Wallpaper daemon
+BindsTo=sway-session.target
+Requires=sway-session.target
+StartLimitIntervalSec=400
+StartLimitBurst=20
+
+[Service]
+ExecStartPre=/usr/bin/sleep 5
+ExecStart=/usr/bin/swww-daemon -f xrgb
+Restart=always
+RestartSec=20
+
+[Install]
+WantedBy=sway-session.target
