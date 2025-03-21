@@ -27,7 +27,7 @@ sixel_fraction = 15
 
 [opener]
 edit_newtab = [
-	{ run = '~/.dotfiles/scripts/yazi/kitty_cmds.sh -v "$@"', orphan = true, block = false,  desc = "Open in nvim", for = "unix" },
+	{ run = 'kitty_cmds -v "$@"', orphan = true, block = false,  desc = "Open in nvim", for = "unix" },
 ]
 
 edit = [

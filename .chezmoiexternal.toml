@@ -1,0 +1,16 @@
+[".config/zsh/.zprezto"]
+    type = "git-repo"
+    url = "https://github.com/sorin-ionescu/prezto"
+    refreshPeriod = "168h"
+	[".config/zsh/.zprezto".clone]
+		args = ["--recurse-submodules"]
+	[".config/zsh/.zprezto".pull]
+		args = ["--recurse-submodules"]
+
+[".config/bat/syntaxes/ST-ASS"]
+	type = "git-repo"
+	url = "https://github.com/jfcherng-sublime/ST-ASS"
+
+[".config/kitty/scripts/grab"]
+	type = "git-repo"
+	url = "https://github.com/yurikhan/kitty_grab"

@@ -1,10 +1,10 @@
 {
   "Ass.vim": { "branch": "master", "commit": "12847296b837e63e7621eb5deff38fa0b58c54b7" },
   "ass.nvim": { "branch": "main", "commit": "45db9cb84685a212e1b82c06bf1cb8ed0767fd33" },
-  "auto-dark-mode.nvim": { "branch": "master", "commit": "02ef9553e2a1d6e861bc6955d58ce5883d28a6ad" },
   "auto-hlsearch.nvim": { "branch": "main", "commit": "77502069b22e48ab7736fe9cf53e1fdac1923bca" },
   "ayu-vim": { "branch": "master", "commit": "ba4e08ec392afd0aaeaf594ba7e29b0652a0a094" },
   "bufferline.nvim": { "branch": "main", "commit": "5cc447cb2b463cb499c82eaeabbed4f5fa6a0a44" },
+  "chezmoi.nvim": { "branch": "main", "commit": "3f72cffa2d18aaec884502443bae37226f3decd2" },
   "coc.nvim": { "branch": "release", "commit": "57d488a06bdb34de89acef3c2f3e9ce609d632ed" },
   "fzf-lua": { "branch": "main", "commit": "2a7eb32871a131e24021dd1756865e475fe7e274" },
   "hlargs.nvim": { "branch": "main", "commit": "53ec5d8ca6ed012de5545ba83ea1eb3d636b09fb" },

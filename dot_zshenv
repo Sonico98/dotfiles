@@ -30,6 +30,5 @@ export DEVKITARM=/opt/devkitpro/devkitARM
 export DEVKITPPC=/opt/devkitpro/devkitPPC
 # https://stackoverflow.com/a/38980986
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export LIBVA_DRIVER_NAME=i965
 
 source "$ZDOTDIR"/.zshenv
