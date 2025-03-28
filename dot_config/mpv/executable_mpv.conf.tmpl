@@ -55,7 +55,7 @@ stop-screensaver = "yes"
 {{ if eq .chezmoi.hostname "Archlap" -}}
 profile=fast
 hwdec=vaapi
-{{ else if .chezmoi.hostname "Archgamer" -}}
+{{ else if eq .chezmoi.hostname "Archgamer" -}}
 # Specify high quality video rendering preset (for --vo=gpu only)
 # Can cause performance problems with some drivers and GPUs.
 vo=gpu-next
@@ -194,3 +194,6 @@ osc=no
 osd-bar=no
 # uosc will draw its own window controls if you disable window border
 border=no
+
+# Enable ipc
+input-ipc-server=/tmp/mpv.sock

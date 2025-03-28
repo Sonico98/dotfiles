@@ -57,7 +57,7 @@ set_wallpaper() {
 	ln -s "$wallpaper" ~/.bg
 	{{ if eq .chezmoi.hostname "Archlap" -}}
 	swww img ~/.bg --transition-type random --transition-step 75 --transition-fps 25 --transition-angle 35 &
-	{{ else if .chezmoi.hostname "Archgamer" -}}
+	{{ else if eq .chezmoi.hostname "Archgamer" -}}
 	swww img ~/.bg --transition-type random --transition-step 40 --transition-fps 60 --transition-angle 35 &
 	{{ end -}}
 
