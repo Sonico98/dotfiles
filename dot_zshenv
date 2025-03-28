@@ -21,6 +21,7 @@ export PATH=${PATH}:${HOME}/.cargo/bin
 export PATH=${PATH}:${HOME}/.npm-global/bin
 export PATH=${PATH}:${HOME}/.local/bin
 export PATH=${PATH}:${HOME}/.dotnet/tools
+export PATH=${PATH}:/usr/bin/core_perl
 export GOPATH=${HOME}/.local/share/go
 # Disable dotnet Telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
