@@ -32,7 +32,6 @@ edit_newtab = [
 
 edit = [
 	{ run = '$EDITOR "$@"', block = true, for = "unix" },
-	{ run = 'aegisub "$@"', orphan = true, block = false },
 	{ run = 'code "%*"',    orphan = true, for = "windows" },
 ]
 open = [
@@ -65,10 +64,16 @@ play = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 ]
 
+subs = [
+	{ run = '''echo sub-add "'$0'" | socat - /tmp/mpv.sock ''', desc = "Add sub to MPV", for = "unix" },
+	{ run = 'aegisub "$@"', orphan = true, block = false },
+]
+
 [open]
 rules = [
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 
+	{ name = "*.{ass,srt,ssa,sty,sup,vtt}", use = [ "edit_newtab", "subs", "open", "reveal" ] },
 	{ mime = "text/*",  use = [ "edit_newtab", "edit", "reveal" ] },
 	{ mime = "image/gif", use = [ "gif", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
