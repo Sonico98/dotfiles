@@ -67,9 +67,8 @@ keymap = [
 	{ on = [ "r", "e" ], run = "rename --empty=stem --cursor=start", 		desc = "Rename a file or directory (clear existing file name)" },
 	{ on = [ ";" ],      run = "shell --interactive",                    		  			desc = "Run a shell command" },
 	{ on = [ "<C-h>" ],  run = "hidden toggle",        			  			desc = "Toggle the visibility of hidden files" },
-	{ on = [ "f" ],      run = "search fd",                		  			desc = "Search files by name using fd" },
-	{ on = [ "F" ],      run = "plugin fg", 	  							desc = "Search files by content using ripgrep (fuzzy)" },
-	{ on = [ "r", "g" ], run = "plugin fg 'rg'", 	  				desc = "Search files by content using ripgrep (exact match)" },
+	{ on = [ "f" ],      run = "search --via=fd",                		  			desc = "Search files by name using fd" },
+	{ on = [ "F" ],      run = "search --via=fg", 	  							desc = "Search files by content using ripgrep (fuzzy)" },
 	{ on = [ "<C-f>" ],  run = "search none",              		  			desc = "Cancel the ongoing search" },
 	{ on = [ "z" ],      run = "plugin zoxide",              	  			desc = "Jump to a directory using zoxide" },
 	{ on = [ "Z" ],      run = "plugin fzf",                 	  			desc = "Jump to a directory, or reveal a file using fzf" },
@@ -152,12 +151,13 @@ keymap = [
 	{ on = [ "<C-.>" ], run = "tab_swap 1",  								desc = "Swap the current tab with the next tab" },
 
 	# Tasks
-	{ on = [ "w" ], run = "tasks_show", 									desc = "Show the tasks manager" },
+	{ on = [ "w" ], run = "tasks:show", 									desc = "Show the tasks manager" },
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             					desc = "Go to the home directory" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     					desc = "Go to the config directory" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   					desc = "Go to the downloads directory" },
+	{ on = [ "g", "f" ],       run = "follow",           					desc = "Follow hovered symlink" },
 	{ on = [ "g", "t" ],       run = "cd /tmp",          					desc = "Go to the temporary directory" },
 	{ on = [ "g", "r" ],       run = "cd /",          	 					desc = "Go to the root directory" },
 	{ on = [ "g", "z" ],       run = "cd /zram",         					desc = "Go to the zram directory" },
