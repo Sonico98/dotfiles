@@ -70,6 +70,9 @@ setopt AUTO_LIST
 # Accept the current suggestion with Ctrl+space
 bindkey '^ ' autosuggest-accept
 
+# Enable inline comments in interactive shells
+setopt interactivecomments
+
 # Change autosuggestion color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 # Make grep colors not suck
