@@ -3,6 +3,7 @@ Description=Clipboard manager
 StartLimitIntervalSec=500
 StartLimitBurst=5
 BindsTo=sway-session.target
+After=darkman.service
 
 [Service]
 ExecStart=/usr/bin/clipse -listen-shell
