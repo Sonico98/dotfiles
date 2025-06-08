@@ -153,6 +153,9 @@ keymap = [
 	# Tasks
 	{ on = [ "w" ], run = "tasks:show", 									desc = "Show the tasks manager" },
 
+	# Git
+	{ on = [ "S", "c" ], run = "plugin vcs-files", 							desc = "Show Git file changes" },
+
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             					desc = "Go to the home directory" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     					desc = "Go to the config directory" },
