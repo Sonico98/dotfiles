@@ -1,4 +1,5 @@
 separator = " ∣ "
+fallback = ""
 
 [matching]
 cantata = ""
@@ -12,7 +13,7 @@ gnome-calculator = ""
 Google-chrome = ""
 chromium = ""
 kitty = ""
-librewolf = ""
+librewolf = "󰖟"
 MEGAsync = "𝐌"
 "mp3tag.exe" = ""
 mpv = ""
