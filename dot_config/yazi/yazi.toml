@@ -110,6 +110,9 @@ suppress_preload = true
 [plugin]
 
 fetchers = [
+
+	{ id = "git", name = "*", run = "git" },
+	{ id = "git", name = "*/", run = "git" },
 	# Mimetype
 	{ id = "mime-ext", name = "*", run = "mime-ext", prio = "high" },
 ]
