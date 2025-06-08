@@ -2,7 +2,7 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[manager]
+[mgr]
 
 keymap = [
 	{ on = [ "<Esc>" ], run = "escape",             				  		desc = "Exit visual mode, clear selected, or cancel search" },
@@ -68,7 +68,7 @@ keymap = [
 	{ on = [ ";" ],      run = "shell --interactive",                    		  			desc = "Run a shell command" },
 	{ on = [ "<C-h>" ],  run = "hidden toggle",        			  			desc = "Toggle the visibility of hidden files" },
 	{ on = [ "f" ],      run = "search --via=fd",                		  			desc = "Search files by name using fd" },
-	{ on = [ "F" ],      run = "search --via=fg", 	  							desc = "Search files by content using ripgrep (fuzzy)" },
+	{ on = [ "F" ],      run = "search --via=rg", 	  							desc = "Search files by content using ripgrep (fuzzy)" },
 	{ on = [ "<C-f>" ],  run = "search none",              		  			desc = "Cancel the ongoing search" },
 	{ on = [ "z" ],      run = "plugin zoxide",              	  			desc = "Jump to a directory using zoxide" },
 	{ on = [ "Z" ],      run = "plugin fzf",                 	  			desc = "Jump to a directory, or reveal a file using fzf" },
@@ -168,8 +168,8 @@ keymap = [
 	{ on = [ "~" ], run = "help", 											desc = "Open help" },
 
 	# Preview
-	{ on = [ "<C-n>" ], run = "plugin hide-preview", 				desc = "Hide the preview pane" },
-	{ on = [ "<C-m>" ], run = "plugin max-preview", 					desc = "Enlarge the preview pane" },
+	{ on = [ "<C-n>" ], run = "plugin toggle-pane min-preview", 			desc = "Hide the preview pane" },
+	{ on = [ "<C-m>" ], run = "plugin toggle-pane max-preview", 			desc = "Enlarge the preview pane" },
 ]
 
 [tasks]

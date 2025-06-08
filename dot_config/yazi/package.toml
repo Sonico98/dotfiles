@@ -1,72 +1,57 @@
 [[plugin.deps]]
 use = "Sonico98/allmytoes"
-rev = "1e43bfd"
-hash = "8f9bfa292af429a27b81d424085ede67"
+rev = "dd7895d"
+hash = "c6983275665989e59e7fed04be2ac847"
 
 [[plugin.deps]]
 use = "Sonico98/exifaudio"
-rev = "7ff7141"
-hash = "666ccba55119fba4c25b8ad354b2855c"
+rev = "e766cd2"
+hash = "5fd39bf4e88d6a046d4b81691a38d615"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "ce6fb75"
-hash = "ed6c185514109d7c5463f609282b220c"
+rev = "10b4627"
+hash = "3ec6a973d506665f1570a9fe08343fd8"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "8103065"
-hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
+rev = "2e3b617"
+hash = "b67ee12053113983273e9118a7d1272b"
 
 [[plugin.deps]]
 use = "MasouShizuka/projects"
-rev = "4f11ecc"
-hash = "17fa17295d27864f62875f06a77f72e7"
+rev = "7037dd5"
+hash = "9a4524dc938af1d30f2d115be7b64900"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "2730199"
-hash = "1f3dad061209081a6b04dd6ff2cb06c7"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:max-preview"
-rev = "2730199"
-hash = "a8025f2bb311e869069364fba01abffc"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:hide-preview"
-rev = "2730199"
-hash = "53f826884e2c7e521cecc492a7f31d7e"
-
-[[plugin.deps]]
-use = "imsi32/yatline"
-rev = "6b0fc1e"
-hash = "ab115c6cc77f5710c27f39dfa2f3d4d"
-
-[[plugin.deps]]
-use = "imsi32/yatline-githead"
-rev = "3b0eb7c"
-hash = "bfd30c396bbe2af526cb949d97ce3dcf"
+rev = "63f9650"
+hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "2730199"
-hash = "1f9fc0e55ff859a32e793833403ee7bd"
+rev = "63f9650"
+hash = "6094c7e7def6d131323e53d641f1bddd"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "2730199"
-hash = "7918aab6a71caf31b58411f789195677"
+rev = "63f9650"
+hash = "a7ab702e1ef0c097defbc976ed34c186"
 
 [[plugin.deps]]
 use = "DreamMaoMao/mime-preview"
-rev = "5ee0e78"
-hash = "fd457ef4782bda277cd1220aef927f05"
+rev = "d301e73"
+hash = "8f960261a30de7a494497e4a08a1604c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "2730199"
-hash = "dd97eede8e20e59cd2604e8006e470e2"
+rev = "63f9650"
+hash = "c0b6cd7dc830b96e77e5c8a71eec7926"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "63f9650"
+hash = "d5d4f3527592da5fbe77fd6f51815f80"
 
 [flavor]
 deps = []
