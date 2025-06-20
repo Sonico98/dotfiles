@@ -18,9 +18,11 @@
 	layer_effects "notifications" blur on; shadows off
 	for_window [ app_id="kitty" ] blur on; shadows on; border pixel 2
 	for_window [ app_id="clipse" ] blur on; shadows on; border pixel 2
-	for_window [ app_id="firefox" ] blur on; shadows on; border pixel 2
+	for_window [ app_id="firefox" ] blur off; shadows on; border pixel 2
+	for_window [ app_id="io.github.kukuruzka165.materialgram" ] blur on; shadows on; border pixel 2
 	for_window [ app_id="swayimg_.*" ] blur on
 	for_window [ app_id="com.github.artsymacaw.kaprica" ] blur on; shadows on; opacity 0.8
+	for_window [ app_id="vesktop" ] blur off; border pixel 2; shadows on
 
 	# Enable shadows
 	shadows on
