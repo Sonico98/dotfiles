@@ -19,6 +19,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Source virtualenvwrapper only when called
+source /usr/bin/virtualenvwrapper_lazy.sh
+
 # Use zsh-autocomplete
 # zstyle ':autocomplete:*' widget-style menu-select
 # zstyle ':autocomplete:*' fzf-completion yes

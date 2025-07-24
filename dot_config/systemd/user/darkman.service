@@ -12,7 +12,7 @@ ExecStart=/usr/bin/bash -c 'sleep 3 && /usr/bin/darkman run'
 Restart=on-failure
 TimeoutStopSec=15
 Slice=background.slice
-Environment=WAYLAND_DISPLAY=wayland-1
+Environment=WAYLAND_DISPLAY=wayland-0
 # Security hardening:
 # LockPersonality=yes
 # RestrictNamespaces=yes

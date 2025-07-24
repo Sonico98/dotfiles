@@ -5,63 +5,63 @@ hash = "c6983275665989e59e7fed04be2ac847"
 
 [[plugin.deps]]
 use = "Sonico98/exifaudio"
-rev = "e766cd2"
-hash = "5fd39bf4e88d6a046d4b81691a38d615"
+rev = "4506f9d"
+hash = "4761fffb60a12d37096c34a356380cdf"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "10b4627"
-hash = "3ec6a973d506665f1570a9fe08343fd8"
+rev = "bb941c4"
+hash = "956b02fe8213e7b92e21a941b9abe764"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "2e3b617"
-hash = "b67ee12053113983273e9118a7d1272b"
+rev = "a603d9e"
+hash = "e02a788e5b8ae0fb47fd0193dda589cc"
 
 [[plugin.deps]]
 use = "MasouShizuka/projects"
-rev = "7037dd5"
-hash = "9a4524dc938af1d30f2d115be7b64900"
+rev = "a5e33db"
+hash = "3de26efded35814ba3e55e28f1c389a4"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "63f9650"
+rev = "b886025"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "63f9650"
-hash = "6094c7e7def6d131323e53d641f1bddd"
+rev = "b886025"
+hash = "4c49c446328c4553a4ccab7facc10b21"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "63f9650"
-hash = "a7ab702e1ef0c097defbc976ed34c186"
+rev = "b886025"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
 use = "DreamMaoMao/mime-preview"
-rev = "d301e73"
-hash = "8f960261a30de7a494497e4a08a1604c"
+rev = "d2308e4"
+hash = "ae85f60f99b53936634bd3e84b93e157"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "63f9650"
-hash = "c0b6cd7dc830b96e77e5c8a71eec7926"
+rev = "b886025"
+hash = "f10a14e823382d90fab5b3ee54cb38fe"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "63f9650"
-hash = "d5d4f3527592da5fbe77fd6f51815f80"
+rev = "b886025"
+hash = "d6f60c24d8c0cf57a855bf46115b2502"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "63f9650"
-hash = "bf6f074cd41ee33c3360341d168f9733"
+rev = "b886025"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:vcs-files"
-rev = "63f9650"
-hash = "70898957e9e4c1ca291ff26e8fdc434"
+rev = "b886025"
+hash = "cc8da55f1deda45ee3787cc97b58ffc9"
 
 [flavor]
 deps = []
