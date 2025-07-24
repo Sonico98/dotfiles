@@ -27,10 +27,6 @@ map('n', 'dvb', 'db')
 map('i', '<C-j>', '<Left>')
 map('i', '<C-k>', '<Right>')
 
--- Quickly move between buffers
-map('n', '<leader>bn', '<Cmd>bnext<CR>')
-map('n', '<leader>bp', '<Cmd>bprev<CR>')
-
 -- Exit from terminal mode
 map('t', '<ESC><ESC>', '<C-\\><C-n>')
 ------------------------
