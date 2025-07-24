@@ -15,8 +15,8 @@ gnomeschema="org.gnome.desktop.interface"
 light_qt_color_scheme="Custom Orange Light"
 dark_qt_color_scheme="Pastel Pink Dark"
 # KDE
-light_kde_theme="org.kde.breeze.desktop"
-dark_kde_theme="org.kde.breezedark.desktop"
+light_kde_theme="com.github.vinceliuice.Layan-light"
+dark_kde_theme="com.github.vinceliuice.Layan"
 # Btop
 btop_dark_theme="monokai.theme"
 btop_light_theme="flat-remix-light.theme"
