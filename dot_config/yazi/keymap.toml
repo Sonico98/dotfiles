@@ -102,6 +102,7 @@ keymap = [
 	{ on = [ "m", "n" ], run = "linemode none",         			  		desc = "Set linemode to none" },
 
 	# Copy
+	{ on = [ "y", "c" ], run = "plugin wl-clipboard",             			  		desc = "Copy the file content to clipboard" },
 	{ on = [ "y", "p" ], run = "copy path",             			  		desc = "Copy the absolute path" },
 	{ on = [ "y", "d" ], run = "copy dirname",          			  		desc = "Copy the path of the parent directory" },
 	{ on = [ "y", "f" ], run = "copy filename",         			  		desc = "Copy the name of the file" },
