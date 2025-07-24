@@ -4,6 +4,7 @@
 FPS=24
 {{ else if eq .chezmoi.hostname "Archgamer" -}}
 FPS=60
+{{ end -}}
 
 is_recording="$(echo "$(pidof wf-recorder)")"
 if [ -n "$is_recording" ]; then
