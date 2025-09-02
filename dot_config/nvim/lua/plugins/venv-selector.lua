@@ -7,6 +7,9 @@ return {
 	},
 	lazy = false,
 	branch = "regexp", -- This is the regexp branch, use this for the new version
+	keys = {
+		{ "<leader>v", "<cmd>VenvSelect<cr>" },
+	},
 	config = function()
 		require("venv-selector").setup {
 			settings = {

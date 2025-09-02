@@ -28,7 +28,13 @@
 	"suggest.languageSourcePriority": 95,
 	"coc.source.ultisnips.priority": 99,
 	"notification.disabledProgressSources": ["*"],
-	"coc.preferences.extensionUpdateCheck": "weekly",
+	"extensions.updateCheck": "weekly",
+	"python.venvFolders": [
+		"envs",
+		".pyenv",
+		".virtualenvs",
+		".direnv"
+	],
 	"snippets.userSnippetsDirectory": "~/.config/nvim/my_snippets",
 	"sumneko-lua.enableNvimLuaDev": true,
 	"Lua.workspace.checkThirdParty": false,
