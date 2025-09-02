@@ -84,7 +84,9 @@ keymap = [
 	{ on = [ "<F2>" ],   run = '''shell 'fm-dragon-drop -t' --confirm''', 	desc = "Drop files in the current directory" },
 	{ on = [ "s", "a" ], run = '''shell 'separateAAC' --confirm''',   		desc = "Separate AAC files" },
 	{ on = [ "u" ], 	 run = "shell --confirm ibroadcast-uploader -p 5", 	desc = "Upload folder to iBroadcast" },
-	{ on = [ "M" ],      run = "plugin mount",                 	  			desc = "Mount manager" },
+	{ on = [ "M", "y" ],      run = "plugin mount",                 	  			desc = "Mount manager" },
+	{ on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
+	{ on = [ "M", "u" ], run = "plugin gvfs -- select-then-unmount --eject", desc = "Select device then eject" },
 
 	# projects.yazi
 	{ on = [ "b", "s" ], run = "plugin projects save", 				desc = "Save current project" },
@@ -165,7 +167,7 @@ keymap = [
 	{ on = [ "g", "t" ],       run = "cd /tmp",          					desc = "Go to the temporary directory" },
 	{ on = [ "g", "r" ],       run = "cd /",          	 					desc = "Go to the root directory" },
 	{ on = [ "g", "z" ],       run = "cd /zram",         					desc = "Go to the zram directory" },
-	{ on = [ "g", "o" ],       run = "cd /mnt/onedrive", 					desc = "Go to the onedrive directory" },
+	{ on = [ "g", "o" ],       run = "cd /mnt/2onedrive", 					desc = "Go to the onedrive directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", 					desc = "Go to a directory interactively" },
 
 	# Help

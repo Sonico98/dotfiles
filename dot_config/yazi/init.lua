@@ -39,6 +39,8 @@ require("mime-preview"):setup()
 
 require("git"):setup()
 
+require("gvfs"):setup()
+
 require("projects"):setup({
     save = {
         method = "yazi", -- yazi | lua

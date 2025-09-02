@@ -133,6 +133,9 @@ spotters = [
 ]
 
 preloaders = [
+	# Don't preload on gvfs or external media
+	{ name = "/run/user/1000/gvfs/**/*", run = "noop" },
+	{ name = "/run/media/sonico/**/*", run = "noop" },
 	# Image
 	{ mime = "image/{avif,hei?,jxl}", run = "magick" },
 	{ mime = "image/svg+xml", run = "svg" },
@@ -149,6 +152,8 @@ preloaders = [
 
 previewers = [
 	{ name = "*/", run = "folder", sync = true },
+	{ name = "/run/user/1000/gvfs/**/*", run = "noop" },
+	{ name = "/run/media/USER_NAME/**/*", run = "noop" },
 	# Code
 	{ mime = "text/*",                 run = "code" },
 	{ mime = "*/xml",                  run = "code" },
