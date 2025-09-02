@@ -216,9 +216,9 @@ function rcopy() {
 			mountpoint="$(echo "$i" | cut -d '/' -f1-3)"
 
 			if [ "$mountpoint" = "/mnt/onedrive" ]; then
-				remote="5TB_onedrive"
+				remote="1onedrive"
 			elif [ "$mountpoint" = "/mnt/2onedrive" ]; then
-				remote="onedrive2"
+				remote="2onedrive"
 			elif [ "$mountpoint" = "/mnt/lolDrive" ]; then
 				remote="LolDrive"
 			fi
