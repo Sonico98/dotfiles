@@ -1,0 +1,8 @@
+[
+  {
+    "directory": "/home/sonico/.aegisub/automation/subinspector/SubInspector/build",
+    "command": "ccache cc -Isrc/libSubInspector.so.p -Isrc -I../src -I/usr/include/libxml2 -I/usr/include/fribidi -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c99 -O3 -Wunreachable-code -Wfloat-equal -Wredundant-decls -Winit-self -Wpedantic -DBUILD_DLL -fPIC -DWITH_GZFILEOP -pthread -MD -MQ src/libSubInspector.so.p/SubInspector.c.o -MF src/libSubInspector.so.p/SubInspector.c.o.d -o src/libSubInspector.so.p/SubInspector.c.o -c ../src/SubInspector.c",
+    "file": "../src/SubInspector.c",
+    "output": "src/libSubInspector.so.p/SubInspector.c.o"
+  }
+]

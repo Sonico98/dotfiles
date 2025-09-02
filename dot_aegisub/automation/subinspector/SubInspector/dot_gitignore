@@ -1,0 +1,33 @@
+# Binary objects
+*.o
+
+# Dynamic libraries
+*.dylib
+*.so
+*.dll
+
+# Packaging results
+SubInspector
+deps
+*.zip
+build
+
+# Visual Studio junk
+*.pdb
+*.dll
+*.sdf
+*.suo
+*.log
+*.obj
+*.tlog
+*.exp
+*.lib
+*.ilk
+*.idb
+*.opensdf
+*.vcxproj.filters
+*.vcxproj.user
+Release
+
+# Meson
+subprojects

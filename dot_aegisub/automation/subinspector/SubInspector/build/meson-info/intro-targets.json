@@ -1,0 +1,84 @@
+[
+  {
+    "name": "SubInspector",
+    "id": "25a6634@@SubInspector@sha",
+    "type": "shared library",
+    "defined_in": "/home/sonico/.aegisub/automation/subinspector/SubInspector/src/meson.build",
+    "filename": [
+      "/home/sonico/.aegisub/automation/subinspector/SubInspector/build/src/libSubInspector.so"
+    ],
+    "build_by_default": true,
+    "target_sources": [
+      {
+        "language": "c",
+        "compiler": [
+          "ccache",
+          "cc"
+        ],
+        "parameters": [
+          "-I/home/sonico/.aegisub/automation/subinspector/SubInspector/build/src/libSubInspector.so.p",
+          "-I/home/sonico/.aegisub/automation/subinspector/SubInspector/build/src",
+          "-I/home/sonico/.aegisub/automation/subinspector/SubInspector/src",
+          "-I/usr/include/libxml2",
+          "-I/usr/include/fribidi",
+          "-I/usr/include/freetype2",
+          "-I/usr/include/libpng16",
+          "-I/usr/include/harfbuzz",
+          "-I/usr/include/glib-2.0",
+          "-I/usr/lib64/glib-2.0/include",
+          "-I/usr/include/sysprof-6",
+          "-fdiagnostics-color=always",
+          "-D_FILE_OFFSET_BITS=64",
+          "-Wall",
+          "-Winvalid-pch",
+          "-std=c99",
+          "-O3",
+          "-Wunreachable-code",
+          "-Wfloat-equal",
+          "-Wredundant-decls",
+          "-Winit-self",
+          "-Wpedantic",
+          "-DBUILD_DLL",
+          "-fPIC",
+          "-DWITH_GZFILEOP",
+          "-pthread"
+        ],
+        "sources": [
+          "/home/sonico/.aegisub/automation/subinspector/SubInspector/src/SubInspector.c"
+        ],
+        "generated_sources": [],
+        "unity_sources": []
+      },
+      {
+        "linker": [
+          "cc"
+        ],
+        "parameters": [
+          "-Wl,--as-needed",
+          "-Wl,--no-undefined",
+          "-Wl,-O1",
+          "-shared",
+          "-fPIC",
+          "-Wl,-soname,libSubInspector.so",
+          "-Wl,--start-group",
+          "-Wl,--start-group",
+          "-lbz2",
+          "/usr/lib64/libass.so",
+          "/usr/lib64/libz.so",
+          "-Wl,--end-group",
+          "-Wl,--end-group"
+        ]
+      }
+    ],
+    "extra_files": [],
+    "subproject": null,
+    "dependencies": [
+      "bz2",
+      "iconv",
+      "libass",
+      "zlib"
+    ],
+    "depends": [],
+    "installed": false
+  }
+]

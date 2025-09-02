@@ -1,0 +1,1 @@
+option('zlib', type: 'feature', description: 'Use zlib for crc computation')
