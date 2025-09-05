@@ -20,7 +20,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Source virtualenvwrapper only when called
-source /usr/bin/virtualenvwrapper_lazy.sh
+if [ -f /usr/bin/virtualenvwrapper_lazy.sh ]; then
+	source /usr/bin/virtualenvwrapper_lazy.sh
+fi
 
 # Use zsh-autocomplete
 # zstyle ':autocomplete:*' widget-style menu-select
@@ -140,6 +142,7 @@ sht(){
 	fi
 }
 
+{{ if findExecutable "timg" (list "/bin" "/usr/bin") -}}
 # List images in directories
 function lsi(){
 	dir="$1"
@@ -148,6 +151,7 @@ function lsi(){
 	fi
 	timg --grid=4x4 -U --title -C -Bnone -pk --frames=1 --threads=4 "$dir"/(*.png|*.jpg|*.gif)
 }
+{{- end }}
 
 # Convert video into high quality GIF
 function v2g() {
@@ -219,6 +223,9 @@ function vi-yank-xclip() {
 	echo "$CUTBUFFER" | xclip
 	{{ end }}
 }
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
 
 # Exit yazi to current directory
 function y() {
@@ -302,6 +309,7 @@ function addfonts() {
 	done
 }
 
+{{ if findExecutable "mongodump" (list "/bin" "/usr/bin") -}}
 function mongobackup() {
 	while [ "$1" != "" ]; do
 		case "$1" in
@@ -331,10 +339,9 @@ function mongobackup() {
 		echo "Pass -d dbname -u username -p password"
 	fi
 }
+{{- end }}
 
-zle -N vi-yank-xclip
-bindkey -M vicmd 'y' vi-yank-xclip
-
+{{ if findExecutable "dotnet" (list "/bin" "/usr/bin") -}}
 # zsh parameter completion for the dotnet CLI
 _dotnet_zsh_complete()
 {
@@ -344,7 +351,7 @@ _dotnet_zsh_complete()
 }
 
 compctl -K _dotnet_zsh_complete dotnet
-
+{{- end }}
 
 # --- Sources and exports ------------------------
 {{ if eq .chezmoi.hostname "Archlap" -}}
