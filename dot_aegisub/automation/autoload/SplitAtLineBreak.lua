@@ -28,13 +28,33 @@ function strip_tags(text)
     return text:gsub("(%b{})", "")
 end
 
+-- Find first \N outside of any {...} block
+function find_visible_break(text)
+    local i = 1
+    local inside_brace = false
+    while i <= #text - 1 do
+        local c = text:sub(i, i)
+        local next_c = text:sub(i + 1, i + 1)
+
+        if c == "{" then
+            inside_brace = true
+        elseif c == "}" then
+            inside_brace = false
+        elseif c == "\\" and next_c == "N" and not inside_brace then
+            return i
+        end
+        i = i + 1
+    end
+    return nil
+end
+
 -- Split at midpoint
 function split_midpoint(subs, sel)
     for _, i in ipairs(sel) do
         local line = subs[i]
         local text = line.text
 
-        local split_pos = text:find("\\N")
+        local split_pos = find_visible_break(text)
         if not split_pos then
             aegisub.log("Line %d has no \\N, skipping.\n", i)
         else
@@ -72,7 +92,7 @@ function split_balanced(subs, sel)
         local line = subs[i]
         local text = line.text
 
-        local split_pos = text:find("\\N")
+        local split_pos = find_visible_break(text)
         if not split_pos then
             aegisub.log("Line %d has no \\N, skipping.\n", i)
         else

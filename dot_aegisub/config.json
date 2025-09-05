@@ -326,7 +326,7 @@
 			"Audio" : "",
 			"Automation" : "",
 			"Keyframes" : "/home/sonico/Documents/Subs/Kaoru-Hana/keyframes",
-			"Subtitles" : "/mnt/Heaven/Documents/Subs/Kaoru-Hana/Subs",
+			"Subtitles" : "/mnt/Heaven/Documents/Subs/Kaoru-Hana/TS",
 			"Timecodes" : "",
 			"Video" : "/mnt/Heaven/Torrents/Anime"
 		},
@@ -499,6 +499,9 @@
 			"Mode" : 4,
 			"Recent Colours" : [
 				{
+					"color" : "rgb(26, 134, 72)"
+				},
+				{
 					"color" : "rgb(105, 123, 132)"
 				},
 				{
@@ -590,9 +593,6 @@
 				},
 				{
 					"color" : "rgb(255, 103, 102)"
-				},
-				{
-					"color" : "rgb(253, 255, 47)"
 				}
 			],
 			"Restrict to Window" : false
