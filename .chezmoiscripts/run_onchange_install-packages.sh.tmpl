@@ -10,10 +10,7 @@ case "$answer" in
 esac
 
 if [ "$addRepo" = true ]; then
-	echo '
-	[archlinuxcn]
-	Server = https://repo.archlinuxcn.org/$arch
-	' | sudo tee -a /etc/pacman.conf
+	printf '\n[archlinuxcn]\nServer = https://repo.archlinuxcn.org/$arch\n' | sudo tee -a /etc/pacman.conf
 fi
 
 echo "Updating packages and mirrors first"
@@ -24,7 +21,7 @@ sudo pacman -Syyu
   {{- $pkgs = printf "%s %s" $pkgs . -}}
 {{- end }}
 echo "Installing packages"
-sudo pacman -S {{- $pkgs }}
+sudo pacman --noconfirm --needed -S {{- $pkgs }}
 
 {{ end -}}
 
