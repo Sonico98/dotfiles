@@ -2,14 +2,28 @@
 {{- $gitemail := promptStringOnce . "gitemail" "GitHub config email" -}}
 {{- $gpgemail := promptStringOnce . "gpgemail" "Email address (for GPG keys)" -}}
 
+[data]
+	gituser = {{ $gituser | quote }}
+	gitemail = {{ $gitemail | quote }}
+
 encryption = "gpg"
 
 [gpg]
 	recipient = {{ $gpgemail | quote }}
 	symmetric = false
 
-{{- if findExecutable "keepassxc-cli" (list "/bin" "/usr/bin") -}}
-{{- $keepassdb := promptStringOnce . "keepassdb" "Keepass kbdx file location" -}}
+
+{{- if findExecutable "keepassxc-cli" (list "/bin" "/usr/bin") }}
+{{- $keepassdb := promptStringOnce . "keepassdb" "Keepass db location (or leave blank)" }}
+{{- $keepasskeyf := promptStringOnce . "keepasskeyf" "Keepass db key file (or leave blank)" }}
+
+{{- if ne (len $keepassdb) 0 }}
 [keepassxc]
 	database = {{ $keepassdb | quote }}
+	{{- if ne (len $keepasskeyf) 0 }}
+	args = ["--keyfile", {{ $keepasskeyf | quote }}]
+	mode = "open"
+	{{- end }}
+{{- end }}
+
 {{- end -}}
