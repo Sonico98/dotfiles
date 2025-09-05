@@ -21,7 +21,7 @@ encryption = "gpg"
 [keepassxc]
 	database = {{ $keepassdb | quote }}
 	{{- if ne (len $keepasskeyf) 0 }}
-	args = ["--keyfile", {{ $keepasskeyf | quote }}]
+	args = ["--key-file", {{ $keepasskeyf | quote }}]
 	mode = "open"
 	{{- end }}
 {{- end }}
