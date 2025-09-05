@@ -3,10 +3,11 @@ README.md
 {{- if (or (ne .chezmoi.hostname "Archlap") (ne .chezmoi.hostname "ArchDesktop")) }}
 .aegisub
 .config/kitty
+.config/kitty/scripts
 .config/mpDris2
 .config/mpd
 .config/mpv
-.config/encrypted_mpd-notification.conf
+.config/mpd-notification.conf
 {{- end }}
 
 {{- if (ne .chezmoi.hostname "Archlap") }}
