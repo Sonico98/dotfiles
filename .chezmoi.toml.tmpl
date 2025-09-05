@@ -2,11 +2,11 @@
 {{- $gitemail := promptStringOnce . "gitemail" "GitHub config email" -}}
 {{- $gpgemail := promptStringOnce . "gpgemail" "Email address (for GPG keys)" -}}
 
+encryption = "gpg"
+
 [data]
 	gituser = {{ $gituser | quote }}
 	gitemail = {{ $gitemail | quote }}
-
-encryption = "gpg"
 
 [gpg]
 	recipient = {{ $gpgemail | quote }}
@@ -17,7 +17,7 @@ encryption = "gpg"
 {{- $keepassdb := promptStringOnce . "keepassdb" "Keepass db location (or leave blank)" }}
 {{- $keepasskeyf := promptStringOnce . "keepasskeyf" "Keepass db key file (or leave blank)" }}
 
-{{- if ne (len $keepassdb) 0 }}
+{{ if ne (len $keepassdb) 0 -}}
 [keepassxc]
 	database = {{ $keepassdb | quote }}
 	{{- if ne (len $keepasskeyf) 0 }}
