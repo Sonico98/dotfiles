@@ -1,3 +1,5 @@
+README.md
+
 {{- if (or (ne .chezmoi.hostname "Archlap") (ne .chezmoi.hostname "ArchDesktop")) }}
 dot_aegisub
 dot_config/kitty
