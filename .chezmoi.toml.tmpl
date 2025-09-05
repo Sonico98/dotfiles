@@ -1,0 +1,15 @@
+{{- $gituser := promptStringOnce . "gituser" "GitHub config name" -}}
+{{- $gitemail := promptStringOnce . "gitemail" "GitHub config email" -}}
+{{- $gpgemail := promptStringOnce . "gpgemail" "Email address (for GPG keys)" -}}
+
+encryption = "gpg"
+
+[gpg]
+	recipient = {{ $gpgemail | quote }}
+	symmetric = false
+
+{{- if findExecutable "keepassxc-cli" (list "/bin" "/usr/bin") -}}
+{{- $keepassdb := promptStringOnce . "keepassdb" "Keepass kbdx file location" -}}
+[keepassxc]
+	database = {{ $keepassdb | quote }}
+{{- end -}}

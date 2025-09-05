@@ -1,0 +1,12 @@
+{{- if (or (ne .chezmoi.hostname "Archlap") (ne .chezmoi.hostname "ArchDesktop")) }}
+dot_aegisub
+dot_config/kitty
+dot_config/mpDris2
+dot_config/mpd
+dot_config/mpv
+dot_config/encrypted_mpd-notification.conf
+{{- end }}
+
+{{- if (ne .chezmoi.hostname "Archlap") }}
+dot_config/clight
+{{- end }}

@@ -84,15 +84,16 @@ export GREP_COLORS='sl=49;39:cx=49;39:mt=48;5;215;38;5;234;1:fn=49;38;5;183:ln=4
 # --- Aliases ----------------------
 alias cat="bat"
 alias cwp="~/.local/share/dark-mode.d/00_waybar_and_sway.sh"
+{{- if findExecutable "kitty" (list "/bin" "/usr/bin") -}}
 alias diff="kitten diff"
+alias gitdiff="git difftool --no-symlinks --dir-diff"
+alias icat="timg -U --title=%f -C -Bnone --threads=4 -pk"
+{{- end -}}
 alias fd="fd -H"
 alias ffmpeg="ffmpeg -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 alias ffbatch="ffbatch"
-alias gitdiff="git difftool --no-symlinks --dir-diff"
-alias icat="timg -U --title=%f -C -Bnone --threads=4 -pk"
 alias ibrc="ibroadcast-uploader -p 5"
-alias ixio="curl -F 'f:1=<-' ix.io"
 alias lidnotsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=suspend/HandleLidSwitchExternalPower=ignore/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
 alias lidsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=ignore/HandleLidSwitchExternalPower=suspend/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
 alias ls="eza --hyperlink"
@@ -101,9 +102,20 @@ alias mkvenv="mkvirtualenv"
 alias qaac_enc="mkdir -p aac; \
 	wine ~/.wine/drive_c/Program\ Files/qaac/qaac64.exe \
 	-V 100 --copy-artwork -d ./aac (*.flac|*.mp3)"
+{{- if findExecutable "paru" (list "/usr/bin" "/bin") -}}
 alias pas="paru -Syu --devel --noconfirm ; zprezto-update ; yes | remove-orphaned-kernels"
 alias pain="paru -S"
 alias pare="paru -Rns"
+{{- else if findExecutable "yazi" (list "/usr/bin" "/bin") -}}
+alias pas="yay -Syu --devel --noconfirm ; zprezto-update ; yes | remove-orphaned-kernels"
+alias pain="yay -S"
+alias pare="yay -Rns"
+{{- else if findExecutable "pacman" (list "/usr/bin" "/bin") -}}
+alias pas="sudo pacman -Syu --noconfirm ; zprezto-update ; yes | remove-orphaned-kernels"
+alias pain="sudo pacman -S"
+alias pare="sudo pacman -Rns"
+{{- else -}}
+{{ end }}
 alias rs="rsync -v --progress"
 alias sct="sudo systemctl"
 alias sctu="systemctl --user"
@@ -144,19 +156,29 @@ function v2g() {
 	ffmpeg -i "$input" -vf "split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 "$output"
 }
 
+{{- if eq .chezmoi.osRelease.id "arch" -}}
 # Install packages using fzf
 function in() {
+	{{- if findExecutable "paru" (list "/bin" "/usr/bin") -}}
 	local manager=paru
+	{{- if findExecutable "yazi" (list "/bin" "/usr/bin") -}}
+	local manager=yazi
+	{{- end -}}
 	${manager} -Slq | fzf -q "$1" -m --preview-window=45%,top --preview \
 	"${manager} -Sii {1} | bat -l yaml -p --color=always" | xargs -ro ${manager} -S
 }
 
 # Remove packages using fzf
 function re() {
+	{{- if findExecutable "paru" (list "/bin" "/usr/bin") -}}
 	local manager=paru
+	{{- if findExecutable "yazi" (list "/bin" "/usr/bin") -}}
+	local manager=yazi
+	{{- end -}}
 	${manager} -Qq | fzf -q "$1" -m --preview-window=45%,top --preview \
 	"${manager} -Qii {1} | bat -l yaml -p --color=always" | xargs -ro ${manager} -Rns
 }
+{{- end -}}
 
 # Ripgrep + fzf
 fgrep() {
@@ -191,7 +213,10 @@ his() {
 # Yank to the system clipboard
 function vi-yank-xclip() {
 	zle vi-yank
+	{{- if findExecutable "wl-copy" (list "/bin" "/usr/bin") -}}
 	echo "$CUTBUFFER" | wl-copy
+	{{- else -}}
+	echo "$CUTBUFFER" | xclip
 }
 
 # Exit yazi to current directory
@@ -321,17 +346,21 @@ compctl -K _dotnet_zsh_complete dotnet
 
 
 # --- Sources and exports ------------------------
+{{- if eq .chezmoi.hostname "Archlap" -}}
 # Enable IBus, used by clight
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+{{- end -}}
 
 # Let fzf search hidden files as well
 export FZF_DEFAULT_COMMAND="fd -H"
 
+{{- if eq .chezmoi.osRelease.id "arch" -}}
 # Whenever a not-found command is used, search the repositories for a matching pkg
 # Requires pkgfile, and to run 'pkgfile -u' at least once
 source /usr/share/doc/pkgfile/command-not-found.zsh
+{{- end -}}
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
