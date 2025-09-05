@@ -1,0 +1,31 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/bash
+{{ if eq .chezmoi.osRelease.id "arch" -}}
+addRepo=false
+read -p "Add archlinuxcn repo? [Y/n] " answer
+case "$answer" in
+	[Nn]* ) addRepo=false ;;
+	* ) addRepo=true ;;
+esac
+
+if [ "$addRepo" = true ]; then
+	echo '
+	[archlinuxcn]
+	Server = https://repo.archlinuxcn.org/$arch
+	' | sudo tee -a /etc/pacman.conf
+fi
+
+echo "Updating packages and mirrors first"
+sudo pacman -Syyu
+
+{{- $pkgs := "" -}}
+{{- range .packages.arch.pacman -}}
+  {{- $pkgs = printf "%s %s" $pkgs . -}}
+{{- end }}
+echo "Installing packages"
+sudo pacman -S {{- $pkgs }}
+
+{{ end -}}
+
+{{ end -}}

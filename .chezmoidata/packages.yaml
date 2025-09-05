@@ -1,0 +1,15 @@
+packages:
+  arch:
+    pacman:
+      - git
+      - pkgfile
+      - bat
+      - yazi
+      - neovim
+      - fd
+      - fzf
+      - ripgrep
+      - zoxide
+      - eza
+      - rsync
+      - curl
