@@ -66,7 +66,7 @@ play = [
 
 subs = [
 	{ run = '''echo sub-add "'$0'" | socat - /tmp/mpv.sock ''', desc = "Add sub to MPV", for = "unix" },
-	{ run = 'aegisub "$@"', orphan = true, block = false },
+	{ run = 'GTK_THEME="Fluent-round-pink-Dark" aegisub "$@"', desc = "Aegisub", orphan = true, block = false },
 ]
 
 [open]
