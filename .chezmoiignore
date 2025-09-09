@@ -13,3 +13,5 @@ README.md
 {{- if (ne .chezmoi.hostname "Archlap") }}
 .config/clight
 {{- end }}
+
+externally_managed/package.toml
