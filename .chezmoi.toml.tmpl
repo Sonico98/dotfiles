@@ -1,5 +1,6 @@
 {{- $gituser := promptStringOnce . "gituser" "GitHub config name" -}}
 {{- $gitemail := promptStringOnce . "gitemail" "GitHub config email" -}}
+{{- $gitaltenv := promptStringOnce . "gitaltenv" "GitHub alt. dev environment (or leave blank)" -}}
 {{- $gpgemail := promptStringOnce . "gpgemail" "Email address (for GPG keys)" -}}
 
 encryption = "gpg"
@@ -7,6 +8,9 @@ encryption = "gpg"
 [data]
 	gituser = {{ $gituser | quote }}
 	gitemail = {{ $gitemail | quote }}
+	{{ if ne (len $gitaltenv) 0 -}}
+	gitaltenv = {{ $gitaltenv | quote }}
+	{{- end}}
 
 [gpg]
 	recipient = {{ $gpgemail | quote }}
