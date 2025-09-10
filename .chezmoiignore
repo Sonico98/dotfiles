@@ -11,6 +11,7 @@ README.md
 .config/paru
 .config/pipewire
 .config/pipewire/pipewire.conf.d
+.config/rclone
 {{- end }}
 
 {{- if (ne .chezmoi.hostname "Archlap") }}
