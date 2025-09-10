@@ -9,9 +9,9 @@ Before=lock.target
 
 [Service]
 Type=oneshot
-ExecStartPre=swaylockbg_pre
-ExecStart=swaylockbg
-ExecStartPost=swaylockbg_post
+ExecStartPre={{ .chezmoi.homeDir }}/.local/bin/swaylockbg_pre
+ExecStart={{ .chezmoi.homeDir }}/.local/bin/swaylockbg
+ExecStartPost={{ .chezmoi.homeDir }}/.local/bin/swaylockbg_post
 ; ExecStart=/usr/bin/swaylock -f
 # If swaylock crashes, always restart it immediately:
 Restart=on-failure

@@ -4,7 +4,7 @@ StartLimitIntervalSec=2000
 StartLimitBurst=5
 
 [Service]
-ExecStart=/home/sonico/.virtualenvs/dirmon/bin/python /usr/local/bin/monitor_directory
+ExecStart={{ .chezmoi.homeDir }}/.virtualenvs/dirmon/bin/python {{ .chezmoi.homeDir }}/.local/bin/monitor_directory
 Restart=on-failure
 RestartSec=5s
 
