@@ -9,6 +9,8 @@ README.md
 .config/mpv
 .config/mpd-notification.conf
 .config/paru
+.config/pipewire
+.config/pipewire/pipewire.conf.d
 {{- end }}
 
 {{- if (ne .chezmoi.hostname "Archlap") }}
