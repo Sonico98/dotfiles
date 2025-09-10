@@ -26,7 +26,7 @@
     bindsym $mod+Shift+r reload
 
 	# Open the music player
-	bindsym $mod+m exec cantata
+	bindsym $mod+m exec euphonica
 
 	# Reopen the notification stack
 	bindsym $mod+Control+n exec dunstctl history-pop && sleep 4 && dunstctl close
