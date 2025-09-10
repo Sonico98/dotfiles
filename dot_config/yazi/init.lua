@@ -41,6 +41,17 @@ require("git"):setup()
 
 require("gvfs"):setup()
 
+require("mime-ext"):setup {
+	-- Expand the existing extension database
+	with_exts = {
+		desktop = "text/plain",
+	},
+
+	-- If the mime-type is not in both filename and extension databases,
+	-- then fallback to Yazi's preset mime plugin, which uses file(1)
+	fallback_file1 = true,
+}
+
 require("projects"):setup({
     save = {
         method = "yazi", -- yazi | lua
