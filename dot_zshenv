@@ -20,6 +20,7 @@ export PATH=${PATH}:${HOME}/.gem/ruby/3.0.0/bin
 export PATH=${PATH}:${HOME}/.cargo/bin
 export PATH=${PATH}:${HOME}/.npm-global/bin
 export PATH=${PATH}:${HOME}/.local/bin
+export PATH=${PATH}:${HOME}/.local/bin/yazi
 export PATH=${PATH}:${HOME}/.dotnet/tools
 export PATH=${PATH}:/usr/bin/core_perl
 export GOPATH=${HOME}/.local/share/go
