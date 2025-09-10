@@ -6,6 +6,7 @@ StartLimitIntervalSec=400
 StartLimitBurst=20
 
 [Service]
+ExecCondition=sh -c 'ps | grep "sway"'
 ExecStartPre=/usr/bin/sleep 5
 ExecStart=/usr/bin/swww-daemon -f xrgb
 Restart=always
