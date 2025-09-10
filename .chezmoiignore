@@ -8,10 +8,12 @@ README.md
 .config/mpd
 .config/mpv
 .config/mpd-notification.conf
+.config/paru
 {{- end }}
 
 {{- if (ne .chezmoi.hostname "Archlap") }}
 .config/clight
 {{- end }}
 
+externally_managed
 externally_managed/package.toml
