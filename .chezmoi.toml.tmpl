@@ -1,7 +1,7 @@
 {{- $gituser := promptStringOnce . "gituser" "GitHub config name" -}}
 {{- $gitemail := promptStringOnce . "gitemail" "GitHub config email" -}}
 {{- $gitaltenv := promptStringOnce . "gitaltenv" "GitHub alt. dev environment (or leave blank)" -}}
-{{- $gpgemail := promptStringOnce . "gpgemail" "Email address (for GPG keys)" -}}
+{{- $gpgemail := promptStringOnce . "gpgemail" "GPG Email address (or leave blank)" -}}
 
 encryption = "gpg"
 
@@ -11,11 +11,13 @@ encryption = "gpg"
 	{{ if ne (len $gitaltenv) 0 -}}
 	gitaltenv = {{ $gitaltenv | quote }}
 	{{- end}}
+	{{ if ne (len $gpgemail) 0 -}}
+	gpgemail = {{ $gpgemail | quote }}
+	{{- end}}
 
 [gpg]
 	recipient = {{ $gpgemail | quote }}
 	symmetric = false
-
 
 {{- if findExecutable "keepassxc-cli" (list "/bin" "/usr/bin") }}
 {{- $keepassdb := promptStringOnce . "keepassdb" "Keepass db location (or leave blank)" }}

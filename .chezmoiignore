@@ -1,24 +1,39 @@
+externally_managed
+externally_managed/package.toml
+scripts
 README.md
-
-{{- if (or (ne .chezmoi.hostname "Archlap") (ne .chezmoi.hostname "ArchDesktop")) }}
-.aegisub
-.config/kitty
-.config/kitty/scripts
-.config/mimeapps.list
-.config/mpDris2
-.config/mpd
-.config/mpv
-.config/mpd-notification.conf
-.config/paru
-.config/pipewire
-.config/pipewire/pipewire.conf.d
-.config/rclone
-{{- end }}
 
 {{- if (ne .chezmoi.hostname "Archlap") }}
 .config/clight
 {{- end }}
 
-externally_managed
-externally_managed/package.toml
-scripts
+{{ if ne .gpgemail "sonico@disroot.org" -}}
+.aegisub/*
+.config/keepassxc
+.config/mimeapps.list
+.config/mpDris2/*
+.config/mpd/*
+.config/mpv/*
+.config/mpd-notification.conf
+.config/paru/*
+.config/pipewire/*
+.config/rclone/*
+.config/zsh/.zsh_history
+.local/share/zoxide/*
+.local/share/dbus-1/*
+.ssh/*
+{{- end }}
+
+{{- if eq .chezmoi.os "android" }}
+.aegisub/*
+.icons/*
+.local/*
+.config/*
+!.config/bat
+!.config/btop
+!.config/fastfetch
+!.config/htop
+!.config/nvim
+!.config/yazi
+!.config/zsh
+{{- end }}
