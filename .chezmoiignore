@@ -1,3 +1,5 @@
+# chezmoi:template:missing-key=zero
+
 externally_managed
 externally_managed/package.toml
 scripts
@@ -7,7 +9,7 @@ README.md
 .config/clight
 {{- end }}
 
-{{ if ne .gpgemail "sonico@disroot.org" -}}
+{{ if ( ne .gpgemail "sonico@disroot.org" ) -}}
 .aegisub/*
 .config/keepassxc
 .config/mimeapps.list
