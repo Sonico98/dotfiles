@@ -1,0 +1,38 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/bash
+echo ""
+echo "For the best experience, the following systemd user services should be enabled:"
+{{ if findExecutable "darkman" (list "/bin" "/usr/bin") -}}
+echo "- darkman.service: Automatically switch between night and dark themes during the day."
+{{- end }}
+echo "- dex.service: So programs listed under ~/.config/autostart do run on startup."
+echo "- dunst.service: Notification daemon."
+echo "- lockscreen.service: Required for my swaylock wrapper to work properly."
+echo "- playerctld.service: Play/pause media using the MPRIS protocol."
+echo "- sworkstyle.service: Rename workspaces with icons for the currently running windows."
+{{ if findExecutable "swww-daemon" (list "/bin" "/usr/bin") -}}
+echo "- swww-daemon.service: Set wallpapers with smooth transitions."
+echo "- systemd-lock-handler.service: Required for the lockscreen service to work."
+{{- end }}
+echo "- wayland-pipewire-idle-inhibit.service: Prevent screen locking when media is playing."
+
+read -p "Enable systemd user services? [Y/n] " answer
+enableS=false
+case "$answer" in
+	[N|n]* ) enableS=false ;;
+	* ) enableS=true ;;
+esac
+
+if [ "$enableS" = true ]; then
+	systemctl --user enable --now dunst.service playerctld.service sworkstyle.service swww-daemon.service systemd-lock-handler.service wayland-pipewire-idle-inhibit.service && systemctl --user enable lockscreen.service
+	if [ $? -eq 0 ]; then
+		echo ""
+		echo "Services enabled!"
+	else
+		echo ""
+		echo "Errors occurred. Please check for any terminal output."
+	fi
+fi
+
+{{ end -}}

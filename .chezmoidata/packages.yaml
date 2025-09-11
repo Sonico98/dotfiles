@@ -1,6 +1,6 @@
 packages:
   arch:
-    pacman:
+    terminal:
       - git
       - pkgfile
       - bat
@@ -13,3 +13,14 @@ packages:
       - eza
       - rsync
       - curl
+    gui:
+      - dex
+      - dunst
+      - playerctl
+    guiAUR:
+      - sworkstyle
+      - systemd-lock-handler
+      - wayland-pipewire-idle-inhibit
+    guiOpt:
+      - darkman
+      - swww

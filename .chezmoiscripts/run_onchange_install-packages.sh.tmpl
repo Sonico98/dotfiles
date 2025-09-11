@@ -10,18 +10,57 @@ case "$answer" in
 esac
 
 if [ "$addRepo" = true ]; then
+	echo "$addRepo"
 	printf '\n[archlinuxcn]\nServer = https://repo.archlinuxcn.org/$arch\n' | sudo tee -a /etc/pacman.conf
 fi
 
 echo "Updating packages and mirrors first"
 sudo pacman -Syyu
 
-{{- $pkgs := "" -}}
-{{- range .packages.arch.pacman -}}
-  {{- $pkgs = printf "%s %s" $pkgs . -}}
+{{- $termpkgs := "" -}}
+{{- range .packages.arch.terminal -}}
+  {{- $termpkgs = printf "%s %s" $termpkgs . -}}
 {{- end }}
-echo "Installing packages"
-sudo pacman --noconfirm --needed -S {{- $pkgs }}
+echo "Installing packages required for the terminal"
+sudo pacman --noconfirm --needed -S {{- $termpkgs }}
+
+
+optGUI=false
+echo "The following packages are not mandatory:"
+echo "- darkman: Allows switching between light and dark themes automatically throughout the day."
+echo "- swww: Allows changing wallpapers with smooth transitions."
+read -p "Would you like to install them? [Y/n] " answer
+case "$answer" in
+	[Nn]* ) optGUI=false ;;
+	* ) optGUI=true ;;
+esac
+
+{{- $guipkgs := "" -}}
+{{- range .packages.arch.gui -}}
+  {{- $guipkgs = printf "%s %s" $guipkgs . -}}
+{{- end }}
+
+{{- $optguipkgs := "" -}}
+{{- range .packages.arch.guiOpt -}}
+  {{- $optguipkgs = printf "%s %s" $optguipkgs . -}}
+{{- end }}
+
+echo "Installing packages for sway's UI and experience"
+if [ "$optGUI" = true ]; then
+	sudo pacman --noconfirm --needed -S {{- $guipkgs }} {{- $optguipkgs }}
+else
+	sudo pacman --noconfirm --needed -S {{- $guipkgs }}
+fi
+
+echo "Installing packages only available on the AUR"
+{{ $aurguipkgs := "" -}}
+{{- range .packages.arch.guiAUR }}
+git clone 'https://aur.archlinux.org/{{- . -}}.git'
+cd {{ . }}
+makepkg -si --noconfirm --needed
+cd .. && rm -rf {{ . }}
+{{- end }}
+
 
 {{ end -}}
 
