@@ -2,9 +2,10 @@
 	name = {{ .gituser | quote }}
 	email = {{ .gitemail | quote }}
 
-{{ if ne (len .gitaltenv) 0 -}}
-[includeIf "gitdir:{{ .gitaltenv }}/"]
-	path = "{{ .gitaltenv }}/.gitconfig"
+{{ $gitaltenv := (get . "gitaltenv") -}}
+{{- if $gitaltenv -}}
+[includeIf "gitdir:{{ $gitaltenv }}/"]
+	path = "{{ $gitaltenv }}/.gitconfig"
 {{- end}}
 
 {{ if findExecutable "kitty" (list "/usr/bin") -}}
