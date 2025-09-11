@@ -38,3 +38,7 @@ README.md
 !.config/yazi
 !.config/zsh
 {{- end }}
+
+{{- if (ne .chezmoi.os "android") }}
+.termux/*
+{{- end }}

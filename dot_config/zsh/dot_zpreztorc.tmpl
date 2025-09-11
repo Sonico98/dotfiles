@@ -30,6 +30,7 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:module:ssh:load' identities 'id_ed25519' 'ghTD'
+{{ if (ne .chezmoi.os "android") -}}
 zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
@@ -41,6 +42,19 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'python' \
   'prompt'
+{{ else -}}
+zstyle ':prezto:load' pmodule \
+  'terminal' \
+  'editor' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'history' \
+  'autosuggestions' \
+  'utility' \
+  'python' \
+  'prompt' \
+  'completion'
+{{ end }}
 
 #
 # Autosuggestions
