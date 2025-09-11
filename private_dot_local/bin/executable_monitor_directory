@@ -55,24 +55,21 @@ async def check_extension(event, file_extension):
 
 
 async def wait_for_download_finish(file_extension, downloading_file, dest_file):
-    is_finished = 0
-    while is_finished != 1:
-        await asyncio.sleep(5)
-        with Inotify() as dl_end:
-            dl_end.add_watch(os.path.expanduser('~/Downloads'), Mask.DELETE)
-            async for deletion in dl_end:
-                deleted_file=str(deletion.path)
-                del_suffixes = Path(deleted_file).suffixes
-                del_extension = ""
-                for ext in del_suffixes:
-                    del_extension += ext
-                del_extension = del_extension.lower()
-                if del_extension == f".{file_extension}.aria2" or del_extension == f".{file_extension}.part":
-                    if os.path.splitext(Path(deleted_file).stem)[0] == Path(downloading_file).stem:
-                        asyncio.ensure_future(move(downloading_file, dest_file))
-                        is_finished = 1
-                    else:
-                        await asyncio.sleep(2)
+    watch_path = os.path.expanduser('~/Downloads')
+    target_stem = Path(downloading_file).stem
+
+    async with Inotify() as inotify:
+        inotify.add_watch(watch_path, Mask.DELETE)
+
+        async for event in inotify:
+            deleted_file = Path(event.path)
+            deleted_stem = deleted_file.stem
+            deleted_suffix = ''.join(deleted_file.suffixes).lower()
+
+            expected_suffixes = [f".{file_extension}.aria2", f".{file_extension}.part"]
+            if deleted_suffix in expected_suffixes and deleted_stem == target_stem:
+                await move(downloading_file, dest_file)
+                break
 
 
 async def set_dest_file(event, dir):
