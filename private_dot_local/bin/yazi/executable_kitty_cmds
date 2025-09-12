@@ -50,7 +50,14 @@ while getopts ":Ddesuv:" option; do
 				--cwd=current --location split archiveFiles -u "${@:2}")"
 			;;
 		v) # Open nvim editor
-			id="$(kitty @ launch --cwd=current --type=tab nvim "${@:2}")"
+			id=""
+			named_pipe="/tmp/nvim-kitty-tab-$KITTY_WINDOW_ID.pipe"
+			if [ ! -e $named_pipe ]; then
+				notify-send "$KITTY_WINDOW_ID"
+				kitty @ launch --cwd=current --type=tab nvim --listen $named_pipe "${@:2}"
+			else
+				kitty @ launch --cwd=current nvim --server $named_pipe --remote-tab "${@:2}"
+			fi
 			;;
 		\?)
 			echo "Wrong parameter"
