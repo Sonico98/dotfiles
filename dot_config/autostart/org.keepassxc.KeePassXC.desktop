@@ -12,6 +12,6 @@ Version=1.0
 Categories=Utility;Security;Qt;
 MimeType=application/x-keepass2;
 X-GNOME-Autostart-enabled=true
-X-GNOME-Autostart-Delay=2
+X-GNOME-Autostart-Delay=4
 X-KDE-autostart-after=panel
 X-LXQt-Need-Tray=true
