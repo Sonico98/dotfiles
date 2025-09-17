@@ -2,7 +2,8 @@
 Description=Rename workspaces based on the programs open
 StartLimitIntervalSec=1000
 StartLimitBurst=5
-After=swww-daemon.service
+PartOf=sway-session.target
+After=sway-session.target
 
 [Service]
 ExecStart=/usr/bin/sworkstyle

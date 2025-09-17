@@ -1,12 +1,11 @@
 [Unit]
 Description=Autostart desktop files
-BindsTo=sway-session.target
-Requires=swww-daemon.service
-After=swww-daemon.service
+PartOf=sway-xdg-autostart.target
+After=sway-xdg-autostart.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/dex -a -e i3
+ExecStart=/usr/bin/dex -a -e sway
 
 [Install]
-WantedBy=swww-daemon.service
+WantedBy=sway-xdg-autostart.target

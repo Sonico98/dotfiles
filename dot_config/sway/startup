@@ -10,10 +10,10 @@
 	exec xprop -root -format _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1
 
 	# Polkit agent
-	exec /usr/lib/polkit-kde-authentication-agent-1
+	# exec /usr/lib/polkit-kde-authentication-agent-1
 
 	# Clipboard manager
-	exec /usr/bin/clipse -listen-shell
+	exec sleep 10 && /usr/bin/clipse -listen-shell
 
 	# Notification daemon - doesn't get autostarted since I installed plasma alongside
 	# Solution: rm /usr/share/dbus-1/services/org.kde.plasma.Notifications.service

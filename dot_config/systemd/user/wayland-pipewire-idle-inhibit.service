@@ -4,11 +4,10 @@ Documentation=https://github.com/rafaelrc7/wayland-pipewire-idle-inhibit
 BindsTo=sway-session.target
 StartLimitIntervalSec=500
 StartLimitBurst=5
-After=swww-daemon.service
 
 [Service]
 ExecStart=wayland-pipewire-idle-inhibit
-Restart=always
+Restart=on-failure
 RestartSec=10
 
 [Install]

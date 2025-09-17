@@ -1,16 +1,15 @@
 [Unit]
 Description=Wallpaper daemon
-BindsTo=sway-session.target
-Requires=sway-session.target
-StartLimitIntervalSec=400
-StartLimitBurst=20
+PartOf=sway-session.target
+After=sway-session.target
+StartLimitIntervalSec=2000
+StartLimitBurst=200
+ConditionPathExistsGlob=/run/user/1000/sway-ipc.*.sock
 
 [Service]
-ExecCondition=sh -c 'ps | grep "sway"'
-ExecStartPre=/usr/bin/sleep 5
 ExecStart=/usr/bin/swww-daemon -f xrgb
-Restart=always
-RestartSec=20
+Restart=on-failure
+RestartSec=2
 
 [Install]
 WantedBy=sway-session.target

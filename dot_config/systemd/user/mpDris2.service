@@ -1,7 +1,7 @@
 [Unit]
 Description=mpDris2 - Music Player Daemon D-Bus bridge
-After=dunst.service
-Requires=dunst.service
+After=mpd.service
+Requires=mpd.service
 
 [Service]
 Type=simple

@@ -1,7 +1,8 @@
 [Unit]
 Description=Framework for dark-mode and light-mode transitions.
 Documentation=man:darkman(1)
-BindsTo=sway-session.target
+PartOf=sway-session.target
+After=sway-session.target
 ; Requires=swww-daemon.service
 ; After=swww-daemon.service
 

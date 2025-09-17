@@ -1,7 +1,8 @@
 [Unit]
 Description=Dynamic output configuration for Wayland compositors
 Documentation=https://sr.ht/~emersion/kanshi
-BindsTo=sway-session.target
+PartOf=sway-session.target
+After=sway-session.target
 
 [Service]
 Type=simple
