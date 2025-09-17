@@ -1,0 +1,18 @@
+[Unit]
+Description=Clipse listener
+Documentation=https://github.com/savedra1/clipse
+StartLimitIntervalSec=400
+StartLimitBurst=20
+PartOf=sway-session.target
+After=sway-session.target
+ConditionPathExistsGlob=/run/user/1000/sway-ipc.*.sock
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=clipse -listen
+Restart=on-failure
+RestartSec=20
+
+[Install]
+WantedBy=sway-session.target

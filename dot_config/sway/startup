@@ -13,7 +13,7 @@
 	# exec /usr/lib/polkit-kde-authentication-agent-1
 
 	# Clipboard manager
-	exec sleep 10 && /usr/bin/clipse -listen-shell
+	exec run_clipse_daemon
 
 	# Notification daemon - doesn't get autostarted since I installed plasma alongside
 	# Solution: rm /usr/share/dbus-1/services/org.kde.plasma.Notifications.service

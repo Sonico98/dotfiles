@@ -1,0 +1,10 @@
+#!/bin/sh
+
+systemctl --user start clipse.service
+
+instances="$(ps aux --no-heading | grep wl-paste | grep -v grep | wc -l | tr -d '\n')"
+while [ ! $instances = 2 ]; do
+	systemctl --user stop clipse.service
+	sleep 2
+	systemctl --user start clipse.service
+done
