@@ -326,9 +326,9 @@
 			"Audio" : "",
 			"Automation" : "",
 			"Keyframes" : "/home/sonico/Documents/Subs/Kaoru-Hana/keyframes",
-			"Subtitles" : "/mnt/Heaven/Documents/Subs/Kaoru-Hana/TS",
+			"Subtitles" : "/mnt/Heaven/Documents/Subs/Kaoru-Hana/Subs",
 			"Timecodes" : "",
-			"Video" : "/mnt/Heaven/Torrents/Anime"
+			"Video" : "/home/sonico/Downloads/Firefox Downloads/Videos/Kaoru"
 		},
 		"Screenshot" : "?video"
 	},
@@ -685,16 +685,16 @@
 			"Last" : {
 				"Height" : 718,
 				"Width" : 1366,
-				"X" : 107,
-				"Y" : 92
+				"X" : 117,
+				"Y" : 123
 			},
 			"Maximized" : false,
 			"Preview Text" : "Aegisub\\N0123 日本語"
 		},
 		"Style Manager" : {
 			"Last" : {
-				"X" : 314,
-				"Y" : 284
+				"X" : 426,
+				"Y" : 251
 			},
 			"Maximized" : false
 		},
