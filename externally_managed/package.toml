@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "Sonico98/allmytoes"
-rev = "dd7895d"
-hash = "c6983275665989e59e7fed04be2ac847"
+rev = "1943d57"
+hash = "5f936ace7cb9431676d85b1bb59742"
 
 [[plugin.deps]]
 use = "Sonico98/exifaudio"
@@ -25,17 +25,17 @@ hash = "3de26efded35814ba3e55e28f1c389a4"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "d7588f6"
+rev = "d1c8baa"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "d7588f6"
+rev = "d1c8baa"
 hash = "4c49c446328c4553a4ccab7facc10b21"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "d7588f6"
+rev = "d1c8baa"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
@@ -45,23 +45,23 @@ hash = "ae85f60f99b53936634bd3e84b93e157"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "d7588f6"
-hash = "e1de3054c0d1a2d8dc6f007eadc0fa31"
+rev = "d1c8baa"
+hash = "435a2af56ecfb3d05755fd5e24977d8b"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "d7588f6"
-hash = "d6f60c24d8c0cf57a855bf46115b2502"
+rev = "d1c8baa"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "d7588f6"
+rev = "d1c8baa"
 hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:vcs-files"
-rev = "d7588f6"
-hash = "cc8da55f1deda45ee3787cc97b58ffc9"
+rev = "d1c8baa"
+hash = "4ee57085277d616acfa0ef1fef37dc00"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"

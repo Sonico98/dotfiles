@@ -29,6 +29,10 @@ require("zoxide"):setup {
     update_db = true,
 }
 
+require("allmytoes"):setup {
+	sizes = {"n", "l", "x", "xx"},
+}
+
 -- Sync yanked files across yazi instances
 require("session"):setup {
 	sync_yanked = true,
