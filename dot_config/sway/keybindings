@@ -33,6 +33,7 @@
 
 	# Take a screenshot
 	bindsym Print exec $screenshot
+	bindsym Shift+Print exec grim - | wl-copy
 	# Record the screen
 	bindsym $mod+Print exec $screenrecord
 
