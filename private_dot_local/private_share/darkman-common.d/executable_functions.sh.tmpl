@@ -53,13 +53,33 @@ set_sway_theme() {
 }
 
 set_wallpaper() {
-	rm -f ~/.bg
-	ln -s "$wallpaper" ~/.bg
 	{{ if eq .chezmoi.hostname "Archlap" -}}
-	swww img ~/.bg --transition-type random --transition-step 75 --transition-fps 25 --transition-angle 35 &
+	trstep=75
+	trfps=25
+	trangle=35
 	{{ else if eq .chezmoi.hostname "Archgamer" -}}
-	swww img ~/.bg --transition-type random --transition-step 40 --transition-fps 60 --transition-angle 35 &
-	{{ end -}}
+	trstep=40
+	trfps=60
+	trangle=35
+	{{- end }}
+	if echo "$wallpaper" | grep -q "¤"; then
+		split_helper="${wallpaper//[^¤]}"
+		times_to_split="${#split_helper}"
+		ct=0; while [ $ct -le $times_to_split ]; do
+			output_and_wp="$(echo "$wallpaper" | awk -F '¤' -v field="$(($ct + 1))" '{print $field}')"
+			output="$(echo "$output_and_wp" | awk -F '·' '{print $1}')"
+			wp="$(echo "$output_and_wp" | awk -F '·' '{print $2}')"
+			rm -f ~/.cache/.bg_"$output"
+			ln -s "$wp" ~/.cache/.bg_"$output"
+			swww img -o "$output" ~/.cache/.bg_"$output" --transition-type random --transition-step "$trstep" --transition-fps "$trfps" --transition-angle "$trangle" &
+			ct=$(( "$ct" + 1 ))
+		done
+	else
+		rm -f ~/.cache/.bg
+		ln -s "$wallpaper" ~/.cache/.bg
+		swww img ~/.cache/.bg --transition-type random --transition-step "$trstep" --transition-fps "$trfps" --transition-angle "$trangle" &
+	fi
+
 
 }
 
