@@ -18,7 +18,7 @@ async def make_unique_filename(file_path):
 
 
 async def check_extension(event, file_extension):
-    base_dir = '~/Downloads/Firefox Downloads/'
+    base_dir = '~/Downloads/'
     destination = None
     if file_extension in ['jpg', 'jpeg', 'png', 'webp', 'tiff']:
         destination = base_dir + '/Images/'
@@ -34,6 +34,8 @@ async def check_extension(event, file_extension):
         destination = base_dir + '/Compressed/'
     elif file_extension in ['apk', 'exe', 'bash', 'sh', 'py']:
         destination = base_dir + '/Executables/'
+    else:
+        destination = base_dir + '/Dump/'
 
     if destination is not None:
         await asyncio.sleep(0.5)
