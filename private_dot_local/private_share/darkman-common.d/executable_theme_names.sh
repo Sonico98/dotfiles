@@ -23,6 +23,3 @@ btop_light_theme="flat-remix-light.theme"
 # Rofi
 rofi_dark_theme="material_dark"
 rofi_light_theme="material_light"
-# Yazi
-yazi_dark_theme="Material Dark"
-yazi_light_theme="Material Light"

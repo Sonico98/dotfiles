@@ -171,20 +171,6 @@ set_rofi_theme() {
 		"$rofi_conf_dir/config.rasi" "$rofi_conf_dir/config_list.rasi"
 }
 
-set_yazi_theme() {
-	case "$1" in
-		"light")
-			new_theme="$yazi_conf_dir/themes/$yazi_light_theme/theme.toml"
-			;;
-		"dark")
-			new_theme="$yazi_conf_dir/themes/$yazi_dark_theme/theme.toml"
-			;;
-	esac
-
-	rm -f "$yazi_conf_dir"/theme.toml
-	ln -s "$new_theme" "$yazi_conf_dir"/theme.toml
-}
-
 set_btop_theme() {
 	case "$1" in
 		"light")
