@@ -22,7 +22,9 @@ function Entity:icon()
 end
 
 -- Show relative numbers
-require("relative-motions"):setup({ show_numbers="relative", show_motion = true })
+require("relative-motions"):setup({ 
+	show_numbers="relative", show_motion = true 
+})
 
 -- Add browsed directories to zoxide's db
 require("zoxide"):setup {

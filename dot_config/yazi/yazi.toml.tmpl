@@ -19,11 +19,8 @@ max_width       = 4000
 max_height      = 4000
 cache_dir       = ""
 image_delay     = 0
-ueberzug_scale  = 1
-ueberzug_offset = [ 0, 0, 0, 0 ]
 image_filter = "triangle"
 image_quality = 50
-sixel_fraction = 15
 
 [opener]
 edit = [
@@ -52,9 +49,6 @@ extract = [
 	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
 	{{- end }}
 ]
-gif = [
-	{ run = 'mpv --fullscreen=no --no-resume-playback --no-osc --loop "$@"', orphan = true, for = "unix" },
-]
 audio = [
 	{ run = 'mpv --player-operation-mode=pseudo-gui --fullscreen=no --no-resume-playback "$@"', orphan = true, for = "unix" },
 	{ run = 'spek "$1"', orphan = true },
@@ -79,7 +73,6 @@ rules = [
 
 	{ name = "*.{ass,srt,ssa,sty,sup,vtt}", use = [ "edit", "subs", "open", "reveal" ] },
 	{ mime = "text/*",  use = [ "edit", "reveal" ] },
-	{ mime = "image/gif", use = [ "gif", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	{ mime = "video/webm", use = [ "gif", "play", "reveal" ] },
 	{ mime = "video/*", use = [ "play", "reveal" ] },
