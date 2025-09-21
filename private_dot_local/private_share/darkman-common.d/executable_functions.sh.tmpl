@@ -192,3 +192,20 @@ set_gsts_theme() {
 	gsettings set "$gnomeschema" cursor-theme "$cursor_theme"
 	gsettings set "$gnomeschema" font-name "$font_name"
 }
+
+set_kitty_opacity() {
+	opacity=1
+	case "$1" in
+		"light")
+			opacity=0.90
+			;;
+		"dark")
+			opacity=0.7
+			;;
+	esac
+
+	for kitty in /tmp/mykitty*; do
+		kitty @ --to unix:"$kitty" set-background-opacity "$opacity"
+	done
+
+}
