@@ -1,24 +1,23 @@
-{{- $gituser := promptStringOnce . "gituser" "GitHub config name" -}}
-{{- $gitemail := promptStringOnce . "gitemail" "GitHub config email" -}}
-{{- $gitaltenv := promptStringOnce . "gitaltenv" "GitHub alt. dev environment (or leave blank)" -}}
 {{- $gpgemail := promptStringOnce . "gpgemail" "GPG Email address (or leave blank)" -}}
-{{- if ( eq $gpgemail "sonico@disroot.org" ) -}}
-{{- $sshPort := promptStringOnce . "sshPort" "SSH Port" -}}
-{{- $cifs := promptStringOnce . "cifs" "CIFS Password" -}}
-{{- end -}}
-
 
 encryption = "gpg"
 
 [data]
+	{{ if ne (len $gpgemail) 0 -}}
+	gpgemail = {{ $gpgemail | quote }}
+	{{- end}}
+	{{ if eq $gpgemail "sonico@disroot.org" -}}
+	{{ $gituser := promptStringOnce . "gituser" "GitHub config name" -}}
 	gituser = {{ $gituser | quote }}
+	{{ $gitemail := promptStringOnce . "gitemail" "GitHub config email" -}}
 	gitemail = {{ $gitemail | quote }}
+	{{ $gitaltenv := promptStringOnce . "gitaltenv" "GitHub alt. dev environment (or leave blank)" -}}
 	{{ if ne (len $gitaltenv) 0 -}}
 	gitaltenv = {{ $gitaltenv | quote }}
 	{{- end}}
-	{{ if ne (len $gpgemail) 0 -}}
-	gpgemail = {{ $gpgemail | quote }}
+	{{ $sshPort := promptStringOnce . "sshPort" "SSH Port" -}}
 	sshPort = {{ $sshPort | quote }}
+	{{ $cifs := promptStringOnce . "cifs" "CIFS Password" -}}
 	cifs = {{ $cifs | quote }}
 	{{- end}}
 
@@ -26,6 +25,7 @@ encryption = "gpg"
 	recipient = {{ $gpgemail | quote }}
 	symmetric = false
 
+{{- if eq $gpgemail "sonico@disroot.org" -}}
 {{- if findExecutable "keepassxc-cli" (list "/bin" "/usr/bin") }}
 {{- $keepassdb := promptStringOnce . "keepassdb" "Keepass db location (or leave blank)" }}
 {{- $keepasskeyf := promptStringOnce . "keepasskeyf" "Keepass db key file (or leave blank)" }}
@@ -37,6 +37,7 @@ encryption = "gpg"
 	args = ["--key-file", {{ $keepasskeyf | quote }}]
 	mode = "open"
 	{{- end }}
+{{- end }}
 {{- end }}
 
 {{- end -}}

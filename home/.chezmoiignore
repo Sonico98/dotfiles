@@ -17,6 +17,7 @@
 .config/rclone/*
 .config/rootmoi/*
 .config/zsh/.zsh_history
+.gitconfig
 .local/bin/rootmoi
 .local/share/zoxide/*
 .local/share/dbus-1/*
