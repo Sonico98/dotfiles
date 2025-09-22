@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "Sonico98/allmytoes"
-rev = "1943d57"
-hash = "5f936ace7cb9431676d85b1bb59742"
+rev = "e969752"
+hash = "a1812a244f4f243909a735b11cc9f379"
 
 [[plugin.deps]]
 use = "Sonico98/exifaudio"
@@ -56,7 +56,7 @@ hash = "8a7c58225816a163a6e8730c0adafbc8"
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
 rev = "d1c8baa"
-hash = "63b6c222bf2103b3023389dde5e2ecfe"
+hash = "3cce60031b27cbce80b50f68ca319c0a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:vcs-files"
@@ -68,5 +68,12 @@ use = "boydaihungst/gvfs"
 rev = "f07b496"
 hash = "162bf7326809fb2b831d7fac7525b067"
 
-[flavor]
-deps = []
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "4296a38"
+hash = "deff42490f77b222e9d3a84dc16a76c5"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "4296a38"
+hash = "509055ecc7e6315cb574be36da7a4495"

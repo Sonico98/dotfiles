@@ -328,7 +328,7 @@
 			"Keyframes" : "/home/sonico/Documents/Subs/Kaoru-Hana/keyframes",
 			"Subtitles" : "/mnt/Heaven/Documents/Subs/Kaoru-Hana/Subs",
 			"Timecodes" : "",
-			"Video" : "/home/sonico/Downloads/Firefox Downloads/Videos/Kaoru"
+			"Video" : "/home/sonico/Downloads/Videos/Kaoru"
 		},
 		"Screenshot" : "?video"
 	},
@@ -492,23 +492,29 @@
 		},
 		"Colour Picker" : {
 			"Last" : {
-				"X" : 481,
-				"Y" : 285
+				"X" : 466,
+				"Y" : 1119
 			},
 			"Maximized" : false,
 			"Mode" : 4,
 			"Recent Colours" : [
 				{
-					"color" : "rgb(26, 134, 72)"
+					"color" : "rgb(0, 0, 0)"
 				},
 				{
-					"color" : "rgb(105, 123, 132)"
+					"color" : "rgb(183, 182, 182)"
 				},
 				{
 					"color" : "rgb(255, 255, 255)"
 				},
 				{
-					"color" : "rgb(0, 0, 0)"
+					"color" : "rgb(195, 156, 96)"
+				},
+				{
+					"color" : "rgb(26, 134, 72)"
+				},
+				{
+					"color" : "rgb(105, 123, 132)"
 				},
 				{
 					"color" : "rgb(229, 216, 210)"
@@ -587,12 +593,6 @@
 				},
 				{
 					"color" : "rgb(235, 243, 238)"
-				},
-				{
-					"color" : "rgb(255, 217, 102)"
-				},
-				{
-					"color" : "rgb(255, 103, 102)"
 				}
 			],
 			"Restrict to Window" : false
