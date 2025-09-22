@@ -1,0 +1,3 @@
+{{- if (ne .chezmoi.hostname "Archlap") }}
+etc/udev/rules.d/*
+{{ end -}}

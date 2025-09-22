@@ -1,0 +1,9 @@
+[Unit]
+Description=Automount public share
+
+[Automount]
+Where=/mnt/share
+TimeoutIdleSec=340
+
+[Install]
+WantedBy=multi-user.target

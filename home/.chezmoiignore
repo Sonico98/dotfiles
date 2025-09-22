@@ -5,6 +5,7 @@
 {{ $gpgemail := (get . "gpgemail") -}}
 {{- if ( ne $gpgemail "sonico@disroot.org" ) -}}
 .aegisub/*
+.chezmoiscripts/run_once_after_run-rootmoi.sh
 .config/keepassxc
 .config/mimeapps.list
 .config/mpDris2/*
@@ -14,7 +15,9 @@
 .config/paru/*
 .config/pipewire/*
 .config/rclone/*
+.config/rootmoi/*
 .config/zsh/.zsh_history
+.local/bin/rootmoi
 .local/share/zoxide/*
 .local/share/dbus-1/*
 .ssh/*

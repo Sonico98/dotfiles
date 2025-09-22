@@ -1,0 +1,20 @@
+{{- $chezmoiData := deepCopy . -}}
+{{- $chezmoiData = unset $chezmoiData "chezmoi" -}}
+
+sourceDir: "{{ joinPath .chezmoi.workingTree "root" }}"
+
+destDir: "/"
+
+verbose: true
+
+diff:
+  exclude:
+    - scripts
+
+data:
+  nonRootUser: "{{ .chezmoi.username }}"
+  nonRootGroup: "{{ .chezmoi.group }}"
+  nonRootUid: "{{ .chezmoi.uid }}"
+  nonRootGid: "{{ .chezmoi.gid }}"
+  nonRootHome: "{{ .chezmoi.homeDir }}"
+{{ $chezmoiData | toYaml | indent 2 }}

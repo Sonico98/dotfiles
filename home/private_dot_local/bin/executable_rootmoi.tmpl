@@ -1,0 +1,19 @@
+#!/bin/bash
+
+{{- $configDir := joinPath .chezmoi.homeDir "/.config/rootmoi" -}}
+{{- $configFile := joinPath $configDir "/chezmoi.yaml" -}}
+{{- $persistentStateFile := joinPath $configDir "/chezmoistate.boltdb" -}}
+{{- $cacheDir := joinPath .chezmoi.homeDir "/.cache/rootmoi" }}
+
+executable='{{ .chezmoi.executable }}'
+
+# Ensure the folders are created, because otherwise they will be created as
+# root, including the ~/.cache and ~/.config, which can cause other programs
+# to stop working.
+mkdir -p '{{ $configDir }}' '{{ $cacheDir }}'
+
+sudo "${executable}" "$@" \
+  --config='{{ $configFile }}' \
+  --persistent-state='{{ $persistentStateFile }}' \
+  --cache='{{ $cacheDir }}'
+

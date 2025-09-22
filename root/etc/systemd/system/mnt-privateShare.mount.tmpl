@@ -1,0 +1,13 @@
+{{- $pass := (get . "cifs") -}}
+[Unit]
+Description=Mount private share
+
+[Mount]
+What=//192.168.100.250/personal
+Where=/mnt/privateShare
+Type=cifs
+Options=rw,file_mode=0777,uid={{ .nonRootUid }},user={{ .nonRootUser }},password={{ $pass }},x-gvfs-show
+DirectoryMode=0777
+
+[Install]
+WantedBy=multi-user.target

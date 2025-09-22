@@ -2,6 +2,11 @@
 {{- $gitemail := promptStringOnce . "gitemail" "GitHub config email" -}}
 {{- $gitaltenv := promptStringOnce . "gitaltenv" "GitHub alt. dev environment (or leave blank)" -}}
 {{- $gpgemail := promptStringOnce . "gpgemail" "GPG Email address (or leave blank)" -}}
+{{- if ( eq $gpgemail "sonico@disroot.org" ) -}}
+{{- $sshPort := promptStringOnce . "sshPort" "SSH Port" -}}
+{{- $cifs := promptStringOnce . "cifs" "CIFS Password" -}}
+{{- end -}}
+
 
 encryption = "gpg"
 
@@ -13,6 +18,8 @@ encryption = "gpg"
 	{{- end}}
 	{{ if ne (len $gpgemail) 0 -}}
 	gpgemail = {{ $gpgemail | quote }}
+	sshPort = {{ $sshPort | quote }}
+	cifs = {{ $cifs | quote }}
 	{{- end}}
 
 [gpg]
