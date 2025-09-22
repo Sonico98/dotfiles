@@ -1,38 +1,65 @@
 {{ if eq .chezmoi.os "linux" -}}
 
 #!/bin/bash
-echo ""
-echo "For the best experience, the following systemd user services should be enabled:"
-{{ if findExecutable "darkman" (list "/bin" "/usr/bin") -}}
-echo "- darkman.service: Automatically switch between night and dark themes during the day."
-{{- end }}
-echo "- dex.service: So programs listed under ~/.config/autostart do run on startup."
-echo "- dunst.service: Notification daemon."
-echo "- lockscreen.service: Required for my swaylock wrapper to work properly."
-echo "- playerctld.service: Play/pause media using the MPRIS protocol."
-echo "- sworkstyle.service: Rename workspaces with icons for the currently running windows."
-{{ if findExecutable "swww-daemon" (list "/bin" "/usr/bin") -}}
-echo "- swww-daemon.service: Set wallpapers with smooth transitions."
-echo "- systemd-lock-handler.service: Required for the lockscreen service to work."
-{{- end }}
-echo "- wayland-pipewire-idle-inhibit.service: Prevent screen locking when media is playing."
+# Define ANSI escape codes
+RED='\033[1;31m'    # Bold red
+BLUE='\033[1;34m'   # Bold blue
+YELLOW='\033[1;33m' # Bold yellow
+NC='\033[0m'        # No Color (reset)
 
-read -p "Enable systemd user services? [Y/n] " answer
+echo ""
+echo -e "${YELLOW}For the best experience, the following systemd user services should be enabled:${NC}"
+{{ if findExecutable "darkman" (list "/bin" "/usr/bin") -}}
+echo -e "${YELLOW}- darkman.service: Automatically switch between night and dark themes during the day.${NC}"
+{{- end }}
+echo -e "${YELLOW}- dex.service: So programs listed under ~/.config/autostart do run on startup.${NC}"
+echo -e "${YELLOW}- dunst.service: Notification daemon.${NC}"
+echo -e "${YELLOW}- lockscreen.service: Required for my swaylock wrapper to work properly.${NC}"
+echo -e "${YELLOW}- playerctld.service: Play/pause media using the MPRIS protocol.${NC}"
+echo -e "${YELLOW}- sworkstyle.service: Rename workspaces with icons for the currently running windows.${NC}"
+{{ if findExecutable "swww-daemon" (list "/bin" "/usr/bin") -}}
+echo -e "${YELLOW}- swww-daemon.service: Set wallpapers with smooth transitions.${NC}"
+echo -e "${YELLOW}- systemd-lock-handler.service: Required for the lockscreen service to work.${NC}"
+{{- end }}
+echo -e "${YELLOW}- wayland-pipewire-idle-inhibit.service: Prevent screen locking when media is playing.${NC}"
+
+read -p "$(echo -e ${RED}'Enable systemd user services?'${NC}' [Y/n] ')" answer
 enableS=false
 case "$answer" in
-	[N|n]* ) enableS=false ;;
+	[Nn]* ) enableS=false ;;
 	* ) enableS=true ;;
 esac
 
 if [ "$enableS" = true ]; then
-	systemctl --user enable --now dunst.service playerctld.service sworkstyle.service swww-daemon.service systemd-lock-handler.service wayland-pipewire-idle-inhibit.service && systemctl --user enable lockscreen.service
+	echo -e "--- Start enable systemd services ---" >>./output.log
+	systemctl --user enable --now dunst.service playerctld.service sworkstyle.service swww-daemon.service systemd-lock-handler.service wayland-pipewire-idle-inhibit.service >>./output.log 2>&1
 	if [ $? -eq 0 ]; then
-		echo ""
-		echo "Services enabled!"
+		systemctl --user enable lockscreen.service  >>./output.log 2>&1
+		if [ $? -eq 0 ]; then
+			echo ""
+			echo -e "${BLUE}Services enabled!${NC}"
+		else
+			echo ""
+			echo -e "${RED}Errors occurred. Please check the log.${NC}"
+		fi
 	else
 		echo ""
-		echo "Errors occurred. Please check for any terminal output."
+		echo -e "${RED}Errors occurred. Please check the log.${NC}"
 	fi
 fi
+
+{{ if findExecutable "yazi" (list "/bin" "/usr/bin") -}}
+echo ""
+echo -e "${BLUE}Installing yazi plugins...${NC}"
+echo "" &>>./output.log
+echo -e "--- Start yazi plugin installation ---" >>./output.log
+"$(which ya)" pkg install >>./output.log 2>&1
+if [ $? -eq 0 ]; then
+	echo -e "${BLUE}Plugins installed!${NC}"
+else
+	echo -e "${RED}Plugin installation failed.${NC}"
+	echo -e "${RED}Run 'ya pkg install' manually and check for errors.${NC}"
+fi
+{{ end -}}
 
 {{ end -}}
