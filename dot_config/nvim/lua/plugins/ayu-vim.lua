@@ -1,6 +1,7 @@
 return {
 	"Luxed/ayu-vim",
-	priority = 1000,
+	priority = 999,
+	disabled = true,
 	init = function()
 		vim.o.termguicolors = true
 		vim.g.ayucolor = "dark"

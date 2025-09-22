@@ -29,7 +29,6 @@ return {
 
 			rainbow = {
 				enable = true,
-				colors = require('ayu').rainbow_colors()
 			}
 		}
 	end
