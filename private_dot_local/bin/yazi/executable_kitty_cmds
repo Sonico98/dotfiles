@@ -17,7 +17,7 @@ while getopts ":Ddesuv:" option; do
 			# 4. Enclose each entry in quotes
 			# 5. Pass the images to timg using xargs
 			# 6. Ask for user input
-			tbid="$(kitty @ launch --type=tab --title='Folder images preview' \
+			kitty @ launch --type=tab --title='Folder images preview' \
 				--cwd=current sh -c \
 				'if ls ./*.jpg &>/dev/null || ls ./*.jpeg &>/dev/null || \
 				ls ./*.JPG &>/dev/null || ls ./*.png &>/dev/null || \
@@ -29,28 +29,35 @@ while getopts ":Ddesuv:" option; do
 				xargs timg --compress=5 --grid=4x4 -U -C -I \
 				-bnone -pk --frames=1 --threads=6 --title=%f; \
 				else echo "No image files found"; fi;
-				read -s -p '"'Press ENTER to continue'"'')"
+				read -s -p '"'Press ENTER to continue'"''
 			;;
 		# Extract files
 		e)
-			id="$(kitty @ launch --title='Extract files' \
-				--cwd=current --location=hsplit openArchives -e "${@:2}")"
+			kitty @ launch --title='Extract files' --keep-focus \
+				--cwd=current --location=hsplit --bias=25 \
+				--watcher ~/.config/kitty/scripts/yazi_split_watcher.py \
+				openArchives -e "${@:2}"
 			;;
 		# Archive files
 		d) # split into 2GB files
-			id="$(kitty @ launch --title='Archive files - 2GB Files' \
-				--cwd=current --location=hsplit archiveFiles -d "${@:2}")"
+			kitty @ launch --title='Archive files - 2GB Files' --keep-focus \
+				--cwd=current --location=hsplit --bias=25 \
+				--watcher ~/.config/kitty/scripts/yazi_split_watcher.py \
+				archiveFiles -d "${@:2}"
 			;;
 		s) # store
-			id="$(kitty @ launch --title='Archive files - Store' \
-				--cwd=current --location=hsplit archiveFiles -s "${@:2}")"
+			kitty @ launch --title='Archive files - Store' --keep-focus \
+				--cwd=current --location=hsplit --bias=25 \
+				--watcher ~/.config/kitty/scripts/yazi_split_watcher.py \
+				archiveFiles -s "${@:2}"
 			;;
 		u) # ultra compression
-			id="$(kitty @ launch --title='Archive files - Ultra Compression' \
-				--cwd=current --location=hsplit archiveFiles -u "${@:2}")"
+			kitty @ launch --title='Archive files - Ultra Compression' --keep-focus \
+				--cwd=current --location=hsplit --bias=25 \
+				--watcher ~/.config/kitty/scripts/yazi_split_watcher.py \
+				archiveFiles -u "${@:2}"
 			;;
 		v) # Open nvim editor
-			id=""
 			named_pipe="/tmp/nvim-kitty-tab-$KITTY_WINDOW_ID.pipe"
 			if [ ! -e $named_pipe ]; then
 				notify-send "$KITTY_WINDOW_ID"
@@ -66,11 +73,3 @@ while getopts ":Ddesuv:" option; do
 			;;
 	esac
 done
-
-{
-if [ "$id" != "" ]; then
-	kitty @ resize-window -m id:"$id" -a vertical -i -100
-	kitty @ resize-window -m id:"$id" -a vertical -i 5
-fi
-} &> /dev/null
-
