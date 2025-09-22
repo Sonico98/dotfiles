@@ -193,19 +193,16 @@ set_gsts_theme() {
 	gsettings set "$gnomeschema" font-name "$font_name"
 }
 
+# This workarounds some weird kitty behaviour.
+# Using <type>-theme.auto.conf files in ~/.config/kitty
+# will automatically switch the terminal theme when 
+# the OS theme changes, but will not change the window 
+# opacity. We can forcibly and permanently change the
+# window opacity by modifying current-theme.conf.
+# Because <type>-theme.auto.conf values override
+# everything else, we can create custom theme files
+# that only alter the opacity and assign those
+# to current-theme.conf using the theme kitten.
 set_kitty_opacity() {
-	opacity=1
-	case "$1" in
-		"light")
-			opacity=0.90
-			;;
-		"dark")
-			opacity=0.7
-			;;
-	esac
-
-	for kitty in /tmp/mykitty*; do
-		kitty @ --to unix:"$kitty" set-background-opacity "$opacity"
-	done
-
+	kitten themes --reload-in all "$1"\ opacity
 }
