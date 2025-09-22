@@ -42,3 +42,7 @@ README.md
 {{- if (ne .chezmoi.os "android") }}
 .termux/*
 {{- end }}
+
+{{- if (ne (env "CHEZMOI_SECRETS") "1") }}
+.ssh/*
+{{- end }}
