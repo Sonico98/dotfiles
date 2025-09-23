@@ -29,15 +29,6 @@ map('i', '<C-k>', '<Right>')
 
 -- Exit from terminal mode
 map('t', '<ESC><ESC>', '<C-\\><C-n>')
-------------------------
--- Deprecated keymaps --
-------------------------
--- Automatically close character pairs
--- Replaced with coc-pairs
--- map('i', '"', '""<left>')
--- map('i', '\'', '\'\'<left>')
--- map('i', '(', '()<left>')
--- map('i', '[', '[]<left>')
--- map('i', '{', '{}<left>')
--- map('i', '{<CR>', '{<CR>}<ESC>O')
--- map('i', '{;<CR>', '{<CR>};<ESC>O')
+
+-- Go to parent / closing bracket
+map('n', 'gb', '%')
