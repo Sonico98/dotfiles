@@ -1,5 +1,6 @@
 return {
 	"ibhagwan/fzf-lua",
+	event = "VeryLazy",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	keys = {
 		{ "<C-/>", "<Cmd>FzfLua blines<CR>" },

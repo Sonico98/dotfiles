@@ -5,7 +5,7 @@ return {
 		"mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --both are optionals for debugging
 		{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
 	},
-	lazy = false,
+	event = { "BufRead", "FileReadPost", "StdinReadPost", "BufWritePost" },
 	keys = {
 		{ "<leader>v", "<cmd>VenvSelect<cr>" },
 	},

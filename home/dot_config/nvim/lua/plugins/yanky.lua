@@ -1,14 +1,14 @@
 return {
 	"gbprod/yanky.nvim",
 	event = "VeryLazy",
-	init = function()
-		vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-		vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-		vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-		vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
-		vim.keymap.set("n", "<c-o>", "<Plug>(YankyCycleForward)")
-		vim.keymap.set("n", "<c-i>", "<Plug>(YankyCycleBackward)")
-	end,
+	keys = {
+		{ "p",  "<Plug>(YankyPutAfter)" },
+		{ "P",  "<Plug>(YankyPutBefore)" },
+		{ "gp",  "<Plug>(YankyGPutBefore)" },
+		{ "gP", "<Plug>(YankyGPutBefore)" },
+		{ "<C-o>", "<Plug>(YankyCycleForward)" },
+		{ "<C-i>", "<Plug>(YankyCycleBackward)" },
+	},
 	config = function()
 		require("yanky").setup({
 			ring = {

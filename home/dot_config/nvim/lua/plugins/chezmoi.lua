@@ -1,5 +1,6 @@
 return {
 	"andre-kotake/nvim-chezmoi",
+	event = "VeryLazy",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope.nvim" },

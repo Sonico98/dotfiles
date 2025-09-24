@@ -1,5 +1,6 @@
 return {
 	"kevinhwang91/nvim-ufo",
+	event = "VeryLazy",
 	dependencies = {
 		{ "kevinhwang91/promise-async" },
 		{
@@ -39,14 +40,16 @@ return {
 			end
 		}
 	},
+	keys = {
+		{ "zR", "require('ufo').openAllFolds", desc = "Open all folds" },
+		{ "zM", "require('ufo').closeAllFolds",    desc = "Close all folds" },
+	},
 	init = function ()
 		vim.o.foldlevel = 99 -- Using ufo provider needs a large value
 		vim.o.foldlevelstart = 99
 		vim.o.foldenable = true
 		vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 		vim.o.foldcolumn = '1' -- '0' is not bad
-		vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-		vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 	end,
 	config = function ()
 		require("ufo").setup({

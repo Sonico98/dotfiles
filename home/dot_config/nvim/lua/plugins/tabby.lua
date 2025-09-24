@@ -1,18 +1,17 @@
 return {
 	"nanozuki/tabby.nvim",
+	event = "VeryLazy",
 	dependencies = {
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
-	init = function()
-		local map = vim.api.nvim_set_keymap
-		local opts = { noremap = true, silent = true }
-		map("n", "H", "<Cmd>:tabp<CR>", opts)
-		map("n", "L", "<Cmd>:tabn<CR>", opts)
-		map("n", "<leader>bc", "<Cmd>:tabclose<CR>", opts)
-		map("n", "<leader>ba", "<Cmd>:$tabnew<CR>", opts)
-		map("n", "<leader>bn", "<Cmd>:bnext<CR>", opts)
-		map("n", "<leader>bp", "<Cmd>:bprev<CR>", opts)
-	end,
+	keys = {
+		{ "H", "<Cmd>:tabp<CR>" },
+		{ "L", "<Cmd>:tabn<CR>" },
+		{ "<leader>bc", "<Cmd>:tabclose<CR>" },
+		{ "<leader>ba", "<Cmd>:$tabnew<CR>" },
+		{ "<leader>bn", "<Cmd>:bnext<CR>" },
+		{ "<leader>bp", "<Cmd>:bprev<CR>" },
+	},
 	config = function()
 		local theme = {
 			fill = 'TabLineFill',
