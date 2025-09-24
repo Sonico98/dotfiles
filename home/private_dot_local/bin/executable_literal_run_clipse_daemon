@@ -7,4 +7,6 @@ while [ ! $instances = 2 ]; do
 	systemctl --user stop clipse.service
 	sleep 2
 	systemctl --user start clipse.service
+	sleep 2
+	instances="$(ps aux --no-heading | grep wl-paste | grep -v grep | wc -l | tr -d '\n')"
 done
