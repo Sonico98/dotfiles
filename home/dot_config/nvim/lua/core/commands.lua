@@ -30,3 +30,18 @@ vim.api.nvim_create_autocmd("VimEnter", {
         end
     end,
 })
+
+-- Auto-create parent directories (except for URIs "://").
+vim.api.nvim_create_autocmd({ "BufWritePre", "FileWritePre" }, {
+  callback = function(args)
+    local filepath = vim.fn.expand(args.file)
+    -- Skip if it's a URI (e.g., netrw, remote files)
+    if not filepath:match("://") then
+      local dir = vim.fn.fnamemodify(filepath, ":p:h")
+      if vim.fn.isdirectory(dir) == 0 then
+        vim.fn.mkdir(dir, "p")
+      end
+    end
+  end,
+})
+
