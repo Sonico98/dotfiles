@@ -24,6 +24,7 @@ encryption = "gpg"
 [gpg]
 	recipient = {{ $gpgemail | quote }}
 	symmetric = false
+	args = ["--quiet"]
 
 {{- if eq $gpgemail "sonico@disroot.org" -}}
 {{- if findExecutable "keepassxc-cli" (list "/bin" "/usr/bin") }}
