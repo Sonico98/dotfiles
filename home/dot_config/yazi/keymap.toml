@@ -134,6 +134,9 @@ keymap = [
 	{ on = [ "s", "S" ], run = "sort size --reverse",           			 desc = "Sort by size (reverse)" },
 	{ on = [ "c", "s" ], run = [ "sort size", "sort natural --reverse=no" ], desc = "Calculate folder size" },
 
+	# Spotting
+	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
+
 	# Tabs
 	{ on = [ "T" ], run = "tab_create --current", 							desc = "Create a new tab using the current path" },
 
