@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Bailout early if swaylock is already running
+if $(pidof swaylock); then
+	exit 1
+fi
+
 LOCKSCREEN_DIR=/tmp/lockscreen
 mkdir -p ${LOCKSCREEN_DIR}
 
