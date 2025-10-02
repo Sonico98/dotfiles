@@ -324,3 +324,16 @@
 	bindsym $mod+o mode "$mode_system"
 #
 
+#
+# Lockscreen
+#
+bindsym --locked $mod+Control+space exec "playerctl --player=%any,chromium play-pause"
+bindsym --locked $mod+Control+KP_Multiply exec "playerctl --player=%any,chromium next"
+bindsym --locked $mod+Control+KP_Divide exec "playerctl --player=%any,chromium previous"
+bindsym --locked $mod+KP_Subtract exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+# The same, with keyboard-specific keys
+bindsym --locked XF86AudioPlay exec "playerctl --player=%any,chromium play-pause"
+bindsym --locked XF86AudioNext exec "playerctl --player=%any,chromium next"
+bindsym --locked XF86AudioPrev exec "playerctl --player=%any,chromium previous"
+bindsym --locked XF86AudioStop exec "playerctl --player=%any,chromium stop"
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
