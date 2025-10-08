@@ -326,9 +326,9 @@
 			"Audio" : "",
 			"Automation" : "",
 			"Keyframes" : "/home/sonico/Documents/Subs/Kaoru-Hana/keyframes",
-			"Subtitles" : "/mnt/Heaven/Documents/Subs/Kaoru-Hana/Subs",
+			"Subtitles" : "/mnt/Heaven/Torrents/[YURI] Yona of the Dawn (Akatsuki no Yona) (Dual Audio) [BD 1080p x264 10bit FLAC]/renamed/subs/ñ/full",
 			"Timecodes" : "",
-			"Video" : "/home/sonico/Downloads/Videos/Kaoru"
+			"Video" : "/mnt/Heaven/Torrents/[YURI] Yona of the Dawn (Akatsuki no Yona) (Dual Audio) [BD 1080p x264 10bit FLAC]/renamed/Akatsuki no Yona"
 		},
 		"Screenshot" : "?video"
 	},
@@ -645,7 +645,7 @@
 			]
 		},
 		"Preferences" : {
-			"Page" : 6
+			"Page" : 5
 		},
 		"Search Replace" : {
 			"Affect" : 1,
