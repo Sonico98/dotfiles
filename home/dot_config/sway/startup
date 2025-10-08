@@ -15,6 +15,11 @@
 	# Clipboard manager
 	exec run_clipse_daemon
 
+	# Password manager
+	# Not autostarted with a desktop file because
+	# it doesn't pick up environment variables.
+	exec keepassxc
+
 	# Notification daemon - doesn't get autostarted since I installed plasma alongside
 	# Solution: rm /usr/share/dbus-1/services/org.kde.plasma.Notifications.service
 
