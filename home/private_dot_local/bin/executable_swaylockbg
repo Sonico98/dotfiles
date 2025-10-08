@@ -1,9 +1,15 @@
 #!/bin/bash
 
-# Exit if the screen is already locked
-if pidof swaylock; then
-	exit 1
+# Bailout early if hyprlock is already running
+if pidof hyprlock; then
+	exit 0
 fi
+
+# Pause music and notifications, mute audio and microphone.
+playerctl --player=%any,firefox pause || true
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 1 || true
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1 || true
+dunstctl set-paused true || true
 
 # Turn the screen off after five seconds, 
 # turn it back on when activity is detected 
@@ -15,5 +21,4 @@ IDLEPID=$!
 touch $LOCKSCREEN_DIR/idlepid
 echo "$IDLEPID" >| "$LOCKSCREEN_DIR"/idlepid
 
-LOCKARGS=$(cat $LOCKSCREEN_DIR/lockargs)
-swaylock -F --indicator-idle-visible $LOCKARGS
+hyprlock
