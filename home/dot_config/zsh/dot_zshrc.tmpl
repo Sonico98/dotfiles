@@ -123,7 +123,6 @@ alias pare="sudo pacman -Rns"
 alias rs="rsync -v --progress"
 alias sct="sudo systemctl"
 alias sctu="systemctl --user"
-alias vimm="chezmoi edit"
 alias q="exit"
 
 
@@ -309,6 +308,17 @@ function addfonts() {
 		mkvpropedit ./"$i" ${args[*]}
 	done
 }
+
+{{ $gpgemail := (get . "gpgemail") -}}
+{{- if ( eq $gpgemail "sonico@disroot.org" ) -}}
+function vim() {
+	if [ "$(chezmoi managed "$@" | wc -l)" -gt 0 ]; then
+		chezmoi edit "$@"
+	else
+		command vim "$@"
+	fi
+}
+{{- end }}
 
 {{ if findExecutable "mongodump" (list "/bin" "/usr/bin") -}}
 function mongobackup() {
