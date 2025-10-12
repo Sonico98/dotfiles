@@ -60,6 +60,7 @@
         "format-alt": " {:%d/%m/%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"timezone": "America/Argentina/Buenos_Aires",
+		"on-click-middle": "rofi -theme-show-icons -show drun -modi drun#run -drun-display-format {name}",
 		"calendar": {
 			"mode"          : "month",
 			 "mode-mon-col"  : 3,
@@ -75,7 +76,7 @@
 		"actions": {
 			"on-click-right": "mode",
 			"on-scroll-up": "shift_up",
-			"on-scroll-down": "shift_down"
+			"on-scroll-down": "shift_down",
         },
     },
     "cpu": {
