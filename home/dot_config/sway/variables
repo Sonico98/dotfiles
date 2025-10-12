@@ -18,9 +18,6 @@
 	set $screenshot screenshot
 	set $screenrecord screenrecord
 
-	# Screen locking script
-	set $locker swaylockbg
-
 	# Brightness control vars
 	set $brightness_bus busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight
 	set $brightness_bus_up $brightness_bus RaiseAll "d(bdu)s"
