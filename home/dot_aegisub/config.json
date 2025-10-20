@@ -328,7 +328,7 @@
 			"Keyframes" : "/home/sonico/Documents/Subs/Kaoru-Hana/keyframes",
 			"Subtitles" : "/mnt/Heaven/Torrents/[YURI] Yona of the Dawn (Akatsuki no Yona) (Dual Audio) [BD 1080p x264 10bit FLAC]/renamed/subs/ñ/full",
 			"Timecodes" : "",
-			"Video" : "/mnt/Heaven/Torrents/[YURI] Yona of the Dawn (Akatsuki no Yona) (Dual Audio) [BD 1080p x264 10bit FLAC]/renamed/Akatsuki no Yona"
+			"Video" : "/mnt/Heaven/Documents/Subs/Kaoru-Hana"
 		},
 		"Screenshot" : "?video"
 	},
@@ -492,20 +492,86 @@
 		},
 		"Colour Picker" : {
 			"Last" : {
-				"X" : 466,
-				"Y" : 1119
+				"X" : 482,
+				"Y" : 285
 			},
 			"Maximized" : false,
 			"Mode" : 4,
 			"Recent Colours" : [
 				{
-					"color" : "rgb(0, 0, 0)"
+					"color" : "rgb(221, 226, 255)"
 				},
 				{
-					"color" : "rgb(183, 182, 182)"
+					"color" : "rgb(250, 242, 255)"
+				},
+				{
+					"color" : "rgb(246, 228, 255)"
+				},
+				{
+					"color" : "rgb(249, 237, 255)"
+				},
+				{
+					"color" : "rgb(248, 233, 255)"
+				},
+				{
+					"color" : "rgb(244, 217, 255)"
+				},
+				{
+					"color" : "rgb(210, 217, 255)"
+				},
+				{
+					"color" : "rgb(249, 234, 255)"
 				},
 				{
 					"color" : "rgb(255, 255, 255)"
+				},
+				{
+					"color" : "rgb(252, 244, 255)"
+				},
+				{
+					"color" : "rgb(224, 255, 251)"
+				},
+				{
+					"color" : "rgb(229, 233, 255)"
+				},
+				{
+					"color" : "rgb(203, 255, 249)"
+				},
+				{
+					"color" : "rgb(214, 129, 54)"
+				},
+				{
+					"color" : "rgb(0, 0, 0)"
+				},
+				{
+					"color" : "rgb(253, 236, 171)"
+				},
+				{
+					"color" : "rgb(222, 214, 243)"
+				},
+				{
+					"color" : "rgb(224, 249, 247)"
+				},
+				{
+					"color" : "rgb(253, 216, 243)"
+				},
+				{
+					"color" : "rgb(246, 207, 236)"
+				},
+				{
+					"color" : "rgb(194, 194, 193)"
+				},
+				{
+					"color" : "rgb(167, 164, 154)"
+				},
+				{
+					"color" : "rgb(169, 169, 164)"
+				},
+				{
+					"color" : "rgb(114, 189, 255)"
+				},
+				{
+					"color" : "rgb(183, 182, 182)"
 				},
 				{
 					"color" : "rgb(195, 156, 96)"
@@ -527,72 +593,6 @@
 				},
 				{
 					"color" : "rgb(220, 196, 181)"
-				},
-				{
-					"color" : "rgb(246, 245, 244)"
-				},
-				{
-					"color" : "rgb(166, 149, 146)"
-				},
-				{
-					"color" : "rgb(241, 231, 198)"
-				},
-				{
-					"color" : "rgb(220, 202, 184)"
-				},
-				{
-					"color" : "rgb(228, 208, 173)"
-				},
-				{
-					"color" : "rgb(148, 115, 97)"
-				},
-				{
-					"color" : "rgb(189, 149, 111)"
-				},
-				{
-					"color" : "rgb(237, 224, 196)"
-				},
-				{
-					"color" : "rgb(159, 132, 121)"
-				},
-				{
-					"color" : "rgb(238, 230, 229)"
-				},
-				{
-					"color" : "rgb(46, 66, 83)"
-				},
-				{
-					"color" : "rgb(99, 112, 109)"
-				},
-				{
-					"color" : "rgb(71, 83, 74)"
-				},
-				{
-					"color" : "rgb(221, 238, 231)"
-				},
-				{
-					"color" : "rgb(190, 204, 201)"
-				},
-				{
-					"color" : "rgb(164, 180, 175)"
-				},
-				{
-					"color" : "rgb(106, 113, 108)"
-				},
-				{
-					"color" : "rgb(114, 125, 122)"
-				},
-				{
-					"color" : "rgb(131, 150, 167)"
-				},
-				{
-					"color" : "rgb(244, 247, 244)"
-				},
-				{
-					"color" : "rgb(242, 244, 242)"
-				},
-				{
-					"color" : "rgb(235, 243, 238)"
 				}
 			],
 			"Restrict to Window" : false
@@ -649,7 +649,7 @@
 		},
 		"Search Replace" : {
 			"Affect" : 1,
-			"Field" : 0,
+			"Field" : 3,
 			"Match Case" : false,
 			"RegExp" : false,
 			"Skip Comments" : false,
