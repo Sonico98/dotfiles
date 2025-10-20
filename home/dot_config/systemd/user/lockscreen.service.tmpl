@@ -8,12 +8,10 @@ PartOf=lock.target
 Before=lock.target
 
 [Service]
-Type=oneshot
+Type=exec
 ExecStart={{ .chezmoi.homeDir }}/.local/bin/swaylockbg
 ExecStartPost={{ .chezmoi.homeDir }}/.local/bin/swaylockbg_post
-; ExecStart=/usr/bin/swaylock -f
-# Hyprlock will keep restarting if restart is set to other than never
-Restart=never
+Restart=on-failure
 RestartSec=0
 Environment="LOCKSCREEN_DIR=/tmp/lockscreen"
 

@@ -18,6 +18,7 @@ swayidle timeout 5 'swaymsg "output * power off"' resume \
 	'swaymsg "output * power on"' &
 
 IDLEPID=$!
+mkdir -p "$LOCKSCREEN_DIR"
 touch $LOCKSCREEN_DIR/idlepid
 echo "$IDLEPID" >| "$LOCKSCREEN_DIR"/idlepid
 
