@@ -48,8 +48,33 @@ function find_visible_break(text)
     return nil
 end
 
+
+-- Snap time to nearest keyframe within threshold
+function snap_to_keyframe(time_ms, keyframes, threshold)
+    local closest = time_ms
+    local min_diff = threshold + 1
+
+    for _, frame in ipairs(keyframes) do
+        local kf_time = aegisub.ms_from_frame(frame)
+        local diff = math.abs(kf_time - time_ms)
+        if diff < min_diff then
+            closest = kf_time
+            min_diff = diff
+        end
+    end
+
+    if min_diff <= threshold then
+        return closest
+    else
+        return time_ms
+    end
+end
+
+
 -- Split at midpoint
 function split_midpoint(subs, sel)
+	local keyframes = aegisub.keyframes()
+    local threshold = 500  -- milliseconds
     for _, i in ipairs(sel) do
         local line = subs[i]
         local text = line.text
@@ -67,16 +92,17 @@ function split_midpoint(subs, sel)
 
             -- Calculate midpoint
             local midpoint = math.floor((line.start_time + line.end_time) / 2)
+			local snapped_midpoint = snap_to_keyframe(midpoint, keyframes, threshold)
 
             -- Create first line (keep original before part as-is)
             local line1 = deep_copy_line(line)
             line1.text = before
-            line1.end_time = midpoint
+            line1.end_time = snapped_midpoint
 
             -- Create second line (prepend leading tags)
             local line2 = deep_copy_line(line)
             line2.text = leading_tags .. after
-            line2.start_time = midpoint
+            line2.start_time = snapped_midpoint
 
             -- Replace original line with first part
             subs[i] = line1
@@ -88,6 +114,8 @@ end
 
 -- Split with auto-balanced timing
 function split_balanced(subs, sel)
+	local keyframes = aegisub.keyframes()
+    local threshold = 500  -- milliseconds
     for _, i in ipairs(sel) do
         local line = subs[i]
         local text = line.text
@@ -116,17 +144,18 @@ function split_balanced(subs, sel)
             -- Calculate proportional timing
             local duration = line.end_time - line.start_time
             local dur_before = math.floor(duration * (len_before / total_len))
-            local dur_after = duration - dur_before
+			local raw_split_time = line.start_time + dur_before
+            local snapped_split_time = snap_to_keyframe(raw_split_time, keyframes, threshold)
 
             -- Create first line
             local line1 = deep_copy_line(line)
             line1.text = before
-            line1.end_time = line.start_time + dur_before
+            line1.end_time = snapped_split_time
 
             -- Create second line
             local line2 = deep_copy_line(line)
             line2.text = leading_tags .. after
-            line2.start_time = line1.end_time
+            line2.start_time = snapped_split_time
 
             -- Replace original line with first part
             subs[i] = line1
