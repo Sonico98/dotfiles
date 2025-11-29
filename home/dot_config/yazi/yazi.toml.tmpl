@@ -23,8 +23,10 @@ image_filter = "triangle"
 image_quality = 50
 
 [opener]
+rename = [ 
+	{ run = '$EDITOR "$@"', block = true, for = "unix" }, 
+]
 edit = [
-	{{- if findExecutable "kitty" (list "/bin" "/usr/bin") }}
 	{ run = 'kitty_cmds -v "$@"', orphan = true, block = false,  desc = "Open in nvim tab", for = "unix" },
 	{{- else }}
 	{ run = '$EDITOR "$@"', block = true, for = "unix" },
@@ -72,7 +74,7 @@ rules = [
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 
 	{ name = "*.{ass,srt,ssa,sty,sup,vtt}", use = [ "edit", "subs", "open", "reveal" ] },
-	{ mime = "text/*",  use = [ "edit", "reveal" ] },
+	{ mime = "text/*",  use = [ "edit", "rename", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	{ mime = "video/webm", use = [ "gif", "play", "reveal" ] },
 	{ mime = "video/*", use = [ "play", "reveal" ] },
