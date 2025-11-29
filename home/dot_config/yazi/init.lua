@@ -31,6 +31,7 @@ require("zoxide"):setup {
     update_db = true,
 }
 
+-- Generate all thumbnail sizes
 require("allmytoes"):setup {
 	sizes = {"n", "l", "x", "xx"},
 }
@@ -38,6 +39,11 @@ require("allmytoes"):setup {
 -- Sync yanked files across yazi instances
 require("session"):setup {
 	sync_yanked = true,
+}
+
+-- Open all selected files if l or right is pressed
+require("smart-enter"):setup {
+	open_multi = true,
 }
 
 -- Render theme colors on the right pane
