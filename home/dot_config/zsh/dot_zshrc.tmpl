@@ -169,8 +169,8 @@ function in() {
 	{{ else if findExecutable "yazi" (list "/bin" "/usr/bin") -}}
 	local manager=yazi
 	{{ end -}}
-	${manager} -Slq | fzf -q "$1" -m --preview-window=45%,top --preview \
-	"${manager} -Sii {1} | bat -l yaml -p --color=always" | xargs -ro ${manager} -S
+	${manager} -Slq | fzf -q "$1" --style=full -m --preview-window=45%,top --preview \
+	"${manager} -Si {1} | bat -l yaml -p" | xargs -ro ${manager} -S
 }
 
 # Remove packages using fzf
@@ -180,8 +180,8 @@ function re() {
 	{{ else if findExecutable "yazi" (list "/bin" "/usr/bin") -}}
 	local manager=yazi
 	{{ end -}}
-	${manager} -Qq | fzf -q "$1" -m --preview-window=45%,top --preview \
-	"${manager} -Qii {1} | bat -l yaml -p --color=always" | xargs -ro ${manager} -Rns
+	${manager} -Qq | fzf -q "$1" --style=full --ansi -m --preview-window=45%,top --preview \
+	"${manager} -Qi {1} | bat -l yaml -p" | xargs -ro ${manager} -Rns
 }
 {{- end }}
 
@@ -351,6 +351,7 @@ function mongobackup() {
 	fi
 }
 {{- end }}
+
 
 {{ if findExecutable "dotnet" (list "/bin" "/usr/bin") -}}
 # zsh parameter completion for the dotnet CLI
