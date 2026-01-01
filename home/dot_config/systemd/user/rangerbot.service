@@ -4,8 +4,8 @@ StartLimitIntervalSec=500
 StartLimitBurst=5
 
 [Service]
-WorkingDirectory=/home/sonico/Dev/Telegram_Bots/NeoKimberly_prod
-ExecStart=/home/sonico/Dev/Telegram_Bots/NeoKimberly_prod/venv/bin/python3.12 kimberly
+WorkingDirectory=/home/sonico/Documents/Dev/Bots/NeoKimberly_prod
+ExecStart=/home/sonico/.virtualenvs/rangerbot/bin/python /home/sonico/Documents/Dev/Bots/NeoKimberly_prod/kimberly
 Restart=on-failure
 RestartSec=5s
 
