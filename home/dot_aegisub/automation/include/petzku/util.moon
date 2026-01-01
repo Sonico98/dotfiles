@@ -12,7 +12,7 @@ local util, re
 if haveDepCtrl
     depctrl = DependencyControl {
         name: 'petzkuLib',
-        version: '0.5.2',
+        version: '0.5.3',
         description: [[Various utility functions for use with petzku's Aegisub macros]],
         author: "petzku",
         url: "https://github.com/petzku/Aegisub-Scripts",
@@ -82,11 +82,19 @@ with lib
             elseif not duration
                 .io.warn "Duration not given for string input, simple tags cannot be shifted"
 
+            -- \t and \move treat t2=0 as "end-of-line" rather than start
+            -- no other values get special handling like this (except double-negative \move mentioned below)
+            fix_zero_t2 = (t2) ->
+                if t2 == "0"
+                    duration
+                else
+                    t2
+
             -- rt = retime, s = simple, a = accel
-            rt_t = (t1, t2) -> string.format "\\t(%d,%d,", t1+delta, t2+delta
+            rt_t = (t1, t2) -> string.format "\\t(%d,%d,", t1+delta, fix_zero_t2(t2)+delta
             rt_at = (a) -> rt_t(0, duration) .. a .. ",\\"
             rt_st = () -> rt_t(0, duration) .. "\\"
-            rt_move = (x,y,xx,yy,t1,t2) -> string.format "\\move(%s,%s,%s,%s,%d,%d)", x,y,xx,yy, t1+delta, t2+delta
+            rt_move = (x,y,xx,yy,t1,t2) -> string.format "\\move(%s,%s,%s,%s,%d,%d)", x,y,xx,yy, t1+delta, fix_zero_t2(t2)+delta
             rt_smove = (x,y,xx,yy) -> rt_move x,y,xx,yy,0,duration
             rt_fade = (a1,a2,a3,t1,t2,t3,t4) -> string.format "\\fade(%s,%s,%s,%d,%d,%d,%d)", a1,a2,a3, t1+delta, t2+delta, t3+delta, t4+delta
             rt_sfade = (t_start, t_end) -> rt_fade 255,0,255, 0,t_start, duration-t_end,duration
@@ -196,9 +204,13 @@ with lib
         fatal: (s, ...) -> aegisub.log 0, s.."\n", ...
         error: (s, ...) -> aegisub.log 1, s.."\n", ...
         warn:  (s, ...) -> aegisub.log 2, s.."\n", ...
-        print: (s, ...) -> aegisub.log 3, s.."\n", ...
+        hint:  (s, ...) -> aegisub.log 3, s.."\n", ...
         debug: (s, ...) -> aegisub.log 4, s.."\n", ...
         trace: (s, ...) -> aegisub.log 5, s.."\n", ...
+
+        -- function akin to lua's internal "print", separating entries by tabs
+        print: (...) -> aegisub.log (string.rep "%s\t", #{...}-1).."%s\n", ...
+
     }
 
 if haveDepCtrl

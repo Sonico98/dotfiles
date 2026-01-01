@@ -109,7 +109,7 @@
 		"Volume" : 50,
 		"Wheel Default to Zoom" : false,
 		"Zoom" : {
-			"Horizontal" : 6,
+			"Horizontal" : 36,
 			"Vertical" : 64
 		}
 	},
@@ -321,14 +321,14 @@
 			"Include" : "?user/automation/include/|?data/automation/include/"
 		},
 		"Dictionary" : "?user/dictionaries",
-		"Fonts Collector Destination" : "?script/",
+		"Fonts Collector Destination" : "?script/fuentes",
 		"Last" : {
 			"Audio" : "",
 			"Automation" : "",
 			"Keyframes" : "/home/sonico/Documents/Subs/Kaoru-Hana/keyframes",
-			"Subtitles" : "/mnt/Heaven/Torrents/[YURI] Yona of the Dawn (Akatsuki no Yona) (Dual Audio) [BD 1080p x264 10bit FLAC]/renamed/subs/ñ/full",
+			"Subtitles" : "/mnt/Heaven/Torrents/Anime/fate fake/subs/full",
 			"Timecodes" : "",
-			"Video" : "/mnt/Heaven/Documents/Subs/Kaoru-Hana"
+			"Video" : "/mnt/Heaven/Torrents/Anime"
 		},
 		"Screenshot" : "?video"
 	},
@@ -598,7 +598,7 @@
 			"Restrict to Window" : false
 		},
 		"Fonts Collector" : {
-			"Action" : 2
+			"Action" : 1
 		},
 		"Import" : {
 			"Text" : {
@@ -645,34 +645,34 @@
 			]
 		},
 		"Preferences" : {
-			"Page" : 5
+			"Page" : 2
 		},
 		"Search Replace" : {
-			"Affect" : 1,
-			"Field" : 3,
+			"Affect" : 0,
+			"Field" : 0,
 			"Match Case" : false,
 			"RegExp" : false,
 			"Skip Comments" : false,
 			"Skip Tags" : false
 		},
 		"Select Lines" : {
-			"Action" : 1,
+			"Action" : 0,
 			"Condition" : 0,
-			"Field" : 1,
+			"Field" : 0,
 			"Match" : {
 				"Case" : false,
 				"Comment" : true,
 				"Dialogue" : true
 			},
-			"Mode" : 0,
-			"Text" : "Signs"
+			"Mode" : 2,
+			"Text" : "Pero es buen tipo"
 		},
 		"Shift Times" : {
 			"Affect" : 1,
-			"ByTime" : false,
+			"ByTime" : true,
 			"Direction" : true,
 			"Frames" : 24,
-			"Time" : 660,
+			"Time" : 40,
 			"Type" : 0
 		},
 		"Spell Checker" : {
@@ -685,16 +685,16 @@
 			"Last" : {
 				"Height" : 718,
 				"Width" : 1366,
-				"X" : 117,
-				"Y" : 123
+				"X" : 101,
+				"Y" : 957
 			},
 			"Maximized" : false,
 			"Preview Text" : "Aegisub\\N0123 日本語"
 		},
 		"Style Manager" : {
 			"Last" : {
-				"X" : 426,
-				"Y" : 251
+				"X" : 410,
+				"Y" : 1085
 			},
 			"Maximized" : false
 		},
@@ -752,7 +752,7 @@
 		}
 	},
 	"Version" : {
-		"Last Version" : 9842,
+		"Last Version" : 9822,
 		"Next Check" : 0
 	},
 	"Video" : {
