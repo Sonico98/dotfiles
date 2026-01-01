@@ -2,6 +2,6 @@
 Type=Application
 Name=Vesktop
 Comment=Vesktop autostart script
-Exec=/usr/bin/vesktop --ozone-platform-hint=wayland %U
+Exec=/usr/bin/vesktop --ozone-platform=wayland %U
 StartupNotify=false
 Terminal=false
