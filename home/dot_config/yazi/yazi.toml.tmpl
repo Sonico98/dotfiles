@@ -24,56 +24,57 @@ image_quality = 50
 
 [opener]
 rename = [ 
-	{ run = '$EDITOR "$@"', block = true, for = "unix" }, 
+	{ run = '$EDITOR %s', block = true, for = "unix" }, 
 ]
 edit = [
-	{ run = 'kitty_cmds -v "$@"', orphan = true, block = false,  desc = "Open in nvim tab", for = "unix" },
+	{{- if findExecutable "kitty" (list "/bin" "/usr/bin") }}
+	{ run = 'kitty_cmds -v %s', orphan = true, block = false,  desc = "Open in nvim tab", for = "unix" },
 	{{- else }}
-	{ run = '$EDITOR "$@"', block = true, for = "unix" },
-	{ run = 'code "%*"',    orphan = true, for = "windows" },
+	{ run = '$EDITOR %s', block = true, for = "unix" },
+	{ run = 'code %s',    orphan = true, for = "windows" },
 	{{- end }}
 ]
 open = [
-	{ run = 'xdg-open "$@"', orphan = true, desc = "Open", for = "linux" },
-	{ run = 'open "$@"', 	 orphan = true, desc = "Open", for = "macos" },
-	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" }
+	{ run = 'xdg-open %s', orphan = true, desc = "Open", for = "linux" },
+	{ run = 'open %s', 	 orphan = true, desc = "Open", for = "macos" },
+	{ run = 'start "" %h', orphan = true, desc = "Open", for = "windows" }
 ]
 reveal = [
-	{ run = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
-	{ run = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
-	{ run = '''exiftool "$1"; echo "Press enter to exit test"; read''', block = true, desc = "Show EXIF", for = "unix" },
+	{ run = 'open -R %h',                          desc = "Reveal", for = "macos" },
+	{ run = 'explorer /select, %h', orphan = true, desc = "Reveal", for = "windows" },
+	{ run = '''exiftool %h; echo "Press enter to exit test"; read''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
 	{{- if findExecutable "kitty" (list "/bin" "/usr/bin") }}
-	{ run = 'kitty_cmds -e "$@"', desc = "Extract here (kitty)", for = "unix" },
+	{ run = 'kitty_cmds -e %s', desc = "Extract here (kitty)", for = "unix" },
 	{{- else }}
-	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
+	{ run = 'ya pub extract --list %s', desc = "Extract here", for = "unix" },
+	{ run = 'ya pub extract --list %s',   desc = "Extract here", for = "windows" },
 	{{- end }}
 ]
 audio = [
 	{ run = 'mpv --player-operation-mode=pseudo-gui --fullscreen=no --no-resume-playback "$@"', orphan = true, for = "unix" },
-	{ run = 'spek "$1"', orphan = true },
-	{ run = 'kid3-qt "$1"', orphan = true, desc = "Edit tags" },
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+	{ run = 'spek %h', orphan = true },
+	{ run = 'kid3-qt %h', orphan = true, desc = "Edit tags" },
+	{ run = '''mediainfo %h; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 
 ]
 play = [
-	{ run = 'mpv --player-operation-mode=pseudo-gui "$@"', orphan = true, for = "unix" },
-	{ run = 'mpv "%1"', orphan = true, for = "windows" },
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+	{ run = 'mpv --player-operation-mode=pseudo-gui %s', orphan = true, for = "unix" },
+	{ run = 'mpv %s', orphan = true, for = "windows" },
+	{ run = '''mediainfo %h; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 ]
 
 subs = [
-	{ run = '''echo sub-add "'$0'" | socat - /tmp/mpv.sock ''', desc = "Add sub to MPV", for = "unix" },
-	{ run = 'GTK_THEME="Fluent-round-pink-Dark" aegisub "$@"', desc = "Aegisub", orphan = true, block = false },
+	{ run = '''echo sub-add %h | socat - /tmp/mpv.sock ''', desc = "Add sub to MPV", for = "unix" },
+	{ run = 'GTK_THEME="Fluent-round-pink-Dark" aegisub %s', desc = "Aegisub", orphan = true, block = false },
 ]
 
 [open]
 rules = [
-	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+	{ url = "*/", use = [ "edit", "open", "reveal" ] },
 
-	{ name = "*.{ass,srt,ssa,sty,sup,vtt}", use = [ "edit", "subs", "open", "reveal" ] },
+	{ url = "*.{ass,srt,ssa,sty,sup,vtt}", use = [ "edit", "subs", "open", "reveal" ] },
 	{ mime = "text/*",  use = [ "edit", "rename", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	{ mime = "video/webm", use = [ "gif", "play", "reveal" ] },
@@ -110,14 +111,16 @@ suppress_preload = true
 
 fetchers = [
 
-	{ id = "git", name = "*", run = "git" },
-	{ id = "git", name = "*/", run = "git" },
+	{ id = "git", url = "*", run = "git" },
+	{ id = "git", url = "*/", run = "git" },
 	# Mimetype
-	{ id = "mime-ext", name = "*", run = "mime-ext", prio = "high" },
+	# { id = "mime-ext", url = "*", run = "mime-ext", prio = "high" },
+	{ id = "mime", url = "*", run = "mime.local", prio = "high" },
+	{ id = "mime", url = "*/", run = "mime.dir", prio = "high" },
 ]
 
 spotters = [
-	{ name = "*/", run = "folder" },
+	{ url = "*/", run = "folder" },
 	# Code
 	{ mime = "text/*", run = "code" },
 	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
@@ -128,13 +131,13 @@ spotters = [
 	# Video
 	{ mime = "video/*", run = "video" },
 	# Fallback
-	{ name = "*", run = "file" },
+	{ url = "*", run = "file" },
 ]
 
 preloaders = [
 	# Don't preload on gvfs or external media
-	{ name = "/run/user/1000/gvfs/**/*", run = "noop" },
-	{ name = "/run/media/sonico/**/*", run = "noop" },
+	{ url = "/run/user/1000/gvfs/**/*", run = "noop" },
+	{ url = "/run/media/sonico/**/*", run = "noop" },
 	# Image
 	{ mime = "image/{avif,hei?,jxl}", run = "magick" },
 	{ mime = "image/svg+xml", run = "svg" },
@@ -150,9 +153,9 @@ preloaders = [
 ]
 
 previewers = [
-	{ name = "*/", run = "folder", sync = true },
-	{ name = "/run/user/1000/gvfs/**/*", run = "noop" },
-	{ name = "/run/media/USER_NAME/**/*", run = "noop" },
+	{ url = "*/", run = "folder", sync = true },
+	{ url = "/run/user/1000/gvfs/**/*", run = "noop" },
+	{ url = "/run/media/USER_NAME/**/*", run = "noop" },
 	# Code
 	{ mime = "text/*",                 run = "code" },
 	{ mime = "*/xml",                  run = "code" },
@@ -182,7 +185,7 @@ previewers = [
 	# Empty file
 	{ mime = "inode/empty", run = "empty" },
 	# Fallback
-	{ name = "*", run = "file" },
+	{ url = "*", run = "file" },
 ]
 
 [input]
