@@ -10,8 +10,8 @@ hash = "4761fffb60a12d37096c34a356380cdf"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "cfb9140"
-hash = "b5067143415bd2d46c0dfa57319ddcef"
+rev = "594b8a2"
+hash = "c9e628fc0312d198db22ae2fa74883b"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
@@ -25,17 +25,12 @@ hash = "ca79de2b3bb2247906e01b2261e5d2bb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "398796d"
+rev = "57f1863"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:mime-ext"
-rev = "398796d"
-hash = "48a77ab785d1ee73bc2d7bbe2a4c2090"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "398796d"
+rev = "57f1863"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
@@ -45,35 +40,40 @@ hash = "ae85f60f99b53936634bd3e84b93e157"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "398796d"
+rev = "57f1863"
 hash = "e2d4bfccf31e5ab05f46fee4797c5215"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "398796d"
+rev = "57f1863"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "398796d"
-hash = "73788c7dc5827ef4677c502c3ea8fa19"
+rev = "57f1863"
+hash = "36a484acf6a0a0219c543ccb4cee218f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:vcs-files"
-rev = "398796d"
-hash = "4ee57085277d616acfa0ef1fef37dc00"
+rev = "57f1863"
+hash = "5cfd9b2bd3f8ec4e3245e3426a967f82"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "9046dd8"
-hash = "3d31be8146da9555d48b1a731bf195dd"
+rev = "d9e3e0d"
+hash = "3768782f4ecce890d79628cafdcdfa5f"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "57f1863"
+hash = "8feba12bf57a4607cd05992c254713f3"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "9276ffa"
+rev = "4a1802a"
 hash = "b951d27afe197d154f6da9683b46c5f8"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "9276ffa"
+rev = "4a1802a"
 hash = "525675a9180ed23a097b07399627294a"

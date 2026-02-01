@@ -111,12 +111,12 @@ suppress_preload = true
 
 fetchers = [
 
+	# Mimetype
+	{ id = "mime", url = "*/",         run = "mime.dir", prio = "high" },
+	{ id = "mime", url = "local://*",  run = "mime-ext.local", prio = "high" },
+	{ id = "mime", url = "remote://*", run = "mime-ext.remote", prio = "high" },
 	{ id = "git", url = "*", run = "git" },
 	{ id = "git", url = "*/", run = "git" },
-	# Mimetype
-	# { id = "mime-ext", url = "*", run = "mime-ext", prio = "high" },
-	{ id = "mime", url = "*", run = "mime.local", prio = "high" },
-	{ id = "mime", url = "*/", run = "mime.dir", prio = "high" },
 ]
 
 spotters = [
@@ -153,7 +153,7 @@ preloaders = [
 ]
 
 previewers = [
-	{ url = "*/", run = "folder", sync = true },
+	{ url = "*/", run = "folder" },
 	{ url = "/run/user/1000/gvfs/**/*", run = "noop" },
 	{ url = "/run/media/USER_NAME/**/*", run = "noop" },
 	# Code

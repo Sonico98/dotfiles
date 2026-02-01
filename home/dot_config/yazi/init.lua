@@ -46,14 +46,11 @@ require("smart-enter"):setup {
 	open_multi = true,
 }
 
--- Render theme colors on the right pane
-require("mime-preview"):setup()
-
 require("git"):setup()
 
 require("gvfs"):setup()
 
-require("mime-ext"):setup {
+require("mime-ext.local"):setup {
 	-- Expand the existing extension database
 	with_exts = {
 		desktop = "text/plain",
