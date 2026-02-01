@@ -1,4 +1,4 @@
 # Managed with kanshi - check $HOME/.config/kanshi/config
-output 'ViewSonic Corporation VA2046 SERIES TSL133304598' pos 0 0
-output LVDS-1 pos 101 900
+output 'ViewSonic Corporation VA2046 SERIES TSL133304598' pos 0 0 allow_tearing yes max_render_time off
+output LVDS-1 pos 101 900 allow_tearing yes max_render_time off
 output 'Unknown Unknown Unknown' disable
