@@ -276,17 +276,35 @@ function rcopy() {
 	rclone copy "$src" "$dst" "$@" -P -L
 }
 
+function extract_fonts() {
+	fname="${1%.*}"
+	mkdir -p "fonts/$fname"
+	cd "fonts/$fname"
+	ffmpeg -y -dump_attachment:t "" -i ../../"$1" &>/dev/null
+	cd ../..
+	echo ""
+}
+
+function xfonts() {
+	mkdir -p fonts
+	if [ $# -gt 0 ]; then
+		for i in "$@"; do
+			extract_fonts "$i"
+		done
+	else
+		for i in *.mkv; do
+			extract_fonts "$i"
+		done
+	fi
+}
+
 function xsubs() {
-	mkdir -p subs fonts
+	mkdir -p subs
 	for i in *.mkv; do
 		fname="${i%.*}"
 		echo "Extracting $fname..."
 		ffmpeg -v quiet -stats -i "$i" -map 0:s:$1 subs/"$fname.ass"
-		mkdir -p "fonts/$fname"
-		cd "fonts/$fname"
-		ffmpeg -y -dump_attachment:t "" -i ../../"$i" &>/dev/null
-		cd ../..
-		echo ""
+		xfonts "$i"
 	done
 }
 
