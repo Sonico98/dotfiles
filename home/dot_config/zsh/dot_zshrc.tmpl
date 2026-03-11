@@ -102,7 +102,7 @@ alias lidnotsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=suspend/HandleL
 alias lidsuspend="sudo sed -i 's/HandleLidSwitchExternalPower=ignore/HandleLidSwitchExternalPower=suspend/' /etc/systemd/logind.conf && sudo systemctl kill -s HUP systemd-logind"
 alias ls="eza --hyperlink"
 alias lsh="/usr/bin/ls --group-directories-first --color --hyperlink=auto"
-alias mkvenv="mkvirtualenv"
+alias mkvpatcher="mkdir -p out; sudo mount ./fat32 ./out -o uid=1000,gid=1000; ./patcher"
 alias qaac_enc="mkdir -p aac; \
 	wine ~/.wine/drive_c/Program\ Files/qaac/qaac64.exe \
 	-V 100 --copy-artwork -d ./aac (*.flac|*.mp3)"
@@ -237,6 +237,24 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+function mkat() {
+	mkvmerge -i -F json "$1" | jq -r '
+	  .tracks[] |
+	  "ID: \(.properties.number - 1), " +
+	  (if .type == "video" then "V"
+	   elif .type == "audio" then "A"
+	   else "S"
+	   end) +
+	  " (" +
+	  (if .codec == "SubStationAlpha" or .codec == "S_TEXT/ASS" then "SSA"
+	   elif .codec | contains("HEVC") then "HEVC"
+	   else (.codec | split("/")[0])
+	   end) +
+	  ") [\(.properties.language // "-")]" +
+	  " - " +
+	  (.properties.track_name // .properties.name // "-")
+	'
+}
 
 function rcopy() {
 	ct=0
