@@ -5,6 +5,15 @@
 # - The same wallpaper across all outputs: <WALLPAPER>
 #
 # You can get output names executing `swaymsg -t get_outputs` or `wlr-randr`
-light_wallpaper="VGA-1·/mnt/Heaven/Pictures/Anime/Unsorted/Desktop Wallpapers/(Pixiv) [桐月レイカ] 紫雲清夏 - 128311997_p0.png¤LVDS-1·/mnt/Heaven/Downloads/Images/Pixiv/Desktop Wallpapers/(Pixiv) [Huhv.] Sea of Flowers - 129544598_p0.jpg"
 
-dark_wallpaper="VGA-1·/home/sonico/Downloads/Images/Twitter/(Twitter) [NzeNeee] 1893275751673135331 - p0.jpg¤LVDS-1·/home/sonico/Downloads/Images/Pixiv/Desktop Wallpapers/(Pixiv) [chelsea] Supernova - 128882554_p0.png"
+# Light Wallpaper
+VGA="/home/sonico/Pictures/Wallpapers/(Pixiv) [Hiroko] 栞 - 128509050_p0.jpg"
+LVDS="/home/sonico/Pictures/Wallpapers/(Pixiv) [niyemiiii] 无题 - 104627556_p0_modified.jpg"
+# LVDS="/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png"
+light_wallpaper="VGA-1·$VGA¤LVDS-1·$LVDS"
+
+# Dark Wallpaper
+VGA="/home/sonico/Pictures/Wallpapers/(Pixiv) [海奏hzh] 狼嵜光 - 127970978_p0.png"
+LVDS="/home/sonico/Pictures/Wallpapers/(Pixiv) [れるて] 初風 - 136209794_p0.jpg"
+# LVDS="/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png"
+dark_wallpaper="VGA-1·$VGA¤LVDS-1·$LVDS"
