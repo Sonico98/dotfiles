@@ -5,7 +5,7 @@ StartLimitBurst=5
 
 [Service]
 WorkingDirectory=/home/sonico/Documents/Dev/Bots/RSS-to-Telegram-Bot/
-ExecStart=/home/sonico/.virtualenvs/rssbot/bin/python /home/sonico/Documents/Dev/Bots/RSS-to-Telegram-Bot/telegramRSSbot.py
+ExecStart=/home/sonico/Documents/Dev/Bots/RSS-to-Telegram-Bot/.venv/bin/python /home/sonico/Documents/Dev/Bots/RSS-to-Telegram-Bot/telegramRSSbot.py
 Restart=on-failure
 RestartSec=5s
 

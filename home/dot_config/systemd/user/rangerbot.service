@@ -5,7 +5,7 @@ StartLimitBurst=5
 
 [Service]
 WorkingDirectory=/home/sonico/Documents/Dev/Bots/NeoKimberly_prod
-ExecStart=/home/sonico/.virtualenvs/rangerbot/bin/python /home/sonico/Documents/Dev/Bots/NeoKimberly_prod/kimberly
+ExecStart=/home/sonico/Documents/Dev/Bots/NeoKimberly_prod/.venv/bin/python /home/sonico/Documents/Dev/Bots/NeoKimberly_prod/kimberly
 Restart=on-failure
 RestartSec=5s
 

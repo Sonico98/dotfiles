@@ -16,6 +16,13 @@
 .config/pipewire/*
 .config/rclone/*
 .config/rootmoi/*
+.config/systemd/user/aria2cd.service
+.config/systemd/user/mpd.service
+.config/systemd/user/pipewire-input-filter-chain.service
+.config/systemd/user/rangerbot.service
+.config/systemd/user/rssbot.service
+.config/systemd/user/sunshine.service
+.config/systemd/user/userbot.service
 .config/zsh/.zsh_history
 .gitconfig
 .local/bin/rootmoi
