@@ -9,8 +9,8 @@
 
 window#waybar {
     background: none;
-    transition-property: background-color;
-    transition-duration: .5s;
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
 }
 
 window > box {
@@ -65,8 +65,8 @@ button:hover {
     background-color: transparent;
     color: #dedede;
 	border-radius: 8px;
-    transition-property: background-color;
-    transition-duration: .5s;
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
 }
 
 #workspaces button:hover {
@@ -237,8 +237,8 @@ label:focus {
 	margin: 0px;
 	margin-right: 7px;
 	border-radius: 10px;
-    transition-property: background-color;
-    transition-duration: .5s;
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
 }
 
 #idle_inhibitor.activated {

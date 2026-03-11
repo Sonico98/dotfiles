@@ -10,8 +10,8 @@
 window#waybar {
 	background: transparent;
     border-bottom: 0px solid rgba(0, 0, 0, 0);
-    transition-property: background-color;
-    transition-duration: .5s;
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
 }
 
 window > box {
@@ -66,8 +66,8 @@ button:hover {
     background-color: transparent;
 	color: inherit;
 	border-radius: 8px;
-    transition-property: background-color;
-    transition-duration: .5s;
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
 }
 
 #workspaces button:hover {
@@ -144,11 +144,11 @@ button:hover {
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
     color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    /* animation-name: blink; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: linear; */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
 }
 
 label:focus {
@@ -238,8 +238,8 @@ label:focus {
 	margin: 0px;
 	margin-right: 7px;
 	border-radius: 10px;
-    transition-property: background-color;
-    transition-duration: .5s;
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
 }
 
 #idle_inhibitor.activated {
