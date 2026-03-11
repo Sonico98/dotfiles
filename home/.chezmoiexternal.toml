@@ -9,26 +9,33 @@
 
 [".config/bat/syntaxes/ST-ASS"]
 	type = "git-repo"
+    refreshPeriod = "168h"
 	url = "https://github.com/jfcherng-sublime/ST-ASS"
 
 [".config/kitty/scripts/grab"]
 	type = "git-repo"
+    refreshPeriod = "168h"
 	url = "https://github.com/yurikhan/kitty_grab"
+
+[".config/yazi/plugins/search.yazi/main.lua"]
+	type = "file"
+    refreshPeriod = "468h"
+	url = "https://raw.githubusercontent.com/kohane27/dotfiles-yazi/refs/heads/main/yazi/plugins/search.yazi/main.lua"
 
 [".local/bin/ffbatch"]
 	type = "file"
-	url = "https://raw.githubusercontent.com/Sonico98/FFBatch/main/ffbatch.sh"
 	refreshPeriod = "468h"
+	url = "https://raw.githubusercontent.com/Sonico98/FFBatch/main/ffbatch.sh"
 	executable = true
 
 [".local/bin/openArchives"]
 	type = "file"
-	url = "https://raw.githubusercontent.com/Sonico98/7zip-Extract/main/usr/local/bin/openArchives.sh"
 	refreshPeriod = "468h"
+	url = "https://raw.githubusercontent.com/Sonico98/7zip-Extract/main/usr/local/bin/openArchives.sh"
 	executable = true
 
 [".local/bin/archiveFiles"]
 	type = "file"
-	url = "https://raw.githubusercontent.com/Sonico98/Dolphin-7zip-Compress/main/usr/local/bin/archiveFiles.sh"
 	refreshPeriod = "468h"
+	url = "https://raw.githubusercontent.com/Sonico98/Dolphin-7zip-Compress/main/usr/local/bin/archiveFiles.sh"
 	executable = true

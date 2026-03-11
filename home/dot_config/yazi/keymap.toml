@@ -69,7 +69,6 @@ keymap = [
 	{ on = [ "<C-h>" ],  run = "hidden toggle",        			  			desc = "Toggle the visibility of hidden files" },
 	{ on = [ "f" ],      run = "search --via=fd",                		  			desc = "Search files by name using fd" },
 	{ on = [ "F" ],      run = "search --via=rg", 	  							desc = "Search files by content using ripgrep (fuzzy)" },
-	{ on = [ "<C-f>" ],  run = "search none",              		  			desc = "Cancel the ongoing search" },
 	{ on = [ "z" ],      run = "plugin zoxide",              	  			desc = "Jump to a directory using zoxide" },
 	{ on = [ "Z" ],      run = "plugin fzf",                 	  			desc = "Jump to a directory, or reveal a file using fzf" },
 	{ on = [ "<Backspace>" ], run = '''shell "$SHELL" --block --confirm''', desc = "Open shell here" },
@@ -114,10 +113,12 @@ keymap = [
 	{ on = [ "," ], run = "filter --smart", 		    			  		desc = "Filter the files" },
 
 	# Find
-	{ on = [ "/" ], run = "find --smart",            				  		desc = "Find next file" },
-	{ on = [ "?" ], run = "find --previous --smart", 				  		desc = "Find previous file" },
-	{ on = [ "n" ], run = "find_arrow",              				  		desc = "Go to next found file" },
-	{ on = [ "N" ], run = "find_arrow --previous",   				  		desc = "Go to previous found file" },
+	{ on = [ "/" ], run = "plugin search 'fzf_filename'", desc = "Find filenames (Fuzzy)" },
+	{ on = [ "<C-/>" ], run = "plugin search 'fzf_content'", desc = "Find contents (Fuzzy)" },
+	# { on = [ "/" ], run = "find --smart",            				  		desc = "Find next file" },
+	# { on = [ "?" ], run = "find --previous --smart", 				  		desc = "Find previous file" },
+	# { on = [ "n" ], run = "find_arrow",              				  		desc = "Go to next found file" },
+	# { on = [ "N" ], run = "find_arrow --previous",   				  		desc = "Go to previous found file" },
 
 	# Sorting
 	{ on = [ "s", "m" ], run = "sort mtime --reverse=no",                 desc = "Sort by modified time" },
