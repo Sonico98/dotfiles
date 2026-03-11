@@ -32,7 +32,7 @@
 			}
 		],
 		"Language" : "en_US",
-		"Maximized" : true,
+		"Maximized" : false,
 		"Save Charset" : "UTF-8",
 		"Save UI State" : true,
 		"Show Toolbar" : true,
@@ -109,8 +109,8 @@
 		"Volume" : 50,
 		"Wheel Default to Zoom" : false,
 		"Zoom" : {
-			"Horizontal" : 36,
-			"Vertical" : 64
+			"Horizontal" : 49,
+			"Vertical" : 77
 		}
 	},
 	"Automation" : {
@@ -325,10 +325,10 @@
 		"Last" : {
 			"Audio" : "",
 			"Automation" : "",
-			"Keyframes" : "/home/sonico/Documents/Subs/Kaoru-Hana/keyframes",
-			"Subtitles" : "/mnt/Heaven/Torrents/Anime/fate fake/subs/full",
+			"Keyframes" : "/home/sonico/Documents/Subs/Jigokuraku-Season-2/Keyframes",
+			"Subtitles" : "/home/sonico/Documents/Subs/Jigokuraku-Season-2/Subs/Jigokuraku 2nd Season - 04",
 			"Timecodes" : "",
-			"Video" : "/mnt/Heaven/Torrents/Anime"
+			"Video" : "/mnt/Heaven/Documents/Subs/Jigokuraku-Season-2/MKVs"
 		},
 		"Screenshot" : "?video"
 	},
@@ -354,26 +354,13 @@
 			"AVS" : {
 				"Sample Rate" : 0
 			},
-			"BestSource" : {
-				"Aegisub Cache" : true,
-				"Max Cache Size" : 100
-			},
 			"FFmpegSource" : {
-				"Decode Error Handling" : "ignore",
-				"Downmix" : false
-			},
-			"VapourSynth" : {
-				"Default Script" : "# This default script will load an audio file using BestSource.\n# It requires the `bs` plugin.\n\nimport vapoursynth as vs\nimport aegisub_vs as a\na.set_paths(locals())\n\na.ensure_plugin(\"bs\", \"BestSource\", \"To use Aegisub's default audio loader, the `bs` plugin for VapourSynth must be installed\")\nvs.core.bs.AudioSource(source=filename).set_output()"
+				"Decode Error Handling" : "ignore"
 			}
 		},
 		"Avisynth" : {
+			"Allow Ancient" : false,
 			"Memory Max" : 1024
-		},
-		"BestSource" : {
-			"Cache" : {
-				"Files" : 100,
-				"Size" : 42
-			}
 		},
 		"FFmpegSource" : {
 			"Cache" : {
@@ -383,30 +370,13 @@
 			"Index All Tracks" : true,
 			"Log Level" : "quiet"
 		},
-		"VapourSynth" : {
-			"Autoload User Plugins" : true,
-			"Cache" : {
-				"Files" : 500,
-				"Size" : 1000
-			}
-		},
 		"Video" : {
-			"BestSource" : {
-				"Apply RFF" : true,
-				"Max Cache Size" : 1024,
-				"Seek Preroll" : 12,
-				"Threads" : 0
-			},
 			"Cache" : {
 				"Size" : 32
 			},
 			"FFmpegSource" : {
 				"Decoding Threads" : -1,
 				"Unsafe Seeking" : false
-			},
-			"VapourSynth" : {
-				"Default Script" : "# This default script will load a video file using LWLibavSource.\n# It requires the `lsmas` plugin.\n# See ?data/automation/vapoursynth/aegisub_vs.py for more information.\n\nimport vapoursynth as vs\nimport time\nimport aegisub_vs as a\na.set_paths(locals())\n\nclip, videoinfo = a.wrap_lwlibavsource(filename)\nclip.set_output()\n__aegi_timecodes = videoinfo[\"timecodes\"]\n__aegi_keyframes = videoinfo[\"keyframes\"]\n\n# Uncomment this line to make Aegisub look for a keyframes file for the video, or ask to detect keyframes on scene changes if no file was found.\n# You can also change the GenKeyframesMode. Valid values are NEVER, ALWAYS, and ASK.\n#__aegi_keyframes = a.get_keyframes(filename, clip, __aegi_keyframes, generate=a.GenKeyframesMode.ASK)\n\n# Check if the file has an audio track. This requires the `bs` plugin.\n__aegi_hasaudio = 1 if a.check_audio(filename) else 0",
-				"Log Level" : "Information"
 			}
 		}
 	},
@@ -486,116 +456,111 @@
 		"Default Duration" : 3000
 	},
 	"Tool" : {
-		"Align to Video" : {
-			"Maximized" : true,
-			"Tolerance" : 20
-		},
 		"Colour Picker" : {
 			"Last" : {
-				"X" : 482,
-				"Y" : 285
+				"X" : 0,
+				"Y" : 0
 			},
 			"Maximized" : false,
 			"Mode" : 4,
 			"Recent Colours" : [
 				{
-					"color" : "rgb(221, 226, 255)"
+					"color" : "rgb(154, 168, 171)"
 				},
 				{
-					"color" : "rgb(250, 242, 255)"
+					"color" : "rgb(251, 250, 252)"
 				},
 				{
-					"color" : "rgb(246, 228, 255)"
+					"color" : "rgb(149, 166, 169)"
 				},
 				{
-					"color" : "rgb(249, 237, 255)"
+					"color" : "rgb(241, 242, 223)"
 				},
 				{
-					"color" : "rgb(248, 233, 255)"
+					"color" : "rgb(211, 205, 147)"
 				},
 				{
-					"color" : "rgb(244, 217, 255)"
+					"color" : "rgb(143, 153, 118)"
 				},
 				{
-					"color" : "rgb(210, 217, 255)"
+					"color" : "rgb(137, 125, 88)"
 				},
 				{
-					"color" : "rgb(249, 234, 255)"
+					"color" : "rgb(136, 145, 114)"
+				},
+				{
+					"color" : "rgb(180, 194, 191)"
+				},
+				{
+					"color" : "rgb(254, 255, 250)"
+				},
+				{
+					"color" : "rgb(149, 172, 178)"
+				},
+				{
+					"color" : "rgb(255, 253, 251)"
+				},
+				{
+					"color" : "rgb(255, 126, 180)"
+				},
+				{
+					"color" : "rgb(255, 204, 240)"
+				},
+				{
+					"color" : "rgb(252, 179, 252)"
 				},
 				{
 					"color" : "rgb(255, 255, 255)"
 				},
 				{
-					"color" : "rgb(252, 244, 255)"
+					"color" : "rgb(242, 4, 17)"
 				},
 				{
-					"color" : "rgb(224, 255, 251)"
+					"color" : "rgb(85, 45, 45)"
 				},
 				{
-					"color" : "rgb(229, 233, 255)"
+					"color" : "rgb(109, 54, 55)"
 				},
 				{
-					"color" : "rgb(203, 255, 249)"
+					"color" : "rgb(103, 72, 75)"
 				},
 				{
-					"color" : "rgb(214, 129, 54)"
+					"color" : "rgb(61, 119, 91)"
+				},
+				{
+					"color" : "rgb(61, 119, 91)"
 				},
 				{
 					"color" : "rgb(0, 0, 0)"
 				},
 				{
-					"color" : "rgb(253, 236, 171)"
+					"color" : "rgb(110, 87, 66)"
 				},
 				{
-					"color" : "rgb(222, 214, 243)"
+					"color" : "rgb(114, 90, 69)"
 				},
 				{
-					"color" : "rgb(224, 249, 247)"
+					"color" : "rgb(51, 40, 32)"
 				},
 				{
-					"color" : "rgb(253, 216, 243)"
+					"color" : "rgb(162, 129, 103)"
 				},
 				{
-					"color" : "rgb(246, 207, 236)"
+					"color" : "rgb(46, 36, 29)"
 				},
 				{
-					"color" : "rgb(194, 194, 193)"
+					"color" : "rgb(41, 32, 26)"
 				},
 				{
-					"color" : "rgb(167, 164, 154)"
+					"color" : "rgb(75, 60, 49)"
 				},
 				{
-					"color" : "rgb(169, 169, 164)"
+					"color" : "rgb(250, 242, 255)"
 				},
 				{
-					"color" : "rgb(114, 189, 255)"
-				},
-				{
-					"color" : "rgb(183, 182, 182)"
-				},
-				{
-					"color" : "rgb(195, 156, 96)"
-				},
-				{
-					"color" : "rgb(26, 134, 72)"
-				},
-				{
-					"color" : "rgb(105, 123, 132)"
-				},
-				{
-					"color" : "rgb(229, 216, 210)"
-				},
-				{
-					"color" : "rgb(228, 214, 186)"
-				},
-				{
-					"color" : "rgb(242, 224, 195)"
-				},
-				{
-					"color" : "rgb(220, 196, 181)"
+					"color" : "rgb(252, 205, 78)"
 				}
-			],
-			"Restrict to Window" : false
+			]
 		},
 		"Fonts Collector" : {
 			"Action" : 1
@@ -648,7 +613,7 @@
 			"Page" : 2
 		},
 		"Search Replace" : {
-			"Affect" : 0,
+			"Affect" : 1,
 			"Field" : 0,
 			"Match Case" : false,
 			"RegExp" : false,
@@ -669,10 +634,10 @@
 		},
 		"Shift Times" : {
 			"Affect" : 1,
-			"ByTime" : true,
+			"ByTime" : false,
 			"Direction" : true,
-			"Frames" : 24,
-			"Time" : 40,
+			"Frames" : 360,
+			"Time" : 640,
 			"Type" : 0
 		},
 		"Spell Checker" : {
@@ -684,17 +649,17 @@
 		"Style Editor" : {
 			"Last" : {
 				"Height" : 718,
-				"Width" : 1366,
-				"X" : 101,
-				"Y" : 957
+				"Width" : 1474,
+				"X" : 0,
+				"Y" : 0
 			},
 			"Maximized" : false,
 			"Preview Text" : "Aegisub\\N0123 日本語"
 		},
 		"Style Manager" : {
 			"Last" : {
-				"X" : 410,
-				"Y" : 1085
+				"X" : 0,
+				"Y" : 0
 			},
 			"Maximized" : false
 		},
@@ -752,12 +717,12 @@
 		}
 	},
 	"Version" : {
-		"Last Version" : 9822,
-		"Next Check" : 0
+		"Last Version" : 9676,
+		"Next Check" : 1773248605
 	},
 	"Video" : {
+		"Ctrl Scroll Action" : 2,
 		"Default Zoom" : 7,
-		"Default to Video Zoom" : false,
 		"Detached" : {
 			"Enabled" : false,
 			"Last" : {
@@ -766,13 +731,12 @@
 			},
 			"Maximized" : false
 		},
-		"Disable Scroll Zoom" : false,
 		"Dummy" : {
 			"FPS String" : "24000/1001",
 			"Last" : {
-				"Height" : 720,
+				"Height" : 1080,
 				"Length" : 40000,
-				"Width" : 1280
+				"Width" : 1920
 			},
 			"Pattern" : false
 		},
@@ -780,8 +744,9 @@
 		"Open Audio" : true,
 		"Overscan Mask" : false,
 		"Provider" : "FFmpegSource",
-		"Reverse Zoom" : false,
 		"Script Resolution Mismatch" : 1,
+		"Scroll Action" : 0,
+		"Shift Scroll Action" : 4,
 		"Slider" : {
 			"Fast Jump Step" : 10,
 			"Show Keyframes" : true
