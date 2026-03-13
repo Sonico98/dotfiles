@@ -218,7 +218,9 @@ his() {
 # Yank to the system clipboard
 function vi-yank-xclip() {
 	zle vi-yank
-	{{ if findExecutable "wl-copy" (list "/bin" "/usr/bin") -}}
+	{{ if findExecutable "kitty" (list "/bin" "/usr/bin") -}}
+	echo "$CUTBUFFER" | kitten clipboard
+	{{ else if findExecutable "wl-copy" (list "/bin" "/usr/bin") -}}
 	echo "$CUTBUFFER" | wl-copy
 	{{ else -}}
 	echo "$CUTBUFFER" | xclip
@@ -237,22 +239,63 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# List MKV streams
 function mkat() {
-	mkvmerge -i -F json "$1" | jq -r '
-	  .tracks[] |
-	  "ID: \(.properties.number - 1), " +
-	  (if .type == "video" then "V"
-	   elif .type == "audio" then "A"
-	   else "S"
-	   end) +
-	  " (" +
-	  (if .codec == "SubStationAlpha" or .codec == "S_TEXT/ASS" then "SSA"
-	   elif .codec | contains("HEVC") then "HEVC"
-	   else (.codec | split("/")[0])
-	   end) +
-	  ") [\(.properties.language // "-")]" +
-	  " - " +
-	  (.properties.track_name // .properties.name // "-")
+	local f=$1
+	[[ -f "$f" ]] || { echo "Error: file not found: $f" >&2; return 2; }
+
+	{
+	  printf "ID\tType\tCodec\tLang\tTitle\n"
+
+	  mkvmerge -i -F json "$f" | jq -r '
+	    [ .tracks[] ] as $t
+	    | range(0; $t|length) as $i
+	    | $t[$i] as $trk
+	    | ($trk.type) as $type
+	    | ( $t[0:$i] | map(select(.type == $type)) | length ) as $n
+	    | (
+	  	  if ($trk.properties.language // "") == "spa"
+	  	  then ($trk.properties.language_ietf // $trk.properties.language // "-")
+	  	  else ($trk.properties.language // "-")
+	  	  end
+	  	) as $lang
+	    | (
+	  	  if $type == "video" then "V"
+	  	  elif $type == "audio" then "A"
+	  	  else "S"
+	  	  end
+	  	) + ($n|tostring) as $tcode
+	    | (
+	  	  if $trk.codec == "SubStationAlpha" or $trk.codec == "S_TEXT/ASS" then "SSA"
+	  	  elif ($trk.codec | contains("HEVC")) then "HEVC"
+	  	  else ($trk.codec | split("/")[0])
+	  	  end
+	  	) as $codec
+	    | [
+	  	  ($trk.properties.number - 1),
+	  	  $tcode,
+	  	  $codec,
+	  	  ("[" + $lang + "]"),
+	  	  ($trk.properties.track_name // $trk.properties.name // "-")
+	  	]
+	    | @tsv
+	  '
+	} |
+	column -t -s $'\t' -o ' │ ' |
+	awk -v pad=8 '
+	  NR==1 {
+	    header = $0
+	    header = header sprintf("%" pad "s", "")
+
+	    top = header; gsub(/[^│]/, "─", top); gsub(/│/, "┬", top)
+	    sep = header; gsub(/[^│]/, "─", sep); gsub(/│/, "┼", sep)
+
+	    print top
+	    print header
+	    print sep
+	    next
+	  }
+	  { print $0 }
 	'
 }
 
