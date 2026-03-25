@@ -4,20 +4,18 @@ return {
 	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 	event = "VeryLazy",
 	priority = 5,
-	config = function()
-		require("nvim-surround").setup({
-			keymaps = {
-				insert = "<C-g>s",
-				insert_line = "<C-g>S",
-				normal = "s",
-				normal_cur = "ss",
-				normal_line = "yS",
-				normal_cur_line = "ySS",
-				visual = "s",
-				visual_line = "gS",
-				delete = "ds",
-				change = "cs",
-			},
-		})
-	end
+	-- :h nvim-surround.keymaps
+	keys = {
+		{ "<C-g>s", "<Plug>(nvim-surround-insert)", mode = {"i"} },
+		{ "<C-g>S", "<Plug>(nvim-surround-insert-line)", mode = {"i"} },
+		{ "s", "<Plug>(nvim-surround-normal)", mode = {"n"} },
+		{ "ss", "<Plug>(nvim-surround-normal-cur)", mode = {"n"} },
+		{ "yS", "<Plug>(nvim-surround-normal-line)", mode = {"n"} },
+		{ "ySS", "<Plug>(nvim-surround-normal-cur-line)", mode = {"n"} },
+		{ "s", "<Plug>(nvim-surround-visual)", mode = {"x"} },
+		{ "gS", "<Plug>(nvim-surround-visual-line)", mode = {"x"} },
+		{ "ds", "<Plug>(nvim-surround-delete)", mode = {"n"} },
+		{ "cs", "<Plug>(nvim-surround-change)", mode = {"n"} },
+		{ "cS", "<Plug>(nvim-surround-change-line)", mode = {"n"} },
+	}
 }
