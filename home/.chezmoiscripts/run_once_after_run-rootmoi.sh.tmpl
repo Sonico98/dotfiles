@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
 rootmoi_path='{{ joinPath .chezmoi.homeDir ".local/bin/rootmoi" }}'
@@ -55,3 +56,4 @@ done
 echo "Applying root dotfiles" >> ./output.log 2>1&
 echo "rootmoi " "${args[@]}" >> ./output.log 2>1&
 "${rootmoi_path}" "${args[@]}"
+{{ end -}}
