@@ -7,7 +7,7 @@ StartLimitBurst=200
 ConditionPathExistsGlob=/run/user/1000/sway-ipc.*.sock
 
 [Service]
-ExecStart=/usr/bin/swww-daemon -f xrgb
+ExecStart=/usr/bin/awww-daemon -f xrgb
 Restart=on-failure
 RestartSec=2
 
