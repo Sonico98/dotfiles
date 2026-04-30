@@ -44,7 +44,7 @@ x-scheme-handler/anytype=anytype.desktop;
 [Default Applications]
 application/gzip=extractArchives-usercreated-0.desktop;
 application/json=nvim.desktop;
-application/pdf=org.kde.okular.desktop;
+application/pdf=okular.desktop
 application/x-7z-compressed=openArchives-3.desktop;
 application/x-bittorrent=org.qbittorrent.qBittorrent.desktop;
 application/x-cd-image=mpv.desktop;
@@ -100,3 +100,5 @@ application/x-pkt=CiscoPacketTracer-9.0.0.desktop
 application/x-pkz=CiscoPacketTracer-9.0.0.desktop
 application/x-pksz=CiscoPacketTracer-9.0.0.desktop
 x-scheme-handler/anytype=anytype.desktop
+application/cbr=okular.desktop
+application/vnd.rar=okular.desktop

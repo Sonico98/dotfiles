@@ -42,5 +42,12 @@
 		"border": true,
 		"rounded": true,
   },
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "java.imports.gradle.wrapper.checksums": [
+    {
+      "sha256": "b3a875ddc1f044746e1b1a55f645584505f4a10438c1afea9f15e92a7c42ec13",
+      "allowed": true
+    }
+  ],
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-17-openjdk"
 }
