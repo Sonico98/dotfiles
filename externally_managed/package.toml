@@ -10,8 +10,8 @@ hash = "4761fffb60a12d37096c34a356380cdf"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "594b8a2"
-hash = "c9e628fc0312d198db22ae2fa74883b"
+rev = "406ce6c"
+hash = "f5afc904d5106ee368c8aa2ded43bd74"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
@@ -20,18 +20,18 @@ hash = "e02a788e5b8ae0fb47fd0193dda589cc"
 
 [[plugin.deps]]
 use = "MasouShizuka/projects"
-rev = "eed0657"
-hash = "ca79de2b3bb2247906e01b2261e5d2bb"
+rev = "198c2ba"
+hash = "5eeb4f0919ce6be5d941a9290c131d7d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "57f1863"
-hash = "3996fc74044bc44144b323686f887e1"
+rev = "e84f4fe"
+hash = "6fa6a05a81c98dd000fbca3cca6e9682"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "57f1863"
-hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+rev = "e84f4fe"
+hash = "187cc58ba7ac3befd49c342129e6f1b6"
 
 [[plugin.deps]]
 use = "DreamMaoMao/mime-preview"
@@ -40,40 +40,40 @@ hash = "ae85f60f99b53936634bd3e84b93e157"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "57f1863"
-hash = "e2d4bfccf31e5ab05f46fee4797c5215"
+rev = "e84f4fe"
+hash = "91937a4a9b779eabc6983e258befdfe9"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "57f1863"
-hash = "8a7c58225816a163a6e8730c0adafbc8"
+rev = "e84f4fe"
+hash = "4c0260feb50ea2437380690ffc241da7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "57f1863"
-hash = "36a484acf6a0a0219c543ccb4cee218f"
+rev = "e84f4fe"
+hash = "26db011a778f261d730d4f5f8bf24b3f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:vcs-files"
-rev = "57f1863"
-hash = "5cfd9b2bd3f8ec4e3245e3426a967f82"
+rev = "e84f4fe"
+hash = "f6e6a829c6dc6c900a75bebe422a5c33"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "d9e3e0d"
-hash = "3768782f4ecce890d79628cafdcdfa5f"
+rev = "3abc0a2"
+hash = "eed89e75671723c8f9390a2862af0e4e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "57f1863"
-hash = "8feba12bf57a4607cd05992c254713f3"
+rev = "e84f4fe"
+hash = "168d29d0f8df21225dd8b84b173ec61d"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "4a1802a"
-hash = "b951d27afe197d154f6da9683b46c5f8"
+rev = "9511cb0"
+hash = "7dfe41c9c3d9be76da8a844263d0bbed"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "4a1802a"
-hash = "525675a9180ed23a097b07399627294a"
+rev = "9511cb0"
+hash = "b8f46853c27707115f25f3423a47bd38"
