@@ -326,9 +326,9 @@
 			"Audio" : "",
 			"Automation" : "",
 			"Keyframes" : "/home/sonico/Documents/Subs/Jigokuraku-Season-2/Keyframes",
-			"Subtitles" : "/home/sonico/Documents/Subs/Jigokuraku-Season-2/Subs/Jigokuraku 2nd Season - 04",
+			"Subtitles" : "/home/sonico/Documents/Subs/Witch Hat Atelier/Subs",
 			"Timecodes" : "",
-			"Video" : "/mnt/Heaven/Documents/Subs/Jigokuraku-Season-2/MKVs"
+			"Video" : "/mnt/Heaven/Torrents/Anime/Witch Hat Atelier"
 		},
 		"Screenshot" : "?video"
 	},
@@ -465,6 +465,36 @@
 			"Mode" : 4,
 			"Recent Colours" : [
 				{
+					"color" : "rgb(0, 0, 0)"
+				},
+				{
+					"color" : "rgb(98, 162, 161)"
+				},
+				{
+					"color" : "rgb(128, 138, 76)"
+				},
+				{
+					"color" : "rgb(98, 162, 161)"
+				},
+				{
+					"color" : "rgb(0, 0, 0)"
+				},
+				{
+					"color" : "rgb(72, 69, 42)"
+				},
+				{
+					"color" : "rgb(0, 0, 0)"
+				},
+				{
+					"color" : "rgb(232, 225, 150)"
+				},
+				{
+					"color" : "rgb(0, 0, 0)"
+				},
+				{
+					"color" : "rgb(0, 0, 0)"
+				},
+				{
 					"color" : "rgb(154, 168, 171)"
 				},
 				{
@@ -529,36 +559,6 @@
 				},
 				{
 					"color" : "rgb(61, 119, 91)"
-				},
-				{
-					"color" : "rgb(0, 0, 0)"
-				},
-				{
-					"color" : "rgb(110, 87, 66)"
-				},
-				{
-					"color" : "rgb(114, 90, 69)"
-				},
-				{
-					"color" : "rgb(51, 40, 32)"
-				},
-				{
-					"color" : "rgb(162, 129, 103)"
-				},
-				{
-					"color" : "rgb(46, 36, 29)"
-				},
-				{
-					"color" : "rgb(41, 32, 26)"
-				},
-				{
-					"color" : "rgb(75, 60, 49)"
-				},
-				{
-					"color" : "rgb(250, 242, 255)"
-				},
-				{
-					"color" : "rgb(252, 205, 78)"
 				}
 			]
 		},
@@ -616,28 +616,28 @@
 			"Affect" : 1,
 			"Field" : 0,
 			"Match Case" : false,
-			"RegExp" : false,
+			"RegExp" : true,
 			"Skip Comments" : false,
 			"Skip Tags" : false
 		},
 		"Select Lines" : {
 			"Action" : 0,
 			"Condition" : 0,
-			"Field" : 0,
+			"Field" : 1,
 			"Match" : {
 				"Case" : false,
 				"Comment" : true,
 				"Dialogue" : true
 			},
-			"Mode" : 2,
-			"Text" : "Pero es buen tipo"
+			"Mode" : 0,
+			"Text" : "Flashback Pensamientos"
 		},
 		"Shift Times" : {
 			"Affect" : 1,
 			"ByTime" : false,
-			"Direction" : true,
-			"Frames" : 360,
-			"Time" : 640,
+			"Direction" : false,
+			"Frames" : 18,
+			"Time" : 14070,
 			"Type" : 0
 		},
 		"Spell Checker" : {
@@ -717,8 +717,8 @@
 		}
 	},
 	"Version" : {
-		"Last Version" : 9676,
-		"Next Check" : 1773248605
+		"Last Version" : 9768,
+		"Next Check" : 1777423300
 	},
 	"Video" : {
 		"Ctrl Scroll Action" : 2,
@@ -740,7 +740,7 @@
 			},
 			"Pattern" : false
 		},
-		"Last Script Resolution Mismatch Choice" : 2,
+		"Last Script Resolution Mismatch Choice" : 1,
 		"Open Audio" : true,
 		"Overscan Mask" : false,
 		"Provider" : "FFmpegSource",
