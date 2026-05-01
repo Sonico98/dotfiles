@@ -1,0 +1,3 @@
+workspace "stash" { 
+	open-on-output "VGA-1"
+}

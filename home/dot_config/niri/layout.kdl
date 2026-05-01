@@ -1,0 +1,26 @@
+layout {
+	preset-column-widths {
+		proportion 0.3333
+		proportion 0.5
+		proportion 0.6667
+		proportion 1.0
+	}
+
+	default-column-width { proportion 1.0; }
+
+	focus-ring {
+		width 2
+		active-gradient from="#FFB4A2" to="#e5989B" angle=45 relative-to="workspace-view" in="oklch longer hue"
+	}
+
+	shadow {
+		on
+		softness 30
+		spread 5
+	}
+
+	struts {
+		right 10
+		left 10
+	}
+}

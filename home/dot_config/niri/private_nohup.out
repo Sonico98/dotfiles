@@ -1,0 +1,69 @@
+[2026-05-01T04:40:03Z INFO  piri] Loaded configuration from "/home/sonico/.config/niri/piri.toml"
+[2026-05-01T04:40:03Z INFO  piri] Starting daemon
+[2026-05-01T04:40:03Z INFO  piri::daemon] Starting piri daemon
+[2026-05-01T04:40:03Z INFO  piri::daemon] Creating IPC server...
+[2026-05-01T04:40:03Z INFO  piri::ipc] IPC server listening on "/run/user/1000/piri.sock"
+[2026-05-01T04:40:03Z INFO  piri::daemon] IPC server created successfully
+[2026-05-01T04:40:03Z INFO  piri::daemon] Initializing plugins...
+[2026-05-01T04:40:03Z INFO  piri::plugins] Initializing new plugin: scratchpads
+[2026-05-01T04:40:03Z INFO  piri::plugins::scratchpads] Scratchpads plugin initialized with 1 scratchpads
+[2026-05-01T04:40:03Z INFO  piri::plugins] Initializing new plugin: singleton
+[2026-05-01T04:40:03Z INFO  piri::plugins::singleton] Singleton plugin initialized with 2 singletons
+[2026-05-01T04:40:03Z INFO  piri::plugins] Initializing new plugin: sticky
+[2026-05-01T04:40:03Z INFO  piri::plugins::sticky] Sticky plugin initialized
+[2026-05-01T04:40:03Z INFO  piri::plugins] Plugin manager unified event listener started
+[2026-05-01T04:40:03Z INFO  piri::plugins] Plugin manager event listener started
+[2026-05-01T04:40:03Z INFO  piri::plugins] Event stream connected, waiting for events...
+[2026-05-01T04:40:03Z INFO  piri::daemon] Setting up signal handlers...
+[2026-05-01T04:40:03Z INFO  piri::daemon] Starting daemon main loop...
+[2026-05-01T04:41:58Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: right, swallow_to_focus: false
+[2026-05-01T04:41:58Z ERROR piri::ipc] Error handling request through plugins: Invalid direction: Invalid direction: right. Must be one of: fromTop, fromBottom, fromLeft, fromRight
+[2026-05-01T04:42:13Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:15Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:16Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:17Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:17Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:19Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:20Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:23Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:25Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:28Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:29Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:33Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:49Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:42:50Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:09Z INFO  piri::daemon] Config file modified, reloading...
+[2026-05-01T04:43:09Z INFO  piri::commands] Reloading configuration from "/home/sonico/.config/niri/piri.toml"
+[2026-05-01T04:43:09Z INFO  piri::commands] Configuration reloaded successfully
+[2026-05-01T04:43:09Z INFO  piri::plugins::scratchpads] Updating scratchpads plugin configuration
+[2026-05-01T04:43:09Z INFO  piri::plugins::singleton] Updating singleton plugin configuration
+[2026-05-01T04:43:09Z INFO  piri::daemon] Config auto-reloaded successfully
+[2026-05-01T04:43:12Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:15Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:19Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:25Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:26Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:26Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:27Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:27Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:27Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:28Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:28Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:28Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:29Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:40Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:40Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:41Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:41Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:43:45Z INFO  piri::plugins::scratchpads] Handling scratchpad add for: tg with direction: fromRight, swallow_to_focus: false
+[2026-05-01T04:44:06Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:07Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:11Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:12Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:12Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:13Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:13Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:13Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:29Z INFO  piri::plugins::scratchpads] Handling scratchpad toggle for: tg
+[2026-05-01T04:44:40Z INFO  piri::daemon] Received SIGTERM, shutting down...
+[2026-05-01T04:44:40Z INFO  piri::daemon] Daemon stopped
