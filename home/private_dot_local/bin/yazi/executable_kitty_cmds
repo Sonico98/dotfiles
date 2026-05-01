@@ -60,7 +60,6 @@ while getopts ":Ddesuv:" option; do
 		v) # Open nvim editor
 			named_pipe="/tmp/nvim-kitty-tab-$KITTY_WINDOW_ID.pipe"
 			if [ ! -e $named_pipe ]; then
-				notify-send "$KITTY_WINDOW_ID"
 				kitty @ launch --cwd=current --type=tab --env YAZI_NVIM_TAB=true nvim --listen $named_pipe "${@:2}"
 			else
 				kitty @ launch --cwd=current nvim --server $named_pipe --remote-tab "${@:2}"
