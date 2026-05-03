@@ -49,7 +49,7 @@ binds {
     Mod+Shift+9 { move-column-to-workspace 9; }
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up { move-workspace-up; }
-    Alt+Print { screenshot-window; }
+    Shift+Print { screenshot-window; }
     Alt+XF86Launch1 { screenshot-window; }
     Mod+BracketLeft { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
@@ -92,7 +92,7 @@ binds {
     Mod+space hotkey-overlay-title="Switch Floating/Tiling Focus" { switch-focus-between-floating-and-tiling; }
     Mod+Shift+P { power-off-monitors; }
     Print { screenshot show-pointer=false; }
-    Shift+Print { screenshot-screen; }
+    Ctrl+Shift+Print { screenshot-screen; }
     XF86Launch1 { screenshot; }
     Mod+Shift+E { quit; }
     Mod+R hotkey-overlay-title="Launch Rofi" { spawn "rofi" "-theme-show-icons" "-show" "drun" "-modi" "drun#run" "-drun-display-format" "{name}"; }
@@ -100,6 +100,7 @@ binds {
     Mod+Shift+D hotkey-overlay-title="Open Vesktop" { spawn "niri-scratchpad" "target" "--spawn" "vesktop" "appid" "vesktop"; }
     Mod+Shift+Return hotkey-overlay-title="Open New Terminal Window" { spawn "kitty"; }
     Mod+Shift+S hotkey-overlay-title="Open Telegram" { spawn "niri-scratchpad" "target" "--spawn" "materialgram" "appid" "io.github.kukuruzka165.materialgram"; }
+	Mod+S { spawn "nsticky" "sticky" "toggle-active"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Tab repeat=false { toggle-overview; }
