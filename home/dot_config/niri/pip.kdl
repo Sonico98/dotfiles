@@ -1,0 +1,11 @@
+spawn-at-startup "nsticky"
+
+window-rule {
+    match app-id="^librewolf$" title="^Picture-in-Picture$"
+    opacity 0.90
+    open-floating true
+    max-width 400
+    max-height 250
+	open-focused false
+	default-floating-position x=-25 y=10 relative-to="bottom-right"
+}

@@ -1,0 +1,4 @@
+environment {
+	DMS_DISABLE_CAVA "1"
+	DMS_DISABLE_LAYER "true"
+}

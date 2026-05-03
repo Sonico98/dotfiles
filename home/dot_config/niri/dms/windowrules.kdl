@@ -12,3 +12,4 @@ window-rule {
     match app-id="^vesktop$"
     block-out-from "screencast"
 }
+

@@ -261,7 +261,6 @@ recent-windows {
     }
 }
 
-
 // Include dms files
 include "dms/colors.kdl"
 include "dms/layout.kdl"
@@ -269,9 +268,9 @@ include "dms/alttab.kdl"
 include "dms/binds.kdl"
 include "dms/outputs.kdl"
 include "dms/cursor.kdl"
+include "dms/windowrules.kdl"
 include "layout.kdl"
 include "scratchpad.kdl"
 include "environment.kdl"
 include "effects.kdl"
-
-include "dms/windowrules.kdl"
+include "pip.kdl"
