@@ -1,0 +1,14 @@
+// DMS Window Rules - Managed by DankMaterialShell
+// Do not edit manually - changes may be overwritten
+
+// @id=wr_1777773655117500487 @name=io.github.kukuruzka165.materialgram
+window-rule {
+    match app-id="^io.github.kukuruzka165.materialgram$"
+    block-out-from "screencast"
+}
+
+// @id=wr_1777778211680013969 @name=vesktop
+window-rule {
+    match app-id="^vesktop$"
+    block-out-from "screencast"
+}
