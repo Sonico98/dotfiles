@@ -326,9 +326,9 @@
 			"Audio" : "",
 			"Automation" : "",
 			"Keyframes" : "/home/sonico/Documents/Subs/Jigokuraku-Season-2/Keyframes",
-			"Subtitles" : "/home/sonico/Documents/Subs/Witch Hat Atelier/Subs",
+			"Subtitles" : "/mnt/Heaven/Documents/Subs/opdiff",
 			"Timecodes" : "",
-			"Video" : "/mnt/Heaven/Torrents/Anime/Witch Hat Atelier"
+			"Video" : "/home/sonico/Documents/Subs/Witch Hat Atelier/Source"
 		},
 		"Screenshot" : "?video"
 	},
@@ -717,8 +717,8 @@
 		}
 	},
 	"Version" : {
-		"Last Version" : 9768,
-		"Next Check" : 1777423300
+		"Last Version" : 9794,
+		"Next Check" : 1777833106
 	},
 	"Video" : {
 		"Ctrl Scroll Action" : 2,
@@ -740,17 +740,27 @@
 			},
 			"Pattern" : false
 		},
-		"Last Script Resolution Mismatch Choice" : 1,
+		"HDR Video Warning" : true,
+		"Last LayoutRes Mismatch Choice" : 0,
+		"Last No LayoutRes in Script Choice" : 1,
+		"Last No YCbCr Matrix in Script Choice" : 1,
+		"Last PlayRes Mismatch Choice" : 0,
+		"Last YCbCr Matrix Mismatch Choice" : 1,
+		"LayoutRes Mismatch" : false,
+		"No LayoutRes in Script" : 1,
+		"No YCbCr Matrix in Script" : 1,
 		"Open Audio" : true,
 		"Overscan Mask" : false,
+		"PlayRes Mismatch" : 0,
 		"Provider" : "FFmpegSource",
-		"Script Resolution Mismatch" : 1,
 		"Scroll Action" : 0,
 		"Shift Scroll Action" : 4,
 		"Slider" : {
 			"Fast Jump Step" : 10,
 			"Show Keyframes" : true
 		},
-		"Subtitle Sync" : true
+		"Subtitle Sync" : true,
+		"Untagged Matrix Warning" : true,
+		"YCbCr Matrix Mismatch" : 1
 	}
 }
