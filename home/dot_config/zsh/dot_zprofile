@@ -40,15 +40,3 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-
-# Enable qt5ct to configure QT themes
-# QT_QPA_PLATFORMTHEME=qt5ct
-#
-# Setting it like this breaks qt5ct, so it's better to set it
-# on /usr/share/sddm/scripts/Xsession like this:
-#
-# if [ "$DESKTOP_SESSION" = "plasma" ]; then
-# 	export QT_QPA_PLATFORMTHEME=KDE
-# else
-# 	export QT_QPA_PLATFORMTHEME=qt5ct
-# fi
