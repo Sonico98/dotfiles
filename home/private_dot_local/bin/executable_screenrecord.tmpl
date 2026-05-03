@@ -6,18 +6,40 @@ FPS=24
 FPS=60
 {{ end -}}
 
-is_recording="$(echo "$(pidof wf-recorder)")"
-if [ -n "$is_recording" ]; then
-	killall -s SIGINT wf-recorder
-else
-	recording_area="$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating_nodes[]?) | select(.visible or (.type == "output" and .active)) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -b 2b2a2f7a -c f28b82)"
+VID_DIR="${HOME}/Videos"
+OUT_FILE="${VID_DIR}/screenrecord$(date +'%Y-%m-%d--%H-%M-%S').mp4"
 
-	if [ "$?" -eq 0 ]; then
-		notify-send "wf-recorder" "Recording started"
-		wf-recorder -x yuv420p -r "$FPS" -c libx264 -b 6 -g "$recording_area" -f ~/Videos/screenrecord"$(date +'%Y-%m-%d--%H-%M-%S.mp4')"
-		notify-send "wf-recorder" "Recording stopped"
-	else
-		notify-send "wf-recorder" "Recording cancelled"
-	fi
+is_recording() { pidof wf-recorder >/dev/null 2>&1; }
+
+pick_area_sway() {
+  swaymsg -t get_tree \
+    | jq -r 'recurse(.nodes[]?, .floating_nodes[]?)
+             | select(.visible or (.type == "output" and .active))
+             | .rect
+             | "\(.x),\(.y) \(.width)x\(.height)"' \
+    | slurp -b 2b2a2f7a -c f28b82
+}
+
+pick_area_generic() {
+  slurp -b 2b2a2f7a -c f28b82
+}
+
+# Toggle
+if is_recording; then
+  killall -s SIGINT wf-recorder
+  exit 0
 fi
 
+desktop="${XDG_CURRENT_DESKTOP:-}"
+desktop_lc="$(printf '%s' "$desktop" | tr '[:upper:]' '[:lower:]')"
+
+if [[ "$desktop_lc" == *sway* ]]; then
+  recording_area="$(pick_area_sway)" || { notify-send "wf-recorder" "Recording cancelled"; exit 0; }
+else
+  # niri (and anything else): region picker
+  recording_area="$(pick_area_generic)" || { notify-send "wf-recorder" "Recording cancelled"; exit 0; }
+fi
+
+notify-send "wf-recorder" "Recording started"
+wf-recorder -x yuv420p -r "${FPS}" -c libx264 -b 6 -g "${recording_area}" -f "${OUT_FILE}"
+notify-send "wf-recorder" "Recording stopped"
