@@ -1,0 +1,9 @@
+// @id=wr_1778168992218019751 @name=MEGASync
+window-rule {
+    match app-id="nz.co.mega.megasync"
+    open-floating true
+    open-focused true
+    max-width 402
+    max-height 567
+	default-floating-position x=6 y=10 relative-to="top-right"
+}
