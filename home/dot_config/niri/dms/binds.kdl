@@ -55,7 +55,10 @@ binds {
     Alt+XF86Launch1 { screenshot-window; }
     Mod+BracketLeft { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-    Mod+Comma { switch-preset-window-height; }
+    Mod+Comma { switch-preset-column-width-back; }
+    Mod+Period { switch-preset-column-width; }
+    Mod+Shift+Comma { switch-preset-window-height-back; }
+    Mod+Shift+Period { switch-preset-window-height; }
     Mod+Ctrl+H { move-window-to-monitor-left; }
     Mod+Ctrl+J { move-window-to-monitor-down; }
     Mod+Ctrl+K { move-window-to-monitor-up; }
@@ -71,7 +74,6 @@ binds {
     Mod+L { focus-column-right; }
     Mod+Left { focus-column-left; }
     Mod+Minus { set-column-width "-10%"; }
-    Mod+Period { switch-preset-column-width; }
     Mod+Right { focus-column-right; }
     Mod+Shift+Down { move-window-down; }
     Mod+Shift+End { move-column-to-last; }
