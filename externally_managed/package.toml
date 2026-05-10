@@ -25,12 +25,12 @@ hash = "5eeb4f0919ce6be5d941a9290c131d7d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "e84f4fe"
-hash = "6fa6a05a81c98dd000fbca3cca6e9682"
+rev = "1db18bb"
+hash = "eff8ff12fa4e5f035a10d8aeeb4c258d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "e84f4fe"
+rev = "1db18bb"
 hash = "187cc58ba7ac3befd49c342129e6f1b6"
 
 [[plugin.deps]]
@@ -40,23 +40,23 @@ hash = "ae85f60f99b53936634bd3e84b93e157"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "e84f4fe"
-hash = "91937a4a9b779eabc6983e258befdfe9"
+rev = "1db18bb"
+hash = "e3260d0b1feded8c8e3ae3afa1169e30"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "e84f4fe"
-hash = "4c0260feb50ea2437380690ffc241da7"
+rev = "1db18bb"
+hash = "9c7987da2d2a2120dac33abb64132004"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "e84f4fe"
-hash = "26db011a778f261d730d4f5f8bf24b3f"
+rev = "1db18bb"
+hash = "c8d30a70659f1b880407e61c564ab4e8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:vcs-files"
-rev = "e84f4fe"
-hash = "f6e6a829c6dc6c900a75bebe422a5c33"
+rev = "1db18bb"
+hash = "6b141fbed3c74b45558fbc7088c805ee"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
@@ -65,15 +65,15 @@ hash = "eed89e75671723c8f9390a2862af0e4e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "e84f4fe"
-hash = "168d29d0f8df21225dd8b84b173ec61d"
+rev = "1db18bb"
+hash = "2678c84a0b3a0b22504e918ccaf99011"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "9511cb0"
+rev = "0670801"
 hash = "7dfe41c9c3d9be76da8a844263d0bbed"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "9511cb0"
+rev = "0670801"
 hash = "b8f46853c27707115f25f3423a47bd38"

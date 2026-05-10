@@ -1,6 +1,6 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+#:schema https://yazi-rs.github.io/schemas/yazi.json
 
 [mgr]
 ratio          = [ 1, 4, 3 ]
@@ -70,9 +70,14 @@ subs = [
 	{ run = 'GTK_THEME="Fluent-round-pink-Dark" aegisub %s', desc = "Aegisub", orphan = true, block = false },
 ]
 
+bulk-rename = [
+	{ run = "nvim %s; ya exec bulk_exit %s --accept", block = true, for = "unix" },
+]
+
 [open]
 rules = [
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
+	{ url = "bulk-rename.txt", use = [ "bulk-rename" ] },
 
 	{ url = "*.{ass,srt,ssa,sty,sup,vtt}", use = [ "edit", "subs", "open", "reveal" ] },
 	{ mime = "text/*",  use = [ "edit", "rename", "reveal" ] },
@@ -112,11 +117,11 @@ suppress_preload = true
 fetchers = [
 
 	# Mimetype
-	{ id = "mime", url = "*/",         run = "mime.dir", prio = "high" },
-	{ id = "mime", url = "local://*",  run = "mime-ext.local", prio = "high" },
-	{ id = "mime", url = "remote://*", run = "mime-ext.remote", prio = "high" },
-	{ id = "git", url = "*", run = "git" },
-	{ id = "git", url = "*/", run = "git" },
+	{ group = "mime", url = "*/",         run = "mime.dir", prio = "high" },
+	{ group = "mime", url = "local://*",  run = "mime-ext.local", prio = "high" },
+	{ group = "mime", url = "remote://*", run = "mime-ext.remote", prio = "high" },
+	{ group = "git", url = "*", run = "git" },
+	{ group = "git", url = "*/", run = "git" },
 ]
 
 spotters = [
